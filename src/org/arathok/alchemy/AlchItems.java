@@ -63,13 +63,15 @@ public class AlchItems {
 	                        ItemTypes.ITEM_TYPE_REPAIRABLE,
 	                       // ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 	                        ItemTypes.ITEM_TYPE_TOOL,
+	                        ItemTypes.ITEM_TYPE_METAL,
+	                        
 	                        
 	                        
 	                })
 	                .decayTime(9072000L)
 	                .dimensions(8, 8, 15)
 	                .weightGrams(500)
-	                .material(Materials.MATERIAL_CLAY)
+	                .material(Materials.MATERIAL_IRON)
 	                .behaviourType((short) 1)
 	                .primarySkill(SkillList.POTTERY)
 	                .difficulty(30) // no hard lock
@@ -136,7 +138,7 @@ public class AlchItems {
        
 mouldClayId = mouldClay.getTemplateId();
 
-CreationEntryCreator.createSimpleEntry(SkillList.POTTERY, ItemList.bodyHand, ItemList.clay, mouldClayId, false, true, 0.0f, false, false, CreationCategories.POTTERY);
+CreationEntryCreator.createSimpleEntry(SkillList.POTTERY, ItemList.flaskPottery, ItemList.clay, mouldClayId, false, true, 0.0f, false, false, CreationCategories.POTTERY);
 }// nichts weiter
     private static void registerMouldPottery() throws IOException {
             mouldPottery = new ItemTemplateBuilder("arathok.alchemy.mouldPottery")
@@ -156,7 +158,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.POTTERY, ItemList.bodyHand, Ite
                 .decayTime(9072000L)
                 .dimensions(8, 8, 15)
                 .weightGrams(500)
-                .material(Materials.MATERIAL_POTTERY)
+                .material(Materials.MATERIAL_IRON)
                 .behaviourType((short) 1)
                 .primarySkill(SkillList.POTTERY)
                 .difficulty(30) // no hard lock
@@ -205,12 +207,13 @@ CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,AlchItems.mould
             		
             		ItemTypes.ITEM_TYPE_BULK,
              		ItemTypes.ITEM_TYPE_LIQUID,
+             		ItemTypes.ITEM_TYPE_METAL,
             		
             })
             .decayTime(9072000L)
             .dimensions(1, 1, 1)
             .weightGrams(500)
-            .material(Materials.MATERIAL_MAGIC)
+            .material(Materials.MATERIAL_GOLD)
             .behaviourType((short) 1)
             .primarySkill(SkillList.ALCHEMY_NATURAL)
             .difficulty(5) // no hard lock
@@ -625,17 +628,17 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.rose
 .addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
 .addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
   }
-    
-    private static void registerPrecursorHeal() throws IOException {
-    	  precursorHeal = new ItemTemplateBuilder("arathok.alchemy.precursorHeal")
-                  .name("potion precursor healing", "precursors of healing", "A potion precursor. It got the essence of Healing stored within."
-                  		+ "you think its magical properties could be activated by heating it.")
+    private static void registerPrecursorDodge() throws IOException {
+    	  precursorWillowspine = new ItemTemplateBuilder("arathok.alchemy.precursorDodge")
+                  .name("potion precursor of shadow", "precursors of shadow", "A potion precursor. It got the essence of agility stored within."
+                		  + "you think its magical properties could be activated by heating it.")
                   
-                  .modelName("model.precursor.heal")
+                  .modelName("model.precursor.dodge.")
                   .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                   .itemTypes(new short[]{
-                		  ItemTypes.ITEM_TYPE_BULK,
-                 		 ItemTypes.ITEM_TYPE_LIQUID,
+                  		 ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_LIQUID,
+                         
                           
                   })
                   .decayTime(9072000L)
@@ -647,14 +650,16 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.rose
                   .difficulty(30) // no hard lock
                   .build();
 
-  precursorHealId = precursorHeal.getTemplateId();
+  precursorWillowspineId = precursorWillowspine.getTemplateId();
 
-  CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureHealId, precursorHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
+  CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false, CreationCategories.DECORATION);
   }
+   
     
     private static void registerPrecursorExcell() throws IOException {
   	  precursorExcell = new ItemTemplateBuilder("arathok.alchemy.precursorExcell")
-                .name("potion precursor surpassing", "precursors of surpassing", "A potion precursor. It got the essence of surpassing your foes stored within.")
+                .name("potion precursor surpassing", "precursors of surpassing", "A potion precursor. It got the essence of surpassing your foes stored within."
+                		+ "you think its magical properties could be activated by heating it.")
                 
                 .modelName("model.precursor.excell.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
@@ -680,7 +685,8 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
     
     private static void registerPrecursorGoat() throws IOException {
     	  precursorGoat = new ItemTemplateBuilder("arathok.alchemy.precursorGoat")
-                  .name("potion precursor of goat", "precursors of goat", "A potion precursor. It got the essence of a goat stored within. Weird.")
+                  .name("potion precursor of goat", "precursors of goat", "A potion precursor. It got the essence of a goat stored within. Weird."
+                		  + "you think its magical properties could be activated by heating it.")
                   
                   .modelName("model.precursor.excell.")
                   .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
@@ -704,11 +710,89 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
   CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureGoatId, precursorGoatId, true, true, 0f, false, false, CreationCategories.DECORATION);
   }
     
-    private static void registerPrecursorDodge() throws IOException {
-  	  precursorWillowspine = new ItemTemplateBuilder("arathok.alchemy.precursorDodge")
-                .name("potion precursor of dodging", "precursors of dodging", "A potion precursor. It got the essence of agility stored within.")
+    private static void registerPrecursorHeal() throws IOException {
+  	  precursorHeal = new ItemTemplateBuilder("arathok.alchemy.precursorHeal")
+                .name("potion precursor healing", "precursors of healing", "A potion precursor. It got the essence of Healing stored within."
+                		+ "you think its magical properties could be activated by heating it.")
                 
-                .modelName("model.precursor.dodge.")
+                .modelName("model.precursor.heal")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+              		  ItemTypes.ITEM_TYPE_BULK,
+               		 ItemTypes.ITEM_TYPE_LIQUID,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+precursorHealId = precursorHeal.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureHealId, precursorHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+    private static void registerPrecursorFranticCharge() throws IOException {
+    	  precursorFranticCharge = new ItemTemplateBuilder("arathok.alchemy.precursorFranticCharge")
+                  .name("potion precursor frenzy", "precursors of frenzy", "A potion precursor. It got the essence of frenzy stored within."
+                  		+ "you think its magical properties could be activated by heating it.")
+                  
+                  .modelName("model.precursor.FranticChange")
+                  .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                  .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                 		 ItemTypes.ITEM_TYPE_LIQUID,
+                          
+                  })
+                  .decayTime(9072000L)
+                  .dimensions(1, 1, 1)
+                  .weightGrams(100)
+                  .material(Materials.MATERIAL_MAGIC)
+                  .behaviourType((short) 1)
+                  .primarySkill(SkillList.GROUP_ALCHEMY)
+                  .difficulty(30) // no hard lock
+                  .build();
+
+  precursorFranticChargeId = precursorFranticCharge.getTemplateId();
+
+  CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureFranticChargeId, precursorFranticChargeId, true, true, 0f, false, false, CreationCategories.DECORATION);
+  }
+    private static void registerPrecursorMorningFog() throws IOException {
+    	  precursorWillowspine = new ItemTemplateBuilder("arathok.alchemy.precursorDodge")
+                  .name("potion precursor of fog", "precursors of fog", "A potion precursor. It got the essence of mist stored within."
+                		  + "you think its magical properties could be activated by heating it.")
+                  
+                  .modelName("model.precursor.fog.")
+                  .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                  .itemTypes(new short[]{
+                  		 ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_LIQUID,
+                         
+                          
+                  })
+                  .decayTime(9072000L)
+                  .dimensions(1, 1, 1)
+                  .weightGrams(100)
+                  .material(Materials.MATERIAL_MAGIC)
+                  .behaviourType((short) 1)
+                  .primarySkill(SkillList.GROUP_ALCHEMY)
+                  .difficulty(30) // no hard lock
+                  .build();
+
+  precursorMorningFogId = precursorMorningFog.getTemplateId();
+
+  CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureMorningFogId, precursorMorningFogId, true, true, 0f, false, false, CreationCategories.DECORATION);
+  }
+    
+    private static void registerPrecursorOakshell() throws IOException {
+  	  precursorOakshell = new ItemTemplateBuilder("arathok.alchemy.precursorOakshell")
+                .name("potion precursor of fog", "precursors of fog", "A potion precursor. It got the essence of mist stored within."
+                		+ "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.precursor.oakshell.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
                 		 ItemTypes.ITEM_TYPE_BULK,
@@ -725,11 +809,145 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                 .difficulty(30) // no hard lock
                 .build();
 
-precursorWillowspineId = precursorWillowspine.getTemplateId();
+precursorOakshellId = precursorOakshell.getTemplateId();
 
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false, CreationCategories.DECORATION);
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureOakshellId, precursorOakshellId, true, true, 0f, false, false, CreationCategories.DECORATION);
 }
     
+    private static void registerPrecursorRefresh() throws IOException {
+    	  precursorRefresh = new ItemTemplateBuilder("arathok.alchemy.precursorRefresh")
+                  .name("potion precursor of refresh", "precursors of refresh", "A potion precursor. It got the essence of stamina stored within."
+                		  + "you think its magical properties could be activated by heating it.")
+                  
+                  .modelName("model.precursor.refresh.")
+                  .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                  .itemTypes(new short[]{
+                  		 ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_LIQUID,
+                         
+                          
+                  })
+                  .decayTime(9072000L)
+                  .dimensions(1, 1, 1)
+                  .weightGrams(100)
+                  .material(Materials.MATERIAL_MAGIC)
+                  .behaviourType((short) 1)
+                  .primarySkill(SkillList.GROUP_ALCHEMY)
+                  .difficulty(30) // no hard lock
+                  .build();
+
+  precursorRefreshId = precursorRefresh.getTemplateId();
+
+  CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureRefreshId, precursorRefreshId, true, true, 0f, false, false, CreationCategories.DECORATION);
+  }
+
+    private static void registerPrecursorSixthSense() throws IOException {
+  	  precursorSixthSense = new ItemTemplateBuilder("arathok.alchemy.precursorSixthSense")
+                .name("potion precursor of senses", "precursors of senses", "A potion precursor. It got the essence of heightening your senses stored within."
+                		+ "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.precursor.senses.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		 ItemTypes.ITEM_TYPE_BULK,
+                		 ItemTypes.ITEM_TYPE_LIQUID,
+                       
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+precursorSixthSenseId = precursorSixthSense.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureSixthSenseId, precursorSixthSenseId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+   
+    private static void registerPrecursorStrength() throws IOException {
+  	  precursorStrength = new ItemTemplateBuilder("arathok.alchemy.precursorStrength")
+                .name("potion precursor of strength", "precursors of strength", "A potion precursor. It got the essence of superior strength stored within."
+                		+ "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.precursor.strength.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		 ItemTypes.ITEM_TYPE_BULK,
+                		 ItemTypes.ITEM_TYPE_LIQUID,
+                       
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+precursorStrengthId = precursorStrength.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureStrengthId, precursorStrengthId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+    
+    private static void registerPrecursorTruehit() throws IOException {
+    	  precursorTruehit = new ItemTemplateBuilder("arathok.alchemy.precursorTruehit")
+                  .name("potion precursor of truehit", "precursors of truehit", "A potion precursor. It got the essence of stamina stored within."
+                		  + "you think its magical properties could be activated by heating it.")
+                  
+                  .modelName("model.precursor.truehit.")
+                  .imageNumber((short) 584)
+                  .itemTypes(new short[]{
+                  		 ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_LIQUID,
+                         
+                          
+                  })
+                  .decayTime(9072000L)
+                  .dimensions(1, 1, 1)
+                  .weightGrams(100)
+                  .material(Materials.MATERIAL_MAGIC)
+                  .behaviourType((short) 1)
+                  .primarySkill(SkillList.GROUP_ALCHEMY)
+                  .difficulty(30) // no hard lock
+                  .build();
+
+  precursorTruehitId = precursorTruehit.getTemplateId();
+
+  CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureTruehitId, precursorTruehitId, true, true, 0f, false, false, CreationCategories.DECORATION);
+  }
+    
+    private static void registerPrecursorVynora() throws IOException {
+  	  precursorVynora = new ItemTemplateBuilder("arathok.alchemy.precursorVynora")
+                .name("potion precursor of vynora", "precursors of vynora", "A potion precursor. It got the essence of stamina stored within."
+                		+ "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.precursor.vynora.")
+                .imageNumber((short) 584)
+                .itemTypes(new short[]{
+                		 ItemTypes.ITEM_TYPE_BULK,
+                		 ItemTypes.ITEM_TYPE_LIQUID,
+                       
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+precursorVynoraId = precursorVynora.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureVynoraId, precursorVynoraId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
       
     public static void register() throws IOException {
     	
@@ -758,7 +976,15 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
     	registerPrecursorDodge();
     	registerPrecursorExcell();
     	registerPrecursorGoat();
+    	registerPrecursorFranticCharge();
     	registerPrecursorHeal();
+    	registerPrecursorMorningFog();
+    	registerPrecursorOakshell();
+    	registerPrecursorRefresh();
+    	registerPrecursorSixthSense();
+    	registerPrecursorStrength();
+    	registerPrecursorTruehit();
+    	registerPrecursorVynora();
     	
     }
     
