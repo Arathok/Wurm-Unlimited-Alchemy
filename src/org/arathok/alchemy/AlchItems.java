@@ -231,6 +231,7 @@ purifiedWaterId = purifiedWater.getTemplateId();
                   .itemTypes(new short[]{
                   		 ItemTypes.ITEM_TYPE_BULK,
                   		 ItemTypes.ITEM_TYPE_LIQUID,
+                  		 ItemTypes.ITEM_TYPE_METAL,
                   		
                          
                           
@@ -380,8 +381,8 @@ CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,ItemList.mushro
                   .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                   .itemTypes(new short[]{
                 		  ItemTypes.ITEM_TYPE_BULK,
-                 		 ItemTypes.ITEM_TYPE_HERB,
-                 		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                 		  ItemTypes.ITEM_TYPE_HERB,
+                 		  ItemTypes.ITEM_TYPE_PLANTABLE,
                           ItemTypes.ITEM_TYPE_DECORATION,
                           ItemTypes.ITEM_TYPE_TURNABLE,
                           ItemTypes.ITEM_TYPE_REPAIRABLE,
