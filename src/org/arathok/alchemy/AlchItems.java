@@ -187,7 +187,7 @@ mouldPotteryId = mouldPottery.getTemplateId();
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
                 .weightGrams(100)
-                .material(Materials.MATERIAL_GLASS)
+                .material(Materials.MATERIAL_SILVER)
                 .behaviourType((short) 1)
                 .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(10) // no hard lock
