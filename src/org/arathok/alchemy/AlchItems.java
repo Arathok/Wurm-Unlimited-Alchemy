@@ -103,7 +103,7 @@ public class AlchItems {
 	                .weightGrams(500)
 	                .material(Materials.MATERIAL_IRON)
 	                .behaviourType((short) 1)
-	                .primarySkill(SkillList.POTTERY)
+	                .primarySkill(SkillList.GROUP_ALCHEMY)
 	                .difficulty(30) // no hard lock
 	                .build();
 	      
@@ -289,7 +289,7 @@ purifiedWaterId = purifiedWater.getTemplateId();
     private static void registermixtureExcell() throws IOException {
   	  mixtureExcell = new ItemTemplateBuilder("arathok.alchemy.mixtureExcell")
                 .name("mixture of surpass", "mixtures of surpass","A mixture of different alchemical substances. One day it might be making a fine potion."
-                		+ "Smelling it you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
+                		+ "Smelling it makes you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
                 		)
                 
                 .modelName("model.mixture.excell.")
@@ -354,7 +354,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
     private static void registerMixtureGoat() throws IOException {
     	  mixtureGoat = new ItemTemplateBuilder("arathok.alchemy.mixtureGoat")
                   .name("mixture of Goat", "mixtures of Goat","A mixture of different alchemical substances. One day it might be making a fine potion."
-                  		+ " It smells like a Goat... weird.")
+                  		+ " It smells like a wet Goat... weird.")
                   
                   .modelName("model.mixture.goat.")
                   .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
@@ -417,7 +417,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
     private static void registerMixtureHeal() throws IOException {
     	  mixtureHeal = new ItemTemplateBuilder("arathok.alchemy.mixtureHeal")
                   .name("mixture", "mixtures","A mixture of different alchemical substances. One day it might be making a fine potion."
-                  		+ "This seems to have some healing Properties.")
+                  		+ "You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties.")
                   
                   .modelName("model.mixtureHeal.")
                   .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
@@ -799,7 +799,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
     
     private static void registerPrecursorOakshell() throws IOException {
   	  precursorOakshell = new ItemTemplateBuilder("arathok.alchemy.precursorOakshell")
-                .name("potion precursor of fog", "precursors of fog", "A potion precursor. It got the essence of mist stored within."
+                .name("potion precursor of oakshell", "precursors of oakshell", "A potion precursor. It got the essence of hard tree bark stored within."
                 		+ "you think its magical properties could be activated by heating it.")
                 
                 .modelName("model.precursor.oakshell.")
@@ -957,6 +957,327 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
 precursorVynoraId = precursorVynora.getTemplateId();
 
 CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureVynoraId, precursorVynoraId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+    //TODO: Work over potion liquids
+    private static void registerPotionLiquidDodge() throws IOException {
+  	  potionLiquidWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionLiquidDodge")
+                .name("potion potionLiquid of shadow", "potionLiquids of shadow", "A potion potionLiquid. It got the essence of agility stored within."
+              		  + "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.potionLiquid.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		 ItemTypes.ITEM_TYPE_BULK,
+                		 ItemTypes.ITEM_TYPE_LIQUID,
+                       
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionLiquidWillowspineId = potionLiquidWillowspine.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureWillowspineId, potionLiquidWillowspineId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+ 
+  
+  private static void registerPotionLiquidExcell() throws IOException {
+	  potionLiquidExcell = new ItemTemplateBuilder("arathok.alchemy.potionLiquidExcell")
+              .name("potion potionLiquid surpassing", "potionLiquids of surpassing", "A potion potionLiquid. It got the essence of surpassing your foes stored within."
+              		+ "you think its magical properties could be activated by heating it.")
+              
+              .modelName("model.potionLiquid.excell.")
+              .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+              .itemTypes(new short[]{
+              		 ItemTypes.ITEM_TYPE_BULK,
+              		 ItemTypes.ITEM_TYPE_LIQUID,
+                     
+                      
+              })
+              .decayTime(9072000L)
+              .dimensions(1, 1, 1)
+              .weightGrams(100)
+              .material(Materials.MATERIAL_MAGIC)
+              .behaviourType((short) 1)
+              .primarySkill(SkillList.GROUP_ALCHEMY)
+              .difficulty(30) // no hard lock
+              .build();
+
+potionLiquidExcellId = potionLiquidExcell.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureExcellId, potionLiquidExcellId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+  
+  private static void registerPotionLiquidGoat() throws IOException {
+  	  potionLiquidGoat = new ItemTemplateBuilder("arathok.alchemy.potionLiquidGoat")
+                .name("potion potionLiquid of goat", "potionLiquids of goat", "A potion potionLiquid. It got the essence of a goat stored within. Weird."
+              		  + "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.potionLiquid.excell.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		 ItemTypes.ITEM_TYPE_BULK,
+                		 ItemTypes.ITEM_TYPE_LIQUID,
+                       
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionLiquidGoatId = potionLiquidGoat.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureGoatId, potionLiquidGoatId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+  
+  private static void registerPotionLiquidHeal() throws IOException {
+	  potionLiquidHeal = new ItemTemplateBuilder("arathok.alchemy.potionLiquidHeal")
+              .name("potion potionLiquid healing", "potionLiquids of healing", "A potion potionLiquid. It got the essence of Healing stored within."
+              		+ "you think its magical properties could be activated by heating it.")
+              
+              .modelName("model.potionLiquid.heal")
+              .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+              .itemTypes(new short[]{
+            		  ItemTypes.ITEM_TYPE_BULK,
+             		 ItemTypes.ITEM_TYPE_LIQUID,
+                      
+              })
+              .decayTime(9072000L)
+              .dimensions(1, 1, 1)
+              .weightGrams(100)
+              .material(Materials.MATERIAL_MAGIC)
+              .behaviourType((short) 1)
+              .primarySkill(SkillList.GROUP_ALCHEMY)
+              .difficulty(30) // no hard lock
+              .build();
+
+potionLiquidHealId = potionLiquidHeal.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureHealId, potionLiquidHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+  private static void registerPotionLiquidFranticCharge() throws IOException {
+  	  potionLiquidFranticCharge = new ItemTemplateBuilder("arathok.alchemy.potionLiquidFranticCharge")
+                .name("potion potionLiquid frenzy", "potionLiquids of frenzy", "A potion potionLiquid. It got the essence of frenzy stored within."
+                		+ "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.potionLiquid.FranticChange")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+              		  ItemTypes.ITEM_TYPE_BULK,
+               		 ItemTypes.ITEM_TYPE_LIQUID,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionLiquidFranticChargeId = potionLiquidFranticCharge.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureFranticChargeId, potionLiquidFranticChargeId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+  private static void registerPotionLiquidMorningFog() throws IOException {
+  	  potionLiquidWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionLiquidDodge")
+                .name("potion potionLiquid of fog", "potionLiquids of fog", "A potion potionLiquid. It got the essence of mist stored within."
+              		  + "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.potionLiquid.fog.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		 ItemTypes.ITEM_TYPE_BULK,
+                		 ItemTypes.ITEM_TYPE_LIQUID,
+                       
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionLiquidMorningFogId = potionLiquidMorningFog.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureMorningFogId, potionLiquidMorningFogId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+  
+  private static void registerPotionLiquidOakshell() throws IOException {
+	  potionLiquidOakshell = new ItemTemplateBuilder("arathok.alchemy.potionLiquidOakshell")
+              .name("potion potionLiquid of oakshell", "potionLiquids of oakshell", "A potion potionLiquid. It got the essence of hard tree bark stored within."
+              		+ "you think its magical properties could be activated by heating it.")
+              
+              .modelName("model.potionLiquid.oakshell.")
+              .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+              .itemTypes(new short[]{
+              		 ItemTypes.ITEM_TYPE_BULK,
+              		 ItemTypes.ITEM_TYPE_LIQUID,
+                     
+                      
+              })
+              .decayTime(9072000L)
+              .dimensions(1, 1, 1)
+              .weightGrams(100)
+              .material(Materials.MATERIAL_MAGIC)
+              .behaviourType((short) 1)
+              .primarySkill(SkillList.GROUP_ALCHEMY)
+              .difficulty(30) // no hard lock
+              .build();
+
+potionLiquidOakshellId = potionLiquidOakshell.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureOakshellId, potionLiquidOakshellId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+  
+  private static void registerPotionLiquidRefresh() throws IOException {
+  	  potionLiquidRefresh = new ItemTemplateBuilder("arathok.alchemy.potionLiquidRefresh")
+                .name("potion potionLiquid of refresh", "potionLiquids of refresh", "A potion potionLiquid. It got the essence of stamina stored within."
+              		  + "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.potionLiquid.refresh.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		 ItemTypes.ITEM_TYPE_BULK,
+                		 ItemTypes.ITEM_TYPE_LIQUID,
+                       
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionLiquidRefreshId = potionLiquidRefresh.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureRefreshId, potionLiquidRefreshId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+
+  private static void registerPotionLiquidSixthSense() throws IOException {
+	  potionLiquidSixthSense = new ItemTemplateBuilder("arathok.alchemy.potionLiquidSixthSense")
+              .name("potion potionLiquid of senses", "potionLiquids of senses", "A potion potionLiquid. It got the essence of heightening your senses stored within."
+              		+ "you think its magical properties could be activated by heating it.")
+              
+              .modelName("model.potionLiquid.senses.")
+              .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+              .itemTypes(new short[]{
+              		 ItemTypes.ITEM_TYPE_BULK,
+              		 ItemTypes.ITEM_TYPE_LIQUID,
+                     
+                      
+              })
+              .decayTime(9072000L)
+              .dimensions(1, 1, 1)
+              .weightGrams(100)
+              .material(Materials.MATERIAL_MAGIC)
+              .behaviourType((short) 1)
+              .primarySkill(SkillList.GROUP_ALCHEMY)
+              .difficulty(30) // no hard lock
+              .build();
+
+potionLiquidSixthSenseId = potionLiquidSixthSense.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureSixthSenseId, potionLiquidSixthSenseId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+ 
+  private static void registerPotionLiquidStrength() throws IOException {
+	  potionLiquidStrength = new ItemTemplateBuilder("arathok.alchemy.potionLiquidStrength")
+              .name("potion potionLiquid of strength", "potionLiquids of strength", "A potion potionLiquid. It got the essence of superior strength stored within."
+              		+ "you think its magical properties could be activated by heating it.")
+              
+              .modelName("model.potionLiquid.strength.")
+              .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+              .itemTypes(new short[]{
+              		 ItemTypes.ITEM_TYPE_BULK,
+              		 ItemTypes.ITEM_TYPE_LIQUID,
+                     
+                      
+              })
+              .decayTime(9072000L)
+              .dimensions(1, 1, 1)
+              .weightGrams(100)
+              .material(Materials.MATERIAL_MAGIC)
+              .behaviourType((short) 1)
+              .primarySkill(SkillList.GROUP_ALCHEMY)
+              .difficulty(30) // no hard lock
+              .build();
+
+potionLiquidStrengthId = potionLiquidStrength.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureStrengthId, potionLiquidStrengthId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+  
+  private static void registerPotionLiquidTruehit() throws IOException {
+  	  potionLiquidTruehit = new ItemTemplateBuilder("arathok.alchemy.potionLiquidTruehit")
+                .name("potion potionLiquid of truehit", "potionLiquids of truehit", "A potion potionLiquid. It got the essence of stamina stored within."
+              		  + "you think its magical properties could be activated by heating it.")
+                
+                .modelName("model.potionLiquid.truehit.")
+                .imageNumber((short) 584)
+                .itemTypes(new short[]{
+                		 ItemTypes.ITEM_TYPE_BULK,
+                		 ItemTypes.ITEM_TYPE_LIQUID,
+                       
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionLiquidTruehitId = potionLiquidTruehit.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureTruehitId, potionLiquidTruehitId, true, true, 0f, false, false, CreationCategories.DECORATION);
+}
+  
+  private static void registerPotionLiquidVynora() throws IOException {
+	  potionLiquidVynora = new ItemTemplateBuilder("arathok.alchemy.potionLiquidVynora")
+              .name("potion potionLiquid of vynora", "potionLiquids of vynora", "A potion potionLiquid. It got the essence of stamina stored within."
+              		+ "you think its magical properties could be activated by heating it.")
+              
+              .modelName("model.potionLiquid.vynora.")
+              .imageNumber((short) 584)
+              .itemTypes(new short[]{
+              		 ItemTypes.ITEM_TYPE_BULK,
+              		 ItemTypes.ITEM_TYPE_LIQUID,
+                     
+                      
+              })
+              .decayTime(9072000L)
+              .dimensions(1, 1, 1)
+              .weightGrams(100)
+              .material(Materials.MATERIAL_MAGIC)
+              .behaviourType((short) 1)
+              .primarySkill(SkillList.GROUP_ALCHEMY)
+              .difficulty(30) // no hard lock
+              .build();
+
+potionLiquidVynoraId = potionLiquidVynora.getTemplateId();
+
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureVynoraId, potionLiquidVynoraId, true, true, 0f, false, false, CreationCategories.DECORATION);
 }
       
     public static void register() throws IOException {
