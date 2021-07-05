@@ -249,21 +249,88 @@ purifiedWaterId = purifiedWater.getTemplateId();
   alchemicalCompoundId = alchemicalCompound.getTemplateId();
 
   CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.purifiedWaterId , ItemList.heart, alchemicalCompoundId, true, true, 0f, false, false, CreationCategories.DECORATION);
-  }    
-    private static void registerMixtureHeal() throws IOException {
-  	  mixtureHeal = new ItemTemplateBuilder("arathok.alchemy.mixtureHeal")
-                .name("mixture", "mixtures","A mixture of different alchemical substances. One day it might be making a fine potion."
-                		+ "This seems to have some healing Properties.")
+  }
+    
+    private static void registermixtureDodging() throws IOException {
+    	  mixtureWillowspine = new ItemTemplateBuilder("arathok.alchemy.mixtureDodge")
+                  .name("mixture of shadow", "mixtures of shadow","A mixture of different alchemical substances. One day it might be making a fine potion."
+                  		+ "Smelling this mixture makes you feel safe. You feel like the universe is putting its protective hands around you, turn you into a Shadow."
+                  		+ "You feel like nothing can really hurt your new form "
+                  		)
+                  
+                  .modelName("model.mixture.shadow.")
+                  .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                  .itemTypes(new short[]{
+                  		ItemTypes.ITEM_TYPE_BULK,
+                 		 ItemTypes.ITEM_TYPE_HERB,
+                 		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                          ItemTypes.ITEM_TYPE_DECORATION,
+                          ItemTypes.ITEM_TYPE_TURNABLE,
+                          ItemTypes.ITEM_TYPE_REPAIRABLE,
+                          
+                  })
+                  .decayTime(9072000L)
+                  .dimensions(1, 1, 1)
+                  .weightGrams(100)
+                  .material(Materials.MATERIAL_MAGIC)
+                  .behaviourType((short) 1)
+                  .primarySkill(SkillList.ALCHEMY_NATURAL)
+                  .difficulty(30) // no hard lock
+                  .build();
+
+  mixtureWillowspineId = mixtureWillowspine.getTemplateId();
+
+  CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.rosemary , ItemList.ivySeedling, mixtureFranticChargeId, true, true, 0f, false, false, CreationCategories.DECORATION)
+  .addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
+  .addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
+    }
+    private static void registermixtureExcell() throws IOException {
+  	  mixtureExcell = new ItemTemplateBuilder("arathok.alchemy.mixtureExcell")
+                .name("mixture of surpass", "mixtures of surpass","A mixture of different alchemical substances. One day it might be making a fine potion."
+                		+ "Smelling it you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
+                		)
                 
-                .modelName("model.mixtureHeal.")
+                .modelName("model.mixture.excell.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
-                		 ItemTypes.ITEM_TYPE_BULK,
-                		 ItemTypes.ITEM_TYPE_HERB,
-                		 ItemTypes.ITEM_TYPE_PLANTABLE,
-                         ItemTypes.ITEM_TYPE_DECORATION,
-                         ItemTypes.ITEM_TYPE_TURNABLE,
-                         ItemTypes.ITEM_TYPE_REPAIRABLE,
+              		  ItemTypes.ITEM_TYPE_BULK,
+               		 ItemTypes.ITEM_TYPE_HERB,
+               		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                        ItemTypes.ITEM_TYPE_DECORATION,
+                        ItemTypes.ITEM_TYPE_TURNABLE,
+                        ItemTypes.ITEM_TYPE_REPAIRABLE,
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(100)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .difficulty(30) // no hard lock
+                .build();
+
+mixtureExcellId = mixtureExcell.getTemplateId();
+
+CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.ginger , ItemList.sassafras, mixtureExcellId, true, true, 0f, false, false, CreationCategories.DECORATION)
+.addRequirement(new CreationRequirement(1,ItemList.mushroomRed,1,true))
+;
+}
+    
+    private static void registermixtureFrenzy() throws IOException {
+  	  mixtureFranticCharge = new ItemTemplateBuilder("arathok.alchemy.mixtureFrenzy")
+                .name("mixture of frenzy", "mixtures of frenzy","A mixture of different alchemical substances. One day it might be making a fine potion."
+                		+ "Smelling this mixture makes you agressive, it seems to call to you to let out your inner beast."
+                		)
+                
+                .modelName("model.mixture.frenzy.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+              		  ItemTypes.ITEM_TYPE_BULK,
+               		 ItemTypes.ITEM_TYPE_HERB,
+               		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                        ItemTypes.ITEM_TYPE_DECORATION,
+                        ItemTypes.ITEM_TYPE_TURNABLE,
+                        ItemTypes.ITEM_TYPE_REPAIRABLE,
                         
                 })
                 .decayTime(9072000L)
@@ -275,10 +342,13 @@ purifiedWaterId = purifiedWater.getTemplateId();
                 .difficulty(30) // no hard lock
                 .build();
 
-mixtureHealId = mixtureHeal.getTemplateId();
+mixtureFranticChargeId = mixtureFranticCharge.getTemplateId();
 
-CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,ItemList.mushroomBrown , ItemList.wheat, mixtureHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
-}    
+CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mushroomRed , ItemList.nutmeg, mixtureFranticChargeId, true, true, 0f, false, false, CreationCategories.DECORATION)
+.addRequirement(new CreationRequirement(1, ItemList.tomato, 1, true))
+.addRequirement(new CreationRequirement(2, ItemList.tooth, 1, true));
+  }
+   
     private static void registerMixtureGoat() throws IOException {
     	  mixtureGoat = new ItemTemplateBuilder("arathok.alchemy.mixtureGoat")
                   .name("mixture of Goat", "mixtures of Goat","A mixture of different alchemical substances. One day it might be making a fine potion."
@@ -307,37 +377,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,ItemList.mushro
 
   CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,ItemList.branch , ItemList.oat, mixtureGoatId, true, true, 0f, false, false, CreationCategories.DECORATION);
   }
-    private static void registermixtureExcell() throws IOException {
-    	  mixtureExcell = new ItemTemplateBuilder("arathok.alchemy.mixtureExcell")
-                  .name("mixture of surpass", "mixtures of surpass","A mixture of different alchemical substances. One day it might be making a fine potion."
-                  		+ "Smelling it you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
-                  		)
-                  
-                  .modelName("model.mixture.excell.")
-                  .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
-                  .itemTypes(new short[]{
-                		  ItemTypes.ITEM_TYPE_BULK,
-                 		 ItemTypes.ITEM_TYPE_HERB,
-                 		 ItemTypes.ITEM_TYPE_PLANTABLE,
-                          ItemTypes.ITEM_TYPE_DECORATION,
-                          ItemTypes.ITEM_TYPE_TURNABLE,
-                          ItemTypes.ITEM_TYPE_REPAIRABLE,
-                  })
-                  .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
-                  .weightGrams(100)
-                  .material(Materials.MATERIAL_MAGIC)
-                  .behaviourType((short) 1)
-                  .primarySkill(SkillList.ALCHEMY_NATURAL)
-                  .difficulty(30) // no hard lock
-                  .build();
-
-  mixtureExcellId = mixtureExcell.getTemplateId();
-
-  CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.ginger , ItemList.sassafras, mixtureExcellId, true, true, 0f, false, false, CreationCategories.DECORATION)
-  .addRequirement(new CreationRequirement(1,ItemList.mushroomRed,1,true))
-  ;
-  }
+ 
     private static void registermixtureOakshell() throws IOException {
     	  mixtureOakshell = new ItemTemplateBuilder("arathok.alchemy.mixtureOakshell")
                   .name("mixture of Oakshell", "mixtures of Oakshell","A mixture of different alchemical substances. One day it might be making a fine potion."
@@ -371,6 +411,36 @@ CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,ItemList.mushro
   .addRequirement(new CreationRequirement(2, ItemList.sage, 1, true))
   ;
     }
+    
+    private static void registerMixtureHeal() throws IOException {
+    	  mixtureHeal = new ItemTemplateBuilder("arathok.alchemy.mixtureHeal")
+                  .name("mixture", "mixtures","A mixture of different alchemical substances. One day it might be making a fine potion."
+                  		+ "This seems to have some healing Properties.")
+                  
+                  .modelName("model.mixtureHeal.")
+                  .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                  .itemTypes(new short[]{
+                  		 ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                          
+                  })
+                  .decayTime(9072000L)
+                  .dimensions(1, 1, 1)
+                  .weightGrams(100)
+                  .material(Materials.MATERIAL_MAGIC)
+                  .behaviourType((short) 1)
+                  .primarySkill(SkillList.ALCHEMY_NATURAL)
+                  .difficulty(30) // no hard lock
+                  .build();
+
+  mixtureHealId = mixtureHeal.getTemplateId();
+
+  CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,ItemList.mushroomBrown , ItemList.wheat, mixtureHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
+  }    
     private static void registermixtureMorningFog() throws IOException {
     	  mixtureMorningFog = new ItemTemplateBuilder("arathok.alchemy.mixtureFog")
                   .name("mixture of Fog", "mixtures of Fog","A mixture of different alchemical substances. One day it might be making a fine potion."
@@ -563,72 +633,9 @@ CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,ItemList.mushro
   .addRequirement(new CreationRequirement(2, ItemList.coinSilver, 1, true));
   
     }
-    private static void registermixtureFrenzy() throws IOException {
-    	  mixtureFranticCharge = new ItemTemplateBuilder("arathok.alchemy.mixtureFrenzy")
-                  .name("mixture of frenzy", "mixtures of frenzy","A mixture of different alchemical substances. One day it might be making a fine potion."
-                  		+ "Smelling this mixture makes you agressive, it seems to call to you to let out your inner beast."
-                  		)
-                  
-                  .modelName("model.mixture.frenzy.")
-                  .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
-                  .itemTypes(new short[]{
-                		  ItemTypes.ITEM_TYPE_BULK,
-                 		 ItemTypes.ITEM_TYPE_HERB,
-                 		 ItemTypes.ITEM_TYPE_PLANTABLE,
-                          ItemTypes.ITEM_TYPE_DECORATION,
-                          ItemTypes.ITEM_TYPE_TURNABLE,
-                          ItemTypes.ITEM_TYPE_REPAIRABLE,
-                          
-                  })
-                  .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
-                  .weightGrams(100)
-                  .material(Materials.MATERIAL_MAGIC)
-                  .behaviourType((short) 1)
-                  .primarySkill(SkillList.ALCHEMY_NATURAL)
-                  .difficulty(30) // no hard lock
-                  .build();
-
-  mixtureFranticChargeId = mixtureFranticCharge.getTemplateId();
-
-  CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mushroomRed , ItemList.nutmeg, mixtureFranticChargeId, true, true, 0f, false, false, CreationCategories.DECORATION)
-  .addRequirement(new CreationRequirement(1, ItemList.tomato, 1, true))
-  .addRequirement(new CreationRequirement(2, ItemList.tooth, 1, true));
-    }
+   
     
-    private static void registermixtureDodging() throws IOException {
-  	  mixtureWillowspine = new ItemTemplateBuilder("arathok.alchemy.mixtureDodge")
-                .name("mixture of shadow", "mixtures of shadow","A mixture of different alchemical substances. One day it might be making a fine potion."
-                		+ "Smelling this mixture makes you feel safe. You feel like the universe is putting its protective hands around you, turn you into a Shadow."
-                		+ "You feel like nothing can really hurt your new form "
-                		)
-                
-                .modelName("model.mixture.shadow.")
-                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
-                .itemTypes(new short[]{
-                		ItemTypes.ITEM_TYPE_BULK,
-               		 ItemTypes.ITEM_TYPE_HERB,
-               		 ItemTypes.ITEM_TYPE_PLANTABLE,
-                        ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE,
-                        ItemTypes.ITEM_TYPE_REPAIRABLE,
-                        
-                })
-                .decayTime(9072000L)
-                .dimensions(1, 1, 1)
-                .weightGrams(100)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
-                .difficulty(30) // no hard lock
-                .build();
-
-mixtureWillowspineId = mixtureWillowspine.getTemplateId();
-
-CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.rosemary , ItemList.ivySeedling, mixtureFranticChargeId, true, true, 0f, false, false, CreationCategories.DECORATION)
-.addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
-.addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
-  }
+    
     private static void registerPrecursorDodge() throws IOException {
     	  precursorWillowspine = new ItemTemplateBuilder("arathok.alchemy.precursorDodge")
                   .name("potion precursor of shadow", "precursors of shadow", "A potion precursor. It got the essence of agility stored within."
