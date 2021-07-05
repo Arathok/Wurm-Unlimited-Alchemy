@@ -284,6 +284,8 @@ purifiedWaterId = purifiedWater.getTemplateId();
   .addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
   .addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
     }
+    
+    
     private static void registermixtureExcell() throws IOException {
   	  mixtureExcell = new ItemTemplateBuilder("arathok.alchemy.mixtureExcell")
                 .name("mixture of surpass", "mixtures of surpass","A mixture of different alchemical substances. One day it might be making a fine potion."
