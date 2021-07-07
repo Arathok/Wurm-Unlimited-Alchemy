@@ -627,7 +627,6 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
   .addRequirement(new CreationRequirement(2, ItemList.coinSilver, 1, true));
   
     }
-     
     private static void registerPrecursorDodge() throws IOException {
     	  precursorWillowspine = new ItemTemplateBuilder("arathok.alchemy.precursorDodge")
                   .name("potion precursor of shadow", "precursors of shadow", "A potion precursor. It got the essence of agility stored within."
@@ -652,7 +651,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
 
   precursorWillowspineId = precursorWillowspine.getTemplateId();
 
-  CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false, CreationCategories.DECORATION);
+  CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
   }
     private static void registerPrecursorExcell() throws IOException {
   	  precursorExcell = new ItemTemplateBuilder("arathok.alchemy.precursorExcell")
@@ -938,7 +937,7 @@ precursorVynoraId = precursorVynora.getTemplateId();
 
 CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemicalCompoundId , AlchItems.mixtureVynoraId, precursorVynoraId, true, true, 0f, false, false, CreationCategories.DECORATION);
 }
-    //TODO: Work over potion liquids
+    
     private static void registerPotionLiquidDodge() throws IOException {
   	  potionLiquidWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionLiquidDodge")
                 .name(" potion liquid of shadow", "potion liquids of shadow", "A  potion liquid."
@@ -1225,7 +1224,333 @@ potionLiquidTruehitId = potionLiquidTruehit.getTemplateId();
 potionLiquidVynoraId = potionLiquidVynora.getTemplateId();
 }
       
-    public static void register() throws IOException {
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                	//	  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionIdWillowspine = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  
+  private static void registerPotionExcell() throws IOException {
+  	  potionExcell = new ItemTemplateBuilder("arathok.alchemy.potionExcell")
+                .name(" potion of surpassion", "potions of surpassion", "An alchemistic potion, drinking it will bestow the power of surpassing your enemies to you.")
+                
+                .modelName("model.potion.excell.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                	//	  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionIdExcell= potionExcell.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidExcellId, potionIdExcell, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionGoat() throws IOException {
+  	  potionGoat = new ItemTemplateBuilder("arathok.alchemy.potionGoat")
+                .name(" potion of goatshape", "potions of goatshape", "An alchemistic potion, drinking it will bestow the power of a goat to you. Whatever that means?")
+                
+                .modelName("model.potion.goat.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                	//	  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionIdGoat = potionGoat.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidGoatId, potionIdGoat, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionHeal() throws IOException {
+  	  potionHeal = new ItemTemplateBuilder("arathok.alchemy.potionHeal")
+                .name(" potion of heal", "potions of heal", "An alchemistic potion, drinking it will heal you.")
+                
+                .modelName("model.potion.heal.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                	//	  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionIdHeal = potionHeal.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidHealId, potionIdHeal, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionFranticCharge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.FranticCharge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionWillowspineId = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionWillowspineId = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionWillowspineId = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionWillowspineId = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionWillowspineId = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionWillowspineId = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionWillowspineId = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  private static void registerPotionDodge() throws IOException {
+  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+                
+                .modelName("model.potion.dodge.")
+                .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[]{
+                		  ItemTypes.ITEM_TYPE_BULK,
+                  		 ItemTypes.ITEM_TYPE_HERB,
+                  		 ItemTypes.ITEM_TYPE_PLANTABLE,
+                           ItemTypes.ITEM_TYPE_DECORATION,
+                           ItemTypes.ITEM_TYPE_TURNABLE,
+                           ItemTypes.ITEM_TYPE_REPAIRABLE,
+                        
+                })
+                .decayTime(9072000L)
+                .dimensions(1, 1, 1)
+                .weightGrams(200)
+                .material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1)
+                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .difficulty(30) // no hard lock
+                .build();
+
+potionWillowspineId = potionWillowspine.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+}
+  
+  public static void register() throws IOException {
     	
     	registerLeader();
     	registerGlass();
@@ -1289,6 +1614,19 @@ potionLiquidVynoraId = potionLiquidVynora.getTemplateId();
     	TempStates.addState(new TempState(AlchItems.precursorStrengthId, AlchItems.potionLiquidStrengthId, (short)4000, true, true, false));
     	TempStates.addState(new TempState(AlchItems.precursorVynoraId, AlchItems.potionLiquidVynoraId, (short)4000, true, true, false));
     	TempStates.addState(new TempState(AlchItems.precursorWillowspineId, AlchItems.potionLiquidWillowspineId, (short)4000, true, true, false));
+    	
+    	registerPotionDodge();
+    	registerPotionExcell();
+    	registerPotionGoat();
+    	registerPotionFranticCharge();
+    	registerPotionHeal();
+    	registerPotionMorningFog();
+    	registerPotionOakshell();
+    	registerPotionRefresh();
+    	registerPotionSixthSense();
+    	registerPotionStrength();
+    	registerPotionTruehit();
+    	registerPotionVynora();
     }
     
 }
