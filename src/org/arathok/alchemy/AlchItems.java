@@ -21,7 +21,7 @@ import com.wurmonline.server.items.TempStates;
 
 
 public class AlchItems {
-	  public static int leaderId,phialId,mouldClayId,mouldPotteryId,purifiedWaterId,alchemicalCompoundId,glassId,
+	  public static int leaderId,phialId,mouldClayId,mouldPotteryId,purifiedWaterId,alchemicalCompoundId,glassMixtureId,glassId,
 	    
 	    mixtureHealId,mixtureGoatId,mixtureExcellId,mixtureOakshellId,mixtureMorningFogId,mixtureFranticChargeId,mixtureStrengthId,
 	    mixtureSixthSenseId,mixtureTruehitId,mixtureWillowspineId,mixtureRefreshId,mixtureVynoraId,
@@ -35,7 +35,7 @@ public class AlchItems {
 	    potionIdHeal,potionIdGoat,potionIdExcell,potionIdOakshell,potionIdMorningFog,potionIdFranticCharge,potionIdStrength,
 	    potionIdSixthSense,potionIdTruehit,potionIdWillowspine,potionIdRefresh,potionIdVynora
 	    ;
-	    public static ItemTemplate phial,mouldClay,mouldPottery,purifiedWater,alchemicalCompound,glass,
+	    public static ItemTemplate phial,mouldClay,mouldPottery,purifiedWater,alchemicalCompound,glassMixture,glass,
 	    
 	    leader,mixtureHeal,mixtureGoat,mixtureExcell,mixtureOakshell,mixtureMorningFog,mixtureFranticCharge,mixtureStrength,
 	    mixtureSixthSense,mixtureTruehit,mixtureWillowspine,mixtureRefresh,mixtureVynora,
@@ -70,7 +70,7 @@ public class AlchItems {
 	                })
 	                .decayTime(9072000L)
 	                .dimensions(8, 8, 15)
-	                .weightGrams(500)
+	                .weightGrams(85000)
 	                .material(Materials.MATERIAL_IRON)
 	                .behaviourType((short) 1)
 	                .primarySkill(SkillList.POTTERY)
@@ -80,9 +80,46 @@ public class AlchItems {
 	       
 	leaderId = leader.getTemplateId();
 	    }
+	    
+	    private static void registerGlassMixture() throws IOException {
+	        glassMixture = new ItemTemplateBuilder("arathok.alchemy.glassMixture")
+	                .name("glass mixture", "glass mixtures", "A mixture made from sand, ash, and sandstone shards. Under high temperatures it will turn into a honey"
+	                		+ "like paste. cooling it off you will get crystal clear glass. But what would a pile of glass be of use for? If you had some kind of a"
+	                		+ "mould you could press the hot glass into shape...")
+	                .modelName("model.decoration.glasMixture.")
+	                .imageNumber((short) IconConstants.ICON_FOOD_PIGFOOD)
+	                .itemTypes(new short[]{
+	                        
+	                        ItemTypes.ITEM_TYPE_PLANTABLE,
+	                        ItemTypes.ITEM_TYPE_DECORATION,
+	                        ItemTypes.ITEM_TYPE_TURNABLE,
+	                        ItemTypes.ITEM_TYPE_REPAIRABLE,
+	                       // ItemTypes.ITEM_TYPE_TRANSPORTABLE,
+	                        ItemTypes.ITEM_TYPE_METAL,
+	                    
+	                        
+	                        
+	                })
+	                .decayTime(9072000L)
+	                .dimensions(20, 20, 20)
+	                .weightGrams(24000)
+	                .material(Materials.MATERIAL_IRON)
+	                .behaviourType((short) 1)
+	                .primarySkill(SkillList.ALCHEMY_NATURAL)
+	                .difficulty(10) // no hard lock
+	                .build();
+	      
+	       
+	glassMixtureId = glassMixture.getTemplateId();
+	CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.sand, ItemList.ash, glassMixtureId, true, true, 0.0f, false, false, CreationCategories.RESOURCES)
+	  .addRequirement(new CreationRequirement(1, ItemList.sand, 5, true))
+	  .addRequirement(new CreationRequirement(2, ItemList.ash, 18, true))
+	  .addRequirement(new CreationRequirement(3, ItemList.sandstone, 1, true));
+	  }
+	    
 	    private static void registerGlass() throws IOException {
-	        glass = new ItemTemplateBuilder("arathok.alchemy.leader")
-	                .name("glass", "glass", "Crystal clear glass. If you could make a phial out of it, it could contain magic stored in potions.")
+	        glass = new ItemTemplateBuilder("arathok.alchemy.glass")
+	                .name("glass", "glass", "Crystal clear glass. If you could make a phial out of it, it could contain magic stored in potions. You should heat it before pressing it.")
 	                .modelName("model.decoration.flask.")
 	                .imageNumber((short) IconConstants.ICON_FOOD_PIGFOOD)
 	                .itemTypes(new short[]{
@@ -98,8 +135,8 @@ public class AlchItems {
 	                        
 	                })
 	                .decayTime(9072000L)
-	                .dimensions(8, 8, 15)
-	                .weightGrams(500)
+	                .dimensions(20, 20, 20)
+	                .weightGrams(20000)
 	                .material(Materials.MATERIAL_IRON)
 	                .behaviourType((short) 1)
 	                .primarySkill(SkillList.GROUP_ALCHEMY)
@@ -186,7 +223,7 @@ mouldPotteryId = mouldPottery.getTemplateId();
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
                 .weightGrams(100)
-                .material(Materials.MATERIAL_SILVER)
+                .material(Materials.MATERIAL_GLASS)
                 .behaviourType((short) 1)
                 .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(10) // no hard lock
@@ -210,7 +247,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL,AlchItems.mould
             		
             })
             .decayTime(9072000L)
-            .dimensions(1, 1, 1)
+            .dimensions(5, 5, 10)
             .weightGrams(500)
             .material(Materials.MATERIAL_GOLD)
             .behaviourType((short) 1)
@@ -236,10 +273,9 @@ purifiedWaterId = purifiedWater.getTemplateId();
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(10, 10, 10)
                   .weightGrams(1000)
                   .material(Materials.MATERIAL_MAGIC)
-                  .material(Materials.MATERIAL_IRON)
                   .behaviourType((short) 1)
                   .primarySkill(SkillList.GROUP_ALCHEMY)
                   .difficulty(10) // no hard lock
@@ -269,7 +305,7 @@ private static void registermixtureDodging() throws IOException {
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -300,7 +336,7 @@ private static void registermixtureDodging() throws IOException {
                         ItemTypes.ITEM_TYPE_REPAIRABLE,
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -332,7 +368,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.ging
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -362,7 +398,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           ItemTypes.ITEM_TYPE_REPAIRABLE,
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -392,7 +428,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -424,7 +460,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -454,7 +490,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -484,7 +520,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -517,7 +553,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -549,7 +585,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -580,7 +616,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -610,7 +646,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           ItemTypes.ITEM_TYPE_REPAIRABLE,
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -641,7 +677,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -667,7 +703,7 @@ CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL,ItemList.mush
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -693,7 +729,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -718,7 +754,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -743,7 +779,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -769,7 +805,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -795,7 +831,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -821,7 +857,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -847,7 +883,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -873,7 +909,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -899,7 +935,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                           
                   })
                   .decayTime(9072000L)
-                  .dimensions(1, 1, 1)
+                  .dimensions(3, 3, 3)
                   .weightGrams(100)
                   .material(Materials.MATERIAL_MAGIC)
                   .behaviourType((short) 1)
@@ -925,7 +961,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -953,7 +989,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.alchemi
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -976,7 +1012,7 @@ potionLiquidWillowspineId = potionLiquidWillowspine.getTemplateId();
                       
               })
               .decayTime(9072000L)
-              .dimensions(1, 1, 1)
+              .dimensions(3, 3, 3)
               .weightGrams(100)
               .material(Materials.MATERIAL_MAGIC)
               .behaviourType((short) 1)
@@ -1000,7 +1036,7 @@ potionLiquidExcellId = potionLiquidExcell.getTemplateId();
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1023,7 +1059,7 @@ potionLiquidGoatId = potionLiquidGoat.getTemplateId();
                       
               })
               .decayTime(9072000L)
-              .dimensions(1, 1, 1)
+              .dimensions(3, 3, 3)
               .weightGrams(100)
               .material(Materials.MATERIAL_MAGIC)
               .behaviourType((short) 1)
@@ -1045,7 +1081,7 @@ potionLiquidHealId = potionLiquidHeal.getTemplateId();
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1068,7 +1104,7 @@ potionLiquidFranticChargeId = potionLiquidFranticCharge.getTemplateId();
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1080,7 +1116,7 @@ potionLiquidMorningFogId = potionLiquidMorningFog.getTemplateId();
 }
   private static void registerPotionLiquidOakshell() throws IOException {
 	  potionLiquidOakshell = new ItemTemplateBuilder("arathok.alchemy.potionLiquidOakshell")
-              .name(" potionLiquid of oakshell", "potionLiquids of oakshell", "A  potionLiquid. This is almost a finished oakshell potion. "
+              .name(" potion liquid of wood skin", "potionLiquids of wood skin", "A  potion Liquid. This is almost a finished wood skin potion. "
               		+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
               
               .modelName("model.potionLiquid.oakshell.")
@@ -1092,7 +1128,7 @@ potionLiquidMorningFogId = potionLiquidMorningFog.getTemplateId();
                       
               })
               .decayTime(9072000L)
-              .dimensions(1, 1, 1)
+              .dimensions(3, 3, 3)
               .weightGrams(100)
               .material(Materials.MATERIAL_MAGIC)
               .behaviourType((short) 1)
@@ -1104,7 +1140,7 @@ potionLiquidOakshellId = potionLiquidOakshell.getTemplateId();
 }
    private static void registerPotionLiquidRefresh() throws IOException {
   	  potionLiquidRefresh = new ItemTemplateBuilder("arathok.alchemy.potionLiquidRefresh")
-                .name(" potionLiquid of refresh", "potionLiquids of refresh", "A  potionLiquid. This is almost a finished potion of stamina. "
+                .name(" potion liquid of refresh", "potion liquids of refresh", "A  potion liquid. This is almost a finished potion of stamina. "
                 		+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.refresh.")
@@ -1116,7 +1152,7 @@ potionLiquidOakshellId = potionLiquidOakshell.getTemplateId();
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1140,7 +1176,7 @@ potionLiquidRefreshId = potionLiquidRefresh.getTemplateId();
                       
               })
               .decayTime(9072000L)
-              .dimensions(1, 1, 1)
+              .dimensions(3, 3, 3)
               .weightGrams(100)
               .material(Materials.MATERIAL_MAGIC)
               .behaviourType((short) 1)
@@ -1153,7 +1189,7 @@ potionLiquidSixthSenseId = potionLiquidSixthSense.getTemplateId();
 }
    private static void registerPotionLiquidStrength() throws IOException {
 	  potionLiquidStrength = new ItemTemplateBuilder("arathok.alchemy.potionLiquidStrength")
-              .name(" potionLiquid of strength", "potionLiquids of strength", "A  potionLiquid. This is almost afinished strength potion."
+              .name(" potion liquid of strength", "potion liquids of strength", "A  potion liquid. This is almost a finished strength potion."
               		+ " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
               
               .modelName("model.potionLiquid.strength.")
@@ -1165,7 +1201,7 @@ potionLiquidSixthSenseId = potionLiquidSixthSense.getTemplateId();
                       
               })
               .decayTime(9072000L)
-              .dimensions(1, 1, 1)
+              .dimensions(3, 3, 3)
               .weightGrams(100)
               .material(Materials.MATERIAL_MAGIC)
               .behaviourType((short) 1)
@@ -1174,31 +1210,32 @@ potionLiquidSixthSenseId = potionLiquidSixthSense.getTemplateId();
               .build();
 
 potionLiquidStrengthId = potionLiquidStrength.getTemplateId();}
-    private static void registerPotionLiquidTruehit() throws IOException {
-  	  potionLiquidTruehit = new ItemTemplateBuilder("arathok.alchemy.potionLiquidTruehit")
-                .name(" potionLiquid of truehit", "potionLiquids of truehit", "A  potionLiquid. This is almost a finished truehit potion. "
-                		+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.\")
-                
-                .modelName("model.potionLiquid.truehit.")
-                .imageNumber((short) 584)
-                .itemTypes(new short[]{
-                		 ItemTypes.ITEM_TYPE_BULK,
-                		 ItemTypes.ITEM_TYPE_LIQUID,
-                       
-                        
-                })
-                .decayTime(9072000L)
-                .dimensions(1, 1, 1)
-                .weightGrams(100)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
-                .difficulty(30) // no hard lock
-                .build();
+   
+   private static void registerPotionLiquidTruehit() throws IOException {
+		  potionLiquidTruehit = new ItemTemplateBuilder("arathok.alchemy.potionLiquidTruehit")
+				  .name(" potion liquid of truehit", "potion liquids of truehit", "A  potion liquid. This is almost a finished truehit potion. "
+	                		+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.\")
+	                
+	              .modelName("model.potionLiquid.truehit.")
+	              .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+	              .itemTypes(new short[]{
+	              		 ItemTypes.ITEM_TYPE_BULK,
+	              		 ItemTypes.ITEM_TYPE_LIQUID,
+	                     
+	                      
+	              })
+	              .decayTime(9072000L)
+	              .dimensions(3, 3, 3)
+	              .weightGrams(100)
+	              .material(Materials.MATERIAL_MAGIC)
+	              .behaviourType((short) 1)
+	              .primarySkill(SkillList.GROUP_ALCHEMY)
+	              .difficulty(30) // no hard lock
+	              .build();
 
-potionLiquidTruehitId = potionLiquidTruehit.getTemplateId();
+	potionLiquidTruehithId = potionLiquidTruehit.getTemplateId();}
+   
 
-}
   private static void registerPotionLiquidVynora() throws IOException {
 	  potionLiquidVynora = new ItemTemplateBuilder("arathok.alchemy.potionLiquidVynora")
               .name(" potionLiquid of vynora", "potionLiquids of vynora", "A  potionLiquid. This is almost a finished knowledge potion."
@@ -1213,7 +1250,7 @@ potionLiquidTruehitId = potionLiquidTruehit.getTemplateId();
                       
               })
               .decayTime(9072000L)
-              .dimensions(1, 1, 1)
+              .dimensions(3, 3, 3)
               .weightGrams(100)
               .material(Materials.MATERIAL_MAGIC)
               .behaviourType((short) 1)
@@ -1240,7 +1277,7 @@ potionLiquidVynoraId = potionLiquidVynora.getTemplateId();
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1268,7 +1305,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1295,7 +1332,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1322,7 +1359,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1333,9 +1370,9 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
 potionIdHeal = potionHeal.getTemplateId();
 CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidHealId, potionIdHeal, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
-  private static void registerPotionDodge() throws IOException {
-  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionFranticCharge")
-                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+  private static void registerPotionFrenzy() throws IOException {
+  	  potionFranticCharge = new ItemTemplateBuilder("arathok.alchemy.potionFranticCharge")
+                .name(" potion of frenzy", "potions of frenzy", "An alchemistic potion, drinking it will bestow the power of rage to you.")
                 
                 .modelName("model.potion.FranticCharge.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
@@ -1349,7 +1386,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1357,14 +1394,14 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                 .difficulty(30) // no hard lock
                 .build();
 
-potionWillowspineId = potionWillowspine.getTemplateId();
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+potionIdFranticCharge = potionFranticCharge.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidFranticChargeId, potionIdFranticCharge, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
-  private static void registerPotionDodge() throws IOException {
-  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
-                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+  private static void registerPotionMorningFog() throws IOException {
+  	  potionMorningFog = new ItemTemplateBuilder("arathok.alchemy.potionMorningFog")
+                .name(" potion of Fog", "potions of Fog", "An alchemistic potion, drinking it will bestow the power of Fog to you.")
                 
-                .modelName("model.potion.dodge.")
+                .modelName("model.potion.fog.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
                 		  ItemTypes.ITEM_TYPE_BULK,
@@ -1376,7 +1413,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1384,14 +1421,14 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                 .difficulty(30) // no hard lock
                 .build();
 
-potionWillowspineId = potionWillowspine.getTemplateId();
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+  	potionIdMorningFog = potionMorningFog.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidMorningFogId, potionIdMorningFog, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
-  private static void registerPotionDodge() throws IOException {
-  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
-                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+  private static void registerPotionOakshell() throws IOException {
+  	  potionOakshell = new ItemTemplateBuilder("arathok.alchemy.Oakshell")
+                .name(" potion of Woodskin", "potions of Woodskin", "An alchemistic potion, drinking it will bestow the power of wood skin to you.")
                 
-                .modelName("model.potion.dodge.")
+                .modelName("model.potion.Oakshell.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
                 		  ItemTypes.ITEM_TYPE_BULK,
@@ -1403,7 +1440,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1411,14 +1448,14 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                 .difficulty(30) // no hard lock
                 .build();
 
-potionWillowspineId = potionWillowspine.getTemplateId();
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+potionIdOakshell = potionOakshell.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidOakshellId, potionIdOakshell, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
-  private static void registerPotionDodge() throws IOException {
-  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
-                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+  private static void registerPotionRefresh() throws IOException {
+  	  potionRefresh = new ItemTemplateBuilder("arathok.alchemy.potionRefresh")
+                .name(" potion of stamina", "potions of stamina", "An alchemistic potion, drinking it will regenerate some stamina for you.")
                 
-                .modelName("model.potion.dodge.")
+                .modelName("model.potion.stamina.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
                 		  ItemTypes.ITEM_TYPE_BULK,
@@ -1430,7 +1467,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1438,14 +1475,14 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                 .difficulty(30) // no hard lock
                 .build();
 
-potionWillowspineId = potionWillowspine.getTemplateId();
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+potionIdRefresh = potionRefresh.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidRefreshId, potionIdRefresh, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
-  private static void registerPotionDodge() throws IOException {
-  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
-                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+  private static void registerPotionSixthSense() throws IOException {
+  	  potionSixthSense = new ItemTemplateBuilder("arathok.alchemy.potionSixthSense")
+                .name(" potion of senses", "potions of senses", "An alchemistic potion, drinking it will bestow superior situational awarenes to you.")
                 
-                .modelName("model.potion.dodge.")
+                .modelName("model.potion.SixthSense.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
                 		  ItemTypes.ITEM_TYPE_BULK,
@@ -1457,7 +1494,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1465,14 +1502,14 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                 .difficulty(30) // no hard lock
                 .build();
 
-potionWillowspineId = potionWillowspine.getTemplateId();
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+potionIdSixthSense = potionSixthSense.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidSixthSenseId, potionIdSixthSense, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
-  private static void registerPotionDodge() throws IOException {
-  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
-                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+  private static void registerPotionStrength() throws IOException {
+  	  potionStrength = new ItemTemplateBuilder("arathok.alchemy.potionStrength")
+                .name(" potion of strength", "potions of strength", "An alchemistic potion, drinking it will bestow the power of superior strength to you.")
                 
-                .modelName("model.potion.dodge.")
+                .modelName("model.potion.strength.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
                 		  ItemTypes.ITEM_TYPE_BULK,
@@ -1484,7 +1521,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1492,14 +1529,14 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                 .difficulty(30) // no hard lock
                 .build();
 
-potionWillowspineId = potionWillowspine.getTemplateId();
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+potionIdStrength = potionStrength.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidStrengthId, potionIdStrength, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
-  private static void registerPotionDodge() throws IOException {
-  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
-                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+  private static void registerPotionTruehit() throws IOException {
+  	  potionTruehit = new ItemTemplateBuilder("arathok.alchemy.potionTruehit")
+                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power superior battle focus to you.")
                 
-                .modelName("model.potion.dodge.")
+                .modelName("model.potion.truehit.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
                 		  ItemTypes.ITEM_TYPE_BULK,
@@ -1511,7 +1548,7 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
@@ -1519,14 +1556,14 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                 .difficulty(30) // no hard lock
                 .build();
 
-potionWillowspineId = potionWillowspine.getTemplateId();
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+potionIdTruehit = potionTruehit.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidTruehitId, potionIdTruehit, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
-  private static void registerPotionDodge() throws IOException {
-  	  potionWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionDodge")
-                .name(" potion of shadow", "potions of shadow", "An alchemistic potion, drinking it will bestow the power of shadow to you.")
+  private static void registerPotionVynora() throws IOException {
+  	  potionVynora = new ItemTemplateBuilder("arathok.alchemy.potionVynora")
+                .name(" potion of knowledge", "potions of knowledge", "This potion is the epitome of alchemy. It is bottled knowledge. ")
                 
-                .modelName("model.potion.dodge.")
+                .modelName("model.potion.vynora.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
                 .itemTypes(new short[]{
                 		  ItemTypes.ITEM_TYPE_BULK,
@@ -1538,23 +1575,24 @@ CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId
                         
                 })
                 .decayTime(9072000L)
-                .dimensions(1, 1, 1)
+                .dimensions(5, 5, 10)
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(SkillList.GROUP_ALCHEMY)
-                .difficulty(30) // no hard lock
+                .difficulty(90) // no hard lock
                 .build();
 
-potionWillowspineId = potionWillowspine.getTemplateId();
-CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+potionIdVynora = potionVynora.getTemplateId();
+CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY,AlchItems.phialId , AlchItems.potionLiquidVynoraId, potionIdVynora, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 }
   
   public static void register() throws IOException {
     	
     	registerLeader();
+    	registerGlassMixture();
     	registerGlass();
-    	TempStates.addState(new TempState(ItemList.sand, AlchItems.glassId, (short)4000, true, true, false));
+    	TempStates.addState(new TempState(AlchItems.glassMixtureId, AlchItems.glassId, (short)4000, true, false, false));
     	registerMouldClay();
         registerMouldPottery();
         TempStates.addState(new TempState(AlchItems.mouldClayId, AlchItems.mouldPotteryId, (short)4000, true, true, false));
