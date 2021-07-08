@@ -87,7 +87,7 @@ public class AlchItems {
 	                		+ "like paste. cooling it off you will get crystal clear glass. But what would a pile of glass be of use for? If you had some kind of a"
 	                		+ "mould you could press the hot glass into shape...")
 	                .modelName("model.decoration.glasMixture.")
-	                .imageNumber((short) IconConstants.ICON_FOOD_PIGFOOD)
+	                .imageNumber((short) IconConstants.ICON_MORTAR_PILE)
 	                .itemTypes(new short[]{
 	                        
 	                        ItemTypes.ITEM_TYPE_PLANTABLE,
