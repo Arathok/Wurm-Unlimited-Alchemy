@@ -36,10 +36,8 @@ public class SipPerformer implements ActionPerformer {
 					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 		}
 
-		if (performer.getVisionArea() != null) {
-			performer.getVisionArea().broadCastUpdateSelectBar(performer.getWurmId(), true);
-		}
-		performer.consume(true);
+		
+		//performer.consume(true);
 
 		return propagate(action, ActionPropagation.FINISH_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
 				ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);

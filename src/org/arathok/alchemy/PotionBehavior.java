@@ -17,7 +17,63 @@ public class PotionBehaviour implements BehaviourProvider {
             if (SipPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
         }
-        return null;
+        
+        if (target.getTemplateId() == AlchItems.potionIdGoat) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdExcell) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdFranticCharge) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdMorningFog) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdOakshell) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdSixthSense) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdTruehit) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdStrength) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdWillowspine) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdVynora) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+        if (target.getTemplateId() == AlchItems.potionIdRefresh) {
+            if (SipPerformer.canUse(performer, target))
+                return new ArrayList<>(consume);
+        }
+        
+ 
     }
 
     @Override
