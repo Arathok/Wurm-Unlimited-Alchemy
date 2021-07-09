@@ -11,11 +11,11 @@ import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 public class SipPerformer implements ActionPerformer {
     @Override
     public short getActionId() {
-        return Actions.DISEMBARK;
+        return Actions.USE;
     }
 
     public static boolean canUse(Creature performer, Item target) {
-        return performer.isPlayer() && performer.getVehicle() == target.getWurmId();
+        return performer.isPlayer() && performer.getInventory()== target.getWurmId();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class SipPerformer implements ActionPerformer {
 
     @Override
     public boolean action(Action action, Creature performer, Item target, short num, float counter) {
-        if (target.getTemplateId() != 8000)
+        if (target.getTemplateId() != AlchItems.potionIdHeal)
             return propagate(action, ActionPropagation.SERVER_PROPAGATION, ActionPropagation.ACTION_PERFORMER_PROPAGATION);
 
         if (!canUse(performer, target)) {
@@ -36,7 +36,7 @@ public class SipPerformer implements ActionPerformer {
         if (performer.getVisionArea() != null) {
             performer.getVisionArea().broadCastUpdateSelectBar(performer.getWurmId(), true);
         }
-        performer.disembark(true);
+        performer.consume(true);
 
         return propagate(action, ActionPropagation.FINISH_ACTION, ActionPropagation.NO_SERVER_PROPAGATION, ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
     }
