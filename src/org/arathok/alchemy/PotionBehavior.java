@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class BroomBehaviour implements BehaviourProvider {
+public class PotionBehaviour implements BehaviourProvider {
     private List<ActionEntry> consume = Collections.singletonList(new ActionEntry(Actions.USE, "Consume", ""));
     private List<ActionEntry> disembark = Collections.singletonList(new ActionEntry(Actions.DISEMBARK, "Disembark", ""));
 
