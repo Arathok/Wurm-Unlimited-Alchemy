@@ -35,6 +35,8 @@ public class SipPerformer implements ActionPerformer {
 			return propagate(action, ActionPropagation.FINISH_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
 					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 		}
+		
+		// EFFECT STUFF GOES HERE
 
 		
 		//performer.consume(true);
