@@ -10,7 +10,6 @@ import java.util.List;
 
 public class PotionBehaviour implements BehaviourProvider {
     private List<ActionEntry> consume = Collections.singletonList(new ActionEntry(Actions.USE, "Consume", ""));
-    private List<ActionEntry> disembark = Collections.singletonList(new ActionEntry(Actions.DISEMBARK, "Disembark", ""));
 
     @Override
     public List<ActionEntry> getBehavioursFor(Creature performer, Item target) {
