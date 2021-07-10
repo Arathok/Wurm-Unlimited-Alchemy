@@ -1,10 +1,6 @@
 package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah in onItemTemplatesCreated
 
 //and make them not-private so you can actually access them
-
-// WAIT WHATS HAPPENING
-
-//WAIT WHATS HAPPENING
 import java.io.IOException;
 import java.util.Properties;
 
