@@ -2,6 +2,9 @@ package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah
 
 //and make them not-private so you can actually access them
 
+// WAIT WHATS HAPPENING
+
+//WAIT WHATS HAPPENING
 import java.io.IOException;
 import java.util.Properties;
 
@@ -19,7 +22,7 @@ import com.wurmonline.server.items.ItemTypes;
 import com.wurmonline.server.items.Materials;
 import com.wurmonline.server.items.TempState;
 import com.wurmonline.server.items.TempStates;
-
+// WAIT WHATS HAPPENING?!
 public class AlchItems {
 	public static int leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
 			glassMixtureId, glassId,
