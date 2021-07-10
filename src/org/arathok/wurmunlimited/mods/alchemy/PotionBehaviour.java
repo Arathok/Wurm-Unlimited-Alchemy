@@ -13,8 +13,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class PotionBehaviour implements BehaviourProvider {
-	private List<ActionEntry> consume = Collections.singletonList(new ActionEntry(Actions.USE, "Consume", ""));
-
+	private List<ActionEntry> consume;
+	
+	public PotionBehaviour() {
+        consume = Collections.singletonList(new ActionEntry(Actions.USE, "Consume", "consuming"));
+        
+	}
 	@Override
 	public List<ActionEntry> getBehavioursFor(Creature performer, Item target) {
 		if (target.getTemplateId() == AlchItems.potionIdHeal) {

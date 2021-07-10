@@ -34,11 +34,14 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onItemTemplatesCreated() {
 		
-		   try {
-	            AlchItems.register();
-	           } catch (IOException e) {
-	            throw new RuntimeException(e);
-	        }
+		
+	            try {
+					AlchItems.register();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	     
 	    
 		// TODO Auto-generated method stub
 		
