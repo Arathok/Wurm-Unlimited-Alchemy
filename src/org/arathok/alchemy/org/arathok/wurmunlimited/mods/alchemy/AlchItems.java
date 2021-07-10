@@ -882,7 +882,7 @@ public class AlchItems {
 	private static void registerPotionLiquidTruehit() throws IOException {
 		  potionLiquidTruehit = new ItemTemplateBuilder("arathok.alchemy.potionLiquidTruehit")
 				  .name(" potion liquid of truehit", "potion liquids of truehit", "A  potion liquid. This is almost a finished truehit potion. "
-	                		+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.\")
+	                		+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 	                
 	              .modelName("model.potionLiquid.truehit.")
 	              .imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
@@ -901,7 +901,7 @@ public class AlchItems {
 	              .difficulty(30) // no hard lock
 	              .build();
 
-	potionLiquidTruehithId = potionLiquidTruehit.getTemplateId();}
+		  potionLiquidTruehitId = potionLiquidTruehit.getTemplateId();}
 
 	private static void registerPotionLiquidVynora() throws IOException {
 		potionLiquidVynora = new ItemTemplateBuilder("arathok.alchemy.potionLiquidVynora").name(
@@ -1243,7 +1243,7 @@ public class AlchItems {
 		registerPotionDodge();
 		registerPotionExcell();
 		registerPotionGoat();
-		registerPotionFranticCharge();
+		registerPotionFrenzy();
 		registerPotionHeal();
 		registerPotionMorningFog();
 		registerPotionOakshell();

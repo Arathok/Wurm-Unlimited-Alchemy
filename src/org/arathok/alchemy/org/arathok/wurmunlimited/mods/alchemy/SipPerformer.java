@@ -5,6 +5,8 @@ import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
+import com.wurmonline.server.items.NotOwnedException;
+
 //import net.bdew.wurm.halloween.Broom;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
@@ -15,7 +17,7 @@ public class SipPerformer implements ActionPerformer {
 		return Actions.USE;
 	}
 
-	public static boolean canUse(Creature performer, Item target) {
+	public static boolean canUse(Creature performer, Item target) throws NotOwnedException {
 		return performer.isPlayer() && target.getOwner() == performer.getWurmId() && !target.isTraded();
 	}
 
@@ -30,10 +32,15 @@ public class SipPerformer implements ActionPerformer {
 			return propagate(action, ActionPropagation.SERVER_PROPAGATION,
 					ActionPropagation.ACTION_PERFORMER_PROPAGATION);
 
-		if (!canUse(performer, target)) {
-			performer.getCommunicator().sendAlertServerMessage("You are not allowed to do that");
-			return propagate(action, ActionPropagation.FINISH_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
-					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+		try {
+			if (!canUse(performer, target)) {
+				performer.getCommunicator().sendAlertServerMessage("You are not allowed to do that");
+				return propagate(action, ActionPropagation.FINISH_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
+						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+			}
+		} catch (NotOwnedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		// EFFECT STUFF GOES HERE
