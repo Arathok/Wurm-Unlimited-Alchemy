@@ -2,22 +2,20 @@ package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah
 
 //and make them not-private so you can actually access them
 import java.io.IOException;
-import java.util.Properties;
-
-import com.wurmonline.server.items.*;
-import com.wurmonline.server.skills.SkillList;
-import com.wurmonline.shared.constants.IconConstants;
 
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
-import com.wurmonline.server.creatures.Communicator;
+
 import com.wurmonline.server.items.CreationCategories;
 import com.wurmonline.server.items.CreationEntryCreator;
+import com.wurmonline.server.items.CreationRequirement;
 import com.wurmonline.server.items.ItemList;
 import com.wurmonline.server.items.ItemTemplate;
 import com.wurmonline.server.items.ItemTypes;
 import com.wurmonline.server.items.Materials;
 import com.wurmonline.server.items.TempState;
 import com.wurmonline.server.items.TempStates;
+import com.wurmonline.server.skills.SkillList;
+import com.wurmonline.shared.constants.IconConstants;
 
 // WAIT WHATS HAPPENING?!
 public class AlchItems {
@@ -89,7 +87,8 @@ public class AlchItems {
 
 		glassMixtureId = glassMixture.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.sand, ItemList.ash, glassMixtureId, true, true, 0.0f, false, false, CreationCategories.RESOURCES)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.sand, ItemList.ash, glassMixtureId, true, true,
+						0.0f, false, false, CreationCategories.RESOURCES)
 				.addRequirement(new CreationRequirement(1, ItemList.ash, 17, true))
 				.addRequirement(new CreationRequirement(2, ItemList.sandstone, 1, true));
 	}
@@ -103,7 +102,6 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_REPAIRABLE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_METAL,
-						
 
 				}).decayTime(9072000L).dimensions(20, 20, 20).weightGrams(20000).material(Materials.MATERIAL_ADAMANTINE)
 				.behaviourType((short) 1).primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
@@ -323,7 +321,8 @@ public class AlchItems {
 	}
 
 	private static void registerMixtureHeal() throws IOException {
-		mixtureHeal = new ItemTemplateBuilder("arathok.alchemy.mixtureHeal").name("mixture of health", "mixtures of health",
+		mixtureHeal = new ItemTemplateBuilder("arathok.alchemy.mixtureHeal").name("mixture of health",
+				"mixtures of health",
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
 						+ "You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties.")
 
@@ -392,8 +391,7 @@ public class AlchItems {
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
 						+ "The smell brings a certain picture before the inner eye. Like a voice telling you, to be careful with your surroundings")
 
-				.modelName("model.mixture.sixth.").imageNumber((short) 1506)
-				.itemTypes(new short[] {
+				.modelName("model.mixture.sixth.").imageNumber((short) 1506).itemTypes(new short[] {
 						// ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_REPAIRABLE,
@@ -414,8 +412,7 @@ public class AlchItems {
 						"A mixture of different alchemical substances. One day it might be making a fine potion."
 								+ "The smell makes you feel like you could lift a mountain.")
 
-				.modelName("model.mixture.strength.").imageNumber((short) 1506)
-				.itemTypes(new short[] {
+				.modelName("model.mixture.strength.").imageNumber((short) 1506).itemTypes(new short[] {
 						// ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_REPAIRABLE,
@@ -914,8 +911,7 @@ public class AlchItems {
 				.name(" potion of shadow", "potions of shadow",
 						"An alchemistic potion, drinking it will bestow the power of shadow to you.")
 
-				.modelName("model.potion.dodge.").imageNumber((short) 1568)
-				.itemTypes(new short[] {
+				.modelName("model.potion.dodge.").imageNumber((short) 1568).itemTypes(new short[] {
 						// ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_REPAIRABLE,
@@ -935,8 +931,7 @@ public class AlchItems {
 				.name(" potion of surpassion", "potions of surpassion",
 						"An alchemistic potion, drinking it will bestow the power of surpassing your enemies to you.")
 
-				.modelName("model.potion.excell.").imageNumber((short) 1567)
-				.itemTypes(new short[] {
+				.modelName("model.potion.excell.").imageNumber((short) 1567).itemTypes(new short[] {
 						// ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_REPAIRABLE,
@@ -956,8 +951,7 @@ public class AlchItems {
 				"potions of goatshape",
 				"An alchemistic potion, drinking it will bestow the power of a goat to you. Whatever that means?")
 
-				.modelName("model.potion.goat.").imageNumber((short) 1566)
-				.itemTypes(new short[] {
+				.modelName("model.potion.goat.").imageNumber((short) 1566).itemTypes(new short[] {
 						// ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_REPAIRABLE,
@@ -975,8 +969,7 @@ public class AlchItems {
 		potionHeal = new ItemTemplateBuilder("arathok.alchemy.potionHeal")
 				.name(" potion of heal", "potions of heal", "An alchemistic potion, drinking it will heal you.")
 
-				.modelName("model.potion.heal.").imageNumber((short) 1565)
-				.itemTypes(new short[] {
+				.modelName("model.potion.heal.").imageNumber((short) 1565).itemTypes(new short[] {
 						// ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_REPAIRABLE,
@@ -1112,13 +1105,13 @@ public class AlchItems {
 
 	private static void registerPotionTruehit() throws IOException {
 		potionTruehit = new ItemTemplateBuilder("arathok.alchemy.potionTruehit")
-				.name(" potion of shadow", "potions of shadow",
+				.name(" potion of truehit", "potions of truehit",
 						"An alchemistic potion, drinking it will bestow the power superior battle focus to you.")
 
 				.modelName("model.potion.truehit.").imageNumber((short) 1567)
 				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_REPAIRABLE, ItemTypes.ITEM_TYPE_FOOD,
 
 				}).decayTime(9072000L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
