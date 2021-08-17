@@ -1109,9 +1109,14 @@ public class AlchItems {
 						"An alchemistic potion, drinking it will bestow the power superior battle focus to you.")
 
 				.modelName("model.potion.truehit.").imageNumber((short) 1567)
-				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
-						ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE, ItemTypes.ITEM_TYPE_FOOD,
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_REPAIRABLE,
+					
 
 				}).decayTime(9072000L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock

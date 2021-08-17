@@ -12,50 +12,55 @@ import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 
 public class PotionBehaviour implements BehaviourProvider {
-	private List<ActionEntry> consume;
+	private List<ActionEntry> consume = Collections.singletonList(new ActionEntry(Actions.DRINK, "Drink", "drinking"));
 
-	public PotionBehaviour() {
-		consume = Collections.singletonList(new ActionEntry(Actions.USE, "Consume", "consuming"));
 
-	}
 
 	@Override
 	public List<ActionEntry> getBehavioursFor(Creature performer, Item target) {
 		if (target.getTemplateId() == AlchItems.potionIdHeal) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
+
 		}
 
 		else if (target.getTemplateId() == AlchItems.potionIdGoat) {
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 		} 
 		else if (target.getTemplateId() == AlchItems.potionIdExcell) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 		} 
 		else if (target.getTemplateId() == AlchItems.potionIdFranticCharge) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} 
 		else if (target.getTemplateId() == AlchItems.potionIdMorningFog) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} 
 		else if (target.getTemplateId() == AlchItems.potionIdOakshell) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} 
 		else if (target.getTemplateId() == AlchItems.potionIdSixthSense) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
@@ -63,37 +68,37 @@ public class PotionBehaviour implements BehaviourProvider {
 		else if (target.getTemplateId() == AlchItems.potionIdTruehit) {
 			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
-				list.add(Actions.actionEntrys[Actions.USE]);
-			return list;
+				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdStrength) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
-
 		} 
 		else if (target.getTemplateId() == AlchItems.potionIdWillowspine) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} 
 		else if (target.getTemplateId() == AlchItems.potionIdVynora) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
-
 		} 
 		else if (target.getTemplateId() == AlchItems.potionIdRefresh) {
 
+			List<ActionEntry> list = new ArrayList<>();
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} 
 		else
 			return null;
-		return null;
-
+	return null;
 	}
 
 	@Override

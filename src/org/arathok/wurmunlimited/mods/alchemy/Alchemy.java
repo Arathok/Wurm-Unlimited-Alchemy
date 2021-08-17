@@ -29,10 +29,13 @@ import org.gotti.wurmunlimited.modloader.interfaces.WurmServerMod;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
-public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurable, ServerStartedListener, ItemTemplatesCreatedListener, PlayerMessageListener{
-
+public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurable, ItemTemplatesCreatedListener, ServerStartedListener, ServerPollListener, PlayerMessageListener{
+	public static final Logger logger = Logger.getLogger("Alchemy");
 	@Override
 	public void preInit() {
+		
+		 ModActions.init();
+
 		
 		try
 		{
@@ -79,6 +82,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		// TODO Auto-generated method stub
 	      ModActions.registerActionPerformer(new SipPerformer());
           ModActions.registerBehaviourProvider(new PotionBehaviour());
+		logger.log(Level.INFO, "blah blah blah i'm loaded!");
 	}
 
 	@Override
@@ -89,6 +93,12 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onServerPoll() {
 		// TODO Auto-generated method stub
 		
 	}
