@@ -66,24 +66,22 @@ public class SipPerformer implements ActionPerformer {
 				if (eff == null) {
 					eff = new SpellEffect(performer.getWurmId(), (byte) 30, power, Math.max(1, seconds));
 					effs.addSpellEffect(eff);
-				} 
-				else if (eff.getPower() < power) {
+				} else if (eff.getPower() < power) {
 					eff.setPower(power);
 					eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
 					performer.sendUpdateSpellEffect(eff);
 				}
-				
 				Items.destroyItem(target.getWurmId());
 				cooldown.put(performer.getWurmId(), System.currentTimeMillis());
 				toxicity = 0;
-			} 
-			else if (toxicity == 0 && cooldown.get(performer.getWurmId()) + 300000 > System.currentTimeMillis()) {
+
+			} else if (toxicity < 1) {
 				performer.getCommunicator().sendAlertServerMessage("You are still under influence of another potion! " +
 						"Drinking another one would probably kill you because of toxicity");
 
 				toxicity++;
-			}
-			else if (toxicity > 0 && cooldown.get(performer.getWurmId()) + 300000 > System.currentTimeMillis()) {
+			} else if (toxicity > 0) {
+				/* performer.addWoundOfType() TODO:RESEARCH THIS SHIT */
 				performer.destroy();
 				performer.getCommunicator().sendAlertServerMessage("You feel the rush of alchemical power in every nerve of your body, " +
 						"only for the feeling of power to subside after a short while" +
