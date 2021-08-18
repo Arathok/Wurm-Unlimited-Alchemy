@@ -1,24 +1,18 @@
 package org.arathok.wurmunlimited.mods.alchemy;
 
 //import net.bdew.wurm.halloween.Broom;
-import com.wurmonline.server.Items;
-import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
-import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 
-//HELLOGITHUB2
+import com.wurmonline.server.Items;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
-import com.wurmonline.server.spells.Spell;
 import com.wurmonline.server.spells.SpellEffect;
-import com.wurmonline.server.spells.Spells;
+import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
+import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 
-import java.util.HashMap;
-import java.util.logging.Level;
-
-public class SipPerformerTruehit implements ActionPerformer {
+public class SipPerformerFog implements ActionPerformer {
 
 	int seconds = 300;
 	float power = 0;
@@ -37,7 +31,7 @@ public class SipPerformerTruehit implements ActionPerformer {
 	public boolean action(Action action, Creature performer, Item target, short num, float counter) {
 
 		//Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");
-		if (target.getTemplateId() != AlchItems.potionIdTruehit)
+		if (target.getTemplateId() != AlchItems.potionIdMorningFog)
 			return propagate(action,
 					ActionPropagation.SERVER_PROPAGATION,
 					ActionPropagation.ACTION_PERFORMER_PROPAGATION);
@@ -52,7 +46,7 @@ public class SipPerformerTruehit implements ActionPerformer {
 		}
 // EFFECT STUFF GOES HERE
 		if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
-			if (target.getTemplateId() == AlchItems.potionIdTruehit) {
+			if (target.getTemplateId() == AlchItems.potionIdMorningFog) {
 
 				power = target.getCurrentQualityLevel();
 
@@ -61,10 +55,15 @@ public class SipPerformerTruehit implements ActionPerformer {
 				if (effs == null)
 					effs = performer.createSpellEffects();
 
-				SpellEffect eff = effs.getSpellEffect((byte) 30);
+				SpellEffect eff = effs.getSpellEffect((byte) 19);
 
 				if (eff == null) {
-					eff = new SpellEffect(performer.getWurmId(), (byte) 30, power, Math.max(1, seconds));
+					eff = new SpellEffect(
+							performer.getWurmId(),
+							(byte) 19,
+							power,
+							Math.max(1, seconds));
+
 					effs.addSpellEffect(eff);
 				} else if (eff.getPower() < power) {
 					eff.setPower(power);
@@ -76,7 +75,8 @@ public class SipPerformerTruehit implements ActionPerformer {
 				Alchemy.toxicity.put(performer.getWurmId(), 0);
 				performer.getCommunicator().sendAlertServerMessage(
 						"You feel the power of the Potion flow through you! " +
-						"You feel like you can hit your enemies better!");
+						"You feel your skin sizzling as if your body wants to turn into a cloud"+
+						"Thorns can not pierce you!");
 
 
 			}
@@ -84,7 +84,7 @@ public class SipPerformerTruehit implements ActionPerformer {
 		}
 		else if (Alchemy.toxicity.get(performer.getWurmId()) < 1&& Alchemy.cooldown.get(performer.getWurmId()) >System.currentTimeMillis()) {
 			performer.getCommunicator().sendAlertServerMessage(
-					"You are still under influence of another buff potion! " +
+					"You are still under influence of another Buff potion! " +
 					"Drinking another one would probably kill you because of toxicity");
 			performer.getCommunicator().sendAlertServerMessage(
 					"You should wait another "+

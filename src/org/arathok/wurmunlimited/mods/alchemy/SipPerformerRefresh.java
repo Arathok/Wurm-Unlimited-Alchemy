@@ -5,22 +5,17 @@ package org.arathok.wurmunlimited.mods.alchemy;
 import com.wurmonline.server.Items;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.Actions;
-import com.wurmonline.server.bodys.*;
+import com.wurmonline.server.bodys.Wound;
+import com.wurmonline.server.bodys.Wounds;
 import com.wurmonline.server.creatures.Creature;
-import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
-import com.wurmonline.server.spells.SpellEffect;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 
-import java.util.HashMap;
-
-public class SipPerformerHeal implements ActionPerformer {
+public class SipPerformerRefresh implements ActionPerformer {
 
 	int seconds = 300;
 	float power = 0;
-
-
 
 
 
@@ -54,30 +49,12 @@ public class SipPerformerHeal implements ActionPerformer {
 			if (!Alchemy.healCooldown.containsKey(performer.getWurmId()) || Alchemy.healCooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
 				power = target.getCurrentQualityLevel();
 
-				double healingPool= ((Math.max(5.0D, power)) / 100.0D) * 65535.0D * 1.0D;
-				Wounds tWounds = performer.getBody().getWounds();
-				if (tWounds == null) {
-					performer.getCommunicator().sendNormalServerMessage("You have no wounds to heal and wasted your potion!");
-					Items.destroyItem(target.getWurmId());
-					Alchemy.healCooldown.put(performer.getWurmId(), System.currentTimeMillis());
-					Alchemy.healToxicity.put(performer.getWurmId(),0);
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
-				for (Wound w : tWounds.getWounds()) {
-					if (w.getSeverity() <= healingPool) {
-						healingPool -= w.getSeverity();
-						w.heal();
-						performer.getCommunicator().sendNormalServerMessage("You heal one your "+ w.getName() + "Wounds!");
-					}
-					if (w.getSeverity() > healingPool)
-					{
-						w.modifySeverity((int) -healingPool);
-						performer.getCommunicator().sendNormalServerMessage("You heal a part your "+ w.getName() + "Wounds! As the Power of the Potion is used up");
-					}
-				}
+				double healingPool= ((Math.max(5.0D, power)) / 100.0D )* 65535.0D * 1.0D;
+				performer.getStatus().modifyStamina((float) healingPool);
+
+				performer.getCommunicator().sendAlertServerMessage(
+						"You feel the power of the Potion flow through you! " +
+								"You feel refreshed!");
 
 				Items.destroyItem(target.getWurmId());
 				Alchemy.healCooldown.put(performer.getWurmId(), (long) (System.currentTimeMillis()+(30000+( (target.getCurrentQualityLevel()/10) * 21000 ))));
@@ -92,7 +69,7 @@ public class SipPerformerHeal implements ActionPerformer {
 
 				Alchemy.healToxicity.put(performer.getWurmId(),1);
 
-			} else if ((Alchemy.healToxicity.get(performer.getWurmId()) > 0 && Alchemy.healCooldown.get(performer.getWurmId()) >System.currentTimeMillis() ) ||performer.getName()=="Unusualleadergm") {
+			} else if (Alchemy.healToxicity.get(performer.getWurmId()) > 0 && Alchemy.healCooldown.get(performer.getWurmId()) >System.currentTimeMillis()) {
 
 				performer.getCommunicator().sendAlertServerMessage(
 						"You feel the rush of alchemical power in every nerve of your body, " +

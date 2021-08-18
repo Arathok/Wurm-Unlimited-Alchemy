@@ -298,7 +298,7 @@ public class AlchItems {
 
 	private static void registermixtureOakshell() throws IOException {
 		mixtureOakshell = new ItemTemplateBuilder("arathok.alchemy.mixtureOakshell")
-				.name("mixture of Oakshell", "mixtures of Oakshell",
+				.name("mixture of Woodskin", "mixtures of Woodskin",
 						"A mixture of different alchemical substances. One day it might be making a fine potion."
 								+ "it seems to make your skin somewhat woodifies and becomes harder when you touch it.")
 
@@ -342,8 +342,8 @@ public class AlchItems {
 	}
 
 	private static void registermixtureMorningFog() throws IOException {
-		mixtureMorningFog = new ItemTemplateBuilder("arathok.alchemy.mixtureFog").name("mixture of Fog",
-				"mixtures of Fog",
+		mixtureMorningFog = new ItemTemplateBuilder("arathok.alchemy.mixtureFog").name("mixture of fog skin",
+				"mixtures of fog skin",
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
 						+ "Sniffing it your body seems to bend around sharp objects as if it wants to protect itself.")
 
@@ -501,7 +501,7 @@ public class AlchItems {
 	private static void registerPrecursorExcell() throws IOException {
 		precursorExcell = new ItemTemplateBuilder("arathok.alchemy.precursorExcell")
 				.name("potion precursor surpassing", "precursors of surpassing",
-						"A potion precursor. It got the essence of surpassing your foes stored within."
+						"A potion precursor. It got the essence of surpassing your foes through enduring pain stored within."
 								+ "you think its magical properties could be activated by heating it.")
 
 				.modelName("model.precursor.excell.").imageNumber((short) 1527)
@@ -524,7 +524,7 @@ public class AlchItems {
 						"A potion precursor. It got the essence of a goat stored within. Weird."
 								+ "you think its magical properties could be activated by heating it.")
 
-				.modelName("model.precursor.excell.").imageNumber((short) 1526)
+				.modelName("model.precursor.goat.").imageNumber((short) 1526)
 				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
 
 				}).decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
@@ -578,7 +578,7 @@ public class AlchItems {
 
 	private static void registerPrecursorMorningFog() throws IOException {
 		precursorMorningFog = new ItemTemplateBuilder("arathok.alchemy.precursorMorningFog")
-				.name("potion precursor of fog", "precursors of fog",
+				.name("potion precursor of fog skin", "precursors of fog skin",
 						"A potion precursor. It got the essence of mist stored within."
 								+ "you think its magical properties could be activated by heating it.")
 
@@ -598,7 +598,7 @@ public class AlchItems {
 
 	private static void registerPrecursorOakshell() throws IOException {
 		precursorOakshell = new ItemTemplateBuilder("arathok.alchemy.precursorOakshell")
-				.name("potion precursor of oakshell", "precursors of oakshell",
+				.name("potion precursor of woodskin", "precursors of woodskin",
 						"A potion precursor. It got the essence of hard tree bark stored within."
 								+ "you think its magical properties could be activated by heating it.")
 
@@ -735,7 +735,7 @@ public class AlchItems {
 	private static void registerPotionLiquidExcell() throws IOException {
 		potionLiquidExcell = new ItemTemplateBuilder("arathok.alchemy.potionLiquidExcell").name(
 				" potion liquid surpassing", "potion liquids of surpassing",
-				"A  potion liquid. This is almost a finished dodging potion."
+				"A  potion liquid. This is almost a finished eelskin potion."
 						+ " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 				.modelName("model.potionLiquid.excell.").imageNumber((short) 1547)
 				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
@@ -753,7 +753,7 @@ public class AlchItems {
 				"A  potion liquid. This is almost a finished Goatshape potion."
 						+ " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
-				.modelName("model.potionLiquid.excell.").imageNumber((short) 1546)
+				.modelName("model.potionLiquid.goat.").imageNumber((short) 1546)
 				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
 
 				}).decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
@@ -796,8 +796,8 @@ public class AlchItems {
 
 	private static void registerPotionLiquidMorningFog() throws IOException {
 		potionLiquidMorningFog = new ItemTemplateBuilder("arathok.alchemy.potionLiquidMorningFog").name(
-				" potion liquid of fog", "potion liquids of fog",
-				"A  potion liquid. This is almost a finished fog potion. "
+				" potion liquid of fog skin", "potion liquids of fog skin",
+				"A  potion liquid. This is almost a finished fog skin potion. "
 						+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 				.modelName("model.potionLiquid.fog.").imageNumber((short) 1548)
 				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
@@ -928,8 +928,8 @@ public class AlchItems {
 
 	private static void registerPotionExcell() throws IOException {
 		potionExcell = new ItemTemplateBuilder("arathok.alchemy.potionExcell")
-				.name(" potion of surpassion", "potions of surpassion",
-						"An alchemistic potion, drinking it will bestow the power of surpassing your enemies to you.")
+				.name(" potion of eelskin", "potions of eelskin",
+						"An alchemistic potion, drinking it will bestow the power of eelskin to you. Your enemies wont hit as good!")
 
 				.modelName("model.potion.excell.").imageNumber((short) 1567).itemTypes(new short[] {
 						// ItemTypes.ITEM_TYPE_BULK,
@@ -1005,7 +1005,7 @@ public class AlchItems {
 
 	private static void registerPotionMorningFog() throws IOException {
 		potionMorningFog = new ItemTemplateBuilder("arathok.alchemy.potionMorningFog")
-				.name(" potion of Fog", "potions of Fog",
+				.name(" potion of fog skin", "potions of fog skin",
 						"An alchemistic potion, drinking it will bestow the power of Fog to you.")
 
 				.modelName("model.potion.fog.").imageNumber((short) 1568)

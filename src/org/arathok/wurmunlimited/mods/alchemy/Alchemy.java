@@ -25,8 +25,9 @@ import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurable, ItemTemplatesCreatedListener, ServerStartedListener, ServerPollListener, PlayerMessageListener{
 	public static final Logger logger = Logger.getLogger("Alchemy");
-
+	public static HashMap<Long, Long> healCooldown = new HashMap<Long, Long>();
 	public static HashMap<Long, Long> cooldown = new HashMap<Long, Long>();
+	public static HashMap<Long, Integer> healToxicity = new HashMap<Long, Integer>();
 	public static HashMap<Long, Integer> toxicity = new HashMap<Long, Integer>();
 	@Override
 	public void preInit() {
