@@ -2,6 +2,7 @@ package org.arathok.wurmunlimited.mods.alchemy;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
@@ -12,92 +13,84 @@ import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 
 public class PotionBehaviour implements BehaviourProvider {
-	private List<ActionEntry> consume = Collections.singletonList(new ActionEntry(Actions.DRINK, "Drink", "drinking"));
+	private final List<ActionEntry> consume = Collections.singletonList(new ActionEntry(Actions.DRINK, "Consume Potion", "consuming"));
 
 
 
 	@Override
 	public List<ActionEntry> getBehavioursFor(Creature performer, Item target) {
+
 		if (target.getTemplateId() == AlchItems.potionIdHeal) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
 
-		}
-
-		else if (target.getTemplateId() == AlchItems.potionIdGoat) {
+		} else if (target.getTemplateId() == AlchItems.potionIdGoat) {
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdExcell) {
+		} else if (target.getTemplateId() == AlchItems.potionIdExcell) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdFranticCharge) {
+		} else if (target.getTemplateId() == AlchItems.potionIdFranticCharge) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
 
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdMorningFog) {
+		} else if (target.getTemplateId() == AlchItems.potionIdMorningFog) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
 
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdOakshell) {
+		} else if (target.getTemplateId() == AlchItems.potionIdOakshell) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
 
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdSixthSense) {
+		} else if (target.getTemplateId() == AlchItems.potionIdSixthSense) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
 
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdTruehit) {
+		} else if (target.getTemplateId() == AlchItems.potionIdTruehit) {
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdStrength) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdWillowspine) {
+		} else if (target.getTemplateId() == AlchItems.potionIdWillowspine) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
 
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdVynora) {
+		} else if (target.getTemplateId() == AlchItems.potionIdVynora) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
-		} 
-		else if (target.getTemplateId() == AlchItems.potionIdRefresh) {
+		} else if (target.getTemplateId() == AlchItems.potionIdRefresh) {
 
 			List<ActionEntry> list = new ArrayList<>();
-			if (SipPerformer.canUse(performer, target))
+			if (SipPerformerTruehit.canUse(performer, target))
 				return new ArrayList<>(consume);
 
-		} 
-		else
+		} else
 			return null;
+
+
+
 	return null;
 	}
 

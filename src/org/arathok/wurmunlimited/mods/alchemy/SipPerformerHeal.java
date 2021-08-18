@@ -19,9 +19,10 @@ public class SipPerformerHeal implements ActionPerformer {
 
 	int seconds = 300;
 	float power = 0;
-	int toxicity = 0;
 
-	HashMap<Long, Long> cooldown = new HashMap<Long, Long>();
+
+	HashMap<Long, Long> healCooldown = new HashMap<Long, Long>();
+	HashMap<Long, Integer> healToxicity = new HashMap<Long, Integer>();
 
 	@Override
 	public short getActionId() {
@@ -50,7 +51,7 @@ public class SipPerformerHeal implements ActionPerformer {
 		}
 // EFFECT STUFF GOES HERE
 		if (target.getTemplateId() == AlchItems.potionIdHeal) {
-			if (!cooldown.containsKey(performer.getWurmId()) || cooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
+			if (!healCooldown.containsKey(performer.getWurmId()) || healCooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
 				power = target.getCurrentQualityLevel();
 
 				double healingPool= Math.max(5.0D, power) / 100.0D * 65535.0D * 2.0D;
@@ -58,8 +59,8 @@ public class SipPerformerHeal implements ActionPerformer {
 				if (tWounds == null) {
 					performer.getCommunicator().sendNormalServerMessage("You have no wounds to heal and wasted your potion!");
 					Items.destroyItem(target.getWurmId());
-					cooldown.put(performer.getWurmId(), System.currentTimeMillis());
-					toxicity = 0;
+					healCooldown.put(performer.getWurmId(), System.currentTimeMillis());
+					healToxicity.put(performer.getWurmId(),0);
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -79,22 +80,22 @@ public class SipPerformerHeal implements ActionPerformer {
 				}
 
 				Items.destroyItem(target.getWurmId());
-				cooldown.put(performer.getWurmId(), System.currentTimeMillis());
-				toxicity = 0;
-				performer.getCommunicator().sendAlertServerMessage("You are still under influence of another potion! " +
-						"Drinking another one would probably kill you because of toxicity");
+				healCooldown.put(performer.getWurmId(), System.currentTimeMillis());
+				healToxicity.put(performer.getWurmId(),0);
 
-			} else if (toxicity < 1) {
-				performer.getCommunicator().sendAlertServerMessage("You are still under influence of another potion! " +
-						"Drinking another one would probably kill you because of toxicity");
 
-				toxicity++;
-			} else if (toxicity > 0) {
-				/* performer.addWoundOfType() TODO:RESEARCH THIS SHIT */
-				performer.destroy();
+			} else if (healToxicity.get(performer.getWurmId()) < 1&& healCooldown.get(performer.getWurmId()) +(30000+( (target.getCurrentQualityLevel()/10) * 21000 ))>System.currentTimeMillis()) {
+				performer.getCommunicator().sendAlertServerMessage("You are still under influence of another Healing potion! " +
+						"Drinking another one would probably kill you because of healToxicity");
+
+				healToxicity.put(performer.getWurmId(),1);
+
+			} else if (healToxicity.get(performer.getWurmId()) > 0 && healCooldown.get(performer.getWurmId()) +60000>System.currentTimeMillis()) {
+
 				performer.getCommunicator().sendAlertServerMessage("You feel the rush of alchemical power in every nerve of your body, " +
 						"only for the feeling of power to subside after a short while" +
 						" and your body collapses under the toxins.");
+				performer.addWoundOfType(performer,(byte)5,21,false,0.0F,false,105,0.0F,1.0F,false,false);
 			}
 		}
 		return propagate(action,

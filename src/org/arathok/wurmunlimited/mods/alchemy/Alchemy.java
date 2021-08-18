@@ -1,23 +1,18 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
 import com.wurmonline.server.creatures.Communicator;
-import com.wurmonline.server.items.*;
-import com.wurmonline.server.skills.SkillList;
-import com.wurmonline.shared.constants.IconConstants;
 
-import com.wurmonline.server.Servers;
-import com.wurmonline.server.creatures.Communicator;
 import javassist.ClassPool;
 import javassist.CtClass;
 import org.gotti.wurmunlimited.modloader.classhooks.HookManager;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
 
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import java.io.IOException;
-import java.util.Properties;
 
 import org.gotti.wurmunlimited.modloader.interfaces.Configurable;
 import org.gotti.wurmunlimited.modloader.interfaces.Initable;
@@ -26,11 +21,13 @@ import org.gotti.wurmunlimited.modloader.interfaces.PlayerMessageListener;
 import org.gotti.wurmunlimited.modloader.interfaces.PreInitable;
 import org.gotti.wurmunlimited.modloader.interfaces.ServerStartedListener;
 import org.gotti.wurmunlimited.modloader.interfaces.WurmServerMod;
-import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurable, ItemTemplatesCreatedListener, ServerStartedListener, ServerPollListener, PlayerMessageListener{
 	public static final Logger logger = Logger.getLogger("Alchemy");
+
+	public static HashMap<Long, Long> cooldown = new HashMap<Long, Long>();
+	public static HashMap<Long, Integer> toxicity = new HashMap<Long, Integer>();
 	@Override
 	public void preInit() {
 		
@@ -65,13 +62,14 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public void onItemTemplatesCreated() {
 		
 		
-	            try {
+	            try{
 					AlchItems.register();
+					logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I am creating my Item templates! <3");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+
 				}
-	     
 	    
 		// TODO Auto-generated method stub
 		
@@ -80,15 +78,15 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerStarted() {
 		// TODO Auto-generated method stub
-	      ModActions.registerActionPerformer(new SipPerformer());
+	      ModActions.registerActionPerformer(new SipPerformerTruehit());
           ModActions.registerBehaviourProvider(new PotionBehaviour());
-		logger.log(Level.INFO, "blah blah blah i'm loaded!");
+          logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
 	}
 
 	@Override
 	public void configure(Properties arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
