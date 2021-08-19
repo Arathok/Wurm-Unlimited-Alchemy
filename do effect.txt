@@ -1,0 +1,25 @@
+  void doEffect(Skill castSkill, double power, Creature performer, Creature target) {
+    SpellEffects effs = target.getSpellEffects();
+    if (effs == null)
+      effs = target.createSpellEffects(); 
+    SpellEffect eff = effs.getSpellEffect(this.enchantment);
+    if (eff == null) {
+      if (target != performer)
+        performer.getCommunicator().sendNormalServerMessage(target.getNameWithGenus() + " now has " + this.effectdesc, (byte)2); 
+      target.getCommunicator().sendNormalServerMessage("You now have " + this.effectdesc);
+      eff = new SpellEffect(target.getWurmId(), this.enchantment, (float)power, (int)Math.max(1.0D, Math.max(1.0D, power) * (this.durationModifier + performer.getNumLinks())), (byte)9, isOffensive() ? 1 : 0, true);
+      effs.addSpellEffect(eff);
+      Server.getInstance().broadCastAction(performer.getName() + " looks pleased.", performer, 5);
+    } else if (eff.getPower() > power) {
+      performer.getCommunicator().sendNormalServerMessage("You frown as you fail to improve the power.", (byte)3);
+      Server.getInstance().broadCastAction(performer.getName() + " frowns.", performer, 5);
+    } else {
+      if (target != performer)
+        performer.getCommunicator().sendNormalServerMessage("You succeed in improving the power of the " + this.name + ".", (byte)2); 
+      target.getCommunicator().sendNormalServerMessage("You will now receive " + this.effectdesc);
+      eff.setPower((float)power);
+      eff.setTimeleft(Math.max(eff.timeleft, 
+            (int)Math.max(1.0D, Math.max(1.0D, power) * (this.durationModifier + performer.getNumLinks()))));
+      target.sendUpdateSpellEffect(eff);
+      Server.getInstance().broadCastAction(performer.getName() + " looks pleased.", performer, 5);
+    } 
