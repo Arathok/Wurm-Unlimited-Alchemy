@@ -11,12 +11,7 @@ import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
-import com.wurmonline.server.spells.Spell;
 import com.wurmonline.server.spells.SpellEffect;
-import com.wurmonline.server.spells.Spells;
-
-import java.util.HashMap;
-import java.util.logging.Level;
 
 public class SipPerformerTruehit implements ActionPerformer {
 
@@ -99,7 +94,7 @@ public class SipPerformerTruehit implements ActionPerformer {
 					"You feel the rush of alchemical power in every nerve of your body, " +
 					"only for the feeling of power to subside after a short while" +
 					" and your body collapses under the toxins.");
-			performer.addWoundOfType(performer,(byte)5,21,false,0.0F,false,105,0.0F,1.0F,false,false);
+			performer.die(false, "toxicity");
 		}
 
 		return propagate(action,

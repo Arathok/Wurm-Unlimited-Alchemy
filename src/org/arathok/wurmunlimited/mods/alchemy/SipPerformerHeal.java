@@ -7,13 +7,9 @@ import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.bodys.*;
 import com.wurmonline.server.creatures.Creature;
-import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
-import com.wurmonline.server.spells.SpellEffect;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
-
-import java.util.HashMap;
 
 public class SipPerformerHeal implements ActionPerformer {
 
@@ -98,7 +94,7 @@ public class SipPerformerHeal implements ActionPerformer {
 						"You feel the rush of alchemical power in every nerve of your body, " +
 						"only for the feeling of power to subside after a short while" +
 						" and your body collapses under the toxins.");
-				performer.addWoundOfType(performer,(byte)5,21,false,0.0F,false,105,0.0F,1.0F,false,false);
+				performer.die(false, "toxicity");
 			}
 		}
 		return propagate(action,

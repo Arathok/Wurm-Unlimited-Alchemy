@@ -31,7 +31,7 @@ public class SipPerformerFrenzy implements ActionPerformer {
 	public boolean action(Action action, Creature performer, Item target, short num, float counter) {
 
 		//Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");
-		if (target.getTemplateId() != AlchItems.potionIdMorningFog)
+		if (target.getTemplateId() != AlchItems.potionIdFranticCharge)
 			return propagate(action,
 					ActionPropagation.SERVER_PROPAGATION,
 					ActionPropagation.ACTION_PERFORMER_PROPAGATION);
@@ -46,7 +46,7 @@ public class SipPerformerFrenzy implements ActionPerformer {
 		}
 // EFFECT STUFF GOES HERE
 		if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
-			if (target.getTemplateId() == AlchItems.potionIdMorningFog) {
+			if (target.getTemplateId() == AlchItems.potionIdFranticCharge) {
 
 				power = target.getCurrentQualityLevel();
 
@@ -99,7 +99,7 @@ public class SipPerformerFrenzy implements ActionPerformer {
 					"You feel the rush of alchemical power in every nerve of your body, " +
 					"only for the feeling of power to subside after a short while" +
 					" and your body collapses under the toxins.");
-			performer.addWoundOfType(performer,(byte)5,21,false,0.0F,false,105,0.0F,1.0F,false,false);
+			performer.die(false,"toxicity");
 		}
 
 		return propagate(action,

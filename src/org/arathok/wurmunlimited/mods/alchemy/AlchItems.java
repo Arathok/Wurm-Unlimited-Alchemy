@@ -128,7 +128,7 @@ public class AlchItems {
 				.decayTime(9072000L)
 				.dimensions(20, 20, 20)
 				.weightGrams(20000)
-				.material(Materials.MATERIAL_ADAMANTINE)
+				.material(Materials.MATERIAL_IRON)
 				.behaviourType((short) 1)
 				.primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
 				.build();
@@ -256,15 +256,18 @@ public class AlchItems {
 								ItemTypes.ITEM_TYPE_LIQUID,
 								ItemTypes.ITEM_TYPE_METAL,
 
-						}).decayTime(9072000L).dimensions(10, 10, 10).weightGrams(1000)
-				.material(Materials.MATERIAL_MAGIC).behaviourType((short) 1).primarySkill(SkillList.GROUP_ALCHEMY)
+						}).decayTime(9072000L)
+				.dimensions(10, 10, 10)
+				.weightGrams(1000)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1).primarySkill(SkillList.GROUP_ALCHEMY)
 				.difficulty(10) // no hard lock
 				.build();
 
 		alchemicalCompoundId = alchemicalCompound.getTemplateId();
 
 		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.purifiedWaterId, ItemList.heart,
-				alchemicalCompoundId, true, true, 0f, false, false, CreationCategories.DECORATION);
+				alchemicalCompoundId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureDodging() throws IOException {
@@ -282,7 +285,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+
 
 				}).decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
@@ -644,6 +647,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
+						
 
 				})
 				.decayTime(9072000L)

@@ -99,7 +99,7 @@ public class SipPerformerFog implements ActionPerformer {
 					"You feel the rush of alchemical power in every nerve of your body, " +
 					"only for the feeling of power to subside after a short while" +
 					" and your body collapses under the toxins.");
-			performer.addWoundOfType(performer,(byte)5,21,false,0.0F,false,105,0.0F,1.0F,false,false);
+			performer.die(false, "toxicity");
 		}
 
 		return propagate(action,

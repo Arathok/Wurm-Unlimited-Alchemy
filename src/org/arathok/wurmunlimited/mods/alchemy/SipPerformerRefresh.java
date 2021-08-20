@@ -5,8 +5,6 @@ package org.arathok.wurmunlimited.mods.alchemy;
 import com.wurmonline.server.Items;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.Actions;
-import com.wurmonline.server.bodys.Wound;
-import com.wurmonline.server.bodys.Wounds;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
@@ -31,7 +29,7 @@ public class SipPerformerRefresh implements ActionPerformer {
 	@Override
 	public boolean action(Action action, Creature performer, Item target, short num, float counter) {
 		//Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");
-		if (target.getTemplateId() != AlchItems.potionIdHeal)
+		if (target.getTemplateId() != AlchItems.potionIdRefresh)
 			return propagate(action,
 					ActionPropagation.SERVER_PROPAGATION,
 					ActionPropagation.ACTION_PERFORMER_PROPAGATION);
@@ -45,7 +43,7 @@ public class SipPerformerRefresh implements ActionPerformer {
 
 		}
 // EFFECT STUFF GOES HERE
-		if (target.getTemplateId() == AlchItems.potionIdHeal) {
+		if (target.getTemplateId() == AlchItems.potionIdRefresh) {
 			if (!Alchemy.healCooldown.containsKey(performer.getWurmId()) || Alchemy.healCooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
 				power = target.getCurrentQualityLevel();
 
@@ -75,7 +73,7 @@ public class SipPerformerRefresh implements ActionPerformer {
 						"You feel the rush of alchemical power in every nerve of your body, " +
 						"only for the feeling of power to subside after a short while" +
 						" and your body collapses under the toxins.");
-				performer.addWoundOfType(performer,(byte)5,21,false,0.0F,false,105,0.0F,1.0F,false,false);
+						performer.die(false, "toxicity");
 			}
 		}
 		return propagate(action,

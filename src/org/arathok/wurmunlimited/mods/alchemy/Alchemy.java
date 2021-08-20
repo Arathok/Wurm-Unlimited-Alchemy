@@ -29,6 +29,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public static HashMap<Long, Long> cooldown = new HashMap<Long, Long>();
 	public static HashMap<Long, Integer> healToxicity = new HashMap<Long, Integer>();
 	public static HashMap<Long, Integer> toxicity = new HashMap<Long, Integer>();
+	public static HashMap<Long,Integer> addiction = new HashMap<Long,Integer>();
 	@Override
 	public void preInit() {
 		
@@ -79,7 +80,19 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerStarted() {
 		// TODO Auto-generated method stub
+	      ModActions.registerActionPerformer(new SipPerformerExcel());
+	      ModActions.registerActionPerformer(new SipPerformerFog());
+	      ModActions.registerActionPerformer(new SipPerformerFrenzy());
+	      ModActions.registerActionPerformer(new SipPerformerGoat());
+	      ModActions.registerActionPerformer(new SipPerformerHeal());
+	      ModActions.registerActionPerformer(new SipPerformerRefresh());
+	      ModActions.registerActionPerformer(new SipPerformerSenses());
+	      ModActions.registerActionPerformer(new SipPerformerStrength());
 	      ModActions.registerActionPerformer(new SipPerformerTruehit());
+	      ModActions.registerActionPerformer(new SipPerformerUltimateKnowledge());
+	      ModActions.registerActionPerformer(new SipPerformerWillowspine());
+	      ModActions.registerActionPerformer(new SipPerformerWoodskin());
+	      
           ModActions.registerBehaviourProvider(new PotionBehaviour());
           logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
 	}

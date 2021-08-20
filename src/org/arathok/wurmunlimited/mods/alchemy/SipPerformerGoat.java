@@ -10,13 +10,9 @@ import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
-import com.wurmonline.server.spells.Spell;
 import com.wurmonline.server.spells.SpellEffect;
-import com.wurmonline.server.spells.Spells;
-import com.wurmonline.server.creatures.*;
 
 import java.util.HashMap;
-import java.util.logging.Level;
 
 public class SipPerformerGoat implements ActionPerformer {
 
@@ -87,7 +83,7 @@ public class SipPerformerGoat implements ActionPerformer {
 
             else if (cooldown.get(performer.getWurmId())+300000>System.currentTimeMillis() && toxicity.get(performer.getWurmId()) == 1) {
                 /* performer.addWoundOfType() TODO:RESEARCH THIS SHIT */
-                performer.addWoundOfType(null, (byte) 5,1,true,1.0F,false,150,0.0F,0.0F,false,false);
+            	performer.die(false, "toxicity");
                 performer.getCommunicator().sendAlertServerMessage("You feel the rush of alchemical power in every nerve of your body, " +
                         "only for the feeling of power to subside after a short while" +
                         " and your body collapses under the toxins.");
