@@ -27,7 +27,7 @@ public class Addiction {
 	int currentAddictionLevel = 0;
 	int previousAddictionLevel = 0;
 	public void addictionHandler()  {
-		
+
 		for (Entry<Long, Integer> set : Alchemy.currentAddiction.entrySet())
 		{
 			if (addictionTimer < System.currentTimeMillis()) {
@@ -68,5 +68,3 @@ public class Addiction {
 
 	}
 }
-
-
