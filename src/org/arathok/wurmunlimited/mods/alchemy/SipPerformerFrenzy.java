@@ -77,6 +77,9 @@ public class SipPerformerFrenzy implements ActionPerformer {
 						"You feel the power of the Potion flow through you! " +
 						"You feel your skin burning with the fire of hate, the beast in you is taking over!"+
 						"You fall into a frenzy moving lightning fast!");
+				int temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
+				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 
 
 			}
@@ -100,6 +103,7 @@ public class SipPerformerFrenzy implements ActionPerformer {
 					"only for the feeling of power to subside after a short while" +
 					" and your body collapses under the toxins.");
 			performer.die(false,"toxicity");
+
 		}
 
 		return propagate(action,

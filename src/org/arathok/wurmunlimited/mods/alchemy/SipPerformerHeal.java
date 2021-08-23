@@ -57,6 +57,7 @@ public class SipPerformerHeal implements ActionPerformer {
 					Items.destroyItem(target.getWurmId());
 					Alchemy.healCooldown.put(performer.getWurmId(), System.currentTimeMillis());
 					Alchemy.healToxicity.put(performer.getWurmId(),0);
+
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -78,6 +79,9 @@ public class SipPerformerHeal implements ActionPerformer {
 				Items.destroyItem(target.getWurmId());
 				Alchemy.healCooldown.put(performer.getWurmId(), (long) (System.currentTimeMillis()+(30000+( (target.getCurrentQualityLevel()/10) * 21000 ))));
 				Alchemy.healToxicity.put(performer.getWurmId(),0);
+				int temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
+				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 
 
 			} else if (Alchemy.healToxicity.get(performer.getWurmId()) < 1&& Alchemy.healCooldown.get(performer.getWurmId()) >System.currentTimeMillis()) {

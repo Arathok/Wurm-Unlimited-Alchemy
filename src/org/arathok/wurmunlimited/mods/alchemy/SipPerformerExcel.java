@@ -76,6 +76,9 @@ public class SipPerformerExcel implements ActionPerformer {
 				performer.getCommunicator().sendAlertServerMessage(
 						"You feel the power of the Potion flow through you! " +
 						"You feel your skin becoming slick and silky!");
+				int temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
+				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 
 
 			}

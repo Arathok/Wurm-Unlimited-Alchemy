@@ -23,7 +23,7 @@ public class Addiction {
 	SpellEffect eff = null;
 	float powerRotGut = 0;
 	float powerWormBrain = 0;
-	int seconds = 300;
+	int seconds = 900;
 	int currentAddictionLevel = 0;
 	int previousAddictionLevel = 0;
 	public void addictionHandler()  {
@@ -33,10 +33,27 @@ public class Addiction {
 			if (addictionTimer < System.currentTimeMillis()) {
 
 				wurmId = set.getKey();
+				if (wurmId != 0)
 				currentAddictionLevel = set.getValue();
+				previousAddictionLevel = Alchemy.previousAddiction.get(wurmId);
 
 				p = Players.getInstance().getPlayerOrNull(wurmId);
-				if (currentAddictionLevel > 5) {
+				if (currentAddictionLevel < 4) {
+
+					p.getCommunicator().sendAlertServerMessage("Consuming that potion you became a bit closer to becoming addicted to magic potions.");
+				}
+
+				if (currentAddictionLevel == 4)  {
+
+					p.getCommunicator().sendAlertServerMessage("You are just one small step before becoming addicted to the power of potions. You sense some dread in that thought.");
+				}
+
+				if (currentAddictionLevel > 5)  {
+
+					p.getCommunicator().sendAlertServerMessage("You are addicted to potions.");
+				}
+
+				if (currentAddictionLevel > 5 && previousAddictionLevel > currentAddictionLevel) {
 
 					SpellEffects effs = p.getSpellEffects();
 
@@ -58,10 +75,55 @@ public class Addiction {
 						eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
 						p.sendUpdateSpellEffect(eff);
 					}
+
+					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
+					p.getCommunicator().sendSafeServerMessage("Alchemical power is poisoning you. You feel weak.");
 				}
+
+				if (currentAddictionLevel < 12 && currentAddictionLevel >= 10 && previousAddictionLevel > currentAddictionLevel ) {
+
+					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 10000, (float)1, 0.0F, false, true);
+					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
+					p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks to tolerable levels.");
+				}
+
+				if (currentAddictionLevel < 15 && currentAddictionLevel >= 12 && previousAddictionLevel > currentAddictionLevel) {
+
+					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 15000, (float)1, 0.0F, false, true);
+					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
+					p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks to bearable levels.");
+				}
+
+				if (currentAddictionLevel < 20 && currentAddictionLevel >= 15 && previousAddictionLevel > currentAddictionLevel) {
+
+					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 20000, (float)1, 0.0F, false, true);
+					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
+					p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks but its still at dangerous levels");
+					p.addWoundOfType(p, (byte)9, 1, false, 1.0F, false, 10000, 0.0F, 0.0F, false, true);
+					p.getCommunicator().sendSafeServerMessage("The toxicity in your body slightly messes with your brain.");
+				}
+
+				if (currentAddictionLevel < 25 && currentAddictionLevel >= 20 && previousAddictionLevel > currentAddictionLevel) {
+
+					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 30000, (float)1, 0.0F, false, true);
+					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
+					p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks but its still at dangerous levels");
+					p.addWoundOfType(p, (byte)9, 1, false, 1.0F, false, 20000, 0.0F, 0.0F, false, true);
+					p.getCommunicator().sendSafeServerMessage("The toxicity in your body messes with your brain.");
+				}
+
+				if (currentAddictionLevel > 25 && previousAddictionLevel > currentAddictionLevel) {
+
+					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 30000, (float)1, 0.0F, false, true);
+					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
+					p.getCommunicator().sendSafeServerMessage("The toxicity in your body is at dangerous levels");
+					p.addWoundOfType(p, (byte)9, 1, false, 1.0F, false, 30000, 0.0F, 0.0F, false, true);
+					p.getCommunicator().sendSafeServerMessage("The toxicity in your body messes heavily with your brain.");
+				}
+
 				Alchemy.currentAddiction.put(wurmId,currentAddictionLevel-1);
 				Alchemy.previousAddiction.put(wurmId,currentAddictionLevel);
-				addictionTimer=System.currentTimeMillis()+600000;
+				addictionTimer=System.currentTimeMillis()+(seconds*1000);
 			}
 
 		}

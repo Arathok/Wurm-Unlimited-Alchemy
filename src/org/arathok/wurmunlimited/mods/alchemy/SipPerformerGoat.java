@@ -73,6 +73,9 @@ public class SipPerformerGoat implements ActionPerformer {
                 toxicity.put(performer.getWurmId(),0);
                 performer.getCommunicator().sendAlertServerMessage("You feel the power of the potion rushing through your body! " +
                         "You feel the joyful pride of a goat, weird!");
+                int temp = Alchemy.currentAddiction.get(performer.getWurmId());
+                Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
+                Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 
             } else if (cooldown.containsKey(performer.getWurmId()) && cooldown.get(performer.getWurmId()) + 300000 > System.currentTimeMillis()) {
                 performer.getCommunicator().sendAlertServerMessage("You are still under influence of another potion! " +
@@ -87,6 +90,7 @@ public class SipPerformerGoat implements ActionPerformer {
                 performer.getCommunicator().sendAlertServerMessage("You feel the rush of alchemical power in every nerve of your body, " +
                         "only for the feeling of power to subside after a short while" +
                         " and your body collapses under the toxins.");
+
             }
         }
         return propagate(action,

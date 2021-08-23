@@ -77,6 +77,9 @@ public class SipPerformerStrength implements ActionPerformer {
 						"You feel the power of the Potion flow through you! " +
 						"You feel blood boiling and a demonic strength is raging through you!"+
 						"You got superior strength!");
+				int temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
+				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 
 
 			}
