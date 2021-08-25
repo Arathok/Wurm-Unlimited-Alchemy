@@ -97,7 +97,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public void onServerPoll() {
-		// TODO Auto-generated method stub
+		Addiction.addictionHandler();
 		
 	}
 

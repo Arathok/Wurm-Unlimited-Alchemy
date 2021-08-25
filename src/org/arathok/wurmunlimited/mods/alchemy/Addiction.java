@@ -17,16 +17,16 @@ import com.wurmonline.server.spells.SpellEffect;
 
 public class Addiction {
 
-	long addictionTimer = 0;
-	Player p = null;
-	long wurmId = 0;
+	static long addictionTimer = 0;
+	static Player p = null;
+	static long wurmId = 0;
 	SpellEffect eff = null;
 	float powerRotGut = 0;
 	float powerWormBrain = 0;
-	int seconds = 900;
-	int currentAddictionLevel = 0;
-	int previousAddictionLevel = 0;
-	public void addictionHandler()  {
+	static int seconds = 900;
+	static int currentAddictionLevel = 0;
+	static int previousAddictionLevel = 0;
+	public static void addictionHandler()  {
 
 		for (Entry<Long, Integer> set : Alchemy.currentAddiction.entrySet())
 		{
