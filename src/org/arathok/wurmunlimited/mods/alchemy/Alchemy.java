@@ -37,22 +37,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		 ModActions.init();
 
 		
-		try
-		{
-		ClassPool classPool = HookManager.getInstance().getClassPool();
-		CtClass ctPlayers = classPool.getCtClass("com.wurmonline.server.Players");
-        ctPlayers.getMethod("sendStartKingdomChat", "(Lcom/wurmonline/server/players/Player;)V").setBody("return;");
-        ctPlayers.getMethod("sendStartGlobalKingdomChat", "(Lcom/wurmonline/server/players/Player;)V").setBody("return;");
-		
-		CtClass ctPlayer = classPool.getCtClass("com.wurmonline.server.players.Player");
-
-        ctPlayer.getMethod("isKingdomChat", "()Z").setBody("return false;");
-        ctPlayer.getMethod("isGlobalChat", "()Z").setBody("return false;");
-        ctPlayer.getMethod("seesPlayerAssistantWindow", "()Z").setBody("return false;");
-		 } catch (Throwable e) {
-	            throw new RuntimeException(e);
-		 }
-
+	
 	}
 
 	@Override
