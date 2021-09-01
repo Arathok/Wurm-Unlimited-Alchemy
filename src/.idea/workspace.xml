@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8748af6-1ae3-48fb-9e8e-1cac1eceed99" name="Changes" comment="INtelliJ">
-      <change beforePath="$PROJECT_DIR$/org/arathok/wurmunlimited/mods/alchemy/Addiction.java" beforeDir="false" afterPath="$PROJECT_DIR$/org/arathok/wurmunlimited/mods/alchemy/Addiction.java" afterDir="false" />
-    </list>
+    <list default="true" id="a8748af6-1ae3-48fb-9e8e-1cac1eceed99" name="Changes" comment="INtelliJ" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
