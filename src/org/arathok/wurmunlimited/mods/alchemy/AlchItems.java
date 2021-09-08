@@ -19,7 +19,8 @@ import com.wurmonline.shared.constants.IconConstants;
 
 // WAIT WHATS HAPPENING?!
 public class AlchItems {
-	public static int leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
+	public static int
+			leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
 			glassMixtureId, glassId,
 
 			mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
@@ -35,7 +36,17 @@ public class AlchItems {
 			potionLiquidTruehitId, potionLiquidWillowspineId, potionLiquidRefreshId, potionLiquidVynoraId,
 
 			potionIdHeal, potionIdGoat, potionIdExcell, potionIdOakshell, potionIdMorningFog, potionIdFranticCharge,
-			potionIdStrength, potionIdSixthSense, potionIdTruehit, potionIdWillowspine, potionIdRefresh, potionIdVynora;
+			potionIdStrength, potionIdSixthSense, potionIdTruehit, potionIdWillowspine, potionIdRefresh, potionIdVynora,
+
+			pasteDemiseAnimalId, pasteDemiseMonsterId, pasteDemiseLegendaryId, pasteDemiseHumanId, pasteLickOfFireId,
+			pasteKissOfFrostId, pasteLeechId, pasteHeartseekerId, pastePlagueId, pastePoisonId,
+
+			oilDemiseAnimalId, oilDemiseMonsterId, oilDemiseLegendaryId, oilDemiseHumanId, oilLickOfFireId,
+			oilKissOfFrostId, oilLeechId, oilHeartseekerId, oilPlagueId, oilPoisonId,
+
+			weaponOilDemiseAnimalId, weaponOilDemiseMonsterId, weaponOilDemiseLegendaryId, weaponOilDemiseHumanId, weaponOilLickOfFireId,
+			weaponOilKissOfFrostId, weaponOilLeechId, weaponOilHeartseekerId, weaponOilPlagueId, weaponOilPoisonId;
+
 	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass,
 
 			leader, mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
@@ -50,7 +61,16 @@ public class AlchItems {
 			potionLiquidWillowspine, potionLiquidRefresh, potionLiquidVynora,
 
 			potionHeal, potionGoat, potionExcell, potionOakshell, potionMorningFog, potionFranticCharge, potionStrength,
-			potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora;
+			potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora,
+
+			pasteDemiseAnimal, pasteDemiseMonster, pasteDemiseLegendary, pasteDemiseHuman, pasteLickOfFire,
+			pasteKissOfFrost, pasteLeech, pasteHeartseeker, pastePlague, pastePoison,
+
+			oilDemiseAnimal, oilDemiseMonster, oilDemiseLegendary, oilDemiseHuman, oilLickOfFire,
+			oilKissOfFrost, oilLeech, oilHeartseeker, oilPlague, oilPoison,
+
+			weaponOilDemiseAnimal, weaponOilDemiseMonster, weaponOilDemiseLegendary, weaponOilDemiseHuman, weaponOilLickOfFire,
+			weaponOilKissOfFrost, weaponOilLeech, weaponOilHeartseeker, weaponOilPlague, weaponOilPoison;
 
 	private static void registerLeader() throws IOException {
 		leader = new ItemTemplateBuilder("arathok.alchemy.leader")
@@ -1585,6 +1605,207 @@ public class AlchItems {
 		potionIdVynora = potionVynora.getTemplateId();
 		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.potionLiquidVynoraId, potionIdVynora, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
 	}
+
+	/// PASTES
+
+	private static void registerPasteDemiseAnimal() throws IOException {
+		pasteDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseAnimal")
+				.name(" paste of Animal Demise", "pastes of Animal Demise",
+						"A paste that smells of death. Rubbing it on a piece animal flesh it seems to dissolve it. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.paste.animal.")
+				.imageNumber((short) 1570)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_REPAIRABLE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(40) // no hard lock
+				.build();
+
+		pasteDemiseAnimalId = pasteDemiseAnimal.getTemplateId();
+		CreationEntryCreator
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseAnimalId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.addRequirement(new CreationRequirement(1, ItemList.eye, 1, true));
+
+	}
+
+
+	private static void registerPasteDemiseMonster() throws IOException {
+		pasteDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseMonster")
+				.name(" paste of Monsters Demise", "pastes of Monsters Demise",
+						"A paste that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.paste.animal.")
+				.imageNumber((short) 1571)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_REPAIRABLE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(60) // no hard lock
+				.build();
+
+		pasteDemiseMonsterId = pasteDemiseMonster.getTemplateId();
+		CreationEntryCreator
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseMonsterId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.addRequirement(new CreationRequirement(1, ItemList.gland, 1, true));
+
+	}
+	private static void registerPasteDemiseLegendary() throws IOException {
+		pasteDemiseLegendary = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseLegendary")
+				.name(" paste of Legendarys Demise", "pastes of Legendarys Demise",
+						"A paste that smells of death. You find that it doesn't disslolve any flesh you know not even your own. Maybe you should test it on Dragons or so? " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.paste.legendary.")
+				.imageNumber((short) 1572)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_REPAIRABLE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(70) // no hard lock
+				.build();
+
+		pasteDemiseLegendaryId = pasteDemiseLegendary.getTemplateId();
+		CreationEntryCreator
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseLegendaryId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.addRequirement(new CreationRequirement(1, ItemList.blood, 1, true));
+
+	}
+
+	private static void registerPasteDemiseHuman() throws IOException {
+		pasteDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseLegendary")
+				.name(" paste of Human Demise", "pastes of Human Demise",
+						"A paste that smells of death. You find that it dissolves your own flesh easily, but doesn't harm animal flesh. Weird. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.paste.human.")
+				.imageNumber((short) 1573)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_REPAIRABLE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		pasteDemiseHumanId = pasteDemiseHuman.getTemplateId();
+		CreationEntryCreator
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseHumanId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.addRequirement(new CreationRequirement(1, ItemList.meat, 1, true));
+
+	}
+
+	private static void registerPasteLickOfFire() throws IOException {
+		pasteLickOfFire = new ItemTemplateBuilder("arathok.alchemy.pasteFire")
+				.name(" paste of lick of fire", "pastes of lick of fire",
+						"A paste that smells sulphury. It develops extreme heat on any surface fit touches. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.paste.kissOfFire.")
+				.imageNumber((short) 1574)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_REPAIRABLE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		pasteLickOfFireId = pasteLickOfFire.getTemplateId();
+		CreationEntryCreator
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureFranticChargeId, ItemList.tallow,	pasteLickOfFireId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.addRequirement(new CreationRequirement(1, ItemList.charcoal, 1, true));
+
+	}
+
+	private static void registerPasteKissOfFrost() throws IOException {
+		pasteKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.pasteFrost")
+				.name(" paste of Kiss of Frost", "pastes of Kiss of Frost",
+						"A paste that is cool to the touch. It freezes any surface it touches. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.paste.kissOfFire.")
+				.imageNumber((short) 1575)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_REPAIRABLE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		pasteKissOfFrostId = pasteKissOfFrost.getTemplateId();
+		CreationEntryCreator
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureFranticChargeId, ItemList.tallow,	pasteKissOfFrostId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.addRequirement(new CreationRequirement(1, ItemList.snowball, 1, true));
+
+	}
+
 
 	public static void register() throws IOException {
 
