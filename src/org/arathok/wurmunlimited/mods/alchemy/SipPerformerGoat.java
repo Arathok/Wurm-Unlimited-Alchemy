@@ -50,7 +50,7 @@ public class SipPerformerGoat implements ActionPerformer {
         }
 // EFFECT STUFF GOES HERE
         if (target.getTemplateId() == AlchItems.potionIdGoat) {
-            if (!cooldown.containsKey(performer.getWurmId()) || cooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
+            if (!cooldown.containsKey(performer.getWurmId()) || cooldown.get(performer.getWurmId())  < System.currentTimeMillis()) {
                 power = target.getCurrentQualityLevel();
 
                 SpellEffects effs = performer.getSpellEffects();
@@ -86,10 +86,15 @@ public class SipPerformerGoat implements ActionPerformer {
 
             else if (cooldown.get(performer.getWurmId())+300000>System.currentTimeMillis() && toxicity.get(performer.getWurmId()) == 1) {
                 /* performer.addWoundOfType() TODO:RESEARCH THIS SHIT */
+
+                Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
+                Alchemy.toxicity.put(performer.getWurmId(), 0);
+
             	performer.die(false, "toxicity");
                 performer.getCommunicator().sendAlertServerMessage("You feel the rush of alchemical power in every nerve of your body, " +
                         "only for the feeling of power to subside after a short while" +
                         " and your body collapses under the toxins.");
+
 
             }
         }

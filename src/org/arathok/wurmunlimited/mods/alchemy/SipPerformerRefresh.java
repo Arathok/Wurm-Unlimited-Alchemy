@@ -44,7 +44,7 @@ public class SipPerformerRefresh implements ActionPerformer {
 		}
 // EFFECT STUFF GOES HERE
 		if (target.getTemplateId() == AlchItems.potionIdRefresh) {
-			if (!Alchemy.healCooldown.containsKey(performer.getWurmId()) || Alchemy.healCooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
+			if (!Alchemy.healCooldown.containsKey(performer.getWurmId()) || Alchemy.healCooldown.get(performer.getWurmId()) < System.currentTimeMillis()) {
 				power = target.getCurrentQualityLevel();
 
 				double healingPool= ((Math.max(5.0D, power)) / 100.0D )* 65535.0D * 1.0D;
@@ -76,7 +76,9 @@ public class SipPerformerRefresh implements ActionPerformer {
 						"You feel the rush of alchemical power in every nerve of your body, " +
 						"only for the feeling of power to subside after a short while" +
 						" and your body collapses under the toxins.");
-						performer.die(false, "toxicity");
+				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
+				Alchemy.toxicity.put(performer.getWurmId(), 0);
+				performer.die(false, "toxicity");
 			}
 		}
 		return propagate(action,

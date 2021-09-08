@@ -1221,7 +1221,7 @@ public class AlchItems {
 
 	private static void registerPotionLiquidVynora() throws IOException {
 		potionLiquidVynora = new ItemTemplateBuilder("arathok.alchemy.potionLiquidVynora")
-				.name(" potionLiquid of vynora", "potionLiquids of vynora",
+				.name(" potion Liquid of vynora", "potion Liquids of vynora",
 				"A  potionLiquid. This is almost a finished knowledge potion."
 						+ " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 

@@ -45,7 +45,7 @@ public class SipPerformerWillowspine implements ActionPerformer {
 
 		}
 // EFFECT STUFF GOES HERE
-		if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId()) + 300000 < System.currentTimeMillis()) {
+		if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId()) < System.currentTimeMillis()) {
 			if (target.getTemplateId() == AlchItems.potionIdWillowspine) {
 
 				power = target.getCurrentQualityLevel();
@@ -102,6 +102,8 @@ public class SipPerformerWillowspine implements ActionPerformer {
 					"You feel the rush of alchemical power in every nerve of your body, " +
 					"only for the feeling of power to subside after a short while" +
 					" and your body collapses under the toxins.");
+			Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
+			Alchemy.toxicity.put(performer.getWurmId(), 0);
 			performer.die(false, "toxicity");
 		}
 
