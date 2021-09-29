@@ -2312,6 +2312,7 @@ public class AlchItems {
 		registeroilPlague();
 		registeroilPoison();
 
+		/*
 		registerweaponOilDemiseHuman();
 		registerweaponOilDemiseLegendary();
 		registerweaponOilDemiseMonster();
@@ -2322,6 +2323,8 @@ public class AlchItems {
 		registerweaponOilLickOfFire();
 		registerweaponOilPlague();
 		registerweaponOilPoison();
+
+		 */
 
 		TempStates.addState(new TempState(AlchItems.pasteHeartseekerId, AlchItems.oilHeartseekerId, (short) 4000,true, true, false));
 		TempStates.addState(new TempState(AlchItems.pasteLeechId, AlchItems.oilLeechId,(short) 4000, true, true, false));
