@@ -16,6 +16,10 @@ public class SipPerformerRefresh implements ActionPerformer {
 	float power = 0;
 
 
+	@Override
+	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
+		return action(action, performer, target, num, counter);} // NEEDED OR THE ITEM WILL ONLY ACTIVATE IF YOU HAVE NO ITEM ACTIVE
+
 
 	@Override
 	public short getActionId() {

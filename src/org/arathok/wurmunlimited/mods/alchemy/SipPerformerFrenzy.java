@@ -17,7 +17,10 @@ public class SipPerformerFrenzy implements ActionPerformer {
 	int seconds = 300;
 	float power = 0;
 
-
+	@Override
+	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
+		return action(action, performer, target, num, counter);
+	}
 	@Override
 	public short getActionId() {
 		return Actions.DRINK;

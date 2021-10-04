@@ -18,6 +18,10 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 
 
 	@Override
+	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
+		return action(action, performer, target, num, counter);}
+
+	@Override
 	public short getActionId() {
 		return Actions.DRINK;
 	}

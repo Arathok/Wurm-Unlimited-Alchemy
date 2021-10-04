@@ -3,7 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerExcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerExcel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFrenzy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFrenzy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerGoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerGoat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerHeal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerHeal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerRefresh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerRefresh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerSenses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerSenses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerStrength.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerStrength.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerTruehit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerTruehit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerUltimateKnowledge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerUltimateKnowledge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerWillowspine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerWillowspine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerWoodskin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerWoodskin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +37,23 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Alchemy" type="Remote">
+      <module name="Wurm-Unlimited-Alchemy" />
+      <option name="USE_SOCKET_TRANSPORT" value="false" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="localhost" />
+      <option name="HOST" />
+      <option name="PORT" value="65535" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="localhost" />
+        <option name="TRANSPORT" value="1" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -61,5 +89,31 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="optimisations" />
     <option name="LAST_COMMIT_MESSAGE" value="optimisations" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFrenzy.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerWoodskin.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFrenzy.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Remote">
+        <watch expression="Alchemy.cooldown" language="JAVA" custom="org.arathok.wurmunlimited.mods.alchemy.Alchemy" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

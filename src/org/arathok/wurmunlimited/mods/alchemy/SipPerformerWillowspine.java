@@ -28,6 +28,10 @@ public class SipPerformerWillowspine implements ActionPerformer {
 	}
 
 	@Override
+	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
+		return action(action, performer, target, num, counter);}
+
+	@Override
 	public boolean action(Action action, Creature performer, Item target, short num, float counter) {
 
 		//Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");

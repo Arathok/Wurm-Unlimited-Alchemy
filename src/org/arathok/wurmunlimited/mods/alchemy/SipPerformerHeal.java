@@ -18,6 +18,10 @@ public class SipPerformerHeal implements ActionPerformer {
 
 
 
+	@Override
+	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
+		return action(action, performer, target, num, counter);} // NEEDED OR THE ITEM WILL ONLY ACTIVATE IF YOU HAVE NO ITEM ACTIVE
+
 
 
 	@Override

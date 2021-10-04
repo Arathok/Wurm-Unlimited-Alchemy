@@ -20,8 +20,10 @@ public class SipPerformerGoat implements ActionPerformer {
     float power = 0;
 
 
-    HashMap<Long, Long> cooldown = new HashMap<Long, Long>();
-    HashMap<Long, Integer> toxicity = new HashMap<Long, Integer>();
+    @Override
+    public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
+        return action(action, performer, target, num, counter);} // NEEDED OR THE ITEM WILL ONLY ACTIVATE IF YOU HAVE NO ITEM ACTIVE
+
 
     @Override
     public short getActionId() {
@@ -50,7 +52,7 @@ public class SipPerformerGoat implements ActionPerformer {
         }
 // EFFECT STUFF GOES HERE
         if (target.getTemplateId() == AlchItems.potionIdGoat) {
-            if (!cooldown.containsKey(performer.getWurmId()) || cooldown.get(performer.getWurmId())  < System.currentTimeMillis()) {
+            if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId())  < System.currentTimeMillis()) {
                 power = target.getCurrentQualityLevel();
 
                 SpellEffects effs = performer.getSpellEffects();
@@ -69,22 +71,22 @@ public class SipPerformerGoat implements ActionPerformer {
                     performer.sendUpdateSpellEffect(eff);
                 }
                 Items.destroyItem(target.getWurmId());
-                cooldown.put(performer.getWurmId(), System.currentTimeMillis());
-                toxicity.put(performer.getWurmId(),0);
+                Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
+                Alchemy.toxicity.put(performer.getWurmId(),0);
                 performer.getCommunicator().sendAlertServerMessage("You feel the power of the potion rushing through your body! " +
                         "You feel the joyful pride of a goat, weird!");
                 int temp = Alchemy.currentAddiction.get(performer.getWurmId());
                 Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
                 Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 
-            } else if (cooldown.containsKey(performer.getWurmId()) && cooldown.get(performer.getWurmId()) + 300000 > System.currentTimeMillis()) {
+            } else if (Alchemy.cooldown.containsKey(performer.getWurmId()) && Alchemy.cooldown.get(performer.getWurmId()) + 300000 > System.currentTimeMillis()) {
                 performer.getCommunicator().sendAlertServerMessage("You are still under influence of another potion! " +
                         "Drinking another one would probably kill you because of toxicity");
 
-                toxicity.replace(performer.getWurmId(),1);
+                Alchemy.toxicity.replace(performer.getWurmId(),1);
             }
 
-            else if (cooldown.get(performer.getWurmId())+300000>System.currentTimeMillis() && toxicity.get(performer.getWurmId()) == 1) {
+            else if (Alchemy.cooldown.get(performer.getWurmId())+300000>System.currentTimeMillis() && Alchemy.toxicity.get(performer.getWurmId()) == 1) {
                 /* performer.addWoundOfType() TODO:RESEARCH THIS SHIT */
 
                 Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
