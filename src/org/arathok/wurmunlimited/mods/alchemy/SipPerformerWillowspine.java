@@ -82,6 +82,9 @@ public class SipPerformerWillowspine implements ActionPerformer {
 						"You feel your whole body shifting phases, you are only partly in this reality now"+
 						"You will have an easier time to dodge hits");
 				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				if (temp == null)
+					temp = 0;
+
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 

@@ -75,6 +75,9 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 						"You feel enlighted. Vynora is proud of you. You have found the final boundaries of knowledge"+
 						" and surpassed them!");
 				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				if (temp == null)
+					temp = 0;
+
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 

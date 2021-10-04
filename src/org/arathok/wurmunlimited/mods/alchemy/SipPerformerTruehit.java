@@ -77,6 +77,9 @@ public class SipPerformerTruehit implements ActionPerformer {
 						"You feel the power of the Potion flow through you! " +
 						"You feel like you can hit your enemies better!");
 				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				if (temp == null)
+					temp = 0;
+
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 

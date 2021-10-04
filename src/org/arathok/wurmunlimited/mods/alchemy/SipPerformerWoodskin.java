@@ -78,6 +78,9 @@ public class SipPerformerWoodskin implements ActionPerformer {
 						"You feel your skin drying up and its starts to look like wood!"+
 						"You will take less damage overall!");
 				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				if (temp == null)
+					temp = 0;
+
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 

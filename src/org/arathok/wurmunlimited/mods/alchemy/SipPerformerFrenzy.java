@@ -81,6 +81,9 @@ public class SipPerformerFrenzy implements ActionPerformer {
 						"You feel your skin burning with the fire of hate, the beast in you is taking over!"+
 						"You fall into a frenzy moving lightning fast!");
 				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				if (temp == null)
+					temp = 0;
+
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 

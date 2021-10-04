@@ -82,6 +82,9 @@ public class SipPerformerFog implements ActionPerformer {
 						"You feel your skin sizzling as if your body wants to turn into a cloud"+
 						"Thorns can not pierce you!");
 				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				if (temp == null)
+					temp = 0;
+
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 

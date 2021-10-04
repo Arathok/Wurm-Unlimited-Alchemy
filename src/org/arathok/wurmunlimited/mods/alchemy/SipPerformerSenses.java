@@ -78,6 +78,9 @@ public class SipPerformerSenses implements ActionPerformer {
 				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+300000);
 				Alchemy.toxicity.put(performer.getWurmId(), 0);
 				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				if (temp == null)
+					temp = 0;
+
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 				performer.getCommunicator().sendAlertServerMessage(
