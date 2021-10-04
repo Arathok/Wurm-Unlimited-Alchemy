@@ -1648,7 +1648,7 @@ public class AlchItems {
 						"A paste that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
 								"You sense this could be turned into a coating for weapons")
 
-				.modelName("model.paste.animal.")
+				.modelName("model.paste.monster.")
 				.imageNumber((short) 1571)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
@@ -1812,7 +1812,7 @@ public class AlchItems {
 						"An ominous paste. Smearing it upon a plant makes the plant wilt, but upon touching the paste on the plant you feel more vigorous. " +
 								"You sense this could be turned into a coating for weapons")
 
-				.modelName("model.paste.Heartseeker.")
+				.modelName("model.paste.Leech.")
 				.imageNumber((short) 1576)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
@@ -1974,7 +1974,7 @@ public class AlchItems {
 						"A oil that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
 								"You sense this could be turned into a coating for weapons")
 
-				.modelName("model.oil.animal.")
+				.modelName("model.oil.monster.")
 				.imageNumber((short) 1571)
 				.itemTypes(new short[] {
 
