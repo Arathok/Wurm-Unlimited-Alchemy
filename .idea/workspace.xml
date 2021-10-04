@@ -104,9 +104,9 @@
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFrenzy.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="27" />
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerExcel.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

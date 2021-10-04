@@ -81,7 +81,7 @@ public class SipPerformerFog implements ActionPerformer {
 						"You feel the power of the Potion flow through you! " +
 						"You feel your skin sizzling as if your body wants to turn into a cloud"+
 						"Thorns can not pierce you!");
-				int temp = Alchemy.currentAddiction.get(performer.getWurmId());
+				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 

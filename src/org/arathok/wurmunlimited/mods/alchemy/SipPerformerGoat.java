@@ -75,7 +75,7 @@ public class SipPerformerGoat implements ActionPerformer {
                 Alchemy.toxicity.put(performer.getWurmId(),0);
                 performer.getCommunicator().sendAlertServerMessage("You feel the power of the potion rushing through your body! " +
                         "You feel the joyful pride of a goat, weird!");
-                int temp = Alchemy.currentAddiction.get(performer.getWurmId());
+                Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
                 Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
                 Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 
