@@ -59,8 +59,14 @@ public class SipPerformerHeal implements ActionPerformer {
 				if (tWounds == null) {
 					performer.getCommunicator().sendNormalServerMessage("You have no wounds to heal and wasted your potion!");
 					Items.destroyItem(target.getWurmId());
-					Alchemy.healCooldown.put(performer.getWurmId(), System.currentTimeMillis());
+					Alchemy.healCooldown.put(performer.getWurmId(), (long) (System.currentTimeMillis()+(30000+( (target.getCurrentQualityLevel()/10) * 21000 ))));
 					Alchemy.healToxicity.put(performer.getWurmId(),0);
+					Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+					if (temp == null)
+						temp = 0;
+
+					Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
+					Alchemy.previousAddiction.put(performer.getWurmId(),temp);
 
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
