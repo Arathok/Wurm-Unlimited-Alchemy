@@ -1708,7 +1708,7 @@ public class AlchItems {
 	}
 
 	private static void registerPasteDemiseHuman() throws IOException {
-		pasteDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseLegendary")
+		pasteDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseHuman")
 				.name(" paste of Human Demise", "pastes of Human Demise",
 						"A paste that smells of death. You find that it dissolves your own flesh easily, but doesn't harm animal flesh. Weird. " +
 								"You sense this could be turned into a coating for weapons")
@@ -2022,7 +2022,7 @@ public class AlchItems {
 	}
 
 	private static void registeroilDemiseHuman() throws IOException {
-		oilDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.oilDemiseLegendary")
+		oilDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.oilDemiseHuman")
 				.name(" oil of Human Demise", "oils of Human Demise",
 						"A oil that smells of death. You find that it dissolves your own flesh easily, but doesn't harm animal flesh. Weird. " +
 								"You sense this could be turned into a coating for weapons")
