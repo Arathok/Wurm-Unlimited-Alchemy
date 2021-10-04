@@ -24,7 +24,7 @@ public class SipPerformerFog implements ActionPerformer {
 
 	@Override
 	public short getActionId() {
-		return Actions.DRINK;
+		return Actions.HEAL_ABSORB;
 	}
 
 	public static boolean canUse(Creature performer, Item target) {
