@@ -82,21 +82,21 @@ public class Addiction {
 
 				if (currentAddictionLevel < 12 && currentAddictionLevel >= 10 && previousAddictionLevel > currentAddictionLevel ) {
 
-					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 10000, (float)1, 0.0F, false, true);
+					p.addWoundOfType(p, (byte)5, 23, false, 1.0F, false, 10000, (float)1, 0.0F, false, true);
 					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
 					p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks to tolerable levels.");
 				}
 
 				if (currentAddictionLevel < 15 && currentAddictionLevel >= 12 && previousAddictionLevel > currentAddictionLevel) {
 
-					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 15000, (float)1, 0.0F, false, true);
+					p.addWoundOfType(p, (byte)5, 23, false, 1.0F, false, 15000, (float)1, 0.0F, false, true);
 					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
 					p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks to bearable levels.");
 				}
 
 				if (currentAddictionLevel < 20 && currentAddictionLevel >= 15 && previousAddictionLevel > currentAddictionLevel) {
 
-					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 20000, (float)1, 0.0F, false, true);
+					p.addWoundOfType(p, (byte)5, 23, false, 1.0F, false, 20000, (float)1, 0.0F, false, true);
 					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
 					p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks but its still at dangerous levels");
 					p.addWoundOfType(p, (byte)9, 1, false, 1.0F, false, 10000, 0.0F, 0.0F, false, true);
@@ -105,7 +105,7 @@ public class Addiction {
 
 				if (currentAddictionLevel < 25 && currentAddictionLevel >= 20 && previousAddictionLevel > currentAddictionLevel) {
 
-					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 30000, (float)1, 0.0F, false, true);
+					p.addWoundOfType(p, (byte)5, 23, false, 1.0F, false, 30000, (float)1, 0.0F, false, true);
 					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
 					p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks but its still at dangerous levels");
 					p.addWoundOfType(p, (byte)9, 1, false, 1.0F, false, 20000, 0.0F, 0.0F, false, true);
@@ -114,7 +114,7 @@ public class Addiction {
 
 				if (currentAddictionLevel > 25 && previousAddictionLevel > currentAddictionLevel) {
 
-					p.addWoundOfType(p, (byte)10, 23, false, 1.0F, false, 30000, (float)1, 0.0F, false, true);
+					p.addWoundOfType(p, (byte)5, 23, false, 1.0F, false, 30000, (float)1, 0.0F, false, true);
 					p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
 					p.getCommunicator().sendSafeServerMessage("The toxicity in your body is at dangerous levels");
 					p.addWoundOfType(p, (byte)9, 1, false, 1.0F, false, 30000, 0.0F, 0.0F, false, true);
