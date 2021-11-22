@@ -12,6 +12,8 @@ import com.wurmonline.server.spells.SpellEffect;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 
+import java.util.logging.Level;
+
 public class SipPerformerSenses implements ActionPerformer {
 
 	int seconds = 300;
@@ -88,7 +90,8 @@ public class SipPerformerSenses implements ActionPerformer {
 						"You feel your inner eye getting a better picture of the world."+
 						"You have superior situational awareness!");
 
-
+				performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
+				Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 			}
 
 		}

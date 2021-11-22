@@ -11,6 +11,9 @@ import com.wurmonline.server.items.Item;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 
+import java.util.Objects;
+import java.util.logging.Level;
+
 public class SipPerformerHeal implements ActionPerformer {
 
 	int seconds = 300;
@@ -67,6 +70,8 @@ public class SipPerformerHeal implements ActionPerformer {
 
 					Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 					Alchemy.previousAddiction.put(performer.getWurmId(),temp);
+					performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
+					Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
@@ -95,6 +100,7 @@ public class SipPerformerHeal implements ActionPerformer {
 
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
+				performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
 
 
 			} else if (Alchemy.healToxicity.get(performer.getWurmId()) < 1&& Alchemy.healCooldown.get(performer.getWurmId()) >System.currentTimeMillis()) {
@@ -105,7 +111,7 @@ public class SipPerformerHeal implements ActionPerformer {
 
 				Alchemy.healToxicity.put(performer.getWurmId(),1);
 
-			} else if ((Alchemy.healToxicity.get(performer.getWurmId()) > 0 && Alchemy.healCooldown.get(performer.getWurmId()) >System.currentTimeMillis() ) ||performer.getName()=="Unusualleadergm") {
+			} else if ((Alchemy.healToxicity.get(performer.getWurmId()) > 0 && Alchemy.healCooldown.get(performer.getWurmId()) >System.currentTimeMillis() ) || Objects.equals(performer.getName(), "Unusualleadergm")) {
 
 				performer.getCommunicator().sendAlertServerMessage(
 						"You feel the rush of alchemical power in every nerve of your body, " +

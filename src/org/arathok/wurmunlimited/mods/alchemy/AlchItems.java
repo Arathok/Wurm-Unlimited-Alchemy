@@ -314,7 +314,7 @@ public class AlchItems {
 		mixtureWillowspineId = mixtureWillowspine.getTemplateId();
 
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.rosemary, ItemList.ivySeedling,mixtureFranticChargeId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.rosemary, ItemList.ivySeedling,mixtureWillowspineId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
 				.addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
 	}

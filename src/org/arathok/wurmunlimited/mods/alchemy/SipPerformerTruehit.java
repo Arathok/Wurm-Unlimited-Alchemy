@@ -13,6 +13,8 @@ import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.spells.SpellEffect;
 
+import java.util.logging.Level;
+
 public class SipPerformerTruehit implements ActionPerformer {
 
 	int seconds = 300;
@@ -82,7 +84,8 @@ public class SipPerformerTruehit implements ActionPerformer {
 
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
-
+				performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
+				Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 			}
 
 		}

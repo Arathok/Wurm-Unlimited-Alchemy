@@ -13,6 +13,7 @@ import com.wurmonline.server.items.Item;
 import com.wurmonline.server.spells.SpellEffect;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 
 public class SipPerformerGoat implements ActionPerformer {
 
@@ -99,6 +100,8 @@ public class SipPerformerGoat implements ActionPerformer {
                 performer.getCommunicator().sendAlertServerMessage("You feel the rush of alchemical power in every nerve of your body, " +
                         "only for the feeling of power to subside after a short while" +
                         " and your body collapses under the toxins.");
+                performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
+                Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 
 
             }

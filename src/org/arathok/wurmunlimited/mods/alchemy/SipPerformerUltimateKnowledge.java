@@ -11,6 +11,8 @@ import com.wurmonline.server.players.Player;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 
+import java.util.logging.Level;
+
 public class SipPerformerUltimateKnowledge implements ActionPerformer {
 
 	int seconds = 300;
@@ -64,6 +66,7 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 					int numsecondsToMove = Math.min((int) ((performer.getFatigueLeft() / 10.0F) * toconvert), 3600);
 					performer.setFatigue(-numsecondsToMove);
 					numsecondsToMove = (int) (numsecondsToMove * 0.2F);
+					numsecondsToMove *= 2;
 					if (performer.isPlayer())
 						((Player) performer).getSaveFile().addToSleep(numsecondsToMove);
 				}
@@ -80,6 +83,8 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 
 				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
 				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
+				performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
+				Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 
 
 			}
