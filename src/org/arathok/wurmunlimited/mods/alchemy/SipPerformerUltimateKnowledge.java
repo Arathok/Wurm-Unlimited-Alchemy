@@ -59,7 +59,7 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 				}
 				else {
 					power = target.getCurrentQualityLevel();
-					double toconvert = power;
+					double toconvert;
 					toconvert = Math.max(20.0D, power);
 					toconvert = Math.min(99.0D, toconvert);
 					toconvert /= 100.0D;
