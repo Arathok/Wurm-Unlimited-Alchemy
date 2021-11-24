@@ -81,7 +81,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_TOOL,
 						ItemTypes.ITEM_TYPE_METAL,
@@ -110,14 +110,14 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_METAL,
 
 				})
 				.decayTime(9072000L)
 				.dimensions(20, 20, 20)
-				.weightGrams(24000).material(Materials.MATERIAL_IRON)
+				.weightGrams(24000).material(Materials.MATERIAL_STONE)
 				.behaviourType((short) 1)
 				.primarySkill(SkillList.ALCHEMY_NATURAL)
 				.difficulty(10) // no hard lock
@@ -140,7 +140,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_METAL,
 
@@ -166,7 +166,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_TOOL,
 
@@ -195,14 +195,13 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_TOOL,
 						ItemTypes.ITEM_TYPE_METAL, })
 				.decayTime(9072000L)
 				.dimensions(8, 8, 15)
 				.weightGrams(500)
-				.material(Materials.MATERIAL_IRON)
+				.material(Materials.MATERIAL_POTTERY)
 				.behaviourType((short) 1)
 				.primarySkill(SkillList.POTTERY)
 				.difficulty(30) // no hard lock
@@ -224,7 +223,6 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_TOOL,
 
@@ -255,7 +253,11 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_METAL,
 
-				}).decayTime(9072000L).dimensions(5, 5, 10).weightGrams(500).material(Materials.MATERIAL_GOLD)
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(500)
+				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
 				.build();
 
@@ -332,7 +334,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE, })
+						ItemTypes.ITEM_TYPE_NO_IMPROVE, })
 				.decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
 				.build();
@@ -358,7 +360,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				}).decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
@@ -386,7 +388,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE, })
+						ItemTypes.ITEM_TYPE_NO_IMPROVE, })
 				.decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
 				.build();
@@ -411,7 +413,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -444,7 +446,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -475,7 +477,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -505,7 +507,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -538,7 +540,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -570,7 +572,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -603,7 +605,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -635,7 +637,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE, })
+						ItemTypes.ITEM_TYPE_NO_IMPROVE, })
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
@@ -1276,7 +1278,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1306,7 +1308,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L).dimensions(5, 5, 10)
@@ -1335,7 +1337,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L).dimensions(5, 5, 10)
@@ -1361,7 +1363,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1390,7 +1392,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1418,7 +1420,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1447,7 +1449,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L).dimensions(5, 5, 10)
@@ -1475,7 +1477,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1503,7 +1505,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1532,7 +1534,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1560,7 +1562,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 					
 
 				})
@@ -1590,7 +1592,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1622,7 +1624,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1656,7 +1658,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1688,7 +1690,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1721,7 +1723,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1754,7 +1756,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1787,7 +1789,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1820,7 +1822,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1853,7 +1855,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1886,7 +1888,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -1919,7 +1921,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-						ItemTypes.ITEM_TYPE_REPAIRABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
