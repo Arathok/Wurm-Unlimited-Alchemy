@@ -20,9 +20,7 @@ public class OilPerformerAnimalDemise implements ActionPerformer {
 	float power = 0;
 
 
-	@Override
-	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
-		return action(action, performer, target, num, counter);} // NEEDED OR THE ITEM WILL ONLY ACTIVATE IF YOU HAVE NO ITEM ACTIVE
+
 
 	@Override
 	public short getActionId() {
@@ -34,7 +32,7 @@ public class OilPerformerAnimalDemise implements ActionPerformer {
 	}
 
 	@Override
-	public boolean action(Action action, Creature performer, Item target, short num, float counter) {
+	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) { // Since we use target and source this time, only need that override)
 
 		//Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");
 		if (target.getTemplateId() != AlchItems.weaponOilDemiseAnimalId)

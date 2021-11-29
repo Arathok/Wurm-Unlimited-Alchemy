@@ -32,6 +32,18 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public static HashMap<Long,Integer> currentAddiction = new HashMap<Long,Integer>();
 	public static HashMap<Long,Integer> previousAddiction = new HashMap<Long,Integer>();
 	public static HashMap<Long,Long> oilTimer = new HashMap<Long,Long>();
+
+
+
+	@Override
+	public void configure (Properties properties) {
+		Config.useOils = Boolean.parseBoolean(properties.getProperty("useOils", "true"));
+		Config.alchemyPower = Float.parseFloat(properties.getProperty("alchemyPower", "1.0F"));
+		Config.becomeAddicted = Boolean.parseBoolean(properties.getProperty("becomeAddicted", "true"));
+
+	}
+
+
 	@Override
 	public void preInit() {
 		
@@ -84,11 +96,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
           logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
 	}
 
-	@Override
-	public void configure(Properties arg0) {
-		// TODO Auto-generated method stub
 
-	}
 
 	@Override
 	public void init() {

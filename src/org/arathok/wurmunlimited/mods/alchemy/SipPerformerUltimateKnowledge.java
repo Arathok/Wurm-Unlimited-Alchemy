@@ -58,7 +58,7 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 
 				}
 				else {
-					power = target.getCurrentQualityLevel();
+					power = target.getCurrentQualityLevel()*Config.alchemyPower;
 					double toconvert;
 					toconvert = Math.max(20.0D, power);
 					toconvert = Math.min(99.0D, toconvert);
@@ -77,13 +77,17 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 						"You feel the power of the Potion flow through you! " +
 						"You feel enlighted. Vynora is proud of you. You have found the final boundaries of knowledge"+
 						" and surpassed them!");
-				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
-				if (temp == null)
-					temp = 0;
 
-				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
-				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
-				performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
+				if (Config.becomeAddicted==true) {
+					Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+					if (temp == null)
+						temp = 0;
+
+					Alchemy.currentAddiction.put(performer.getWurmId(), temp + 1);
+					Alchemy.previousAddiction.put(performer.getWurmId(), temp);
+					performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
+				}
+
 				Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 
 

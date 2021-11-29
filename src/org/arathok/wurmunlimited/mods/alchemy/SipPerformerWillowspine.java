@@ -54,7 +54,7 @@ public class SipPerformerWillowspine implements ActionPerformer {
 		if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId()) < System.currentTimeMillis()) {
 			if (target.getTemplateId() == AlchItems.potionIdWillowspine) {
 
-				power = target.getCurrentQualityLevel();
+				power = target.getCurrentQualityLevel()*Config.alchemyPower;
 
 				SpellEffects effs = performer.getSpellEffects();
 
@@ -83,14 +83,18 @@ public class SipPerformerWillowspine implements ActionPerformer {
 						"You feel the power of the Potion flow through you! " +
 						"You feel your whole body shifting phases, you are only partly in this reality now"+
 						"You will have an easier time to dodge hits");
-				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
-				if (temp == null)
-					temp = 0;
 
-				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
-				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
-				performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
-				Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
+				if (Config.becomeAddicted==true) {
+					Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+					if (temp == null)
+						temp = 0;
+
+					Alchemy.currentAddiction.put(performer.getWurmId(), temp + 1);
+					Alchemy.previousAddiction.put(performer.getWurmId(), temp);
+					performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
+				}
+
+					Alchemy.logger.log(Level.INFO, String.format("%s Drank a potion! :%s", performer.getName(), target.getName()));
 
 
 			}

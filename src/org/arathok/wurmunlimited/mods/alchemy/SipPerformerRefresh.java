@@ -51,7 +51,7 @@ public class SipPerformerRefresh implements ActionPerformer {
 // EFFECT STUFF GOES HERE
 		if (target.getTemplateId() == AlchItems.potionIdRefresh) {
 			if (!Alchemy.healCooldown.containsKey(performer.getWurmId()) || Alchemy.healCooldown.get(performer.getWurmId()) < System.currentTimeMillis()) {
-				power = target.getCurrentQualityLevel();
+				power = target.getCurrentQualityLevel()*Config.alchemyPower;
 
 				double healingPool= ((Math.max(5.0D, power)) / 100.0D )* 65535.0D * 1.0D;
 				performer.getStatus().modifyStamina((float) healingPool);
@@ -63,13 +63,16 @@ public class SipPerformerRefresh implements ActionPerformer {
 				Items.destroyItem(target.getWurmId());
 				Alchemy.healCooldown.put(performer.getWurmId(), (long) (System.currentTimeMillis()+(30000+( (target.getCurrentQualityLevel()/10) * 21000 ))));
 				Alchemy.healToxicity.put(performer.getWurmId(),0);
-				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
-				if (temp == null)
-					temp = 0;
 
-				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
-				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
-				performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
+				if (Config.becomeAddicted==true) {
+					Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
+					if (temp == null)
+						temp = 0;
+
+					Alchemy.currentAddiction.put(performer.getWurmId(), temp + 1);
+					Alchemy.previousAddiction.put(performer.getWurmId(), temp);
+					performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
+				}
 				Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 
 

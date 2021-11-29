@@ -2292,27 +2292,29 @@ public class AlchItems {
 		TempStates.addState(new TempState(AlchItems.precursorVynoraId, AlchItems.potionLiquidVynoraId, (short) 4000,true, true, false));
 		TempStates.addState(new TempState(AlchItems.precursorWillowspineId, AlchItems.potionLiquidWillowspineId,(short) 4000, true, true, false));
 
-		registerPasteHeartseeker();
-		registerPasteLech();
-		registerPasteDemiseHuman();
-		registerPasteDemiseLegendary();
-		registerPasteDemiseMonster();
-		registerPasteDemiseAnimal();
-		registerPasteKissOfFrost();
-		registerPasteLickOfFire();
-		registerPastePlague();
-		registerPastePoison();
+		if (Config.useOils==true) {
 
-		registeroilDemiseHuman();
-		registeroilDemiseLegendary();
-		registeroilDemiseMonster();
-		registerOilDemiseAnimal();
-		registeroilHeartseeker();
-		registeroilKissOfFrost();
-		registeroilLech();
-		registeroilLickOfFire();
-		registeroilPlague();
-		registeroilPoison();
+			registerPasteHeartseeker();
+			registerPasteLech();
+			registerPasteDemiseHuman();
+			registerPasteDemiseLegendary();
+			registerPasteDemiseMonster();
+			registerPasteDemiseAnimal();
+			registerPasteKissOfFrost();
+			registerPasteLickOfFire();
+			registerPastePlague();
+			registerPastePoison();
+
+			registeroilDemiseHuman();
+			registeroilDemiseLegendary();
+			registeroilDemiseMonster();
+			registerOilDemiseAnimal();
+			registeroilHeartseeker();
+			registeroilKissOfFrost();
+			registeroilLech();
+			registeroilLickOfFire();
+			registeroilPlague();
+			registeroilPoison();
 
 		/*
 		registerweaponOilDemiseHuman();
@@ -2328,17 +2330,17 @@ public class AlchItems {
 
 		 */
 
-		TempStates.addState(new TempState(AlchItems.pasteHeartseekerId, AlchItems.oilHeartseekerId, (short) 4000,true, true, false));
-		TempStates.addState(new TempState(AlchItems.pasteLeechId, AlchItems.oilLeechId,(short) 4000, true, true, false));
-		TempStates.addState(new TempState(AlchItems.pastePlagueId, AlchItems.oilPlagueId, (short) 4000, true,true, false));
-		TempStates.addState(new TempState(AlchItems.pastePoisonId, AlchItems.oilPoisonId, (short) 4000, true,true, false));
-		TempStates.addState(new TempState(AlchItems.pasteDemiseAnimalId, AlchItems.oilDemiseAnimalId,(short) 4000, true, true, false));
-		TempStates.addState(new TempState(AlchItems.pasteDemiseHumanId, AlchItems.oilDemiseHumanId, (short) 4000,true, true, false));
-		TempStates.addState(new TempState(AlchItems.pasteDemiseMonsterId, AlchItems.oilDemiseMonsterId, (short) 4000,true, true, false));
-		TempStates.addState(new TempState(AlchItems.pasteDemiseLegendaryId, AlchItems.oilDemiseLegendaryId, (short) 4000,true, true, false));
-		TempStates.addState(new TempState(AlchItems.pasteLickOfFireId, AlchItems.oilLickOfFireId,(short) 4000, true, true, false));
-		TempStates.addState(new TempState(AlchItems.pasteKissOfFrostId, AlchItems.oilKissOfFrostId, (short) 4000,true, true, false));
-
+			TempStates.addState(new TempState(AlchItems.pasteHeartseekerId, AlchItems.oilHeartseekerId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pasteLeechId, AlchItems.oilLeechId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pastePlagueId, AlchItems.oilPlagueId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pastePoisonId, AlchItems.oilPoisonId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pasteDemiseAnimalId, AlchItems.oilDemiseAnimalId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pasteDemiseHumanId, AlchItems.oilDemiseHumanId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pasteDemiseMonsterId, AlchItems.oilDemiseMonsterId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pasteDemiseLegendaryId, AlchItems.oilDemiseLegendaryId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pasteLickOfFireId, AlchItems.oilLickOfFireId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.pasteKissOfFrostId, AlchItems.oilKissOfFrostId, (short) 4000, true, true, false));
+		}
 	}
 
 }

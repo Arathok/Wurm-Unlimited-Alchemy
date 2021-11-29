@@ -54,7 +54,7 @@ public class SipPerformerGoat implements ActionPerformer {
 // EFFECT STUFF GOES HERE
         if (target.getTemplateId() == AlchItems.potionIdGoat) {
             if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId())  < System.currentTimeMillis()) {
-                power = target.getCurrentQualityLevel();
+                power = target.getCurrentQualityLevel() * Config.alchemyPower;
 
                 SpellEffects effs = performer.getSpellEffects();
 
@@ -73,16 +73,18 @@ public class SipPerformerGoat implements ActionPerformer {
                 }
                 Items.destroyItem(target.getWurmId());
                 Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
-                Alchemy.toxicity.put(performer.getWurmId(),0);
+                Alchemy.toxicity.put(performer.getWurmId(), 0);
                 performer.getCommunicator().sendAlertServerMessage("You feel the power of the potion rushing through your body! " +
                         "You feel the joyful pride of a goat, weird!");
+                if (Config.becomeAddicted==true){
                 Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
                 if (temp == null)
                     temp = 0;
 
-                Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
-                Alchemy.previousAddiction.put(performer.getWurmId(),temp);
-
+                Alchemy.currentAddiction.put(performer.getWurmId(), temp + 1);
+                Alchemy.previousAddiction.put(performer.getWurmId(), temp);
+                performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
+                 }
             } else if (Alchemy.cooldown.containsKey(performer.getWurmId()) && Alchemy.cooldown.get(performer.getWurmId()) + 300000 > System.currentTimeMillis()) {
                 performer.getCommunicator().sendAlertServerMessage("You are still under influence of another potion! " +
                         "Drinking another one would probably kill you because of toxicity");
@@ -96,11 +98,12 @@ public class SipPerformerGoat implements ActionPerformer {
                 Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
                 Alchemy.toxicity.put(performer.getWurmId(), 0);
 
-            	performer.die(false, "toxicity");
+                performer.die(false, "toxicity");
                 performer.getCommunicator().sendAlertServerMessage("You feel the rush of alchemical power in every nerve of your body, " +
                         "only for the feeling of power to subside after a short while" +
                         " and your body collapses under the toxins.");
-                performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
+
+
                 Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 
 
