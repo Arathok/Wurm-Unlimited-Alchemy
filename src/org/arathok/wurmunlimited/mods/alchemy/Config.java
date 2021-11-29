@@ -4,6 +4,8 @@ public class Config {
     public static boolean useOils = true;
     public static float alchemyPower = 1.0F;
     public static boolean becomeAddicted = true;
+    public static int potionDuration=0;
+    public static int oilDuration=0;
 
 
 

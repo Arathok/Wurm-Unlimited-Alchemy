@@ -8,6 +8,7 @@ import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
+import com.wurmonline.server.items.ItemSpellEffects;
 import com.wurmonline.server.spells.SpellEffect;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
@@ -16,10 +17,8 @@ import java.util.logging.Level;
 
 public class OilPerformerAnimalDemise implements ActionPerformer {
 
-	int seconds = 300;
+	int seconds = Config.potionDuration;
 	float power = 0;
-
-
 
 
 	@Override
@@ -49,75 +48,25 @@ public class OilPerformerAnimalDemise implements ActionPerformer {
 
 		}
 // EFFECT STUFF GOES HERE
-		if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId()) < System.currentTimeMillis()) {
-			if (target.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
 
-				power = target.getCurrentQualityLevel();
+		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
 
-				SpellEffects effs = performer.getSpellEffects();
+			power = source.getCurrentQualityLevel()*Config.alchemyPower;
 
-				if (effs == null)
-					effs = performer.createSpellEffects();
-
-				SpellEffect eff = effs.getSpellEffect((byte) 28);
-
-				if (eff == null) {
-					eff = new SpellEffect(
-							performer.getWurmId(),
-							(byte) 28,
-							power,
-							Math.max(1, seconds));
-
-					effs.addSpellEffect(eff);
-				} else if (eff.getPower() < power) {
-					eff.setPower(power);
-					eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-					performer.sendUpdateSpellEffect(eff);
-				}
-				Items.destroyItem(target.getWurmId());
-				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+300000);
-				Alchemy.toxicity.put(performer.getWurmId(), 0);
-				performer.getCommunicator().sendAlertServerMessage(
-						"You feel the power of the Potion flow through you! " +
-						"You feel your skin becoming slick and silky!");
-				Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
-				if (temp == null)
-					temp = 0;
-
-				Alchemy.currentAddiction.put(performer.getWurmId(),temp+1);
-				Alchemy.previousAddiction.put(performer.getWurmId(),temp);
-				performer.getCommunicator().sendAlertServerMessage(	"You feel your body is coming a bit more addicted to the magic power of the substances. ");
-
-				Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
-
-
+			ItemSpellEffects effs = target.getSpellEffects();
+			if (effs == null)
+				effs = new ItemSpellEffects(target.getWurmId());
+			SpellEffect eff = effs.getSpellEffect((byte) 11);
+			if (eff == null) {
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " will now be effective against animals for a short time.", (byte)2);
+				eff = new SpellEffect(target.getWurmId(), (byte) 11, (float) power, (seconds));
+				effs.addSpellEffect(eff);
 			}
 
-		}
-		else if (Alchemy.toxicity.get(performer.getWurmId()) < 1&& Alchemy.cooldown.get(performer.getWurmId()) >System.currentTimeMillis()) {
-			performer.getCommunicator().sendAlertServerMessage(
-					"You are still under influence of another Buff potion! " +
-					"Drinking another one would probably kill you because of toxicity");
-			performer.getCommunicator().sendAlertServerMessage(
-					"You should wait another "+
-					(((Alchemy.cooldown.get(performer.getWurmId())-System.currentTimeMillis())/1000)+1)+
-					"Seconds before trying to imbibe a potion again");
-
-			Alchemy.toxicity.put(performer.getWurmId(),1);
-
-		} else if (Alchemy.toxicity.get(performer.getWurmId()) > 0 && Alchemy.cooldown.get(performer.getWurmId()) >System.currentTimeMillis()) {
-
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the rush of alchemical power in every nerve of your body, " +
-					"only for the feeling of power to subside after a short while" +
-					" and your body collapses under the toxins.");
-			Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
-			Alchemy.toxicity.put(performer.getWurmId(), 0);
-			performer.die(false, "toxicity");
 
 
 		}
-
 		return propagate(action,
 				ActionPropagation.FINISH_ACTION,
 				ActionPropagation.NO_SERVER_PROPAGATION,

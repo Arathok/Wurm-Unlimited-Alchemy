@@ -31,7 +31,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public static HashMap<Long, Integer> toxicity = new HashMap<Long, Integer>();
 	public static HashMap<Long,Integer> currentAddiction = new HashMap<Long,Integer>();
 	public static HashMap<Long,Integer> previousAddiction = new HashMap<Long,Integer>();
-	public static HashMap<Long,Long> oilTimer = new HashMap<Long,Long>();
+
 
 
 
@@ -40,6 +40,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.useOils = Boolean.parseBoolean(properties.getProperty("useOils", "true"));
 		Config.alchemyPower = Float.parseFloat(properties.getProperty("alchemyPower", "1.0F"));
 		Config.becomeAddicted = Boolean.parseBoolean(properties.getProperty("becomeAddicted", "true"));
+		Config.potionDuration = Integer.parseInt(properties.getProperty("potionDuration", "300"));
+		Config.oilDuration = Integer.parseInt(properties.getProperty("oilDuration", "300"));
 
 	}
 
