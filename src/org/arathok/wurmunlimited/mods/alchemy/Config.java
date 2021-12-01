@@ -9,5 +9,6 @@ public class Config {
     public static int cooldownHeal=300;
     public static int cooldownPotion=300;
     public static int cooldownUltimate=3600;
+    public static boolean purifiedWaterCooking=true;
 
 }

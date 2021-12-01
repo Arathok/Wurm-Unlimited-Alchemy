@@ -45,6 +45,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.cooldownPotion = Integer.parseInt(properties.getProperty("cooldownPotion", "300"));
 		Config.cooldownHeal = Integer.parseInt(properties.getProperty("cooldownHeal", "300"));
 		Config.cooldownUltimate = Integer.parseInt(properties.getProperty("cooldownUltimate", "3600"));
+		Config.purifiedWaterCooking = Boolean.parseBoolean(properties.getProperty("purifiedWaterCooking", "true"));
 
 	}
 
