@@ -14,7 +14,7 @@ import java.util.logging.Level;
 
 public class SipPerformerRefresh implements ActionPerformer {
 
-	int seconds = 300;
+	int seconds = Config.potionDuration;
 	float power = 0;
 
 

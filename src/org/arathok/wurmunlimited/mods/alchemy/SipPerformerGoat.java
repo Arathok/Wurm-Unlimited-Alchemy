@@ -17,7 +17,7 @@ import java.util.logging.Level;
 
 public class SipPerformerGoat implements ActionPerformer {
 
-    int seconds = 300;
+    int seconds = Config.potionDuration;
     float power = 0;
 
 
@@ -72,7 +72,7 @@ public class SipPerformerGoat implements ActionPerformer {
                     performer.sendUpdateSpellEffect(eff);
                 }
                 Items.destroyItem(target.getWurmId());
-                Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());
+                Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+(Config.cooldownPotion*1000));
                 Alchemy.toxicity.put(performer.getWurmId(), 0);
                 performer.getCommunicator().sendAlertServerMessage("You feel the power of the potion rushing through your body! " +
                         "You feel the joyful pride of a goat, weird!");
@@ -85,14 +85,14 @@ public class SipPerformerGoat implements ActionPerformer {
                 Alchemy.previousAddiction.put(performer.getWurmId(), temp);
                 performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
                  }
-            } else if (Alchemy.cooldown.containsKey(performer.getWurmId()) && Alchemy.cooldown.get(performer.getWurmId()) + 300000 > System.currentTimeMillis()) {
+            } else if (Alchemy.cooldown.containsKey(performer.getWurmId()) && Alchemy.cooldown.get(performer.getWurmId())  > System.currentTimeMillis()) {
                 performer.getCommunicator().sendAlertServerMessage("You are still under influence of another potion! " +
                         "Drinking another one would probably kill you because of toxicity");
 
                 Alchemy.toxicity.replace(performer.getWurmId(),1);
             }
 
-            else if (Alchemy.cooldown.get(performer.getWurmId())+300000>System.currentTimeMillis() && Alchemy.toxicity.get(performer.getWurmId()) == 1) {
+            else if (Alchemy.cooldown.get(performer.getWurmId())>System.currentTimeMillis() && Alchemy.toxicity.get(performer.getWurmId()) == 1) {
                 /* performer.addWoundOfType() TODO:RESEARCH THIS SHIT */
 
                 Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis());

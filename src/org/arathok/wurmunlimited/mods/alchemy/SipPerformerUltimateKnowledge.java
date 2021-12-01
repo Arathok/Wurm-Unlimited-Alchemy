@@ -15,7 +15,7 @@ import java.util.logging.Level;
 
 public class SipPerformerUltimateKnowledge implements ActionPerformer {
 
-	int seconds = 300;
+	int seconds = Config.potionDuration;
 	float power = 0;
 
 
@@ -71,12 +71,15 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 						((Player) performer).getSaveFile().addToSleep(numsecondsToMove);
 				}
 					Items.destroyItem(target.getWurmId());
-				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+3600000);
+				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+(Config.cooldownUltimate*1000));
 				Alchemy.toxicity.put(performer.getWurmId(), 0);
 				performer.getCommunicator().sendAlertServerMessage(
 						"You feel the power of the Potion flow through you! " +
-						"You feel enlighted. Vynora is proud of you. You have found the final boundaries of knowledge"+
-						" and surpassed them!");
+						"You feel enlightened. Vynora is proud of you. You have found the final boundaries of knowledge"+
+						" and surpassed them! After having flow so much knowledge through you, you feel more exhausted than usual." +
+								"You should wait quite a while before drinking the next potion, to make sure your body does not" +
+								"succumb to toxicity." );
+
 
 				if (Config.becomeAddicted==true) {
 					Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());

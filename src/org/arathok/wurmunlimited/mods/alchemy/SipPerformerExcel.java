@@ -77,7 +77,7 @@ public class SipPerformerExcel implements ActionPerformer {
 					performer.sendUpdateSpellEffect(eff);
 				}
 				Items.destroyItem(target.getWurmId());
-				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+300000);
+				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+(Config.cooldownPotion*1000));
 				Alchemy.toxicity.put(performer.getWurmId(), 0);
 				performer.getCommunicator().sendAlertServerMessage(
 						"You feel the power of the Potion flow through you! " +

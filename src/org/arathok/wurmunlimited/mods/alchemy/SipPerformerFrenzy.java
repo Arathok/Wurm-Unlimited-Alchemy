@@ -16,7 +16,7 @@ import java.util.logging.Level;
 
 public class SipPerformerFrenzy implements ActionPerformer {
 
-	int seconds = 300;
+	int seconds = Config.potionDuration;
 	float power = 0;
 
 	@Override
@@ -76,7 +76,7 @@ public class SipPerformerFrenzy implements ActionPerformer {
 					performer.sendUpdateSpellEffect(eff);
 				}
 				Items.destroyItem(target.getWurmId());
-				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+300000);
+				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+(Config.cooldownPotion*1000));
 				Alchemy.toxicity.put(performer.getWurmId(), 0);
 				performer.getCommunicator().sendAlertServerMessage(
 						"You feel the power of the Potion flow through you! " +

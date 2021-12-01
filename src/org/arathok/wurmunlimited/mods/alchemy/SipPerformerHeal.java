@@ -16,7 +16,7 @@ import java.util.logging.Level;
 
 public class SipPerformerHeal implements ActionPerformer {
 
-	int seconds = 300;
+	int seconds = Config.potionDuration;
 	float power = 0;
 
 
@@ -62,7 +62,7 @@ public class SipPerformerHeal implements ActionPerformer {
 				if (tWounds == null) {
 					performer.getCommunicator().sendNormalServerMessage("You have no wounds to heal and wasted your potion!");
 					Items.destroyItem(target.getWurmId());
-					Alchemy.healCooldown.put(performer.getWurmId(), (long) (System.currentTimeMillis()+(30000+( (target.getCurrentQualityLevel()/10) * 21000 ))));
+					Alchemy.healCooldown.put(performer.getWurmId(), (long) (System.currentTimeMillis()+(30000+( (target.getCurrentQualityLevel()/10) * (Config.cooldownHeal*1000) ))));
 					Alchemy.healToxicity.put(performer.getWurmId(),0);
 					if (Config.becomeAddicted==true) {
 						Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());
@@ -94,7 +94,7 @@ public class SipPerformerHeal implements ActionPerformer {
 				}
 
 				Items.destroyItem(target.getWurmId());
-				Alchemy.healCooldown.put(performer.getWurmId(), (long) (System.currentTimeMillis()+(30000+( (target.getCurrentQualityLevel()/10) * 21000 ))));
+				Alchemy.healCooldown.put(performer.getWurmId(), (long) (System.currentTimeMillis()+(30000+( (target.getCurrentQualityLevel()/10) * (Config.cooldownHeal*1000) ))));
 				Alchemy.healToxicity.put(performer.getWurmId(),0);
 				if (Config.becomeAddicted==true) {
 					Integer temp = Alchemy.currentAddiction.get(performer.getWurmId());

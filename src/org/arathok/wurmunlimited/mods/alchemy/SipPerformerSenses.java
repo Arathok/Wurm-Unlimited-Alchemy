@@ -16,7 +16,7 @@ import java.util.logging.Level;
 
 public class SipPerformerSenses implements ActionPerformer {
 
-	int seconds = 300;
+	int seconds = Config.potionDuration;
 	float power = 0;
 
 
@@ -77,7 +77,7 @@ public class SipPerformerSenses implements ActionPerformer {
 					performer.sendUpdateSpellEffect(eff);
 				}
 				Items.destroyItem(target.getWurmId());
-				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+300000);
+				Alchemy.cooldown.put(performer.getWurmId(), System.currentTimeMillis()+(Config.cooldownPotion*1000));
 				Alchemy.toxicity.put(performer.getWurmId(), 0);
 
 				if (Config.becomeAddicted==true) {
