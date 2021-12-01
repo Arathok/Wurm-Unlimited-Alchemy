@@ -98,19 +98,19 @@ public class OilPerformer implements ActionPerformer {
 				if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
-				for (int i = 0; i < target.getItemCount(); i++) {
+				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrows[i].getSpellEffects();
+					ItemSpellEffects effs = arrow.getSpellEffects();
 					if (effs != null)
 						fails++;
 					if (effs == null)
-						effs = new ItemSpellEffects(arrows[i].getWurmId());
+						effs = new ItemSpellEffects(arrow.getWurmId());
 					SpellEffect eff = effs.getSpellEffect((byte) 11);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrows[i].getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrows[i].setName((arrows[i].getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +

@@ -1612,7 +1612,7 @@ public class AlchItems {
 
 	private static void registerPasteDemiseAnimal() throws IOException {
 		pasteDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseAnimal")
-				.name(" paste of Animal Demise", "pastes of Animal Demise",
+				.name(" paste of the Hunter", "pastes of the Hunter",
 						"A paste that smells of death. Rubbing it on a piece animal flesh it seems to dissolve it. " +
 								"You sense this could be turned into a coating for weapons")
 
@@ -1646,9 +1646,9 @@ public class AlchItems {
 
 	private static void registerPasteDemiseMonster() throws IOException {
 		pasteDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseMonster")
-				.name(" paste of Monsters Demise", "pastes of Monsters Demise",
+				.name(" paste of the Monster Hunter", "pastes of the Monster Hunter",
 						"A paste that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
-								"You sense this could be turned into a coating for weapons")
+								"Yet your own skin is safe. You sense this could be turned into a coating for weapons")
 
 				.modelName("model.paste.monster.")
 				.imageNumber((short) 1571)
@@ -1678,8 +1678,9 @@ public class AlchItems {
 	}
 	private static void registerPasteDemiseLegendary() throws IOException {
 		pasteDemiseLegendary = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseLegendary")
-				.name(" paste of Legendarys Demise", "pastes of Legendarys Demise",
-						"A paste that smells of death. You find that it doesn't disslolve any flesh you know not even your own. Maybe you should test it on Dragons or so? " +
+				.name(" paste of the Dragon Hunter", "pastes of the Dragon Hunter",
+						"A paste that smells of death. You find that it doesn't disslolve any flesh you know " +
+								"not even your own. Maybe you should test it on Dragons or so? " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.paste.legendary.")
@@ -1711,8 +1712,9 @@ public class AlchItems {
 
 	private static void registerPasteDemiseHuman() throws IOException {
 		pasteDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseHuman")
-				.name(" paste of Human Demise", "pastes of Human Demise",
-						"A paste that smells of death. You find that it dissolves your own flesh easily, but doesn't harm animal flesh. Weird. " +
+				.name(" paste of the Murderer", "pastes of the Murderer",
+						"A paste that smells of death. You find that it dissolves your own flesh easily, " +
+								"but doesn't harm animal flesh. Weird. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.paste.human.")
@@ -1745,7 +1747,7 @@ public class AlchItems {
 	private static void registerPasteLickOfFire() throws IOException {
 		pasteLickOfFire = new ItemTemplateBuilder("arathok.alchemy.pasteFire")
 				.name(" paste of lick of fire", "pastes of lick of fire",
-						"A paste that smells sulphury. It develops extreme heat on any surface fit touches. " +
+						"A paste that smells sulphury. It develops extreme heat on any surface it touches. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.paste.kissOfFire.")
@@ -1811,7 +1813,8 @@ public class AlchItems {
 	private static void registerPasteLech() throws IOException {
 		pasteLeech = new ItemTemplateBuilder("arathok.alchemy.pasteLeech")
 				.name(" paste of Leech", "pastes of Leech",
-						"An ominous paste. Smearing it upon a plant makes the plant wilt, but upon touching the paste on the plant you feel more vigorous. " +
+						"An ominous paste. Smearing it upon a plant makes the plant wilt, but upon touching " +
+								"the paste on the plant you feel more vigorous. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.paste.Leech.")
@@ -1876,8 +1879,9 @@ public class AlchItems {
 
 	private static void registerPasteHeartseeker() throws IOException {
 		pasteHeartseeker = new ItemTemplateBuilder("arathok.alchemy.pasteHeartseeker")
-				.name(" paste of Heartseeker", "pastes of Heartseeker",
-						"An ominous paste. Smearing it upon your hand makes it kinda always want to go on what you are focusing. " +
+				.name(" paste of the Heartseeker", "pastes of the Heartseeker",
+						"An ominous paste. Smearing it upon your hand makes it always want to grab on what you" +
+								" are focusing. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.paste.Heartseeker.")
@@ -1908,9 +1912,10 @@ public class AlchItems {
 	}
 
 	private static void registerPastePoison() throws IOException {
-		pastePoison = new ItemTemplateBuilder("arathok.alchemy.pastePoisonr")
-				.name(" paste of Paste", "pastes of Poison",
-						"A forbidden paste. Smearing it upon your hand makes your body temperature rise in an instant, your veins turn blackish. " +
+		pastePoison = new ItemTemplateBuilder("arathok.alchemy.pastePoison")
+				.name(" paste of the Snake", "pastes of the Snake",
+						"A forbidden paste. Smearing it upon your hand makes your body temperature rise in an" +
+								" instant, your veins turn blackish. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.paste.poison.")
@@ -1944,7 +1949,7 @@ public class AlchItems {
 
 	private static void registerOilDemiseAnimal() throws IOException {
 		oilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.oilDemiseAnimal")
-				.name(" oil of Animal Demise", "oils of Animal Demise",
+				.name(" oil of the Hunter", "oils of the Hunter",
 						"A oil that smells of death. Rubbing it on a piece animal flesh it seems to dissolve it. " +
 								"You sense this could be turned into a coating for weapons")
 
@@ -1972,7 +1977,7 @@ public class AlchItems {
 
 	private static void registeroilDemiseMonster() throws IOException {
 		oilDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.oilDemiseMonster")
-				.name(" oil of Monsters Demise", "oils of Monsters Demise",
+				.name(" oil of the Monster Hunter", "oils of the Monster Hunter",
 						"A oil that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
 								"You sense this could be turned into a coating for weapons")
 
@@ -2186,7 +2191,7 @@ public class AlchItems {
 	}
 
 	private static void registeroilPoison() throws IOException {
-		oilPoison = new ItemTemplateBuilder("arathok.alchemy.oilPoisonr")
+		oilPoison = new ItemTemplateBuilder("arathok.alchemy.oilPoison")
 				.name(" oil of Poison", "oils of Poison",
 						"A forbidden oil. Smearing it upon your hand makes your body temperature rise in an instant, your veins turn blackish. " +
 								"You sense this could be turned into a coating for weapons")
