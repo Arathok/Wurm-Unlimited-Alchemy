@@ -1,5 +1,5 @@
 package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah in onItemTemplatesCreated
-
+///TODO:mixtures/pastes no bulk and they decay
 //and make them not-private so you can actually access them
 import java.io.IOException;
 
@@ -41,6 +41,9 @@ public class AlchItems {
 			pasteDemiseAnimalId, pasteDemiseMonsterId, pasteDemiseLegendaryId, pasteDemiseHumanId, pasteLickOfFireId,
 			pasteKissOfFrostId, pasteLeechId, pasteHeartseekerId, pastePlagueId, pastePoisonId,
 
+			sludgeDemiseAnimalId, sludgeDemiseMonsterId, sludgeDemiseLegendaryId, sludgeDemiseHumanId, sludgeLickOfFireId,
+			sludgeKissOfFrostId, sludgeLeechId, sludgeHeartseekerId, sludgePlagueId, sludgePoisonId,
+
 			oilDemiseAnimalId, oilDemiseMonsterId, oilDemiseLegendaryId, oilDemiseHumanId, oilLickOfFireId,
 			oilKissOfFrostId, oilLeechId, oilHeartseekerId, oilPlagueId, oilPoisonId,
 
@@ -65,6 +68,9 @@ public class AlchItems {
 
 			pasteDemiseAnimal, pasteDemiseMonster, pasteDemiseLegendary, pasteDemiseHuman, pasteLickOfFire,
 			pasteKissOfFrost, pasteLeech, pasteHeartseeker, pastePlague, pastePoison,
+
+			sludgeDemiseAnimal, sludgeDemiseMonster, sludgeDemiseLegendary, sludgeDemiseHuman, sludgeLickOfFire,
+			sludgeKissOfFrost, sludgeLeech, sludgeHeartseeker, sludgePlague, sludgePoison,
 
 			oilDemiseAnimal, oilDemiseMonster, oilDemiseLegendary, oilDemiseHuman, oilLickOfFire,
 			oilKissOfFrost, oilLeech, oilHeartseeker, oilPlague, oilPoison,
@@ -197,6 +203,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_TURNABLE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_TOOL,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 						ItemTypes.ITEM_TYPE_METAL, })
 				.decayTime(9072000L)
 				.dimensions(8, 8, 15)
@@ -225,7 +232,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_TURNABLE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_TOOL,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
@@ -252,7 +259,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_METAL,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
@@ -262,6 +269,9 @@ public class AlchItems {
 				.build();
 
 		purifiedWaterId = purifiedWater.getTemplateId();
+		if (Config.purifiedWaterCooking==false)
+			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.water, ItemList.charcoal, purifiedWaterId, true, true, 0f, false, false, CreationCategories.DECORATION);
+
 	}
 
 	private static void registerAlchemicalCompound() throws IOException {
@@ -277,6 +287,7 @@ public class AlchItems {
 								ItemTypes.ITEM_TYPE_BULK,
 								ItemTypes.ITEM_TYPE_LIQUID,
 								ItemTypes.ITEM_TYPE_METAL,
+								ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 						}).decayTime(9072000L)
 				.dimensions(10, 10, 10)
@@ -307,7 +318,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				}).decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
@@ -534,7 +545,7 @@ public class AlchItems {
 				.modelName("model.mixture.sixth.")
 				.imageNumber((short) 1506)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -566,7 +577,7 @@ public class AlchItems {
 				.modelName("model.mixture.strength.")
 				.imageNumber((short) 1506)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -748,7 +759,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -774,7 +785,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -800,7 +811,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -827,7 +838,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -853,7 +864,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -880,7 +891,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L).dimensions(3, 3, 3)
 				.weightGrams(100)
@@ -906,7 +917,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -934,7 +945,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -961,7 +972,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -988,7 +999,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1011,7 +1022,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L).dimensions(3, 3, 3)
 				.weightGrams(100)
@@ -1036,7 +1047,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L).dimensions(3, 3, 3)
 				.weightGrams(100)
@@ -1058,7 +1069,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1082,7 +1093,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1103,7 +1114,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1128,7 +1139,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1153,7 +1164,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1178,7 +1189,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1203,7 +1214,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1228,7 +1239,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1252,7 +1263,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(3, 3, 3)
@@ -1273,7 +1284,7 @@ public class AlchItems {
 				.modelName("model.potion.dodge.")
 				.imageNumber((short) 1568)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1303,7 +1314,7 @@ public class AlchItems {
 				.modelName("model.potion.excell.")
 				.imageNumber((short) 1567)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1332,7 +1343,7 @@ public class AlchItems {
 				.modelName("model.potion.goat.")
 				.imageNumber((short) 1566)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1358,7 +1369,7 @@ public class AlchItems {
 				.modelName("model.potion.heal.")
 				.imageNumber((short) 1565)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1944,7 +1955,309 @@ public class AlchItems {
 				.addRequirement(new CreationRequirement(1, ItemList.heart, 1, true));
 
 	}
+/// Oil Precursors / Sludges
+private static void registerPrecursorDemiseAnimal() throws IOException {
+	sludgeDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.sludgeDemiseAnimal")
+			.name(" sludge of the Hunter", "sludges of the Hunter",
+					"A sludge that smells of death. Rubbing it on a piece animal flesh it seems to dissolve it. " +
+							"You sense this could be turned into a coating for weapons")
 
+			.modelName("model.sludge.animal.")
+			.imageNumber((short) 1570)
+			.itemTypes(new short[] {
+					ItemTypes.ITEM_TYPE_BULK,
+					ItemTypes.ITEM_TYPE_LIQUID,
+					ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+
+			})
+			.decayTime(9072000L)
+			.dimensions(5, 5, 10)
+			.weightGrams(200)
+			.material(Materials.MATERIAL_MAGIC)
+			.behaviourType((short) 1)
+			.primarySkill(SkillList.GROUP_ALCHEMY)
+			.difficulty(40) // no hard lock
+			.build();
+
+	sludgeDemiseAnimalId = sludgeDemiseAnimal.getTemplateId();
+	CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteDemiseAnimalId, AlchItems.alchemicalCompoundId,	sludgeDemiseAnimalId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+}
+
+
+	private static void registerPrecursorDemiseMonster() throws IOException {
+		sludgeDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.sludgeDemiseMonster")
+				.name(" sludge of the Monster Hunter", "sludges of the Monster Hunter",
+						"A sludge that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
+								"Yet your own skin is safe. You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.monster.")
+				.imageNumber((short) 1571)
+				.itemTypes(new short[] {
+
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(60) // no hard lock
+				.build();
+
+		sludgeDemiseMonsterId = sludgeDemiseMonster.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteDemiseMonsterId, AlchItems.alchemicalCompoundId,	sludgeDemiseMonsterId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+	}
+	private static void registerPrecursorDemiseLegendary() throws IOException {
+		sludgeDemiseLegendary = new ItemTemplateBuilder("arathok.alchemy.sludgeDemiseLegendary")
+				.name(" sludge of the Dragon Hunter", "sludges of the Dragon Hunter",
+						"A sludge that smells of death. You find that it doesn't disslolve any flesh you know " +
+								"not even your own. Maybe you should test it on Dragons or so? " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.legendary.")
+				.imageNumber((short) 1572)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(70) // no hard lock
+				.build();
+
+		sludgeDemiseLegendaryId = sludgeDemiseLegendary.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteDemiseLegendaryId, AlchItems.alchemicalCompoundId,	sludgeDemiseLegendaryId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+	}
+
+	private static void registerPrecursorDemiseHuman() throws IOException {
+		sludgeDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.sludgeDemiseHuman")
+				.name(" sludge of the Murderer", "sludges of the Murderer",
+						"A sludge that smells of death. You find that it dissolves your own flesh easily, " +
+								"but doesn't harm animal flesh. Weird. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.human.")
+				.imageNumber((short) 1573)
+				.itemTypes(new short[] {
+							ItemTypes.ITEM_TYPE_BULK,
+							ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		sludgeDemiseHumanId = sludgeDemiseHuman.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteDemiseHumanId, AlchItems.alchemicalCompoundId,	sludgeDemiseHumanId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+	}
+
+	private static void registerPrecursorLickOfFire() throws IOException {
+		sludgeLickOfFire = new ItemTemplateBuilder("arathok.alchemy.sludgeFire")
+				.name(" sludge of lick of fire", "sludges of lick of fire",
+						"A sludge that smells sulphury. It develops extreme heat on any surface it touches. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.kissOfFire.")
+				.imageNumber((short) 1574)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		sludgeLickOfFireId = sludgeLickOfFire.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteLickOfFireId, AlchItems.alchemicalCompoundId,	sludgeLickOfFireId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+	}
+
+	private static void registerPrecursorKissOfFrost() throws IOException {
+		sludgeKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.sludgeFrost")
+				.name(" sludge of Kiss of Frost", "sludges of Kiss of Frost",
+						"A sludge that is cool to the touch. It freezes any surface it touches. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.kissOfFire.")
+				.imageNumber((short) 1575)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		sludgeKissOfFrostId = sludgeKissOfFrost.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteKissOfFrostId, AlchItems.alchemicalCompoundId,	sludgeKissOfFrostId, true, true, 0f, false,true,0,30.0, CreationCategories.ALCHEMY);
+
+
+	}
+
+	private static void registerPrecursorLech() throws IOException {
+		sludgeLeech = new ItemTemplateBuilder("arathok.alchemy.sludgeLeech")
+				.name(" sludge of Leech", "sludges of Leech",
+						"An ominous sludge. Smearing it upon a plant makes the plant wilt, but upon touching " +
+								"the sludge on the plant you feel more vigorous. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.Leech.")
+				.imageNumber((short) 1576)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		sludgeLeechId = sludgeLeech.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteLeechId, AlchItems.alchemicalCompoundId,	sludgeLeechId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+	}
+
+	private static void registerPrecursorPlague() throws IOException {
+		sludgePlague = new ItemTemplateBuilder("arathok.alchemy.sludgePlague")
+				.name(" sludge of the Plague", "sludges of Plague",
+						"A forbidden sludge. Smearing it upon anything makes it age and rot. Very Dangerous. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.plague.")
+				.imageNumber((short) 1577)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(70) // no hard lock
+				.build();
+
+		sludgePlagueId = sludgePlague.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pastePlagueId, AlchItems.alchemicalCompoundId,	sludgePlagueId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+	}
+
+	private static void registerPrecursorHeartseeker() throws IOException {
+		sludgeHeartseeker = new ItemTemplateBuilder("arathok.alchemy.sludgeHeartseeker")
+				.name(" sludge of the Heartseeker", "sludges of the Heartseeker",
+						"An ominous sludge. Smearing it upon your hand makes it always want to grab on what you" +
+								" are focusing. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.Heartseeker.")
+				.imageNumber((short) 1578)
+				.itemTypes(new short[] {
+					ItemTypes.ITEM_TYPE_BULK,
+					ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		sludgeHeartseekerId = sludgeHeartseeker.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteHeartseekerId, AlchItems.alchemicalCompoundId,	sludgeHeartseekerId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+	}
+
+	private static void registerPrecursorPoison() throws IOException {
+		sludgePoison = new ItemTemplateBuilder("arathok.alchemy.sludgePoison")
+				.name(" sludge of the Snake", "sludges of the Snake",
+						"A forbidden sludge. Smearing it upon your hand makes your body temperature rise in an" +
+								" instant, your veins turn blackish. " +
+								"You sense this could be turned into a coating for weapons")
+
+				.modelName("model.sludge.poison.")
+				.imageNumber((short) 1579)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(50) // no hard lock
+				.build();
+
+		sludgePoisonId = sludgePoison.getTemplateId();
+		CreationEntryCreator
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pastePoisonId, AlchItems.alchemicalCompoundId,	sludgePoisonId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
+
+	}
 // OILS
 
 	private static void registerOilDemiseAnimal() throws IOException {
@@ -1958,6 +2271,7 @@ public class AlchItems {
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 
 				})
@@ -1987,6 +2301,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -2013,6 +2328,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -2040,6 +2356,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -2067,6 +2384,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
 				.decayTime(9072000L)
@@ -2094,7 +2412,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
@@ -2121,7 +2439,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
@@ -2148,7 +2466,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
@@ -2175,7 +2493,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
@@ -2202,7 +2520,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
-
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
@@ -2215,6 +2533,275 @@ public class AlchItems {
 
 		oilPoisonId = oilPoison.getTemplateId();
 
+	}
+	private static void registerweaponOilDemiseAnimal() throws IOException {
+		weaponOilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+				.name(" Weapon oil of the Hunter", "Weapon Oils of the Hunter",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.Hunter.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilDemiseAnimalId = weaponOilDemiseAnimal.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerweaponOilDemiseHuman() throws IOException {
+		weaponOilDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.weaponoilHuman")
+				.name(" Weapon oil of the Murderer", "Weapon Oils of the Murderer",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.Hunter.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						 ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilDemiseHumanId = weaponOilDemiseHuman.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseHumanId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerweaponOilDemiseMonster() throws IOException {
+		weaponOilDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.weaponoilHuman")
+				.name(" Weapon oil of the Monster Hunter", "Weapon oils of the Monster Hunter",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.Murderer.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilDemiseMonsterId = weaponOilDemiseMonster.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseMonsterId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerweaponOilDemiseLegendary() throws IOException {
+		weaponOilDemiseLegendary = new ItemTemplateBuilder("arathok.alchemy.weaponoilDragon")
+				.name(" Weapon oil of the Dragon Hunter", "Weapon Oils of Dragon Hunter",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.DragonHunter.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilDemiseLegendaryId = weaponOilDemiseLegendary.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseHumanId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerweaponOilHeartseeker() throws IOException {
+		weaponOilHeartseeker = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+				.name(" Weapon oil of the Heartseeker", "Weapon Oils of the Heartseeker",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.Heartseeker.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						// ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilHeartseekerId = weaponOilHeartseeker.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseLegendaryId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerweaponOilKissOfFrost() throws IOException {
+		weaponOilKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+				.name(" Frostkiss Weapon oil ", "Weapon oils of Frostkiss",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.Frostkiss.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						// ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilKissOfFrostId = weaponOilKissOfFrost.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilKissOfFrostId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerweaponOilLickOfFire() throws IOException {
+		weaponOilLickOfFire = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+				.name(" Lick of Fire oil", "Weapon Oils of Lick of Fire",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.FireLick.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						// ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilLickOfFireId = weaponOilLickOfFire.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerWeaponOilAnimal() throws IOException {
+		weaponOilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+				.name(" Weapon oil of the Hunter", "Weapon Oils of the Hunter",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.Hunter.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						// ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilDemiseAnimalId = weaponOilDemiseAnimal.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerWeaponOilAnimal() throws IOException {
+		weaponOilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+				.name(" Weapon oil of the Hunter", "Weapon Oils of the Hunter",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.Hunter.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						// ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilDemiseAnimalId = weaponOilDemiseAnimal.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
 
@@ -2229,6 +2816,7 @@ public class AlchItems {
 		TempStates.addState(new TempState(AlchItems.mouldClayId, AlchItems.mouldPotteryId, (short) 4000, true, true, false));
 		registerPhial();
 		registerPurifiedWater();
+		if (Config.purifiedWaterCooking==true)
 		TempStates.addState(new TempState(ItemList.water, AlchItems.purifiedWaterId, (short) 4000, true, true, false));
 		registerAlchemicalCompound();
 
@@ -2321,30 +2909,30 @@ public class AlchItems {
 			registeroilPlague();
 			registeroilPoison();
 
-		/*
-		registerweaponOilDemiseHuman();
-		registerweaponOilDemiseLegendary();
-		registerweaponOilDemiseMonster();
-		registerweaponOilDemiseAnimal();
-		registerweaponOilHeartseeker();
-		registerweaponOilKissOfFrost();
-		registerweaponOilLech();
-		registerweaponOilLickOfFire();
-		registerweaponOilPlague();
-		registerweaponOilPoison();
 
-		 */
+			registerweaponOilDemiseHuman();
+			registerweaponOilDemiseLegendary();
+			registerweaponOilDemiseMonster();
+			registerweaponOilDemiseAnimal();
+			registerweaponOilHeartseeker();
+			registerweaponOilKissOfFrost();
+			registerweaponOilLech();
+			registerweaponOilLickOfFire();
+			registerweaponOilPlague();
+			registerweaponOilPoison();
 
-			TempStates.addState(new TempState(AlchItems.pasteHeartseekerId, AlchItems.oilHeartseekerId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pasteLeechId, AlchItems.oilLeechId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pastePlagueId, AlchItems.oilPlagueId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pastePoisonId, AlchItems.oilPoisonId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pasteDemiseAnimalId, AlchItems.oilDemiseAnimalId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pasteDemiseHumanId, AlchItems.oilDemiseHumanId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pasteDemiseMonsterId, AlchItems.oilDemiseMonsterId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pasteDemiseLegendaryId, AlchItems.oilDemiseLegendaryId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pasteLickOfFireId, AlchItems.oilLickOfFireId, (short) 4000, true, true, false));
-			TempStates.addState(new TempState(AlchItems.pasteKissOfFrostId, AlchItems.oilKissOfFrostId, (short) 4000, true, true, false));
+
+
+			TempStates.addState(new TempState(AlchItems.sludgeHeartseekerId, AlchItems.oilHeartseekerId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgeLeechId, AlchItems.oilLeechId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgePlagueId, AlchItems.oilPlagueId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgePoisonId, AlchItems.oilPoisonId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgeDemiseAnimalId, AlchItems.oilDemiseAnimalId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgeDemiseHumanId, AlchItems.oilDemiseHumanId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgeDemiseMonsterId, AlchItems.oilDemiseMonsterId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgeDemiseLegendaryId, AlchItems.oilDemiseLegendaryId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgeLickOfFireId, AlchItems.oilLickOfFireId, (short) 4000, true, true, false));
+			TempStates.addState(new TempState(AlchItems.sludgeKissOfFrostId, AlchItems.oilKissOfFrostId, (short) 4000, true, true, false));
 		}
 	}
 
