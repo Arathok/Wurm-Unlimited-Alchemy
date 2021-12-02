@@ -2898,6 +2898,17 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 			registerPastePlague();
 			registerPastePoison();
 
+			registerPrecursorHeartseeker();
+			registerPrecursorLech();
+			registerPrecursorDemiseHuman();
+			registerPrecursorDemiseAnimal();
+			registerPrecursorDemiseLegendary();
+			registerPrecursorDemiseMonster();
+			registerPrecursorKissOfFrost();
+			registerPrecursorLickOfFire();
+			registerPrecursorPlague();
+			registerPrecursorPoison();
+			
 			registeroilDemiseHuman();
 			registeroilDemiseLegendary();
 			registeroilDemiseMonster();
