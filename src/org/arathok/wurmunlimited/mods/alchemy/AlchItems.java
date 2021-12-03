@@ -131,7 +131,7 @@ public class AlchItems {
 
 		glassMixtureId = glassMixture.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.sand, ItemList.ash, glassMixtureId, true, true,0.0f, false, false, CreationCategories.RESOURCES)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.sand, ItemList.ash, glassMixtureId, true, true,0.0f, true, false,0,5, CreationCategories.RESOURCES)
 				.addRequirement(new CreationRequirement(1, ItemList.ash, 17, true))
 				.addRequirement(new CreationRequirement(2, ItemList.sandstone, 1, true));
 	}
@@ -244,7 +244,7 @@ public class AlchItems {
 
 		phialId = phial.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mouldPotteryId, AlchItems.glassId, phialId, false, true, 0f, false, false, CreationCategories.DECORATION);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mouldPotteryId, AlchItems.glassId, phialId, false, true, 0f, false, false,0,10, CreationCategories.DECORATION);
 	} // NO ADDITIONAL ITEMS NEEDED
 
 	private static void registerPurifiedWater() throws IOException {
@@ -270,7 +270,7 @@ public class AlchItems {
 
 		purifiedWaterId = purifiedWater.getTemplateId();
 		if (Config.purifiedWaterCooking==false)
-			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.water, ItemList.charcoal, purifiedWaterId, true, true, 0f, false, false, CreationCategories.DECORATION);
+			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.water, ItemList.charcoal, purifiedWaterId, true, true, 0f, false, false,0,5, CreationCategories.DECORATION);
 
 	}
 
@@ -278,7 +278,8 @@ public class AlchItems {
 		alchemicalCompound = new ItemTemplateBuilder("arathok.alchemy.alchemicalCompound")
 				.name("alchemical compound", "alchemical compounds",
 						"A whiteish liquid smelling pretty badly. Its made from the essence of a beast"
-								+ " and you can sense it holds potential to store the power of natural substances")
+								+ " and you can sense it holds potential to store the power of natural substances"
+								+ "it should be used fresh but seems stable enough for a day.")
 
 				.modelName("model.alchemicalCompound.")
 				.imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
@@ -289,7 +290,7 @@ public class AlchItems {
 								ItemTypes.ITEM_TYPE_METAL,
 								ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
-						}).decayTime(9072000L)
+						}).decayTime(691200L)
 				.dimensions(10, 10, 10)
 				.weightGrams(1000)
 				.material(Materials.MATERIAL_MAGIC)
@@ -300,34 +301,36 @@ public class AlchItems {
 		alchemicalCompoundId = alchemicalCompound.getTemplateId();
 
 		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.purifiedWaterId, ItemList.heart,
-				alchemicalCompoundId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				alchemicalCompoundId, true, true, 0f, true, false, 0,5,CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureDodging() throws IOException {
 		mixtureWillowspine = new ItemTemplateBuilder("arathok.alchemy.mixtureDodge").name("mixture of phasing",
 				"mixtures of phasing",
-				"A mixture of different alchemical substances. One day it might be making a fine potion."
+				"A ftresh mixture of different alchemical and natural substances. One day it might be making a fine potion."
 						+ "Smelling this mixture makes you feel safe. You feel like the universe is putting its protective hands around you, turn you into a Shadow."
-						+ "You feel like nothing can really hurt your new form ")
+						+ "You feel like nothing can really hurt your new form "
+						+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.phasing.")
 				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
-				}).decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
+				}).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
 				.build();
 
 		mixtureWillowspineId = mixtureWillowspine.getTemplateId();
 
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.rosemary, ItemList.ivySeedling,mixtureWillowspineId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.rosemary, ItemList.ivySeedling,mixtureWillowspineId, true, true, 0f, true, false,0,30, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
 				.addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
 	}
@@ -336,17 +339,17 @@ public class AlchItems {
 		mixtureExcell = new ItemTemplateBuilder("arathok.alchemy.mixtureExcell").name("mixture of surpass",
 				"mixtures of surpass",
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
-						+ "Smelling it makes you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut.")
-
+						+ "Smelling it makes you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
+				+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 				.modelName("model.mixture.excell.").imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE, })
-				.decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
+				.decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
 				.build();
 
@@ -354,34 +357,35 @@ public class AlchItems {
 
 		CreationEntryCreator
 				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.ginger, ItemList.sassafras, mixtureExcellId,
-						true, true, 0f, false, false, CreationCategories.ALCHEMY)
+						true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.mushroomRed, 1, true));
 	}
 
 	private static void registermixtureFrenzy() throws IOException {
 		mixtureFranticCharge = new ItemTemplateBuilder("arathok.alchemy.mixtureFrenzy").name("mixture of frenzy",
 				"mixtures of frenzy",
-				"A mixture of different alchemical substances. One day it might be making a fine potion."
-						+ "Smelling this mixture makes you agressive, it seems to call to you to let out your inner beast.")
+				"A mixture of different alchemical and natural substances. One day it might be making a fine potion."
+						+ "Smelling this mixture makes you agressive, it seems to call to you to let out your inner beast."
+						+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.frenzy.").imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
-				}).decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+				}).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(35) // no hard lock
 				.build();
 
 		mixtureFranticChargeId = mixtureFranticCharge.getTemplateId();
 
 		CreationEntryCreator
 				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomRed, ItemList.nutmeg,
-						mixtureFranticChargeId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+						mixtureFranticChargeId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.tomato, 1, true))
 				.addRequirement(new CreationRequirement(2, ItemList.tooth, 1, true));
 	}
@@ -394,32 +398,33 @@ public class AlchItems {
 
 				.modelName("model.mixture.goat.").imageNumber((short) 1506)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE, })
-				.decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
+				.decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
 				.build();
 
 		mixtureGoatId = mixtureGoat.getTemplateId();
 
 		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.branch, ItemList.oat, mixtureGoatId,
-				true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				true, true, 0f, false, false,0,20, CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureOakshell() throws IOException {
 		mixtureOakshell = new ItemTemplateBuilder("arathok.alchemy.mixtureOakshell")
 				.name("mixture of Woodskin", "mixtures of Woodskin",
 						"A mixture of different alchemical substances. One day it might be making a fine potion."
-								+ "it seems to make your skin somewhat woodifies and becomes harder when you touch it.")
+								+ "it seems to make your skin somewhat woodifies and becomes harder when you touch it."
+								+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.oakshell.")
 				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -427,7 +432,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -439,7 +444,7 @@ public class AlchItems {
 		mixtureOakshellId = mixtureOakshell.getTemplateId();
 
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.acorn, ItemList.rock, mixtureOakshellId, true,true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.acorn, ItemList.rock, mixtureOakshellId, true,true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.mushroomBlue, 1, true))
 				.addRequirement(new CreationRequirement(2, ItemList.sage, 1, true));
 	}
@@ -448,11 +453,12 @@ public class AlchItems {
 		mixtureHeal = new ItemTemplateBuilder("arathok.alchemy.mixtureHeal").name("mixture of health",
 				"mixtures of health",
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
-						+ "You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties.")
+						+ "You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties."
+						+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixtureHeal.").imageNumber((short) 1505)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -460,7 +466,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -471,19 +477,20 @@ public class AlchItems {
 
 		mixtureHealId = mixtureHeal.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomBrown, ItemList.wheat,mixtureHealId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomBrown, ItemList.wheat,mixtureHealId, true, true, 0f, false, false,0,15, CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureMorningFog() throws IOException {
 		mixtureMorningFog = new ItemTemplateBuilder("arathok.alchemy.mixtureFog").name("mixture of fog skin",
 				"mixtures of fog skin",
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
-						+ "Sniffing it your body seems to bend around sharp objects as if it wants to protect itself.")
+						+ "Sniffing it your body seems to bend around sharp objects as if it wants to protect itself."
+						+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.fog.")
 				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -491,7 +498,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -501,19 +508,20 @@ public class AlchItems {
 
 		mixtureMorningFogId = mixtureMorningFog.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.lingonberry, ItemList.wemp,mixtureMorningFogId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.lingonberry, ItemList.wemp,mixtureMorningFogId, true, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureRefresh() throws IOException {
 		mixtureRefresh = new ItemTemplateBuilder("arathok.alchemy.mixtureRefresh").name("mixture of refreshing",
 				"mixtures of Refreshing",
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
-						+ "You sense it giving off a whiff of cool air. It seems to be able to strip some tiredness off you.")
+						+ "You sense it giving off a whiff of cool air. It seems to be able to strip some tiredness off you."
+						+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.refresh.")
 				.imageNumber((short) 1505)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -521,7 +529,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -532,21 +540,22 @@ public class AlchItems {
 
 		mixtureRefreshId = mixtureRefresh.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.carrot, ItemList.potato,mixtureRefreshId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mint, ItemList.fennel,mixtureRefreshId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.carrot, ItemList.potato,mixtureRefreshId, true, true, 0f, false, false, 0,10,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mint, ItemList.fennel,mixtureRefreshId, true, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureSixthSense() throws IOException {
 		mixtureSixthSense = new ItemTemplateBuilder("arathok.alchemy.mixtureSixthSense").name("mixture of senses",
 				"mixtures of senses",
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
-						+ "The smell brings a certain picture before the inner eye. Like a voice telling you, to be careful with your surroundings")
+						+ "The smell brings a certain picture before the inner eye. Like a voice telling you, to be careful with your surroundings"
+						+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.sixth.")
 				.imageNumber((short) 1506)
 				.itemTypes(new short[] {
-						 ItemTypes.ITEM_TYPE_BULK,
-						ItemTypes.ITEM_TYPE_BULK,
+
+					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -554,7 +563,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -565,20 +574,21 @@ public class AlchItems {
 
 		mixtureSixthSenseId = mixtureSixthSense.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.lovage, ItemList.nettles,mixtureSixthSenseId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.lovage, ItemList.nettles,mixtureSixthSenseId, true, true, 0f, false, false,0,20, CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureStrength() throws IOException {
 		mixtureStrength = new ItemTemplateBuilder("arathok.alchemy.mixture")
 				.name("mixture of Strength", "mixtures of Strength",
 						"A mixture of different alchemical substances. One day it might be making a fine potion."
-								+ "The smell makes you feel like you could lift a mountain.")
+								+ "The smell makes you feel like you could lift a mountain."
+								+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.strength.")
 				.imageNumber((short) 1506)
 				.itemTypes(new short[] {
-						 ItemTypes.ITEM_TYPE_BULK,
-						ItemTypes.ITEM_TYPE_BULK,
+						// ItemTypes.ITEM_TYPE_BULK,
+
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -586,7 +596,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -598,7 +608,7 @@ public class AlchItems {
 		mixtureStrengthId = mixtureStrength.getTemplateId();
 
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomBlack, ItemList.paprika,mixtureStrengthId, true, true, 0f, true, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomBlack, ItemList.paprika,mixtureStrengthId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.woad, 1, true));
 	}
 
@@ -606,12 +616,13 @@ public class AlchItems {
 		mixtureTruehit = new ItemTemplateBuilder("arathok.alchemy.mixtureTruehit")
 				.name("mixture of truehit", "mixtures of truehit",
 						"A mixture of different alchemical substances. One day it might be making a fine potion."
-								+ "The belladonna is widening your eyes, uncovering weak spots on enemies")
+								+ "The belladonna is widening your eyes, uncovering weak spots on enemies"
+								+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.truehit.")
 				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -619,18 +630,18 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
-				.primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(50) // no hard lock
+				.primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
 				.build();
 
 		mixtureTruehitId = mixtureTruehit.getTemplateId();
 
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.belladonna, ItemList.garlic, mixtureTruehitId,true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.belladonna, ItemList.garlic, mixtureTruehitId,true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.mushroomGreen, 1, true));
 	}
 
@@ -638,18 +649,19 @@ public class AlchItems {
 		mixtureVynora = new ItemTemplateBuilder("arathok.alchemy.mixtureVyn").name("mixture of Knowledge",
 				"mixtures of Knowledge",
 				"A mixture of different alchemical substances. One day it might be making a fine potion."
-						+ "This mixture has captured the essence of knowledge itself. You can feel Vynora smile down on you. You are grasping for the summit of Alchemy")
+						+ "This mixture has captured the essence of knowledge itself. You can feel Vynora smile down on you. You are grasping for the summit of Alchemy"
+						+ "You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
 				.modelName("model.mixture.vyn.")
 				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE, })
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -661,7 +673,7 @@ public class AlchItems {
 		mixtureVynoraId = mixtureVynora.getTemplateId();
 
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomYellow, ItemList.turmeric,	mixtureVynoraId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomYellow, ItemList.turmeric,	mixtureVynoraId, true, true, 0f, true, false,0,60, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.strawberries, 1, true))
 				.addRequirement(new CreationRequirement(2, ItemList.thyme, 1, true))
 				.addRequirement(new CreationRequirement(2, ItemList.cumin, 1, true))
@@ -683,7 +695,7 @@ public class AlchItems {
 						
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -710,7 +722,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -735,7 +747,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -761,7 +773,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -787,7 +799,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -813,7 +825,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -840,7 +852,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -866,7 +878,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -893,7 +905,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L).dimensions(3, 3, 3)
+				.decayTime(691200L).dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -919,7 +931,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -947,7 +959,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -974,7 +986,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1001,7 +1013,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1049,7 +1061,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L).dimensions(3, 3, 3)
+				.decayTime(691200L).dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
@@ -1071,7 +1083,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1095,7 +1107,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
@@ -1116,7 +1128,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1141,7 +1153,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1166,7 +1178,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1191,7 +1203,7 @@ public class AlchItems {
 
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1216,7 +1228,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1241,7 +1253,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1265,7 +1277,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(3, 3, 3)
 				.weightGrams(100).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1292,7 +1304,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1322,7 +1334,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L).dimensions(5, 5, 10)
+				.decayTime(2073600L).dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1351,7 +1363,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L).dimensions(5, 5, 10)
+				.decayTime(2073600L).dimensions(5, 5, 10)
 				.weightGrams(200).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
 				.primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
@@ -1377,7 +1389,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1406,7 +1418,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1434,7 +1446,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1463,7 +1475,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L).dimensions(5, 5, 10)
+				.decayTime(2073600L).dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1491,7 +1503,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1519,7 +1531,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1548,7 +1560,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200).material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1577,7 +1589,7 @@ public class AlchItems {
 					
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1606,7 +1618,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1625,12 +1637,14 @@ public class AlchItems {
 		pasteDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseAnimal")
 				.name(" paste of the Hunter", "pastes of the Hunter",
 						"A paste that smells of death. Rubbing it on a piece animal flesh it seems to dissolve it. " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"+
+								"Due to its fresh ingredients it should be processed quickly."
+				)
 
 				.modelName("model.paste.animal.")
-				.imageNumber((short) 1570)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1638,7 +1652,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1649,7 +1663,7 @@ public class AlchItems {
 
 		pasteDemiseAnimalId = pasteDemiseAnimal.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseAnimalId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseAnimalId, true, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.eye, 1, true));
 
 	}
@@ -1659,12 +1673,13 @@ public class AlchItems {
 		pasteDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseMonster")
 				.name(" paste of the Monster Hunter", "pastes of the Monster Hunter",
 						"A paste that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
-								"Yet your own skin is safe. You sense this could be turned into a coating for weapons")
+								"Yet your own skin is safe. You sense this could be turned into a coating for weapons"
+						+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.monster.")
-				.imageNumber((short) 1571)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1672,7 +1687,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1683,7 +1698,7 @@ public class AlchItems {
 
 		pasteDemiseMonsterId = pasteDemiseMonster.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseMonsterId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseMonsterId, true, true, 0f, true, false,0,30, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.gland, 1, true));
 
 	}
@@ -1692,12 +1707,13 @@ public class AlchItems {
 				.name(" paste of the Dragon Hunter", "pastes of the Dragon Hunter",
 						"A paste that smells of death. You find that it doesn't disslolve any flesh you know " +
 								"not even your own. Maybe you should test it on Dragons or so? " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"
+						+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.legendary.")
-				.imageNumber((short) 1572)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1705,7 +1721,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1716,7 +1732,7 @@ public class AlchItems {
 
 		pasteDemiseLegendaryId = pasteDemiseLegendary.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseLegendaryId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseLegendaryId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.blood, 1, true));
 
 	}
@@ -1726,12 +1742,13 @@ public class AlchItems {
 				.name(" paste of the Murderer", "pastes of the Murderer",
 						"A paste that smells of death. You find that it dissolves your own flesh easily, " +
 								"but doesn't harm animal flesh. Weird. " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"
+								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.human.")
-				.imageNumber((short) 1573)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1739,7 +1756,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1750,7 +1767,7 @@ public class AlchItems {
 
 		pasteDemiseHumanId = pasteDemiseHuman.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseHumanId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureGoatId, ItemList.tallow,	pasteDemiseHumanId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.meat, 1, true));
 
 	}
@@ -1759,12 +1776,13 @@ public class AlchItems {
 		pasteLickOfFire = new ItemTemplateBuilder("arathok.alchemy.pasteFire")
 				.name(" paste of lick of fire", "pastes of lick of fire",
 						"A paste that smells sulphury. It develops extreme heat on any surface it touches. " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"
+								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.kissOfFire.")
-				.imageNumber((short) 1574)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1772,7 +1790,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1783,7 +1801,7 @@ public class AlchItems {
 
 		pasteLickOfFireId = pasteLickOfFire.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureFranticChargeId, ItemList.tallow,	pasteLickOfFireId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureFranticChargeId, ItemList.tallow,	pasteLickOfFireId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.charcoal, 1, true));
 
 	}
@@ -1792,12 +1810,13 @@ public class AlchItems {
 		pasteKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.pasteFrost")
 				.name(" paste of Kiss of Frost", "pastes of Kiss of Frost",
 						"A paste that is cool to the touch. It freezes any surface it touches. " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"
+								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.kissOfFire.")
-				.imageNumber((short) 1575)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1805,7 +1824,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1816,7 +1835,7 @@ public class AlchItems {
 
 		pasteKissOfFrostId = pasteKissOfFrost.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureFranticChargeId, ItemList.tallow,	pasteKissOfFrostId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureFranticChargeId, ItemList.tallow,	pasteKissOfFrostId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.snowball, 1, true));
 
 	}
@@ -1826,12 +1845,13 @@ public class AlchItems {
 				.name(" paste of Leech", "pastes of Leech",
 						"An ominous paste. Smearing it upon a plant makes the plant wilt, but upon touching " +
 								"the paste on the plant you feel more vigorous. " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"
+								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.Leech.")
-				.imageNumber((short) 1576)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1839,7 +1859,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1850,7 +1870,7 @@ public class AlchItems {
 
 		pasteLeechId = pasteLeech.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureHealId, ItemList.tallow,	pasteLeechId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureHealId, ItemList.tallow,	pasteLeechId, true, false, 0f, true, false,0,50, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.snowball, 1, true));
 
 	}
@@ -1859,12 +1879,13 @@ public class AlchItems {
 		pastePlague = new ItemTemplateBuilder("arathok.alchemy.pastePlague")
 				.name(" paste of the Plague", "pastes of Plague",
 						"A forbidden paste. Smearing it upon anything makes it age and rot. Very Dangerous. " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"
+								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.plague.")
-				.imageNumber((short) 1577)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1872,7 +1893,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1883,7 +1904,7 @@ public class AlchItems {
 
 		pastePlagueId = pastePlague.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureMorningFogId, ItemList.tallow,	pastePlagueId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureMorningFogId, ItemList.tallow,	pastePlagueId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.lemon, 1, true));
 
 	}
@@ -1893,12 +1914,13 @@ public class AlchItems {
 				.name(" paste of the Heartseeker", "pastes of the Heartseeker",
 						"An ominous paste. Smearing it upon your hand makes it always want to grab on what you" +
 								" are focusing. " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"
+				+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.Heartseeker.")
-				.imageNumber((short) 1578)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1906,7 +1928,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1917,7 +1939,7 @@ public class AlchItems {
 
 		pasteHeartseekerId = pasteHeartseeker.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureExcellId, ItemList.tallow,	pasteHeartseekerId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureExcellId, ItemList.tallow,	pasteHeartseekerId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.heart, 1, true));
 
 	}
@@ -1927,12 +1949,13 @@ public class AlchItems {
 				.name(" paste of the Snake", "pastes of the Snake",
 						"A forbidden paste. Smearing it upon your hand makes your body temperature rise in an" +
 								" instant, your veins turn blackish. " +
-								"You sense this could be turned into a coating for weapons")
+								"You sense this could be turned into a coating for weapons"
+								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.poison.")
-				.imageNumber((short) 1579)
+				.imageNumber((short) 1507)
 				.itemTypes(new short[] {
-						ItemTypes.ITEM_TYPE_BULK,
+						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -1940,7 +1963,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(14400L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -1951,7 +1974,7 @@ public class AlchItems {
 
 		pastePoisonId = pastePoison.getTemplateId();
 		CreationEntryCreator
-				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureHealId, ItemList.tallow,	pastePoisonId, true, true, 0f, false, false, CreationCategories.ALCHEMY)
+				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mixtureHealId, ItemList.tallow,	pastePoisonId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, ItemList.heart, 1, true));
 
 	}
@@ -2532,7 +2555,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.build();
 
 		oilPoisonId = oilPoison.getTemplateId();
-
+/// WEAPONOILS
 	}
 	private static void registerweaponOilDemiseAnimal() throws IOException {
 		weaponOilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
@@ -2591,15 +2614,15 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		weaponOilDemiseHumanId = weaponOilDemiseHuman.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseHumanId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseHumanId, weaponOilDemiseHumanId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
 	private static void registerweaponOilDemiseMonster() throws IOException {
-		weaponOilDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.weaponoilHuman")
+		weaponOilDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.weaponoilMonster")
 				.name(" Weapon oil of the Monster Hunter", "Weapon oils of the Monster Hunter",
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
-				.modelName("model.WeaponOil.Murderer.")
+				.modelName("model.WeaponOil.Monster.")
 				.imageNumber((short) 1568)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
@@ -2621,7 +2644,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		weaponOilDemiseMonsterId = weaponOilDemiseMonster.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseMonsterId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseMonsterId, weaponOilDemiseMonsterId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
 	private static void registerweaponOilDemiseLegendary() throws IOException {
@@ -2651,18 +2674,18 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		weaponOilDemiseLegendaryId = weaponOilDemiseLegendary.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseHumanId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseLegendaryId, weaponOilDemiseLegendaryId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
 	private static void registerweaponOilHeartseeker() throws IOException {
-		weaponOilHeartseeker = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+		weaponOilHeartseeker = new ItemTemplateBuilder("arathok.alchemy.weaponoilHeartseeker")
 				.name(" Weapon oil of the Heartseeker", "Weapon Oils of the Heartseeker",
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Heartseeker.")
 				.imageNumber((short) 1568)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -2681,18 +2704,18 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		weaponOilHeartseekerId = weaponOilHeartseeker.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseLegendaryId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilHeartseekerId, weaponOilHeartseekerId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
 	private static void registerweaponOilKissOfFrost() throws IOException {
-		weaponOilKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+		weaponOilKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.weaponoilFrost")
 				.name(" Frostkiss Weapon oil ", "Weapon oils of Frostkiss",
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Frostkiss.")
 				.imageNumber((short) 1568)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -2711,18 +2734,18 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		weaponOilKissOfFrostId = weaponOilKissOfFrost.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilKissOfFrostId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilKissOfFrostId, weaponOilKissOfFrostId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
 	private static void registerweaponOilLickOfFire() throws IOException {
-		weaponOilLickOfFire = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
+		weaponOilLickOfFire = new ItemTemplateBuilder("arathok.alchemy.weaponoilFire")
 				.name(" Lick of Fire oil", "Weapon Oils of Lick of Fire",
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.FireLick.")
 				.imageNumber((short) 1568)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -2741,18 +2764,18 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		weaponOilLickOfFireId = weaponOilLickOfFire.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilLickOfFireId, weaponOilLickOfFireId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
-	private static void registerWeaponOilAnimal() throws IOException {
-		weaponOilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
-				.name(" Weapon oil of the Hunter", "Weapon Oils of the Hunter",
+	private static void registerweaponOilPoison() throws IOException {
+		weaponOilPoison = new ItemTemplateBuilder("arathok.alchemy.weaponoilPoison")
+				.name(" Weapon oil of the Snake", "Weapon Oils of the Snake",
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
-				.modelName("model.WeaponOil.Hunter.")
+				.modelName("model.WeaponOil.Poison.")
 				.imageNumber((short) 1568)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -2769,20 +2792,20 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.difficulty(30) // no hard lock
 				.build();
 
-		weaponOilDemiseAnimalId = weaponOilDemiseAnimal.getTemplateId();
+		weaponOilPoisonId = weaponOilPoison.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilPoisonId, weaponOilPoisonId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
-	private static void registerWeaponOilAnimal() throws IOException {
-		weaponOilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
-				.name(" Weapon oil of the Hunter", "Weapon Oils of the Hunter",
+	private static void registerweaponOilPlague() throws IOException {
+		weaponOilPlague = new ItemTemplateBuilder("arathok.alchemy.weaponoilPlague")
+				.name(" Weapon oil of the Plague", "Weapon Oils of Plague",
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
-				.modelName("model.WeaponOil.Hunter.")
+				.modelName("model.WeaponOil.Plague.")
 				.imageNumber((short) 1568)
 				.itemTypes(new short[] {
-						// ItemTypes.ITEM_TYPE_BULK,
+						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -2799,9 +2822,39 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.difficulty(30) // no hard lock
 				.build();
 
-		weaponOilDemiseAnimalId = weaponOilDemiseAnimal.getTemplateId();
+		weaponOilPlagueId = weaponOilPlague.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilPlagueId, weaponOilPlagueId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerweaponOilLeech() throws IOException {
+		weaponOilLeech = new ItemTemplateBuilder("arathok.alchemy.weaponoilLeech")
+				.name(" Weapon oil of the Plague", "Weapon Oils of Plague",
+						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+
+				.modelName("model.WeaponOil.Leech.")
+				.imageNumber((short) 1568)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weaponOilLeechId = weaponOilLeech.getTemplateId();
+
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.oilLeechId, weaponOilLeechId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
 	}
 
 
@@ -2927,7 +2980,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 			registerweaponOilDemiseAnimal();
 			registerweaponOilHeartseeker();
 			registerweaponOilKissOfFrost();
-			registerweaponOilLech();
+			registerweaponOilLeech();
 			registerweaponOilLickOfFire();
 			registerweaponOilPlague();
 			registerweaponOilPoison();
