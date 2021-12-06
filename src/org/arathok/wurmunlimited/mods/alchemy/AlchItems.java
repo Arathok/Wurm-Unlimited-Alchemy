@@ -269,7 +269,7 @@ public class AlchItems {
 				.build();
 
 		purifiedWaterId = purifiedWater.getTemplateId();
-		if (Config.purifiedWaterCooking==false)
+		if (!Config.purifiedWaterCooking)
 			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.water, ItemList.charcoal, purifiedWaterId, true, true, 0f, false, false,0,5, CreationCategories.DECORATION);
 
 	}
@@ -1642,7 +1642,7 @@ public class AlchItems {
 				)
 
 				.modelName("model.paste.animal.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1677,7 +1677,7 @@ public class AlchItems {
 						+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.monster.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1711,7 +1711,7 @@ public class AlchItems {
 						+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.legendary.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1746,7 +1746,7 @@ public class AlchItems {
 								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.human.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1780,7 +1780,7 @@ public class AlchItems {
 								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.kissOfFire.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 					//	ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1814,7 +1814,7 @@ public class AlchItems {
 								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.kissOfFire.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1849,7 +1849,7 @@ public class AlchItems {
 								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.Leech.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1883,7 +1883,7 @@ public class AlchItems {
 								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.plague.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1918,7 +1918,7 @@ public class AlchItems {
 				+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.Heartseeker.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1953,7 +1953,7 @@ public class AlchItems {
 								+"Due to its fresh ingredients it should be processed quickly.")
 
 				.modelName("model.paste.poison.")
-				.imageNumber((short) 1507)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 						//ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1986,7 +1986,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 							"You sense this could be turned into a coating for weapons")
 
 			.modelName("model.sludge.animal.")
-			.imageNumber((short) 1508)
+			.imageNumber((short) 1529)
 			.itemTypes(new short[] {
 					ItemTypes.ITEM_TYPE_BULK,
 					ItemTypes.ITEM_TYPE_LIQUID,
@@ -2017,7 +2017,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"Yet your own skin is safe. You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.monster.")
-				.imageNumber((short) 1571)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
@@ -2048,7 +2048,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.legendary.")
-				.imageNumber((short) 1572)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
@@ -2079,7 +2079,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.human.")
-				.imageNumber((short) 1508)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 							ItemTypes.ITEM_TYPE_BULK,
 							ItemTypes.ITEM_TYPE_LIQUID,
@@ -2109,7 +2109,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.kissOfFire.")
-				.imageNumber((short) 1508)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
@@ -2139,7 +2139,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.kissOfFrost.")
-				.imageNumber((short) 1508)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
@@ -2169,7 +2169,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.Leech.")
-				.imageNumber((short) 1508)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
@@ -2198,7 +2198,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.plague.")
-				.imageNumber((short) 1508)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
@@ -2228,7 +2228,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.Heartseeker.")
-				.imageNumber((short) 1508)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 					ItemTypes.ITEM_TYPE_BULK,
 					ItemTypes.ITEM_TYPE_LIQUID,
@@ -2259,7 +2259,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.poison.")
-				.imageNumber((short) 1508)
+				.imageNumber((short) 1529)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
@@ -2290,7 +2290,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.animal.")
-				.imageNumber((short) 1509)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
@@ -2298,7 +2298,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2319,7 +2319,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.monster.")
-				.imageNumber((short) 1509)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
@@ -2327,7 +2327,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2346,7 +2346,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"It needs to be filled into a crystalline phial to unfold its magical potential as a weapon oil")
 
 				.modelName("model.oil.legendary.")
-				.imageNumber((short) 1572)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
@@ -2354,7 +2354,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2374,7 +2374,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"It needs to be filled into a crystalline phial to unfold its magical potential as a weapon oil")
 
 				.modelName("model.oil.human.")
-				.imageNumber((short) 1573)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
@@ -2382,7 +2382,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2402,7 +2402,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.kissOfFire.")
-				.imageNumber((short) 1574)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
@@ -2410,7 +2410,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2430,14 +2430,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.kissOfFire.")
-				.imageNumber((short) 1575)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2457,14 +2457,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.Heartseeker.")
-				.imageNumber((short) 1576)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2484,14 +2484,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.plague.")
-				.imageNumber((short) 1577)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2511,14 +2511,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.Heartseeker.")
-				.imageNumber((short) 1578)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2538,14 +2538,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.poison.")
-				.imageNumber((short) 1579)
+				.imageNumber((short) 1549)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2563,7 +2563,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Hunter.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2573,7 +2573,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2593,7 +2593,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Hunter.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2603,7 +2603,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2623,7 +2623,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Monster.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2633,7 +2633,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2653,7 +2653,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.DragonHunter.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2663,7 +2663,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2683,7 +2683,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Heartseeker.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2693,7 +2693,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2713,7 +2713,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Frostkiss.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2723,7 +2723,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2743,7 +2743,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.FireLick.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2753,7 +2753,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2773,7 +2773,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Poison.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2783,7 +2783,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2803,7 +2803,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Plague.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2813,7 +2813,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2833,7 +2833,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Leech.")
-				.imageNumber((short) 1568)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2843,7 +2843,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(2073600L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2869,7 +2869,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 		TempStates.addState(new TempState(AlchItems.mouldClayId, AlchItems.mouldPotteryId, (short) 4000, true, true, false));
 		registerPhial();
 		registerPurifiedWater();
-		if (Config.purifiedWaterCooking==true)
+		if (Config.purifiedWaterCooking)
 		TempStates.addState(new TempState(ItemList.water, AlchItems.purifiedWaterId, (short) 4000, true, true, false));
 		registerAlchemicalCompound();
 
@@ -2938,7 +2938,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 		TempStates.addState(new TempState(AlchItems.precursorVynoraId, AlchItems.potionLiquidVynoraId, (short) 4000,true, true, false));
 		TempStates.addState(new TempState(AlchItems.precursorWillowspineId, AlchItems.potionLiquidWillowspineId,(short) 4000, true, true, false));
 
-		if (Config.useOils==true) {
+		if (Config.useOils) {
 
 			registerPasteHeartseeker();
 			registerPasteLech();

@@ -53,6 +53,8 @@ public class OilPerformer implements ActionPerformer {
 		}
 // EFFECT STUFF GOES HERE
 		power = source.getCurrentQualityLevel() * Config.alchemyPower;
+
+		// DEMISE ANIMAL
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
 			if(target.isWeapon()||target.isArrow())   {
 			ItemSpellEffects effs = target.getSpellEffects();
@@ -121,6 +123,688 @@ public class OilPerformer implements ActionPerformer {
 						"because they were already coated or enchanted already. The excess oil, drips from your" +
 						target.getName()+
 						"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+
+		// DEMISE HUMAN
+		if (source.getTemplateId() == AlchItems.weaponOilDemiseHumanId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+
+		// DEMISE MONSTER
+		if (source.getTemplateId() == AlchItems.weaponOilDemiseMonsterId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+
+		// DEMISE LEGENDARY
+		if (source.getTemplateId() == AlchItems.weaponOilDemiseLegendaryId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+		// Fires Kiss
+		if (source.getTemplateId() == AlchItems.weaponOilLickOfFireId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+		// Frost
+		if (source.getTemplateId() == AlchItems.weaponOilKissOfFrostId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+
+		// Leech
+		if (source.getTemplateId() == AlchItems.weaponOilLeechId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+
+		// DEMISE Plague
+		if (source.getTemplateId() == AlchItems.weaponOilPlagueId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+
+		// Poison
+		if (source.getTemplateId() == AlchItems.weaponOilPoisonId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
+				Items.destroyItem(source.getWurmId());
+
+
+			}
+
+		}
+
+		// Heartseeker
+		if (source.getTemplateId() == AlchItems.weaponOilHeartseekerId) {
+			if(target.isWeapon()||target.isArrow())   {
+				ItemSpellEffects effs = target.getSpellEffects();
+				// ALREADY ENCHANTED? YOU GET NOTHING!
+				if (effs != null) {
+					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
+							" is already enchanted or has another type of oil applied and thus cant hold any " +
+							" more magic power. You should wait for the other Oil to dry off " +
+							" or consult a priest to disenchant your weapon", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				if (effs == null)
+					effs = new ItemSpellEffects(target.getWurmId());
+				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				if (eff == null) {
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					effs.addSpellEffect(eff);
+				}
+				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
+							" Maybe there is a way to make this more efficient if you " +
+							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					source.setWeight((source.getWeightGrams() - 20), true);
+					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+					Items.destroyItem(source.getWurmId());
+
+				target.setName((target.getName() + "(oil,Hunt)"));
+				performer.getCommunicator().sendNormalServerMessage("The " + target
+						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+
+
+			} else
+			if (target.isQuiver()) {
+				int fails =0;
+				Item[] arrows = target.getItemsAsArray();
+				for (Item arrow:arrows) {
+
+					ItemSpellEffects effs = arrow.getSpellEffects();
+					if (effs != null)
+						fails++;
+					if (effs == null)
+						effs = new ItemSpellEffects(arrow.getWurmId());
+					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					if (eff == null) {
+
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						effs.addSpellEffect(eff);
+						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+					}
+				}
+				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
+						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
+						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if (fails > 0)
+					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
+							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							target.getName()+
+							"quiver and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
