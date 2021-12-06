@@ -1986,7 +1986,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 							"You sense this could be turned into a coating for weapons")
 
 			.modelName("model.sludge.animal.")
-			.imageNumber((short) 1570)
+			.imageNumber((short) 1508)
 			.itemTypes(new short[] {
 					ItemTypes.ITEM_TYPE_BULK,
 					ItemTypes.ITEM_TYPE_LIQUID,
@@ -1994,7 +1994,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 
 			})
-			.decayTime(9072000L)
+			.decayTime(691200L)
 			.dimensions(5, 5, 10)
 			.weightGrams(200)
 			.material(Materials.MATERIAL_MAGIC)
@@ -2025,7 +2025,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2055,7 +2055,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2079,14 +2079,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.human.")
-				.imageNumber((short) 1573)
+				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
 							ItemTypes.ITEM_TYPE_BULK,
 							ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2109,14 +2109,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.kissOfFire.")
-				.imageNumber((short) 1574)
+				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2138,14 +2138,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 						"A sludge that is cool to the touch. It freezes any surface it touches. " +
 								"You sense this could be turned into a coating for weapons")
 
-				.modelName("model.sludge.kissOfFire.")
-				.imageNumber((short) 1575)
+				.modelName("model.sludge.kissOfFrost.")
+				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2169,13 +2169,13 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.Leech.")
-				.imageNumber((short) 1576)
+				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2198,13 +2198,13 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.plague.")
-				.imageNumber((short) 1577)
+				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2228,7 +2228,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.Heartseeker.")
-				.imageNumber((short) 1578)
+				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
 					ItemTypes.ITEM_TYPE_BULK,
 					ItemTypes.ITEM_TYPE_LIQUID,
@@ -2259,14 +2259,14 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.sludge.poison.")
-				.imageNumber((short) 1579)
+				.imageNumber((short) 1508)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
 				})
-				.decayTime(9072000L)
+				.decayTime(691200L)
 				.dimensions(5, 5, 10)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
@@ -2286,11 +2286,11 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerOilDemiseAnimal() throws IOException {
 		oilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.oilDemiseAnimal")
 				.name(" oil of the Hunter", "oils of the Hunter",
-						"A oil that smells of death. Rubbing it on a piece animal flesh it seems to dissolve it. " +
+						"An oil that smells of death. Rubbing it on a piece animal flesh it seems to dissolve it. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.animal.")
-				.imageNumber((short) 1570)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
@@ -2315,11 +2315,11 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registeroilDemiseMonster() throws IOException {
 		oilDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.oilDemiseMonster")
 				.name(" oil of the Monster Hunter", "oils of the Monster Hunter",
-						"A oil that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
+						"An oil that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.monster.")
-				.imageNumber((short) 1571)
+				.imageNumber((short) 1509)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,
@@ -2342,8 +2342,8 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registeroilDemiseLegendary() throws IOException {
 		oilDemiseLegendary = new ItemTemplateBuilder("arathok.alchemy.oilDemiseLegendary")
 				.name(" oil of Legendarys Demise", "oils of Legendarys Demise",
-						"A oil that smells of death. You find that it doesn't disslolve any flesh you know not even your own. Maybe you should test it on Dragons or so? " +
-								"You sense this could be turned into a coating for weapons")
+						"An oil that smells of death. You find that it doesn't dislolve any flesh you know not even your own. Maybe you should test it on Dragons or so? " +
+								"It needs to be filled into a crystalline phial to unfold its magical potential as a weapon oil")
 
 				.modelName("model.oil.legendary.")
 				.imageNumber((short) 1572)
@@ -2370,8 +2370,8 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registeroilDemiseHuman() throws IOException {
 		oilDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.oilDemiseHuman")
 				.name(" oil of Human Demise", "oils of Human Demise",
-						"A oil that smells of death. You find that it dissolves your own flesh easily, but doesn't harm animal flesh. Weird. " +
-								"You sense this could be turned into a coating for weapons")
+						"An oil that smells of death. You find that it dissolves your own flesh easily, but doesn't harm animal flesh. Weird. " +
+								"It needs to be filled into a crystalline phial to unfold its magical potential as a weapon oil")
 
 				.modelName("model.oil.human.")
 				.imageNumber((short) 1573)
@@ -2398,7 +2398,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registeroilLickOfFire() throws IOException {
 		oilLickOfFire = new ItemTemplateBuilder("arathok.alchemy.oilFire")
 				.name(" oil of lick of fire", "oils of lick of fire",
-						"A oil that smells sulphury. It develops extreme heat on any surface fit touches. " +
+						"An oil that smells sulphury. It develops extreme heat on any surface fit touches. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.kissOfFire.")
@@ -2426,7 +2426,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registeroilKissOfFrost() throws IOException {
 		oilKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.oilFrost")
 				.name(" oil of Kiss of Frost", "oils of Kiss of Frost",
-						"A oil that is cool to the touch. It freezes any surface it touches. " +
+						"An oil that is cool to the touch. It freezes any surface it touches. " +
 								"You sense this could be turned into a coating for weapons")
 
 				.modelName("model.oil.kissOfFire.")
