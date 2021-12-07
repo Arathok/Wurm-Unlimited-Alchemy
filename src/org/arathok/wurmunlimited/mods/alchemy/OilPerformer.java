@@ -120,9 +120,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 				performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-						"because they were already coated or enchanted already. The excess oil, drips from your" +
+						"because they were already coated or enchanted already. The excess oil, drips from your " +
 						target.getName()+
-						"quiver and dries up on the ground.",(byte)2);
+						" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -147,9 +147,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 9);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 9, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -168,7 +168,7 @@ public class OilPerformer implements ActionPerformer {
 
 				target.setName((target.getName() + "(oil,Hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will now be effective against Humans" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
 
 
@@ -183,22 +183,22 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 9);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+						" Your arrows will now be effective against humans for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -223,9 +223,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 10);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 10, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -259,10 +259,10 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 10);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
@@ -272,9 +272,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -299,9 +299,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 12);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 12, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -335,10 +335,10 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 12);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
@@ -348,9 +348,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -374,9 +374,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 14);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 14, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -410,10 +410,10 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 14);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
@@ -423,9 +423,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -449,9 +449,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 33);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 33, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -485,10 +485,10 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 33);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
@@ -498,9 +498,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -525,9 +525,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 26);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 26, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -561,10 +561,10 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 26);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
@@ -574,9 +574,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -601,9 +601,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 18);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 18, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -637,10 +637,10 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 18);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
@@ -650,9 +650,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -677,9 +677,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 27);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 27, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -713,10 +713,10 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 27);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 27, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
@@ -726,9 +726,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
@@ -753,9 +753,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+				SpellEffect eff = effs.getSpellEffect((byte) 32);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 32, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -789,10 +789,10 @@ public class OilPerformer implements ActionPerformer {
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+					SpellEffect eff = effs.getSpellEffect((byte) 32);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + "(oil,Hunt)"));
 					}
@@ -802,9 +802,9 @@ public class OilPerformer implements ActionPerformer {
 						" Your arrows will now be effective against animals for a short time.", (byte) 2);
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
-							"because they were already coated or enchanted already. The excess oil, drips from your" +
+							"because they were already coated or enchanted already. The excess oil, drips from your " +
 							target.getName()+
-							"quiver and dries up on the ground.",(byte)2);
+							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
 
 
