@@ -12,6 +12,8 @@ import com.wurmonline.server.spells.SpellEffect;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 
+import java.util.logging.Level;
+
 public class OilPerformer implements ActionPerformer {
 
 	int seconds = Config.potionDuration;
@@ -64,6 +66,8 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
+
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -83,6 +87,7 @@ public class OilPerformer implements ActionPerformer {
 							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
 							" Maybe there is a way to make this more efficient if you " +
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+					
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
 						Items.destroyItem(source.getWurmId());
@@ -93,7 +98,9 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + "(oil,Hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against animals" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+												" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
+
 
 
 			} else
@@ -117,7 +124,9 @@ public class OilPerformer implements ActionPerformer {
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now be effective against animals for a short time.", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
+
 				if (fails > 0)
 				performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 						"because they were already coated or enchanted already. The excess oil, drips from your " +
@@ -140,6 +149,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -166,10 +176,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil, Murder)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against Humans" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -188,7 +199,7 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil,Murder)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -216,6 +227,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -242,10 +254,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil,Monster Hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will now be effective against monsters" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -264,12 +277,13 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil,Monster Hunt)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now be effective against monsters for a short time.", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 							"because they were already coated or enchanted already. The excess oil, drips from your " +
@@ -292,6 +306,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -318,10 +333,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil,legendary hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will now be effective against legendaries" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -340,12 +356,13 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil,legendary hunt)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now be effective against legendaries for a short time.", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 							"because they were already coated or enchanted already. The excess oil, drips from your " +
@@ -367,6 +384,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -393,10 +411,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil,flaming)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will now be creating flaming wounds!" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -415,12 +434,13 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil, flaming)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now cause flaming wounds!", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 							"because they were already coated or enchanted already. The excess oil, drips from your " +
@@ -442,6 +462,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -468,10 +489,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil, frost)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will cause icy wounds!" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -490,12 +512,13 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil, frost)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now cause icy wounds!", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 							"because they were already coated or enchanted already. The excess oil, drips from your " +
@@ -518,6 +541,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -544,10 +568,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil, leech)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will now suck out life energy from your opponents!" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -566,12 +591,13 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil, leech)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now suck out live energy of your opponents", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 							"because they were already coated or enchanted already. The excess oil, drips from your " +
@@ -594,6 +620,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -620,10 +647,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil, plague)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will now cause infected wounds" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -642,12 +670,13 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil, plague)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now cause infected wounds!", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 							"because they were already coated or enchanted already. The excess oil, drips from your " +
@@ -670,6 +699,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -696,10 +726,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil, poison)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will now poison your enemy" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -718,12 +749,13 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 27, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil, poison)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now poison your enemy!", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 							"because they were already coated or enchanted already. The excess oil, drips from your " +
@@ -746,6 +778,7 @@ public class OilPerformer implements ActionPerformer {
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
 							" or consult a priest to disenchant your weapon", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 					return propagate(action,
 							ActionPropagation.FINISH_ACTION,
 							ActionPropagation.NO_SERVER_PROPAGATION,
@@ -772,10 +805,11 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				target.setName((target.getName() + "(oil,Hunt)"));
+				target.setName((target.getName() + "(oil, heartseeker)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
-						.getName() + " is now glistening from the oil and will now be effective against animals" +
+						.getName() + " is now glistening from the oil and will now cause wounds to be way worse" +
 						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
 
 			} else
@@ -794,12 +828,13 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + "(oil,Hunt)"));
+						arrow.setName((arrow.getName() + "(oil, heartseeker)"));
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
-						" Your arrows will now be effective against animals for a short time.", (byte) 2);
+							" Your arrows will now cause wounds to be way worse.", (byte) 2);
+					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
 							"because they were already coated or enchanted already. The excess oil, drips from your " +
