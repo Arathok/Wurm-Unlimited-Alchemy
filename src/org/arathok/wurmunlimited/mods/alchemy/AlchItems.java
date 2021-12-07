@@ -1460,7 +1460,7 @@ public class AlchItems {
 	}
 
 	private static void registerPotionOakshell() throws IOException {
-		potionOakshell = new ItemTemplateBuilder("arathok.alchemy.Oakshell")
+		potionOakshell = new ItemTemplateBuilder("arathok.alchemy.potionOakshell")
 				.name(" potion of Woodskin", "potions of Woodskin",
 						"An alchemistic potion, drinking it will bestow the power of wood skin to you.")
 
