@@ -11,48 +11,48 @@ import java.util.Collections;
 import java.util.List;
 
 public class OilBehaviour implements BehaviourProvider {
-	private final List<ActionEntry> apply = Collections.singletonList(new ActionEntry(Actions.HEAL_ABSORB, "apply Weapon Oil", "applying"));
+	private final List<ActionEntry> apply = Collections.singletonList(new ActionEntry(Actions.HEAL_ABSORB, "apply weapon oil", "applying"));
 
 	//, , , , ,
 	//, , , , ;
 
 	@Override
-	public List<ActionEntry> getBehavioursFor(Creature performer, Item target) {
+	public List<ActionEntry> getBehavioursFor(Creature performer, Item source, Item target) {
 
-		if (target.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
-            if (SipPerformerHeal.canUse(performer, target))
+		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
+            if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
-		} else if (target.getTemplateId() == AlchItems.weaponOilDemiseMonsterId) {
-			if (SipPerformerGoat.canUse(performer, target))
+		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseMonsterId) {
+			if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
-		} else if (target.getTemplateId() == AlchItems.weaponOilDemiseLegendaryId) {
-			if (SipPerformerExcel.canUse(performer, target))
+		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseLegendaryId) {
+			if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
-		} else if (target.getTemplateId() == AlchItems.weaponOilDemiseHumanId) {
-			if (SipPerformerFrenzy.canUse(performer, target))
+		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseHumanId) {
+			if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
-		} else if (target.getTemplateId() == AlchItems.weaponOilLickOfFireId) {
-			if (SipPerformerFog.canUse(performer, target))
+		} else if (source.getTemplateId() == AlchItems.weaponOilLickOfFireId) {
+			if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
-		} else if (target.getTemplateId() == AlchItems.weaponOilKissOfFrostId) {
-			if (SipPerformerWoodskin.canUse(performer, target))
+		} else if (source.getTemplateId() == AlchItems.weaponOilKissOfFrostId) {
+			if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
-		} else if (target.getTemplateId() == AlchItems.weaponOilHeartseekerId) {
-			if (SipPerformerSenses.canUse(performer, target))
+		} else if (source.getTemplateId() == AlchItems.weaponOilHeartseekerId) {
+			if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
-		} else if (target.getTemplateId() == AlchItems.weaponOilPlagueId) {
-			if (SipPerformerTruehit.canUse(performer, target))
+		} else if (source.getTemplateId() == AlchItems.weaponOilPlagueId) {
+			if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
-		} else if (target.getTemplateId() == AlchItems.weaponOilPoisonId) {
-			if (SipPerformerStrength.canUse(performer, target))
+		} else if (source.getTemplateId() == AlchItems.weaponOilPoisonId) {
+			if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer,target))
 				return new ArrayList<>(apply);
 
 		}  else
@@ -61,10 +61,6 @@ public class OilBehaviour implements BehaviourProvider {
 
 
 	return null;
-	}
 
-	@Override
-	public List<ActionEntry> getBehavioursFor(Creature performer, Item source, Item target) {
-		return getBehavioursFor(performer, target);
 	}
 }
