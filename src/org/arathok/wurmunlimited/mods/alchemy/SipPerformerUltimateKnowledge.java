@@ -25,7 +25,7 @@ public class SipPerformerUltimateKnowledge implements ActionPerformer {
 
 	@Override
 	public short getActionId() {
-		return Actions.HEAL_ABSORB;
+		return Actions.DRINK;
 	}
 
 	public static boolean canUse(Creature performer, Item target) {

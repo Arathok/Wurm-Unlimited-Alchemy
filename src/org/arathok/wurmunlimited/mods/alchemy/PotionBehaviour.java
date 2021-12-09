@@ -13,7 +13,7 @@ import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 
 public class PotionBehaviour implements BehaviourProvider {
-	private final List<ActionEntry> consume = Collections.singletonList(new ActionEntry(Actions.HEAL_ABSORB, "Consume Potion", "consuming"));
+	private final List<ActionEntry> consume = Collections.singletonList(new ActionEntry(Actions.DRINK, "Consume Potion", "consuming"));
 
 
 

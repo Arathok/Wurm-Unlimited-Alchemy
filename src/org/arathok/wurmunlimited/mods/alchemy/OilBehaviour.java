@@ -11,7 +11,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class OilBehaviour implements BehaviourProvider {
-	public List<ActionEntry> OilPerformer.getAction;
+
+	public List<ActionEntry> apply = Collections.singletonList(OilPerformer.getActionId());
 
 
 	//, , , , ,
