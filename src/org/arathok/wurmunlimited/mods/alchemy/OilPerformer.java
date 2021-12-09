@@ -4,17 +4,29 @@ package org.arathok.wurmunlimited.mods.alchemy;
 
 import com.wurmonline.server.Items;
 import com.wurmonline.server.behaviours.Action;
+import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemSpellEffects;
 import com.wurmonline.server.spells.SpellEffect;
-import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
-import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
+import org.gotti.wurmunlimited.modsupport.actions.*;
 
 import java.util.logging.Level;
 
 public class OilPerformer implements ActionPerformer {
+
+	private ActionEntry actionEntry;
+
+	public void ApplyOilAction() {
+		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "apply weapon oil", "applying", new int[]{
+				6 /* ACTION_TYPE_NOMOVE */,
+				48 /* ACTION_TYPE_ENEMY_ALWAYS */,
+				36 /* USE SOURCE AND TARGET */,
+
+		}).range(4).build();
+		ModActions.registerAction(actionEntry);
+	}
 
 	int seconds = Config.potionDuration;
 	float power = 0;
@@ -22,7 +34,7 @@ public class OilPerformer implements ActionPerformer {
 
 	@Override
 	public short getActionId() {
-		return Actions.ABDICATE;
+		return actionEntry.getNumber();
 	}
 
 	public static boolean canUse(Creature performer, Item source) {
