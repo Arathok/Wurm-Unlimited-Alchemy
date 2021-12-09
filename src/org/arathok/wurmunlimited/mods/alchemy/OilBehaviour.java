@@ -12,7 +12,7 @@ import java.util.List;
 
 public class OilBehaviour implements BehaviourProvider {
 
-	public List<ActionEntry> apply = Collections.singletonList(OilPerformer.getActionId());
+	private final List<ActionEntry> apply = Collections.singletonList(new ActionEntry(Actions.ENCHANT, "Apply weapon oil", "applying"));
 
 
 	//, , , , ,
