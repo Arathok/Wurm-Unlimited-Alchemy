@@ -22,7 +22,7 @@ public class OilPerformer implements ActionPerformer {
 
 	@Override
 	public short getActionId() {
-		return Actions.HEAL_ABSORB;
+		return Actions.ABDICATE;
 	}
 
 	public static boolean canUse(Creature performer, Item source) {
@@ -35,7 +35,6 @@ public class OilPerformer implements ActionPerformer {
 
 	@Override
 	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) { // Since we use target and source this time, only need that override)
-
 		/*if (target.getTemplateId() != AlchItems.weaponOilDemiseAnimalId)
 			return propagate(action,
 					ActionPropagation.SERVER_PROPAGATION,
@@ -87,7 +86,7 @@ public class OilPerformer implements ActionPerformer {
 							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
 							" Maybe there is a way to make this more efficient if you " +
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
-					
+
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
 						Items.destroyItem(source.getWurmId());

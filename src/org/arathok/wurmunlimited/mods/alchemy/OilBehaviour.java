@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class OilBehaviour implements BehaviourProvider {
-	private final List<ActionEntry> apply = Collections.singletonList(new ActionEntry(Actions.HEAL_ABSORB, "apply weapon oil", "applying"));
+	private final List<ActionEntry> apply = Collections.singletonList(new ActionEntry(Actions.ABDICATE, "apply weapon oil", "applying"));
 
 	//, , , , ,
 	//, , , , ;
