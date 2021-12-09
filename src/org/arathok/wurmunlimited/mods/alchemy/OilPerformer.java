@@ -16,7 +16,7 @@ import java.util.logging.Level;
 
 public class OilPerformer implements ActionPerformer {
 
-	private ActionEntry actionEntry;
+	public ActionEntry actionEntry;
 
 	public void ApplyOilAction() {
 		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "apply weapon oil", "applying", new int[]{
@@ -34,7 +34,7 @@ public class OilPerformer implements ActionPerformer {
 
 	@Override
 	public short getActionId() {
-		return actionEntry.getNumber();
+		 return actionEntry.getNumber();
 	}
 
 	public static boolean canUse(Creature performer, Item source) {

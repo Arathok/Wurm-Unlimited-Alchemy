@@ -4,6 +4,8 @@ import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
+
+import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
 
 import java.util.ArrayList;
@@ -12,9 +14,15 @@ import java.util.List;
 
 public class OilBehaviour implements BehaviourProvider {
 
-	private final List<ActionEntry> apply = Collections.singletonList(new ActionEntry(Actions.ENCHANT, "Apply weapon oil", "applying"));
+	
 
+	private final List<ActionEntry> apply;
+	private final ActionPerformer oilPerformer;
 
+	public OilBehaviour() {
+	    this.oilPerformer = new OilPerformer();
+	    this.apply = Collections.singletonList(oilPerformer.actionEntry);
+	}
 	//, , , , ,
 	//, , , , ;
 
