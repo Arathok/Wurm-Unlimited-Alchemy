@@ -17,14 +17,17 @@ import java.util.logging.Level;
 public class OilPerformer implements ActionPerformer {
 
 	public ActionEntry actionEntry;
+	public OilPerformer(){
 
-	public void ApplyOilAction() {
+
+
 		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "apply weapon oil", "applying", new int[]{
 				6 /* ACTION_TYPE_NOMOVE */,
 				48 /* ACTION_TYPE_ENEMY_ALWAYS */,
 				36 /* USE SOURCE AND TARGET */,
 
 		}).range(4).build();
+
 		ModActions.registerAction(actionEntry);
 	}
 
