@@ -97,7 +97,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	      ModActions.registerActionPerformer(new SipPerformerUltimateKnowledge());
 	      ModActions.registerActionPerformer(new SipPerformerWillowspine());
 	      ModActions.registerActionPerformer(new SipPerformerWoodskin());
-	      ModActions.registerActionPerformer(new OilPerformer());
+		  ModActions.registerActionPerformer(oilPerformer);
 	      
           ModActions.registerBehaviourProvider(new PotionBehaviour());
           ModActions.registerBehaviourProvider(new OilBehaviour());

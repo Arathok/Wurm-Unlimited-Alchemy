@@ -16,8 +16,8 @@ public class OilBehaviour implements BehaviourProvider {
 
 	
 
-	private final List<ActionEntry> apply;
-	private final ActionPerformer oilPerformer;
+	public final List<ActionEntry> apply;
+	public final OilPerformer oilPerformer;
 
 	public OilBehaviour() {
 	    this.oilPerformer = new OilPerformer();
