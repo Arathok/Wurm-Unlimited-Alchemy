@@ -5,7 +5,6 @@ package org.arathok.wurmunlimited.mods.alchemy;
 import com.wurmonline.server.Items;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
-import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemSpellEffects;
@@ -29,6 +28,14 @@ public class OilPerformer implements ActionPerformer {
 		}).range(4).build();
 
 		ModActions.registerAction(actionEntry);
+	}
+
+	public void EnchantHandler(){
+
+
+
+
+
 	}
 
 	int seconds = Config.potionDuration;
