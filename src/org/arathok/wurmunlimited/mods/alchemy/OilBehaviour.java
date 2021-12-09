@@ -7,6 +7,7 @@ import com.wurmonline.server.items.Item;
 
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
+import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,12 +17,13 @@ public class OilBehaviour implements BehaviourProvider {
 
 	
 
-	public final List<ActionEntry> apply;
-	public final OilPerformer oilPerformer;
+	private final List<ActionEntry> apply;
+	private final OilPerformer oilPerformer;
 
 	public OilBehaviour() {
 	    this.oilPerformer = new OilPerformer();
 	    this.apply = Collections.singletonList(oilPerformer.actionEntry);
+		ModActions.registerActionPerformer(oilPerformer);
 	}
 	//, , , , ,
 	//, , , , ;
