@@ -80,7 +80,13 @@ public class AlchItems {
 
 	private static void registerLeader() throws IOException {
 		leader = new ItemTemplateBuilder("arathok.alchemy.leader")
-				.name("unusualleader66", "useless bums", "Hairy ass lengthy dude and a very good friend")
+				.name("EasterEgg", "useless bums", " Congratulations! You have found an EasterEgg!"
+				+ "Thank you Unusualleader for being the best friend one could possibly find on the internet. "
+				+"Thanks you Bdew for your tireless effort to teach me and the patience! Your help made this dream mod of mine possible and actually thought me quite a lot."
+				+"Thanks Coldie for your tools and tutorials on how to Model and how to write a basic mod! Thank you for your help with making a texture pack! "
+				+"Thanks EmmaGrace for pushing me over the edge and pushing me to make this mod.  "
+				+"Thank you Wurm Modding Community Discord for hours of help!"
+						)
 				.modelName("model.decoration.statuette.magranon.")
 				.imageNumber((short) IconConstants.ICON_FOOD_PIGFOOD)
 				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_POTTERY,

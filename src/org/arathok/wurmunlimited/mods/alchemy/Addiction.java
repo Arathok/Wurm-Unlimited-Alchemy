@@ -18,7 +18,7 @@ public class Addiction {
 	static int seconds = 900;
 	static int currentAddictionLevel = 0;
 	static int previousAddictionLevel = 0;
-	public static void addictionHandler()  {
+	public static void AddictionHandler()  {
 
 		for (Entry<Long, Integer> set : Alchemy.currentAddiction.entrySet())
 		{

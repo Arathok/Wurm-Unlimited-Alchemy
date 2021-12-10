@@ -71,8 +71,10 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		
 		
 	            try{
-					AlchItems.register();
 					logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I am creating my Item templates! <3");
+					AlchItems.register();
+					logger.log(Level.INFO, "Done! Thank you Coldie!");
+
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -98,10 +100,10 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	      ModActions.registerActionPerformer(new SipPerformerUltimateKnowledge());
 	      ModActions.registerActionPerformer(new SipPerformerWillowspine());
 	      ModActions.registerActionPerformer(new SipPerformerWoodskin());
+		  ModActions.registerBehaviourProvider(new PotionBehaviour());
+		  ModActions.registerBehaviourProvider(new OilBehaviour());
+		logger.log(Level.INFO, "Thank you Bdew!");
 
-	      
-          ModActions.registerBehaviourProvider(new PotionBehaviour());
-          ModActions.registerBehaviourProvider(new OilBehaviour());
           logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
 	}
 
