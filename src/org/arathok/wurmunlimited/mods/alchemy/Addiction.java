@@ -13,8 +13,7 @@ public class Addiction {
 	static Player p = null;
 	static long wurmId = 0;
 	SpellEffect eff = null;
-	float powerRotGut = 0;
-	float powerWormBrain = 0;
+
 	static int seconds = 900;
 	static int currentAddictionLevel = 0;
 	static int previousAddictionLevel = 0;

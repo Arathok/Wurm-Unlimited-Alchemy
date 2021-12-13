@@ -38,7 +38,7 @@ public class OilPerformer implements ActionPerformer {
 
 	}
 
-	int seconds = Config.potionDuration;
+	int seconds = Config.oilDuration;
 	float power = 0;
 
 
@@ -76,6 +76,8 @@ public class OilPerformer implements ActionPerformer {
 		}
 // EFFECT STUFF GOES HERE
 		power = source.getCurrentQualityLevel() * Config.alchemyPower;
+		Alchemy.weaponsWithOils.put(target.getWurmId(), System.currentTimeMillis()+(long) seconds*1000);
+
 
 		// DEMISE ANIMAL
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {

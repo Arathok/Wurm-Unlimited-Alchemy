@@ -1,5 +1,6 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
+import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.creatures.Communicator;
 
 import javassist.ClassPool;
@@ -117,8 +118,14 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public void onServerPoll() {
-		Addiction.addictionHandler();
-		
+		Addiction.AddictionHandler();
+		try {
+			Enchantment.EnchantmentHandler();
+		} catch (NoSuchItemException e) {
+			e.printStackTrace();
+			logger.log(Level.WARNING, "An Item was supposed to lose its temporary Enchant, but it didn't exist!");
+		}
+
 	}
 
     
