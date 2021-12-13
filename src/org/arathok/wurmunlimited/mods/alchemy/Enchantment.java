@@ -33,7 +33,7 @@ public class Enchantment {
                     if (System.currentTimeMillis() < set.getValue()) {
                     i.deleteAllEffects();
                     p.getCommunicator().sendAlertServerMessage("The oil dried completely off your "+ i.getName() + " .");
-                    i.setName(i.getObjectName());
+                    i.setName(i.getTemplate().getName());
 
                     }
 
