@@ -23,7 +23,7 @@ public class Enchantment {
 
 
         for (Map.Entry<Long, Long> set : Alchemy.weaponsWithOils.entrySet()) {
-            if (oilTimer < System.currentTimeMillis()) {
+            if (set.getValue() < System.currentTimeMillis()) {
 
                 wurmId = set.getKey();
                 if (wurmId != null) {
@@ -35,7 +35,7 @@ public class Enchantment {
                     p.getCommunicator().sendAlertServerMessage("The oil dried completely off your "+ i.getName()
                             +" and it goes back to a normal " + i.getTemplate().getName() + "." );
                     i.setName(i.getTemplate().getName());
-
+                    Alchemy.weaponsWithOils.remove(wurmId);
                     }
 
 
