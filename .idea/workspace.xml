@@ -126,20 +126,35 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/OilPerformer.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/PotionBehaviour.java</url>
           <line>15</line>
           <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Addiction.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Enchantment.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Enchantment.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Remote">
         <watch expression="Alchemy.cooldown" language="JAVA" custom="org.arathok.wurmunlimited.mods.alchemy.Alchemy" />
+      </configuration>
+      <configuration name="ProcessAttachRunConfigurationType">
+        <watch expression="System.currentTimeMillis()" language="JAVA" />
+        <watch expression="Config.oilDuration" language="JAVA" />
+        <watch expression="Alchemy.weaponsWithOils" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

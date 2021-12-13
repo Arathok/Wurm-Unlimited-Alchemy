@@ -20,17 +20,17 @@ public class Enchantment {
     SpellEffect eff = null;
 
     public static void EnchantmentHandler() throws NoSuchItemException {
-
+long time=System.currentTimeMillis();
 
         for (Map.Entry<Long, Long> set : Alchemy.weaponsWithOils.entrySet()) {
-            if (set.getValue() < System.currentTimeMillis()) {
+            if (set.getValue() < time) {
 
                 wurmId = set.getKey();
                 if (wurmId != null) {
 
                     i = Items.getItem(wurmId);
                     p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
-                    if (System.currentTimeMillis() < set.getValue()) {
+                    if (time > set.getValue()) {
                     i.deleteAllEffects();
                     p.getCommunicator().sendAlertServerMessage("The oil dried completely off your "+ i.getName()
                             +" and it goes back to a normal " + i.getTemplate().getName() + "." );
