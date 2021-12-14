@@ -2837,7 +2837,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 	private static void registerweaponOilLeech() throws IOException {
 		weaponOilLeech = new ItemTemplateBuilder("arathok.alchemy.weaponoilLeech")
-				.name(" Weapon oil of the Plague", "Weapon Oils of Plague",
+				.name(" Weapon oil of the Leech", "Weapon Oils of Leech",
 						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
 				.modelName("model.WeaponOil.Leech.")

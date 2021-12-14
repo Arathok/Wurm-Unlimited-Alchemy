@@ -17,7 +17,7 @@ public class Enchantment {
     static Item i = null;
     static Player p = null;
     static Long wurmId = 0L;
-    SpellEffect eff = null;
+    static ItemSpellEffects eff = null;
 
     public static void EnchantmentHandler() throws NoSuchItemException {
 long time=System.currentTimeMillis();
@@ -31,7 +31,12 @@ long time=System.currentTimeMillis();
                     i = Items.getItem(wurmId);
                     p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
                     if (time > set.getValue()) {
-                    i.deleteAllEffects();
+                        ItemSpellEffects effs = i.getSpellEffects();
+                        SpellEffect[] speffs = effs.getEffects();
+                        if (speffs.length > 0) {
+                            effs.removeSpellEffect((speffs[0]).type);
+                        }
+
                     p.getCommunicator().sendAlertServerMessage("The oil dried completely off your "+ i.getName()
                             +" and it goes back to a normal " + i.getTemplate().getName() + "." );
                     i.setName(i.getTemplate().getName());
