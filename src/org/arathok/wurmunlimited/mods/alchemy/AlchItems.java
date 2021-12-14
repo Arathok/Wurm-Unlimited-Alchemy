@@ -2568,7 +2568,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilDemiseAnimal() throws IOException {
 		weaponOilDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.weaponoilAnimal")
 				.name(" Weapon oil of the Hunter", "Weapon Oils of the Hunter",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons more proficient against animals.")
 
 				.modelName("model.WeaponOil.Hunter.")
 				.imageNumber((short) 1569)
@@ -2598,7 +2598,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilDemiseHuman() throws IOException {
 		weaponOilDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.weaponoilHuman")
 				.name(" Weapon oil of the Murderer", "Weapon Oils of the Murderer",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons more proficient against other humans.")
 
 				.modelName("model.WeaponOil.Hunter.")
 				.imageNumber((short) 1569)
@@ -2628,7 +2628,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilDemiseMonster() throws IOException {
 		weaponOilDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.weaponoilMonster")
 				.name(" Weapon oil of the Monster Hunter", "Weapon oils of the Monster Hunter",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons more proficient against monsters.")
 
 				.modelName("model.WeaponOil.Monster.")
 				.imageNumber((short) 1569)
@@ -2658,7 +2658,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilDemiseLegendary() throws IOException {
 		weaponOilDemiseLegendary = new ItemTemplateBuilder("arathok.alchemy.weaponoilDragon")
 				.name(" Weapon oil of the Dragon Hunter", "Weapon Oils of Dragon Hunter",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons more proficient against legendary monsters")
 
 				.modelName("model.WeaponOil.DragonHunter.")
 				.imageNumber((short) 1569)
@@ -2688,7 +2688,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilHeartseeker() throws IOException {
 		weaponOilHeartseeker = new ItemTemplateBuilder("arathok.alchemy.weaponoilHeartseeker")
 				.name(" Weapon oil of the Heartseeker", "Weapon Oils of the Heartseeker",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons cut critical wounds.")
 
 				.modelName("model.WeaponOil.Heartseeker.")
 				.imageNumber((short) 1569)
@@ -2718,7 +2718,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilKissOfFrost() throws IOException {
 		weaponOilKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.weaponoilFrost")
 				.name(" Frostkiss Weapon oil ", "Weapon oils of Frostkiss",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons cause frostbite.")
 
 				.modelName("model.WeaponOil.Frostkiss.")
 				.imageNumber((short) 1569)
@@ -2748,7 +2748,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilLickOfFire() throws IOException {
 		weaponOilLickOfFire = new ItemTemplateBuilder("arathok.alchemy.weaponoilFire")
 				.name(" Lick of Fire oil", "Weapon Oils of Lick of Fire",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An An alchemistic weapon oil. It will make your weapons cause burns.")
 
 				.modelName("model.WeaponOil.FireLick.")
 				.imageNumber((short) 1569)
@@ -2778,7 +2778,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilPoison() throws IOException {
 		weaponOilPoison = new ItemTemplateBuilder("arathok.alchemy.weaponoilPoison")
 				.name(" Weapon oil of the Snake", "Weapon Oils of the Snake",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons poison enemies.")
 
 				.modelName("model.WeaponOil.Poison.")
 				.imageNumber((short) 1569)
@@ -2808,7 +2808,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilPlague() throws IOException {
 		weaponOilPlague = new ItemTemplateBuilder("arathok.alchemy.weaponoilPlague")
 				.name(" Weapon oil of the Plague", "Weapon Oils of Plague",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons cause infected wounds.")
 
 				.modelName("model.WeaponOil.Plague.")
 				.imageNumber((short) 1569)
@@ -2838,7 +2838,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registerweaponOilLeech() throws IOException {
 		weaponOilLeech = new ItemTemplateBuilder("arathok.alchemy.weaponoilLeech")
 				.name(" Weapon oil of the Leech", "Weapon Oils of Leech",
-						"An alchemistic potion, drinking it will bestow the power of phasing to you.")
+						"An alchemistic weapon oil. It will make your weapons draw an enemies life force.")
 
 				.modelName("model.WeaponOil.Leech.")
 				.imageNumber((short) 1569)
