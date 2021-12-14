@@ -33,6 +33,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public static HashMap<Long,Integer> currentAddiction = new HashMap<Long,Integer>();
 	public static HashMap<Long,Integer> previousAddiction = new HashMap<Long,Integer>();
 	public static HashMap<Long, Long> weaponsWithOils = new HashMap<Long, Long>();
+	public static HashMap<Long, String> weaponsWithOilsEnchants = new HashMap<Long, String>();
 
 
 
@@ -48,6 +49,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.cooldownHeal = Integer.parseInt(properties.getProperty("cooldownHeal", "300"));
 		Config.cooldownUltimate = Integer.parseInt(properties.getProperty("cooldownUltimate", "3600"));
 		Config.purifiedWaterCooking = Boolean.parseBoolean(properties.getProperty("purifiedWaterCooking", "true"));
+		Config.addictiontimer = Integer.parseInt(properties.getProperty("addictiontimer", "900"));
 
 	}
 
