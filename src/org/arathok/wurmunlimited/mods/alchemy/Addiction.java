@@ -12,8 +12,6 @@ public class Addiction {
 	static long addictionTimer = 0;
 	static Player p = null;
 	static long wurmId = 0;
-	SpellEffect eff = null;
-
 	static int seconds = 900;
 	static int currentAddictionLevel = 0;
 	static int previousAddictionLevel = 0;
@@ -31,9 +29,9 @@ public class Addiction {
 					p = Players.getInstance().getPlayerOrNull(wurmId);
 					if (previousAddictionLevel > currentAddictionLevel && currentAddictionLevel > 0 && currentAddictionLevel < 4) {
 
-						p.getCommunicator().sendAlertServerMessage("Your Alchemic Addiction is Low.");
-						p.getCommunicator().sendAlertServerMessage("You feel like you have waited long enough to drink another potion" );
-						p.getCommunicator().sendAlertServerMessage(" without getting your body addicted to the magical powers.");
+						p.getCommunicator().sendAlertServerMessage(" Your Alchemic Addiction is Low."
+						+" You feel like you waited long enough to drink another potion"
+						+" without getting your body addicted to the magical powers.");
 					}
 
 					if (currentAddictionLevel > previousAddictionLevel && currentAddictionLevel == 4) {
