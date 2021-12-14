@@ -10,9 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/alchemy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/alchemy2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Addiction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Addiction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/OilPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/OilPerformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +45,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backup/backup/server.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -159,6 +158,21 @@
           <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/OilPerformer.java</url>
           <line>791</line>
           <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/OilPerformer.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/OilPerformer.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/OilPerformer.java</url>
+          <line>787</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
