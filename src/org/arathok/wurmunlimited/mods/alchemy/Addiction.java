@@ -12,7 +12,7 @@ public class Addiction {
 	static long addictionTimer = 0;
 	static Player p = null;
 	static long wurmId = 0;
-	static int seconds = 900;
+	static int seconds = 30;
 	static int currentAddictionLevel = 0;
 	static int previousAddictionLevel = 0;
 	public static void AddictionHandler()  {

@@ -30,14 +30,7 @@ public class OilPerformer implements ActionPerformer {
 		ModActions.registerAction(actionEntry);
 	}
 
-	public void EnchantHandler(){
-
-
-
-
-
-	}
-
+	
 	int seconds = Config.oilDuration;
 	float power = 0;
 
@@ -76,7 +69,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 // EFFECT STUFF GOES HERE
 		power = source.getCurrentQualityLevel() * Config.alchemyPower;
-		Alchemy.weaponsWithOils.put(target.getWurmId(), System.currentTimeMillis()+(long) seconds*1000);
+		
 
 
 		// DEMISE ANIMAL
@@ -796,7 +789,7 @@ public class OilPerformer implements ActionPerformer {
 			if(target.isWeapon()||target.isArrow())   {
 				ItemSpellEffects effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
+				if (effs != null   || effs.getEffects().length != 0) {
 					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
 							" is already enchanted or has another type of oil applied and thus cant hold any " +
 							" more magic power. You should wait for the other Oil to dry off " +
@@ -869,6 +862,7 @@ public class OilPerformer implements ActionPerformer {
 			}
 
 		}
+		Alchemy.weaponsWithOils.put(target.getWurmId(), System.currentTimeMillis()+(long) seconds*1000);
 		return propagate(action,
 				ActionPropagation.FINISH_ACTION,
 				ActionPropagation.NO_SERVER_PROPAGATION,

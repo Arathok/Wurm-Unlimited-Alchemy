@@ -11,4 +11,5 @@ public class Config {
     public static int cooldownUltimate=3600;
     public static boolean purifiedWaterCooking=true;
 
+
 }
