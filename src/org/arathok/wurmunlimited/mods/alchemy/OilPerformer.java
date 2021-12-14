@@ -41,11 +41,15 @@ public class OilPerformer implements ActionPerformer {
 	}
 
 	public static boolean canUse(Creature performer, Item source) {
+
 		return performer.isPlayer() && source.getOwnerId() == performer.getWurmId() && !source.isTraded();
 	}
 
 	public static boolean isEnchantable(Creature performer, Item target) {
-		return !target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
+		if (!Config.enchantmentsStack)
+			return target.getSpellEffects().getEffects().length==0 &&!target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
+		else
+			return !target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
 	}
 
 	@Override
