@@ -2012,7 +2012,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 			.build();
 
 	sludgeDemiseAnimalId = sludgeDemiseAnimal.getTemplateId();
-	CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteDemiseAnimalId, AlchItems.alchemicalCompoundId,	sludgeDemiseAnimalId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+	CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId, AlchItems.pasteDemiseAnimalId, sludgeDemiseAnimalId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 }
@@ -2044,7 +2044,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgeDemiseMonsterId = sludgeDemiseMonster.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteDemiseMonsterId, AlchItems.alchemicalCompoundId,	sludgeDemiseMonsterId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId, AlchItems.pasteDemiseMonsterId,  sludgeDemiseMonsterId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 	}
@@ -2074,7 +2074,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgeDemiseLegendaryId = sludgeDemiseLegendary.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteDemiseLegendaryId, AlchItems.alchemicalCompoundId,	sludgeDemiseLegendaryId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	AlchItems.pasteDemiseLegendaryId, sludgeDemiseLegendaryId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 	}
@@ -2105,7 +2105,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgeDemiseHumanId = sludgeDemiseHuman.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteDemiseHumanId, AlchItems.alchemicalCompoundId,	sludgeDemiseHumanId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId, AlchItems.pasteDemiseHumanId, sludgeDemiseHumanId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 	}
@@ -2135,7 +2135,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgeLickOfFireId = sludgeLickOfFire.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteLickOfFireId, AlchItems.alchemicalCompoundId,	sludgeLickOfFireId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	AlchItems.pasteLickOfFireId, sludgeLickOfFireId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 	}
@@ -2164,7 +2164,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgeKissOfFrostId = sludgeKissOfFrost.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteKissOfFrostId, AlchItems.alchemicalCompoundId,	sludgeKissOfFrostId, true, true, 0f, false,true,0,30.0, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	AlchItems.pasteKissOfFrostId, sludgeKissOfFrostId, true, true, 0f, false,true,0,30.0, CreationCategories.ALCHEMY);
 
 
 	}
@@ -2194,7 +2194,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgeLeechId = sludgeLeech.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteLeechId, AlchItems.alchemicalCompoundId,	sludgeLeechId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId, AlchItems.pasteLeechId,  sludgeLeechId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 	}
@@ -2223,7 +2223,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgePlagueId = sludgePlague.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pastePlagueId, AlchItems.alchemicalCompoundId,	sludgePlagueId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,AlchItems.pastePlagueId, 	sludgePlagueId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 	}
@@ -2254,7 +2254,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgeHeartseekerId = sludgeHeartseeker.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pasteHeartseekerId, AlchItems.alchemicalCompoundId,	sludgeHeartseekerId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,AlchItems.pasteHeartseekerId, 	sludgeHeartseekerId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 	}
@@ -2285,7 +2285,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 
 		sludgePoisonId = sludgePoison.getTemplateId();
 		CreationEntryCreator
-				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.pastePoisonId, AlchItems.alchemicalCompoundId,	sludgePoisonId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+				.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,AlchItems.pastePoisonId, 	sludgePoisonId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
 	}
