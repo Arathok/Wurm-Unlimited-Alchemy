@@ -109,12 +109,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerPoll() {
 		Addiction.AddictionHandler();
-		try {
-			Enchantments.EnchantmentHandler();
-		} catch (NoSuchItemException e) {
-			e.printStackTrace();
-			logger.log(Level.WARNING, "An Item was supposed to lose its temporary Enchant, but it didn't exist!");
-		}
+		
 
 	}
 
