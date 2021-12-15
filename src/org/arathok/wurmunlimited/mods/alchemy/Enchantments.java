@@ -21,7 +21,7 @@ public class Enchantments {
         long time = System.currentTimeMillis();
 
         Iterator<Map.Entry<Long, Long>> weapons = Alchemy.weaponsWithOils.entrySet().iterator();
-        Iterator<Map.Entry<Long, String>> enchants = Alchemy.weaponsWithOilsEnchants.entrySet().iterator();
+
         while (weapons.hasNext()) {
             if (weapons.next().getValue() < time) {
                 wurmId = weapons.next().getKey();
@@ -41,27 +41,32 @@ public class Enchantments {
                             weapons.remove();
                         }
                     }
-                }
-            }
-        }
-
+                    else
+                    {
+                        Iterator<Map.Entry<Long, String>> enchants = Alchemy.weaponsWithOilsEnchants.entrySet().iterator();
                         while(enchants.hasNext()){
                             i = Items.getItem(wurmId);
                             p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
                             if (time > weapons.next().getValue()) {
-                            ItemSpellEffects itemEffects = i.getSpellEffects();
-                            SpellEffect[] spellsOnItems = itemEffects.getEffects();
-                            for (SpellEffect spell : spellsOnItems) {
-                                if (spell.getName().equals(enchants.next().getValue())) {
-                                    itemEffects.removeSpellEffect(spell.type);
+                                ItemSpellEffects itemEffects = i.getSpellEffects();
+                                SpellEffect[] spellsOnItems = itemEffects.getEffects();
+                                for (SpellEffect spell : spellsOnItems) {
+                                    if (spell.getName().equals(enchants.next().getValue())) {
+                                        itemEffects.removeSpellEffect(spell.type);
+                                    }
+                                    p.getCommunicator().sendAlertServerMessage("The oil dried completely off your " + i.getName()
+                                            + " and it goes back to how it was before " + i.getTemplate().getName() + ".");
+                                    i.setName(i.getTemplate().getName());
                                 }
-                                p.getCommunicator().sendAlertServerMessage("The oil dried completely off your " + i.getName()
-                                        + " and it goes back to how it was before " + i.getTemplate().getName() + ".");
-                                i.setName(i.getTemplate().getName());
-                            }
-                            enchants.remove();
+                                enchants.remove();
 
-                        }
+                            }
+                    }
+                }
+            }
+        }
+
+
                     }
                 }
 
