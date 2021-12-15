@@ -10,6 +10,11 @@ public class EnchantmentHandler {
     }
 
     static List enchantments = new LinkedList<>();
+public static void RemoveEnchantment() {
+    //Iterate over me Baby!
+
+
+}
 
 
 }

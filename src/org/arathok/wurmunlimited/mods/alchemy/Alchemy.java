@@ -110,6 +110,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerPoll() {
 		Addiction.AddictionHandler();
+		EnchantmentHandler.RemoveEnchantment();
 		
 
 	}
