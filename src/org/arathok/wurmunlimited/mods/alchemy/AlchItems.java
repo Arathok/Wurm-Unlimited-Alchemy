@@ -17,7 +17,7 @@ import com.wurmonline.server.items.TempStates;
 import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.IconConstants;
 
-// WAIT WHATS HAPPENING?!
+
 public class AlchItems {
 	public static int
 			leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
@@ -2350,7 +2350,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	private static void registeroilDemiseLegendary() throws IOException {
 		oilDemiseLegendary = new ItemTemplateBuilder("arathok.alchemy.oilDemiseLegendary")
 				.name(" oil of Legendarys Demise", "oils of Legendarys Demise",
-						"An oil that smells of death. You find that it doesn't dislolve any flesh you know not even your own. Maybe you should test it on Dragons or so? " +
+						"An oil that smells of death. You find that it doesn't dissolve any flesh you know not even your own. Maybe you should test it on Dragons or so? " +
 								"It needs to be filled into a crystalline phial to unfold its magical potential as a weapon oil.")
 
 				.modelName("model.oil.legendary.")

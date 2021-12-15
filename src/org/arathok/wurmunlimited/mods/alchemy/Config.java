@@ -10,6 +10,6 @@ public class Config {
     public static int cooldownPotion=300;
     public static int cooldownUltimate=3600;
     public static boolean purifiedWaterCooking=true;
-    public static int addictiontimer = 900;
+    public static int addictionTimer = 900;
     public static boolean enchantmentsStack = true;
 }

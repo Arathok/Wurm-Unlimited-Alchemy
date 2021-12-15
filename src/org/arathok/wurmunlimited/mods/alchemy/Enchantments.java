@@ -4,33 +4,30 @@ package org.arathok.wurmunlimited.mods.alchemy;
 import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.Players;
-import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.*;
 import com.wurmonline.server.players.Player;
 import com.wurmonline.server.spells.SpellEffect;
 
 import java.util.Map;
 
-public class Enchantment {
+public class Enchantments {
 
-    static int oilTimer = Config.oilDuration * 1000;
     static Item i = null;
     static Player p = null;
     static Long wurmId = 0L;
-    static ItemSpellEffects eff = null;
 
     public static void EnchantmentHandler() throws NoSuchItemException {
         long time = System.currentTimeMillis();
 
-        for (Map.Entry<Long, Long> set : Alchemy.weaponsWithOils.entrySet()) {
-            if (set.getValue() < time) {
+        for (Map.Entry<Long, Long> weapons : Alchemy.weaponsWithOils.entrySet()) {
+            if (weapons.getValue() < time) {
 
-                wurmId = set.getKey();
+                wurmId = weapons.getKey();
                 if (wurmId != null) {
                     if (!Config.enchantmentsStack) {
                         i = Items.getItem(wurmId);
                         p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
-                        if (time > set.getValue()) {
+                        if (time > weapons.getValue()) {
                             ItemSpellEffects effs = i.getSpellEffects();
                             SpellEffect[] speffs = effs.getEffects();
                             if (speffs.length > 0) {
@@ -43,17 +40,24 @@ public class Enchantment {
                             Alchemy.weaponsWithOils.remove(wurmId);
                         }
 
-                    }
-                    else // hier bei gestackten einfügen
+                    } else // hier bei gestackten einfügen
+                        for (Map.Entry<Long, String> enchants : Alchemy.weaponsWithOilsEnchants.entrySet()) {
+                            i = Items.getItem(wurmId);
+                            p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
+                            if (time > weapons.getValue()) {
+                                ItemSpellEffects itemEffects = i.getSpellEffects();
+                                SpellEffect[] spellsOnItems = itemEffects.getEffects();
 
+                                for (SpellEffect spell : spellsOnItems) {
+                                    if (spell.getName().equals(enchants.getValue())) {
+                                        itemEffects.removeSpellEffect(spell.type);
+                                    }
+                                }
+                                Alchemy.weaponsWithOils.remove(wurmId);
+                                Alchemy.weaponsWithOilsEnchants.remove(wurmId);
+                            }
 
-
-
-
-
-
-
-
+                   }
                 }
             }
         }

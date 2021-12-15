@@ -29,7 +29,7 @@ public class Addiction {
 					p = Players.getInstance().getPlayerOrNull(wurmId);
 					if (previousAddictionLevel > currentAddictionLevel && currentAddictionLevel > 0 && currentAddictionLevel < 4) {
 
-						p.getCommunicator().sendAlertServerMessage(" Your Alchemic Addiction is Low."
+						p.getCommunicator().sendAlertServerMessage(" Your Alchemical Addiction is Low."
 						+" You feel like you waited long enough to drink another potion"
 						+" without getting your body addicted to the magical powers.");
 					}

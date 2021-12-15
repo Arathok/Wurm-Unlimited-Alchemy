@@ -77,30 +77,18 @@ public class OilPerformer implements ActionPerformer {
 		}
 // EFFECT STUFF GOES HERE
 		power = source.getCurrentQualityLevel() * Config.alchemyPower;
-
+		ItemSpellEffects effs = target.getSpellEffects();
+		SpellEffect eff = null;
 
 
 		// DEMISE ANIMAL
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
 			if(target.isWeapon()||target.isArrow())   {
-			ItemSpellEffects effs = target.getSpellEffects();
 
-				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
 
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 11);
+					eff = effs.getSpellEffect((byte) 11);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -126,8 +114,6 @@ public class OilPerformer implements ActionPerformer {
 												" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName() );
 
-
-
 			}
 			else
 				if (target.isQuiver()) {
@@ -135,12 +121,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					 effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 11);
+						eff = effs.getSpellEffect((byte) 11);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
@@ -168,22 +155,11 @@ public class OilPerformer implements ActionPerformer {
 		// DEMISE HUMAN
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseHumanId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
-				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+				effs = target.getSpellEffects();
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 9);
+					eff = effs.getSpellEffect((byte) 9);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 9, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -215,12 +191,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+						effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 9);
+						eff = effs.getSpellEffect((byte) 9);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (Config.oilDuration));
@@ -246,22 +223,12 @@ public class OilPerformer implements ActionPerformer {
 		// DEMISE MONSTER
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseMonsterId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
+				effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 10);
+				eff = effs.getSpellEffect((byte) 10);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 10, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -293,12 +260,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 10);
+					eff = effs.getSpellEffect((byte) 10);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (Config.oilDuration));
@@ -325,22 +293,12 @@ public class OilPerformer implements ActionPerformer {
 		// DEMISE LEGENDARY
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseLegendaryId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
+				effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 12);
+				eff = effs.getSpellEffect((byte) 12);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 12, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -372,12 +330,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 12);
+					eff = effs.getSpellEffect((byte) 12);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (Config.oilDuration));
@@ -403,22 +362,11 @@ public class OilPerformer implements ActionPerformer {
 		// Fires Kiss
 		if (source.getTemplateId() == AlchItems.weaponOilLickOfFireId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
-				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+				effs = target.getSpellEffects();
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 14);
+				eff = effs.getSpellEffect((byte) 14);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 14, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -450,12 +398,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 14);
+					eff = effs.getSpellEffect((byte) 14);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (Config.oilDuration));
@@ -481,22 +430,11 @@ public class OilPerformer implements ActionPerformer {
 		// Frost
 		if (source.getTemplateId() == AlchItems.weaponOilKissOfFrostId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
-				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+				effs = target.getSpellEffects();
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 33);
+				eff = effs.getSpellEffect((byte) 33);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 33, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -528,12 +466,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 33);
+					eff = effs.getSpellEffect((byte) 33);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (Config.oilDuration));
@@ -560,22 +499,11 @@ public class OilPerformer implements ActionPerformer {
 		// Leech
 		if (source.getTemplateId() == AlchItems.weaponOilLeechId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
-				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+				effs = target.getSpellEffects();
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 26);
+				eff = effs.getSpellEffect((byte) 26);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 26, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -607,12 +535,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 26);
+					eff = effs.getSpellEffect((byte) 26);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (Config.oilDuration));
@@ -639,22 +568,11 @@ public class OilPerformer implements ActionPerformer {
 		// DEMISE Plague
 		if (source.getTemplateId() == AlchItems.weaponOilPlagueId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
-				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+				effs = target.getSpellEffects();
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 18);
+				eff = effs.getSpellEffect((byte) 18);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 18, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -686,13 +604,14 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					effs = arrow.getSpellEffects();
 					if (effs != null)
+
 						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 18);
+					eff = effs.getSpellEffect((byte) 18);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (Config.oilDuration));
@@ -721,22 +640,11 @@ public class OilPerformer implements ActionPerformer {
 		// Poison
 		if (source.getTemplateId() == AlchItems.weaponOilPoisonId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
-				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+				effs = target.getSpellEffects();
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 27);
+				eff = effs.getSpellEffect((byte) 27);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 27, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -768,12 +676,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 27);
+					eff = effs.getSpellEffect((byte) 27);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 27, power, (Config.oilDuration));
@@ -800,23 +709,11 @@ public class OilPerformer implements ActionPerformer {
 		// Heartseeker
 		if (source.getTemplateId() == AlchItems.weaponOilHeartseekerId) {
 			if(target.isWeapon()||target.isArrow())   {
-				ItemSpellEffects effs = target.getSpellEffects();
-				// ALREADY ENCHANTED? YOU GET NOTHING!
-				if (effs != null )
-					if (effs.getEffects().length != 0) {
-					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
-							" is already enchanted or has another type of oil applied and thus cant hold any " +
-							" more magic power. You should wait for the other Oil to dry off " +
-							" or consult a priest to disenchant your weapon", (byte) 2);
-					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used a oil " + source.getName()+" on their "+target.getName()+ "but failed" );
-					return propagate(action,
-							ActionPropagation.FINISH_ACTION,
-							ActionPropagation.NO_SERVER_PROPAGATION,
-							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-				}
+				effs = target.getSpellEffects();
+
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
-				SpellEffect eff = effs.getSpellEffect((byte) 32);
+				eff = effs.getSpellEffect((byte) 32);
 				if (eff == null) {
 					eff = new SpellEffect(target.getWurmId(), (byte) 32, power, (Config.oilDuration));
 					effs.addSpellEffect(eff);
@@ -848,12 +745,13 @@ public class OilPerformer implements ActionPerformer {
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					ItemSpellEffects effs = arrow.getSpellEffects();
+					effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
-					SpellEffect eff = effs.getSpellEffect((byte) 32);
+					eff = effs.getSpellEffect((byte) 32);
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (Config.oilDuration));
@@ -879,7 +777,13 @@ public class OilPerformer implements ActionPerformer {
 
 		}
 
-	Alchemy.weaponsWithOils.put(target.getWurmId(),System.currentTimeMillis()+(seconds*1000));
+		if (eff!=null)
+		{
+			Alchemy.weaponsWithOils.put(target.getWurmId(),System.currentTimeMillis()+(seconds*1000L));
+			Alchemy.weaponsWithOilsEnchants.put(target.getWurmId(),eff.getName());
+		}
+
+
 		return propagate(action,
 				ActionPropagation.FINISH_ACTION,
 				ActionPropagation.NO_SERVER_PROPAGATION,

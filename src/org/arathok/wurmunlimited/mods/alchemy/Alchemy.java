@@ -2,38 +2,25 @@ package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.creatures.Communicator;
-
-import javassist.ClassPool;
-import javassist.CtClass;
-import org.gotti.wurmunlimited.modloader.classhooks.HookManager;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
+import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import java.io.IOException;
-
-import org.gotti.wurmunlimited.modloader.interfaces.Configurable;
-import org.gotti.wurmunlimited.modloader.interfaces.Initable;
-import org.gotti.wurmunlimited.modloader.interfaces.ItemTemplatesCreatedListener;
-import org.gotti.wurmunlimited.modloader.interfaces.PlayerMessageListener;
-import org.gotti.wurmunlimited.modloader.interfaces.PreInitable;
-import org.gotti.wurmunlimited.modloader.interfaces.ServerStartedListener;
-import org.gotti.wurmunlimited.modloader.interfaces.WurmServerMod;
-import org.gotti.wurmunlimited.modsupport.actions.ModActions;
-
 public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurable, ItemTemplatesCreatedListener, ServerStartedListener, ServerPollListener, PlayerMessageListener{
 	public static final Logger logger = Logger.getLogger("Alchemy");
-	public static HashMap<Long, Long> healCooldown = new HashMap<Long, Long>();
-	public static HashMap<Long, Long> cooldown = new HashMap<Long, Long>();
-	public static HashMap<Long, Integer> healToxicity = new HashMap<Long, Integer>();
-	public static HashMap<Long, Integer> toxicity = new HashMap<Long, Integer>();
-	public static HashMap<Long,Integer> currentAddiction = new HashMap<Long,Integer>();
-	public static HashMap<Long,Integer> previousAddiction = new HashMap<Long,Integer>();
-	public static HashMap<Long, Long> weaponsWithOils = new HashMap<Long, Long>();
-	public static HashMap<Long, String> weaponsWithOilsEnchants = new HashMap<Long, String>();
+	public static HashMap<Long, Long> healCooldown = new HashMap<>();
+	public static HashMap<Long, Long> cooldown = new HashMap<>();
+	public static HashMap<Long, Integer> healToxicity = new HashMap<>();
+	public static HashMap<Long, Integer> toxicity = new HashMap<>();
+	public static HashMap<Long,Integer> currentAddiction = new HashMap<>();
+	public static HashMap<Long,Integer> previousAddiction = new HashMap<>();
+	public static HashMap<Long, Long> weaponsWithOils = new HashMap<>();
+	public static HashMap<Long, String> weaponsWithOilsEnchants = new HashMap<>();
 
 
 
@@ -49,7 +36,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.cooldownHeal = Integer.parseInt(properties.getProperty("cooldownHeal", "300"));
 		Config.cooldownUltimate = Integer.parseInt(properties.getProperty("cooldownUltimate", "3600"));
 		Config.purifiedWaterCooking = Boolean.parseBoolean(properties.getProperty("purifiedWaterCooking", "true"));
-		Config.addictiontimer = Integer.parseInt(properties.getProperty("addictiontimer", "900"));
+		Config.addictionTimer = Integer.parseInt(properties.getProperty("addictionTimer", "900"));
 		Config.enchantmentsStack = Boolean.parseBoolean(properties.getProperty("enchantmentsStack", "true"));
 
 	}
@@ -123,7 +110,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public void onServerPoll() {
 		Addiction.AddictionHandler();
 		try {
-			Enchantment.EnchantmentHandler();
+			Enchantments.EnchantmentHandler();
 		} catch (NoSuchItemException e) {
 			e.printStackTrace();
 			logger.log(Level.WARNING, "An Item was supposed to lose its temporary Enchant, but it didn't exist!");
