@@ -25,20 +25,20 @@ public class Enchantments {
         while (weapons.hasNext()) {
             if (weapons.next().getValue() < time) {
                 wurmId = weapons.next().getKey();
-                if (wurmId != null) {
-                    if (!Config.enchantmentsStack) {
-                        i = Items.getItem(wurmId);
-                        p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
+                if (wurmId != null) {                                   // if an item was Enchanted -> Is Listed in the Hashmap
+                    if (!Config.enchantmentsStack) {                    // if Enchants are not allowed to stack with vanilla enchants
+                        i = Items.getItem(wurmId);                      // get the items
+                        p = Players.getInstance().getPlayerOrNull(i.getOwnerId());  // get the owner
                         if (time > weapons.next().getValue()) {
-                            ItemSpellEffects effs = i.getSpellEffects();
-                            SpellEffect[] speffs = effs.getEffects();
-                            if (speffs.length > 0) {
-                                effs.removeSpellEffect((speffs[0]).type);
+                            ItemSpellEffects effs = i.getSpellEffects();    // get the spell effects from that item
+                            SpellEffect[] speffs = effs.getEffects();       // get the effects from the spells
+                            if (speffs.length > 0) {                        // if there are any spells
+                                effs.removeSpellEffect((speffs[0]).type);   // remove them
                             }
-                            p.getCommunicator().sendAlertServerMessage("The oil dried completely off your " + i.getName()
+                            p.getCommunicator().sendAlertServerMessage("The oil dried completely off your " + i.getName()    // inform the user
                                     + " and it goes back to a normal " + i.getTemplate().getName() + ".");
                             i.setName(i.getTemplate().getName());
-                            weapons.remove();
+                            weapons.remove();                           // remove that weapon entry from the hashmap
                         }
                     }
                     else
