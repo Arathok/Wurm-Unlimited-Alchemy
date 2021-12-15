@@ -40,8 +40,11 @@ public class Enchantments {
                             i.setName(i.getTemplate().getName());
                             weapons.remove();
                         }
+                    }
+                }
+            }
+        }
 
-                    } else // hier bei gestackten einfügen
                         while(enchants.hasNext()){
                             i = Items.getItem(wurmId);
                             p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
@@ -63,7 +66,7 @@ public class Enchantments {
                 }
 
             }
-        }
-    }
-}
+
+
+
 
