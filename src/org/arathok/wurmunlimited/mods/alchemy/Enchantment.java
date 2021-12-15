@@ -9,14 +9,24 @@ import com.wurmonline.server.players.Player;
 import com.wurmonline.server.spells.SpellEffect;
 
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
-public class Enchantments {
+public class Enchantment {
 
-    static Item i = null;
-    static Player p = null;
-    static Long wurmId = 0L;
+
+    public Player p = null;
+    public Long itemWurmId = 0L;
     public Long timeRunout;
+
+
+
+
+
+
+
+
 
 
 }

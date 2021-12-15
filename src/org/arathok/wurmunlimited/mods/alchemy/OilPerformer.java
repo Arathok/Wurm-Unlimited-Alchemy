@@ -3,6 +3,7 @@ package org.arathok.wurmunlimited.mods.alchemy;
 
 
 import com.wurmonline.server.Items;
+import com.wurmonline.server.Players;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.creatures.Creature;
@@ -33,6 +34,7 @@ public class OilPerformer implements ActionPerformer {
 	
 	int seconds = Config.oilDuration;
 	float power = 0;
+	Enchantment e = new Enchantment();
 
 
 	@Override
@@ -779,6 +781,10 @@ public class OilPerformer implements ActionPerformer {
 
 		if (eff!=null)
 		{
+			e.itemWurmId= target.getWurmId();
+			e.p= Players.getInstance().getPlayerOrNull(target.getOwnerId());
+			e.timeRunout = System.currentTimeMillis()+(seconds*1000L);
+			EnchantmentHandler.enchantments.add(e);
 			Alchemy.weaponsWithOils.put(target.getWurmId(),System.currentTimeMillis()+(seconds*1000L));
 			Alchemy.weaponsWithOilsEnchants.put(target.getWurmId(),eff.getName());
 		}
