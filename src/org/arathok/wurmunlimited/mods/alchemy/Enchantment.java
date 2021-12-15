@@ -20,28 +20,38 @@ public class Enchantment {
     static ItemSpellEffects eff = null;
 
     public static void EnchantmentHandler() throws NoSuchItemException {
-long time=System.currentTimeMillis();
+        long time = System.currentTimeMillis();
 
         for (Map.Entry<Long, Long> set : Alchemy.weaponsWithOils.entrySet()) {
             if (set.getValue() < time) {
 
                 wurmId = set.getKey();
                 if (wurmId != null) {
+                    if (!Config.enchantmentsStack) {
+                        i = Items.getItem(wurmId);
+                        p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
+                        if (time > set.getValue()) {
+                            ItemSpellEffects effs = i.getSpellEffects();
+                            SpellEffect[] speffs = effs.getEffects();
+                            if (speffs.length > 0) {
+                                effs.removeSpellEffect((speffs[0]).type);
+                            }
 
-                    i = Items.getItem(wurmId);
-                    p = Players.getInstance().getPlayerOrNull(i.getOwnerId());
-                    if (time > set.getValue()) {
-                        ItemSpellEffects effs = i.getSpellEffects();
-                        SpellEffect[] speffs = effs.getEffects();
-                        if (speffs.length > 0) {
-                            effs.removeSpellEffect((speffs[0]).type);
+                            p.getCommunicator().sendAlertServerMessage("The oil dried completely off your " + i.getName()
+                                    + " and it goes back to a normal " + i.getTemplate().getName() + ".");
+                            i.setName(i.getTemplate().getName());
+                            Alchemy.weaponsWithOils.remove(wurmId);
                         }
 
-                    p.getCommunicator().sendAlertServerMessage("The oil dried completely off your "+ i.getName()
-                            +" and it goes back to a normal " + i.getTemplate().getName() + "." );
-                    i.setName(i.getTemplate().getName());
-                    Alchemy.weaponsWithOils.remove(wurmId);
                     }
+                    else // hier bei gestackten einfügen
+
+
+
+
+
+
+
 
 
                 }

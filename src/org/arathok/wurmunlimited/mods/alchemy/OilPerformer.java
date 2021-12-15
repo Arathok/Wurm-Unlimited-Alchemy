@@ -47,7 +47,7 @@ public class OilPerformer implements ActionPerformer {
 
 	public static boolean isEnchantable(Creature performer, Item target) {
 		if (!Config.enchantmentsStack)
-			return target.getSpellEffects().getEffects().length==0 &&!target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
+			return ((target.getSpellEffects().getEffects().length==0)||(target.getSpellEffects()==null)) &&!target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
 		else
 			return !target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
 	}
@@ -58,13 +58,17 @@ public class OilPerformer implements ActionPerformer {
 			return propagate(action,
 					ActionPropagation.SERVER_PROPAGATION,
 					ActionPropagation.ACTION_PERFORMER_PROPAGATION);*/
-		if (!canUse(performer,source))
+		if (!canUse(performer,source)) {
+			performer.getCommunicator().sendAlertServerMessage("You are not allowed to do that");
 			return propagate(action,
 					ActionPropagation.FINISH_ACTION,
 					ActionPropagation.NO_SERVER_PROPAGATION,
 					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+		}
+
 		if (!isEnchantable(performer, target)) {
-			performer.getCommunicator().sendAlertServerMessage("You are not allowed to do that");
+			performer.getCommunicator().sendAlertServerMessage("There is already a lot of magical power stored inside this weapon, you should" +
+					" consult a priest to disenchant it or wait until the current oil has dried off");
 			return propagate(action,
 					ActionPropagation.FINISH_ACTION,
 					ActionPropagation.NO_SERVER_PROPAGATION,
@@ -80,6 +84,7 @@ public class OilPerformer implements ActionPerformer {
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
 			if(target.isWeapon()||target.isArrow())   {
 			ItemSpellEffects effs = target.getSpellEffects();
+
 				// ALREADY ENCHANTED? YOU GET NOTHING!
 				if (effs != null) {
 					performer.getCommunicator().sendAlertServerMessage("The " + target.getName() +
@@ -123,7 +128,8 @@ public class OilPerformer implements ActionPerformer {
 
 
 
-			} else
+			}
+			else
 				if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
@@ -682,6 +688,7 @@ public class OilPerformer implements ActionPerformer {
 
 					ItemSpellEffects effs = arrow.getSpellEffects();
 					if (effs != null)
+						if (!Config.enchantmentsStack)
 						fails++;
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
@@ -689,7 +696,9 @@ public class OilPerformer implements ActionPerformer {
 					if (eff == null) {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (Config.oilDuration));
+						eff.timeleft=Config.oilDuration;
 						effs.addSpellEffect(eff);
+						Alchemy.weaponsWithOilsEnchants.put(arrow.getWurmId(),eff.getName());
 						arrow.setName((arrow.getName() + " (oil, plague)"));
 					}
 				}
