@@ -1,8 +1,7 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
 import com.wurmonline.server.creatures.Communicator;
-import org.arathok.wurmunlimited.mods.alchemy.actions.OilBehaviour;
-import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
+import org.arathok.wurmunlimited.mods.alchemy.actions.*;
 import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
@@ -81,7 +80,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerStarted() {
 		// TODO Auto-generated method stub
-	      ModActions.registerActionPerformer(new SipPerformerExcel());
+	      ModActions.registerActionPerformer(new SipPerformer());
 	      ModActions.registerActionPerformer(new SipPerformerFog());
 	      ModActions.registerActionPerformer(new SipPerformerFrenzy());
 	      ModActions.registerActionPerformer(new SipPerformerGoat());
@@ -96,6 +95,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		  ModActions.registerBehaviourProvider(new PotionBehaviour());
 		  ModActions.registerBehaviourProvider(new OilBehaviour());
 		  new EnchantmentHandler();
+		  new AddictionHandler();
 		logger.log(Level.INFO, "Thank you Bdew!");
 
           logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");

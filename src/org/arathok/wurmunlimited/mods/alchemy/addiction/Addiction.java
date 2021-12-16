@@ -14,6 +14,9 @@ public class Addiction {
 	static Player p = null;
 	static int currentAddictionLevel = 0;
 	static int previousAddictionLevel = 0;
+	static long coolDownHealEnd=0;
+	static long coolDownBuffEnd=0;
+	static int toxicityWarning=0;
 
 
 }

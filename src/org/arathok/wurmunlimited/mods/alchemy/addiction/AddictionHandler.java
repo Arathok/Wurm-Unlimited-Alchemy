@@ -8,6 +8,10 @@ public class AddictionHandler {
 public static List addictions = new LinkedList<>();
     public static void AddictionEffects() {
         Iterator<Addiction> addictionHandler = addictions.iterator();
+        while (addictionHandler.hasNext())
+        {
+
+        }
     	/*	for (
     Map.Entry<Long, Integer> set : Alchemy.currentAddiction.entrySet())
     {

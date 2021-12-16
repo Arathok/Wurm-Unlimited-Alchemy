@@ -161,7 +161,7 @@ public class AlchItems {
 				})
 				.decayTime(9072000L)
 				.dimensions(20, 20, 20)
-				.weightGrams(20000)
+				.weightGrams(10000)
 				.material(Materials.MATERIAL_GLASS)
 				.behaviourType((short) 1)
 				.primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
@@ -244,7 +244,7 @@ public class AlchItems {
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
-				.weightGrams(100)
+				.weightGrams(200)
 				.material(Materials.MATERIAL_GLASS)
 				.behaviourType((short) 1)
 				.primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
