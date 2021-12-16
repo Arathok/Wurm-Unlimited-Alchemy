@@ -1,4 +1,4 @@
-package org.arathok.wurmunlimited.mods.alchemy;
+package org.arathok.wurmunlimited.mods.alchemy.actions;
 
 
 
@@ -10,8 +10,14 @@ import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemSpellEffects;
 import com.wurmonline.server.spells.SpellEffect;
+import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
+import org.arathok.wurmunlimited.mods.alchemy.Config;
+import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
+import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 import org.gotti.wurmunlimited.modsupport.actions.*;
 
+import java.util.Iterator;
 import java.util.logging.Level;
 
 public class OilPerformer implements ActionPerformer {
@@ -37,6 +43,7 @@ public class OilPerformer implements ActionPerformer {
 	Enchantment e = new Enchantment();
 
 
+
 	@Override
 	public short getActionId() {
 		 return actionEntry.getNumber();
@@ -48,15 +55,25 @@ public class OilPerformer implements ActionPerformer {
 	}
 
 	public static boolean isEnchantable(Creature performer, Item target) {
+		Enchantment oiledWeapon;
+		boolean hasOil=false;
+		Iterator <Enchantment> oilChecker = EnchantmentHandler.enchantments.iterator();
 		if (!Config.enchantmentsStack)
 			return ((target.getSpellEffects().getEffects().length==0)||(target.getSpellEffects()==null)) &&!target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
 		else
-			return !target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
+			while (oilChecker.hasNext()) {
+				oiledWeapon= oilChecker.next();
+				if (oiledWeapon.hasOil)
+				hasOil=true;
+			}
+
+			return !hasOil&&!target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
 	}
 
 	@Override
-	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) { // Since we use target and source this time, only need that override)
+	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) { // Since we use target and source this time, only need that override
 		/*if (target.getTemplateId() != AlchItems.weaponOilDemiseAnimalId)
+
 			return propagate(action,
 					ActionPropagation.SERVER_PROPAGATION,
 					ActionPropagation.ACTION_PERFORMER_PROPAGATION);*/
@@ -78,10 +95,12 @@ public class OilPerformer implements ActionPerformer {
 
 		}
 // EFFECT STUFF GOES HERE
+		seconds=Config.oilDuration;
 		power = source.getCurrentQualityLevel() * Config.alchemyPower;
 		ItemSpellEffects effs = target.getSpellEffects();
 		SpellEffect eff = null;
-
+		if (effs!=null||effs.getEffects().length>0) // if the weapon is Enchanted
+			seconds/=5;								// oil only lasts a fifth of the set time
 
 		// DEMISE ANIMAL
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
@@ -92,7 +111,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 					eff = effs.getSpellEffect((byte) 11);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -132,7 +151,7 @@ public class OilPerformer implements ActionPerformer {
 						eff = effs.getSpellEffect((byte) 11);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,hunt)"));
 					}
@@ -163,7 +182,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 					eff = effs.getSpellEffect((byte) 9);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 9, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 9, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -202,7 +221,7 @@ public class OilPerformer implements ActionPerformer {
 						eff = effs.getSpellEffect((byte) 9);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,Murder)"));
 					}
@@ -232,7 +251,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 10);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 10, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 10, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -271,7 +290,7 @@ public class OilPerformer implements ActionPerformer {
 					eff = effs.getSpellEffect((byte) 10);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,monster hunt)"));
 					}
@@ -302,7 +321,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 12);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 12, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 12, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -341,7 +360,7 @@ public class OilPerformer implements ActionPerformer {
 					eff = effs.getSpellEffect((byte) 12);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, legendary hunt)"));
 					}
@@ -370,7 +389,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 14);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 14, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 14, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -409,7 +428,7 @@ public class OilPerformer implements ActionPerformer {
 					eff = effs.getSpellEffect((byte) 14);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, flaming)"));
 					}
@@ -438,7 +457,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 33);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 33, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 33, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -477,7 +496,7 @@ public class OilPerformer implements ActionPerformer {
 					eff = effs.getSpellEffect((byte) 33);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, frost)"));
 					}
@@ -507,7 +526,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 26);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 26, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 26, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -546,7 +565,7 @@ public class OilPerformer implements ActionPerformer {
 					eff = effs.getSpellEffect((byte) 26);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, leech)"));
 					}
@@ -576,7 +595,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 18);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 18, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 18, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -616,7 +635,7 @@ public class OilPerformer implements ActionPerformer {
 					eff = effs.getSpellEffect((byte) 18);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (seconds));
 						eff.timeleft=Config.oilDuration;
 						effs.addSpellEffect(eff);
 					
@@ -648,7 +667,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 27);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 27, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 27, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -687,7 +706,7 @@ public class OilPerformer implements ActionPerformer {
 					eff = effs.getSpellEffect((byte) 27);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 27, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 27, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, poison)"));
 					}
@@ -717,7 +736,7 @@ public class OilPerformer implements ActionPerformer {
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 32);
 				if (eff == null) {
-					eff = new SpellEffect(target.getWurmId(), (byte) 32, power, (Config.oilDuration));
+					eff = new SpellEffect(target.getWurmId(), (byte) 32, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
@@ -756,7 +775,7 @@ public class OilPerformer implements ActionPerformer {
 					eff = effs.getSpellEffect((byte) 32);
 					if (eff == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (Config.oilDuration));
+						eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (seconds));
 						effs.addSpellEffect(eff);
 						
 						arrow.setName((arrow.getName() + " (oil, heartseeker)"));
@@ -785,6 +804,7 @@ public class OilPerformer implements ActionPerformer {
 			e.p= Players.getInstance().getPlayerOrNull(target.getOwnerId());
 			e.timeRunout = System.currentTimeMillis()+(seconds*1000L);
 			e.enchantmentType = eff.type;
+			e.hasOil=true;
 			EnchantmentHandler.enchantments.add(e);
 			
 		}

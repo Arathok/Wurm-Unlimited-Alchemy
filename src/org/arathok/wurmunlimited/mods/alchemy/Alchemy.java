@@ -1,7 +1,10 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
-import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.creatures.Communicator;
+import org.arathok.wurmunlimited.mods.alchemy.actions.OilBehaviour;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
+import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
@@ -108,7 +111,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public void onServerPoll() {
-		Addiction.AddictionHandler();
+		AddictionHandler.AddictionEffects();
 		EnchantmentHandler.RemoveEnchantment();
 		
 

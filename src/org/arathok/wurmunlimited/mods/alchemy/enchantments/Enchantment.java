@@ -1,4 +1,4 @@
-package org.arathok.wurmunlimited.mods.alchemy;
+package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
 
 import com.wurmonline.server.Items;
@@ -20,6 +20,7 @@ public class Enchantment {
     public Item item = null;
     public Long timeRunout;
     public byte enchantmentType;
+    public boolean hasOil;
 
 
 

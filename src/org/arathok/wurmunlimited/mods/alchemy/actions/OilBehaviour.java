@@ -1,11 +1,11 @@
-package org.arathok.wurmunlimited.mods.alchemy;
+package org.arathok.wurmunlimited.mods.alchemy.actions;
 
 import com.wurmonline.server.behaviours.ActionEntry;
-import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 
-import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
+import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
+import org.arathok.wurmunlimited.mods.alchemy.actions.OilPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 

@@ -1,4 +1,4 @@
-package org.arathok.wurmunlimited.mods.alchemy;
+package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
 import com.wurmonline.server.creatures.SpellEffects;
 
@@ -6,13 +6,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class EnchantmentHandler {
+ public class EnchantmentHandler {
 
-    EnchantmentHandler() {
+    public EnchantmentHandler() {
 
     }
 
-    static List enchantments = new LinkedList<>();
+     public static List enchantments = new LinkedList<>();
 public static void RemoveEnchantment() {
     SpellEffects effs;
     Long time = System.currentTimeMillis();
@@ -25,7 +25,7 @@ Enchantment enchant = null;
         {
             enchant.item.getSpellEffects().removeSpellEffect(enchant.enchantmentType);
             enchant.item.setName(enchant.item.getTemplate().getName());
-            enchant.p.getCommunicator().sendAlertServerMessage("The weapon Oil, coating your weapon completely dried up and returned it back to its previous State");
+            enchant.p.getCommunicator().sendAlertServerMessage("The weapon Oil, coating your weapon completely dried up and returned it back to its previous state");
             enchantmentsIterator.remove();
         }
 
