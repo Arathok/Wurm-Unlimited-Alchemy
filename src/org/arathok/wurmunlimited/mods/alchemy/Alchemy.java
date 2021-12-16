@@ -19,8 +19,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public static HashMap<Long, Integer> toxicity = new HashMap<>();
 	public static HashMap<Long,Integer> currentAddiction = new HashMap<>();
 	public static HashMap<Long,Integer> previousAddiction = new HashMap<>();
-	public static HashMap<Long, Long> weaponsWithOils = new HashMap<>();
-	public static HashMap<Long, String> weaponsWithOilsEnchants = new HashMap<>();
+
 
 
 

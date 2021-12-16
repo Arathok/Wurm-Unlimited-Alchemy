@@ -17,8 +17,9 @@ public class Enchantment {
 
 
     public Player p = null;
-    public Long itemWurmId = 0L;
+    public Item item = null;
     public Long timeRunout;
+    public byte enchantmentType;
 
 
 

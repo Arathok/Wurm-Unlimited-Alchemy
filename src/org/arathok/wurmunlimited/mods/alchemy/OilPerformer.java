@@ -619,7 +619,7 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (Config.oilDuration));
 						eff.timeleft=Config.oilDuration;
 						effs.addSpellEffect(eff);
-						Alchemy.weaponsWithOilsEnchants.put(arrow.getWurmId(),eff.getName());
+					
 						arrow.setName((arrow.getName() + " (oil, plague)"));
 					}
 				}
@@ -758,7 +758,7 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (Config.oilDuration));
 						effs.addSpellEffect(eff);
-						Alchemy.weaponsWithOilsEnchants.put(target.getWurmId(),eff.getName());
+						
 						arrow.setName((arrow.getName() + " (oil, heartseeker)"));
 
 					}
@@ -781,12 +781,12 @@ public class OilPerformer implements ActionPerformer {
 
 		if (eff!=null)
 		{
-			e.itemWurmId= target.getWurmId();
+			e.item= target;
 			e.p= Players.getInstance().getPlayerOrNull(target.getOwnerId());
 			e.timeRunout = System.currentTimeMillis()+(seconds*1000L);
+			e.enchantmentType = eff.type;
 			EnchantmentHandler.enchantments.add(e);
-			Alchemy.weaponsWithOils.put(target.getWurmId(),System.currentTimeMillis()+(seconds*1000L));
-			Alchemy.weaponsWithOilsEnchants.put(target.getWurmId(),eff.getName());
+			
 		}
 
 
