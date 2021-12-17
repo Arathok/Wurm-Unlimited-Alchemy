@@ -16,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/MyTempstate.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/PotionBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/PotionBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerExcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformerFog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerFrenzy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformerFrenzy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerGoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformerGoat.java" afterDir="false" />
@@ -28,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerUltimateKnowledge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformerUltimateKnowledge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerWillowspine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformerWillowspine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/SipPerformerWoodskin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformerWoodskin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java" afterDir="false" />
     </list>

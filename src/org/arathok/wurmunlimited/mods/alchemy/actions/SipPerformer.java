@@ -3,6 +3,7 @@ package org.arathok.wurmunlimited.mods.alchemy.actions;
 
 
 import com.wurmonline.server.Items;
+import com.wurmonline.server.Players;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.behaviours.Actions;
@@ -21,6 +22,7 @@ import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -76,6 +78,8 @@ Addiction playerAddiction = new Addiction();
 					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 
 		}
+		long time=System.currentTimeMillis();
+		Addiction playerInQuestion = null;
 // EFFECT STUFF GOES HERE
 				if (target.getTemplateId() == AlchItems.potionIdExcell) {
 
@@ -106,15 +110,38 @@ Addiction playerAddiction = new Addiction();
 				performer.getCommunicator().sendAlertServerMessage(
 						"You feel the power of the Potion flow through you! " +
 						"You feel your skin becoming slick and silky!");
-				if (Config.becomeAddicted) {
-					// HIER Listenelement eintragen
-					performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
-				}
+
+
 				Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
 
 			}
-			// Hier Listenelement anlegen
+		if (Config.becomeAddicted) {
 
+			Iterator <Addiction> handleAddictionLevel = AddictionHandler.addictions.iterator();
+			while (handleAddictionLevel.hasNext()) {
+				playerInQuestion = handleAddictionLevel.next();
+				if (Players.getInstance().getPlayerOrNull(target.getOwnerId())==playerInQuestion.p){
+					int temp = playerInQuestion.currentAddictionLevel;
+					playerInQuestion.currentAddictionLevel=temp+1;
+					playerInQuestion.previousAddictionLevel=temp;
+
+				}
+
+
+
+
+			}
+
+
+
+			performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
+		}
+		playerAddiction.toxicityWarning=1;
+		playerAddiction.coolDownHealEnd=time+(Config.cooldownPotion*1000L);
+		playerAddiction.coolDownBuffEnd=time+(Config.cooldownPotion*1000L);
+		playerAddiction.p= Players.getInstance().getPlayerOrNull(target.getOwnerId());
+		playerAddiction.previousAddictionLevel=playerInQuestion.previousAddictionLevel;
+		playerAddiction.currentAddictionLevel=playerInQuestion.currentAddictionLevel;
 		AddictionHandler.addictions.add(playerAddiction);
 		return propagate(action,
 				ActionPropagation.FINISH_ACTION,

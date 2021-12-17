@@ -11,12 +11,12 @@ import java.util.Map.Entry;
 public class Addiction {
 
 
-	static Player p = null;
-	static int currentAddictionLevel = 0;
-	static int previousAddictionLevel = 0;
-	static long coolDownHealEnd=0;
-	static long coolDownBuffEnd=0;
-	static int toxicityWarning=0;
+	public Player p = null;
+	public int currentAddictionLevel = 0;
+	public int previousAddictionLevel = 0;
+	public long coolDownHealEnd=0;
+	public long coolDownBuffEnd=0;
+	public int toxicityWarning=0;
 
 
 }
