@@ -5,12 +5,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class AddictionHandler {
+public static int addictionTimer =0;
 public static List addictions = new LinkedList<>();
     public static void AddictionEffects() {
+        long time = System.currentTimeMillis();
+        Addiction addictedPlayer;
         Iterator<Addiction> addictionHandler = addictions.iterator();
         while (addictionHandler.hasNext())
         {
-
+            addictedPlayer= addictionHandler.next();
+            if (addictionTimer<System.currentTimeMillis())
+            {
+                
+            }
+            if (addictedPlayer.currentAddictionLevel<addictedPlayer.previousAddictionLevel)
+            {
+                //sumfin bad.
+            }
         }
     	/*	for (
     Map.Entry<Long, Integer> set : Alchemy.currentAddiction.entrySet())
