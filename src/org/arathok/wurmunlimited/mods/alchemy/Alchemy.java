@@ -1,7 +1,8 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
 import com.wurmonline.server.creatures.Communicator;
-import org.arathok.wurmunlimited.mods.alchemy.actions.*;
+import org.arathok.wurmunlimited.mods.alchemy.actions.OilBehaviour;
+import org.arathok.wurmunlimited.mods.alchemy.actions.PotionBehaviour;
 import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
@@ -80,18 +81,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerStarted() {
 		// TODO Auto-generated method stub
-	      ModActions.registerActionPerformer(new SipPerformer());
-	      ModActions.registerActionPerformer(new SipPerformerFog());
-	      ModActions.registerActionPerformer(new SipPerformerFrenzy());
-	      ModActions.registerActionPerformer(new SipPerformerGoat());
-	      ModActions.registerActionPerformer(new SipPerformerHeal());
-	      ModActions.registerActionPerformer(new SipPerformerRefresh());
-	      ModActions.registerActionPerformer(new SipPerformerSenses());
-	      ModActions.registerActionPerformer(new SipPerformerStrength());
-	      ModActions.registerActionPerformer(new SipPerformerTruehit());
-	      ModActions.registerActionPerformer(new SipPerformerUltimateKnowledge());
-	      ModActions.registerActionPerformer(new SipPerformerWillowspine());
-	      ModActions.registerActionPerformer(new SipPerformerWoodskin());
+
 		  ModActions.registerBehaviourProvider(new PotionBehaviour());
 		  ModActions.registerBehaviourProvider(new OilBehaviour());
 		  new EnchantmentHandler();

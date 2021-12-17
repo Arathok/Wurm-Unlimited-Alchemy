@@ -1,21 +1,13 @@
 package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah in onItemTemplatesCreated
 ///TODO:mixtures/pastes no bulk and they decay
 //and make them not-private so you can actually access them
-import java.io.IOException;
 
-import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
-
-import com.wurmonline.server.items.CreationCategories;
-import com.wurmonline.server.items.CreationEntryCreator;
-import com.wurmonline.server.items.CreationRequirement;
-import com.wurmonline.server.items.ItemList;
-import com.wurmonline.server.items.ItemTemplate;
-import com.wurmonline.server.items.ItemTypes;
-import com.wurmonline.server.items.Materials;
-import com.wurmonline.server.items.TempState;
-import com.wurmonline.server.items.TempStates;
+import com.wurmonline.server.items.*;
 import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.IconConstants;
+import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
+
+import java.io.IOException;
 
 
 public class AlchItems {

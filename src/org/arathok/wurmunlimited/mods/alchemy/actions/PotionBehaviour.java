@@ -1,18 +1,15 @@
 package org.arathok.wurmunlimited.mods.alchemy.actions;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-import java.util.List;
-
-import org.arathok.wurmunlimited.mods.alchemy.*;
-import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
-
 import com.wurmonline.server.behaviours.ActionEntry;
-import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
+import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
+import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class PotionBehaviour implements BehaviourProvider {
 
@@ -31,11 +28,11 @@ public class PotionBehaviour implements BehaviourProvider {
 	public List<ActionEntry> getBehavioursFor(Creature performer, Item target) {
 
 		if (target.getTemplateId() == AlchItems.potionIdHeal) {
-            if (SipPerformerHeal.canUse(performer, target))
+            if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdGoat) {
-			if (SipPerformerGoat.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdExcell) {
@@ -43,39 +40,39 @@ public class PotionBehaviour implements BehaviourProvider {
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdFranticCharge) {
-			if (SipPerformerFrenzy.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdMorningFog) {
-			if (SipPerformerFog.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdOakshell) {
-			if (SipPerformerWoodskin.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdSixthSense) {
-			if (SipPerformerSenses.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdTruehit) {
-			if (SipPerformerTruehit.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdStrength) {
-			if (SipPerformerStrength.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdWillowspine) {
-			if (SipPerformerWillowspine.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdVynora) {
-			if (SipPerformerUltimateKnowledge.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else if (target.getTemplateId() == AlchItems.potionIdRefresh) {
-			if (SipPerformerRefresh.canUse(performer, target))
+			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
 		} else
