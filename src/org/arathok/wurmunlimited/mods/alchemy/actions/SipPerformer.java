@@ -59,8 +59,9 @@ public class SipPerformer implements ActionPerformer {
 
 	@Override
 	public short getActionId() {
-		return Actions.HEAL_ABSORB;
+		return actionEntry.getNumber();
 	}
+
 
 	public static boolean canUse(Creature performer, Item target) {
 		return performer.isPlayer() && target.getOwnerId() == performer.getWurmId() && !target.isTraded();
@@ -73,10 +74,7 @@ public class SipPerformer implements ActionPerformer {
 	public boolean action(Action action, Creature performer, Item target, short num, float counter) {
 
 		//Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");
-		if (target.getTemplateId() != AlchItems.potionIdExcell)
-			return propagate(action,
-					ActionPropagation.SERVER_PROPAGATION,
-					ActionPropagation.ACTION_PERFORMER_PROPAGATION);
+
 
 		if (!canUse(performer, target)) {
 			performer.getCommunicator().sendAlertServerMessage("You are not allowed to do that");
@@ -224,7 +222,7 @@ public class SipPerformer implements ActionPerformer {
 		}
 
 
-		if (!Alchemy.cooldown.containsKey(performer.getWurmId()) || Alchemy.cooldown.get(performer.getWurmId())  < System.currentTimeMillis()) {
+		if (target.getTemplateId()==AlchItems.potionIdGoat) {
 			power = target.getCurrentQualityLevel() * Config.alchemyPower;
 
 			SpellEffects effs = performer.getSpellEffects();
@@ -478,6 +476,7 @@ public class SipPerformer implements ActionPerformer {
 		if (Config.becomeAddicted) {
 
 			Iterator <Addiction> handleAddictionLevel = AddictionHandler.addictions.iterator();
+			if (handleAddictionLevel.hasNext())
 			while (handleAddictionLevel.hasNext()) {
 				playerInQuestion = handleAddictionLevel.next();
 				if (Players.getInstance().getPlayerOrNull(target.getOwnerId())==playerInQuestion.p){
@@ -486,7 +485,12 @@ public class SipPerformer implements ActionPerformer {
 					playerInQuestion.previousAddictionLevel=temp;
 
 				}
+			else
+				{
+					playerAddiction.currentAddictionLevel = 1;
+					playerAddiction.previousAddictionLevel = 0;
 
+				}
 			}
 			performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
 		}

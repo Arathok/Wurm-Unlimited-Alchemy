@@ -32,39 +32,39 @@ public class OilBehaviour implements BehaviourProvider {
 	public List<ActionEntry> getBehavioursFor(Creature performer, Item source, Item target) {
 
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
-            if (OilPerformer.canUse(performer, source))
+            if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseMonsterId) {
-			if (OilPerformer.canUse(performer, source))
+			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseLegendaryId) {
-			if (OilPerformer.canUse(performer, source))
+			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseHumanId) {
-			if (OilPerformer.canUse(performer, source))
+			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		} else if (source.getTemplateId() == AlchItems.weaponOilLickOfFireId) {
-			if (OilPerformer.canUse(performer, source))
+			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		} else if (source.getTemplateId() == AlchItems.weaponOilKissOfFrostId) {
-			if (OilPerformer.canUse(performer, source))
+			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		} else if (source.getTemplateId() == AlchItems.weaponOilHeartseekerId) {
-			if (OilPerformer.canUse(performer, source))
+			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		} else if (source.getTemplateId() == AlchItems.weaponOilPlagueId) {
-			if (OilPerformer.canUse(performer, source))
+			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		} else if (source.getTemplateId() == AlchItems.weaponOilPoisonId) {
-			if (OilPerformer.canUse(performer, source))
+			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isEnchantable(performer, target))
 				return new ArrayList<>(apply);
 
 		}  else
