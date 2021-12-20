@@ -61,7 +61,7 @@ public class OilPerformer implements ActionPerformer {
 		boolean hasOil=false;
 		Iterator <Enchantment> oilChecker = EnchantmentHandler.enchantments.iterator();
 		if (!Config.enchantmentsStack)
-			return ((target.getSpellEffects().getEffects().length==0)||(target.getSpellEffects()==null)) &&!target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
+			return ((target.getSpellEffects().getEffects().length==0)||(target.getSpellEffects()==null));
 		else
 			while (oilChecker.hasNext()) {
 				oiledWeapon= oilChecker.next();
@@ -70,6 +70,11 @@ public class OilPerformer implements ActionPerformer {
 			}
 
 			return !hasOil&&!target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
+	}
+
+	public static boolean isWeapon(Item target)
+	{
+		return !target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
 	}
 
 	@Override

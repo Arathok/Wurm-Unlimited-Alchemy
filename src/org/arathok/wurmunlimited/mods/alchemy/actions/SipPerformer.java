@@ -32,7 +32,7 @@ public class SipPerformer implements ActionPerformer {
 
 
 	Addiction playerInQuestion = null;
-	static Addiction playerAddiction = new Addiction();
+	Addiction playerAddiction = new Addiction();
 
 	int seconds = Config.potionDuration;
 	float power = 0;
@@ -91,36 +91,48 @@ public class SipPerformer implements ActionPerformer {
 			playerInQuestion = toxicity.next();
 			int index =AddictionHandler.addictions.indexOf(playerInQuestion);
 			if (Players.getInstance().getPlayerOrNull(target.getOwnerId())==playerInQuestion.p)
-				if (playerInQuestion.coolDownHealEnd<time&&playerInQuestion.toxicityWarningLevel<1)
+				if (playerInQuestion.toxicityWarningLevel>0)
+				{
+					performer.getCommunicator().sendAlertServerMessage("A rush of magic energy fills every nerve in your body, for a moment you feel euphoric" +
+							", godlike almost. Then the pain starts. Your entire existence is turned into a burning pain. You feel the darkness" +
+							"approaching from every direction. Your tongue turns black, your vision fades. " +
+							"Finally your body collapses under the heavy toxication of two potions of the same kind." +
+							" Don't worry. Many alchemists where here and many will be. May the gods be merciful and give you another chance");
+
+					playerInQuestion.p.die(false,"toxicty");
+					AddictionHandler.addictions.remove(playerInQuestion);
+					return propagate(action,
+						ActionPropagation.FINISH_ACTION,
+						ActionPropagation.NO_SERVER_PROPAGATION,
+						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
+				else if (playerInQuestion.coolDownHealEnd>time&&playerInQuestion.toxicityWarningLevel<1)
 				{
 					performer.getCommunicator().sendAlertServerMessage("You stop your self from drinking that potion. " +
 							"You are still under the effect of a potion and should wait another " +
-							((time-playerInQuestion.coolDownHealEnd)/1000)+" seconds. Your body could collapse under " +
+							((playerInQuestion.coolDownHealEnd-time)/1000)+" seconds. Your body could collapse under " +
 							"the toxins otherwise if you tried to drink again!");
 							playerInQuestion.toxicityWarningLevel=1;
 							AddictionHandler.addictions.set(index,playerInQuestion);
+					return propagate(action,
+						ActionPropagation.FINISH_ACTION,
+						ActionPropagation.NO_SERVER_PROPAGATION,
+						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 				}
-			if(playerInQuestion.coolDownBuffEnd<time&&playerInQuestion.toxicityWarningLevel<1)
+			else if(playerInQuestion.coolDownBuffEnd>time&&playerInQuestion.toxicityWarningLevel<1)
 			{
 				performer.getCommunicator().sendAlertServerMessage("You stop your self from drinking that potion. " +
 						"You are still under the effect of a potion and should wait another " +
-						((time-playerInQuestion.coolDownBuffEnd)/1000)+" seconds. Your body could collapse under " +
+						((playerInQuestion.coolDownBuffEnd-time)/1000)+" seconds. Your body could collapse under " +
 						"the toxins otherwise if you tried to drink again!");
 						playerInQuestion.toxicityWarningLevel=1;
 						AddictionHandler.addictions.set(index,playerInQuestion);
+				return propagate(action,
+					ActionPropagation.FINISH_ACTION,
+					ActionPropagation.NO_SERVER_PROPAGATION,
+					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 			}
-			if (playerInQuestion.toxicityWarningLevel>0)
-			{
-				performer.getCommunicator().sendAlertServerMessage("A rush of magic energy fills every nerve in your body, for a moment you feel euphoric" +
-								", godlike almost. Then the pain starts. Your entire existence is turned into a burning pain. You feel the darkness" +
-								"approaching from every direction. Your tongue turns black, your vision fades. " +
-								"Finally your body collapses under the heavy toxication of two potions of the same kind." +
-								" Don't worry. Many alchemists where here and many will be. May the gods be merciful and give you another chance");
 
-				playerInQuestion.p.die(false,"toxicty");
-				playerInQuestion.toxicityWarningLevel=0;
-				AddictionHandler.addictions.set(index,playerInQuestion);
-			}
 		}
 
 // EFFECT STUFF GOES HERE
@@ -476,15 +488,17 @@ public class SipPerformer implements ActionPerformer {
 		if (Config.becomeAddicted) {
 
 			Iterator <Addiction> handleAddictionLevel = AddictionHandler.addictions.iterator();
-			if (handleAddictionLevel.hasNext())
-			while (handleAddictionLevel.hasNext()) {
-				playerInQuestion = handleAddictionLevel.next();
-				if (Players.getInstance().getPlayerOrNull(target.getOwnerId())==playerInQuestion.p){
-					int temp = playerInQuestion.currentAddictionLevel;
-					playerInQuestion.currentAddictionLevel=temp+1;
-					playerInQuestion.previousAddictionLevel=temp;
+			if (handleAddictionLevel.hasNext()) {
+				while (handleAddictionLevel.hasNext()) {
+					playerInQuestion = handleAddictionLevel.next();
+					if (Players.getInstance().getPlayerOrNull(target.getOwnerId()) == playerInQuestion.p) {
+						int temp = playerInQuestion.currentAddictionLevel;
+						playerInQuestion.currentAddictionLevel = temp + 1;
+						playerInQuestion.previousAddictionLevel = temp;
 
+					}
 				}
+			}
 			else
 				{
 					playerAddiction.currentAddictionLevel = 1;
@@ -493,7 +507,7 @@ public class SipPerformer implements ActionPerformer {
 				}
 			}
 			performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
-		}
+
 
 ////////////////DATA STORAGE//////////////////
 
@@ -502,9 +516,9 @@ public class SipPerformer implements ActionPerformer {
 		else
 			playerAddiction.coolDownBuffEnd=time+(Config.cooldownPotion*1000L);
 
-		playerAddiction.p= Players.getInstance().getPlayerOrNull(target.getOwnerId());
-		playerAddiction.previousAddictionLevel=playerInQuestion.previousAddictionLevel;
-		playerAddiction.currentAddictionLevel=playerInQuestion.currentAddictionLevel;
+		playerAddiction.p= Players.getInstance().getPlayerOrNull(performer.getWurmId());
+		//playerAddiction.previousAddictionLevel=playerInQuestion.previousAddictionLevel;
+		//playerAddiction.currentAddictionLevel=playerInQuestion.currentAddictionLevel;
 		playerAddiction.toxicityWarningLevel=0;
 		AddictionHandler.addictions.add(playerAddiction);
 

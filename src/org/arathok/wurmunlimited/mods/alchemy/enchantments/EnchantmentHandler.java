@@ -12,13 +12,13 @@ import java.util.List;
 
     }
 
-     public static List enchantments = new LinkedList<>();
-public static void RemoveEnchantment() {
+    public static List enchantments = new LinkedList<Enchantment>();
+    public static void RemoveEnchantment() {
     SpellEffects effs;
     Long time = System.currentTimeMillis();
     //Iterate over me Baby!
-Iterator<Enchantment> enchantmentsIterator = enchantments.iterator();
-Enchantment enchant = null;
+    Iterator<Enchantment> enchantmentsIterator = enchantments.iterator();
+    Enchantment enchant = null;
     while (enchantmentsIterator.hasNext()) {
         enchant=enchantmentsIterator.next();
         if (enchant.timeRunout<time)

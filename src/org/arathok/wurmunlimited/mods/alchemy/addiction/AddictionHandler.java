@@ -1,27 +1,43 @@
 package org.arathok.wurmunlimited.mods.alchemy.addiction;
 
+import org.arathok.wurmunlimited.mods.alchemy.Config;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class AddictionHandler {
-public static int addictionTimer =0;
-public static List addictions = new LinkedList<>();
+   public  AddictionHandler()
+    {
+
+    }
+
+public static long addictionTimer = 30;
+public static List addictions = new LinkedList<Addiction>();
     public static void AddictionEffects() {
         long time = System.currentTimeMillis();
         Addiction addictedPlayer;
-        Iterator<Addiction> addictionHandler = addictions.iterator();
-        while (addictionHandler.hasNext())
-        {
-            addictedPlayer= addictionHandler.next();
-            if (addictionTimer<System.currentTimeMillis())
-            {
-                
+        if (addictionTimer<time) {
+            Iterator<Addiction> addictionHandler = addictions.iterator();
+            while (addictionHandler.hasNext()) {
+
+                addictedPlayer = addictionHandler.next();
+                int index =AddictionHandler.addictions.indexOf(addictedPlayer);
+                {
+
+                }
+                if (addictedPlayer.currentAddictionLevel < addictedPlayer.previousAddictionLevel) {
+                    //sumfin bad.
+                }
+                addictedPlayer.previousAddictionLevel=addictedPlayer.currentAddictionLevel;
+                addictedPlayer.currentAddictionLevel=addictedPlayer.currentAddictionLevel-1;
+                if (addictedPlayer.currentAddictionLevel<0)
+                    addictedPlayer.currentAddictionLevel=0;
+                AddictionHandler.addictions.set(index,addictedPlayer);
+
+
             }
-            if (addictedPlayer.currentAddictionLevel<addictedPlayer.previousAddictionLevel)
-            {
-                //sumfin bad.
-            }
+            addictionTimer= (System.currentTimeMillis()+(Config.addictionTimer*1000));
         }
     	/*	for (
     Map.Entry<Long, Integer> set : Alchemy.currentAddiction.entrySet())
