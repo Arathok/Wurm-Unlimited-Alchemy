@@ -517,6 +517,7 @@ public class SipPerformer implements ActionPerformer {
 			playerAddiction.coolDownBuffEnd=time+(Config.cooldownPotion*1000L);
 
 		playerAddiction.p= Players.getInstance().getPlayerOrNull(performer.getWurmId());
+
 		//playerAddiction.previousAddictionLevel=playerInQuestion.previousAddictionLevel;
 		//playerAddiction.currentAddictionLevel=playerInQuestion.currentAddictionLevel;
 		playerAddiction.toxicityWarningLevel=0;

@@ -7,6 +7,7 @@ import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.IconConstants;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 
+import javax.mail.FetchProfile;
 import java.io.IOException;
 
 
@@ -233,6 +234,8 @@ public class AlchItems {
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_TOOL,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+						ItemTypes.ITEM_TYPE_METAL,
+
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
@@ -244,7 +247,7 @@ public class AlchItems {
 
 		phialId = phial.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.mouldPotteryId, AlchItems.glassId, phialId, false, true, 0f, false, false,0,10, CreationCategories.DECORATION);
+		CreationEntryCreator.createMetallicEntries(SkillList.ALCHEMY_NATURAL, AlchItems.mouldPotteryId, AlchItems.glassId, phialId, false, true, 0f, false, false,0,10, CreationCategories.DECORATION);
 	} // NO ADDITIONAL ITEMS NEEDED
 
 	private static void registerPurifiedWater() throws IOException {
