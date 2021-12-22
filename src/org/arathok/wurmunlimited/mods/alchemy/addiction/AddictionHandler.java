@@ -1,151 +1,153 @@
 package org.arathok.wurmunlimited.mods.alchemy.addiction;
 
+import com.wurmonline.server.creatures.SpellEffects;
+import com.wurmonline.server.spells.SpellEffect;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
-public class AddictionHandler {
-   public  AddictionHandler()
+public class AddictionHandler
+{
+    public AddictionHandler()
     {
 
     }
 
-public static long addictionTimer = 30;
-public static List addictions = new LinkedList<Addiction>();
-    public static void AddictionEffects() {
+    public static long addictionTimer = 30;
+    public static int seconds = 0;
+    public static Random random = new Random();
+    public static List addictions = new LinkedList<Addiction>();
+
+    public static void AddictionEffects()
+    {
         long time = System.currentTimeMillis();
         Addiction addictedPlayer;
-        if (addictionTimer<time) {
+        if (addictionTimer < time)
+        {
             Iterator<Addiction> addictionHandler = addictions.iterator();
-            while (addictionHandler.hasNext()) {
+            while (addictionHandler.hasNext())
+            {
 
                 addictedPlayer = addictionHandler.next();
-                int index =AddictionHandler.addictions.indexOf(addictedPlayer);
+                int index = AddictionHandler.addictions.indexOf(addictedPlayer);
+                if (addictedPlayer.currentAddictionLevel < addictedPlayer.previousAddictionLevel)
                 {
+                    addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                            "You are slowly coming down from your addiction:");
+                    if (addictedPlayer.currentAddictionLevel <= 3)
+                    {
+                        addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                                "Your addiction to magical energy is marginal. You feel it is now safe to consume " +
+                                        "potions "
 
-                }
-                if (addictedPlayer.currentAddictionLevel < addictedPlayer.previousAddictionLevel) {
-                    //sumfin bad.
-                }
-                addictedPlayer.previousAddictionLevel=addictedPlayer.currentAddictionLevel;
-                addictedPlayer.currentAddictionLevel=addictedPlayer.currentAddictionLevel-1;
-                if (addictedPlayer.currentAddictionLevel<0)
-                    addictedPlayer.currentAddictionLevel=0;
-                AddictionHandler.addictions.set(index,addictedPlayer);
+                                                                                 );
+                    }
+                    if (addictedPlayer.currentAddictionLevel == 4)
+                    {
+                        addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                                "Your addiction to magical energy is very low. You are on the verge of being addicted" +
+                                        ". You" +
+                                        " should wait" +
+                                        " a little while before drinking potions again."
+                                                                                 );
+                    }
+                    if (addictedPlayer.currentAddictionLevel >= 5)
+                    {
+                        addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                                "Your addiction to magical energy is low. The withdrawal causes you to tremble and " +
+                                        "you feel weak."
+                                                                                 );
 
+                        seconds = random.nextInt(720) + 180;
+                        SpellEffects effs = addictedPlayer.p.getSpellEffects();
 
-            }
-            addictionTimer= (System.currentTimeMillis()+(Config.addictionTimer*1000));
-        }
-    	/*	for (
-    Map.Entry<Long, Integer> set : Alchemy.currentAddiction.entrySet())
-    {
-        if (addictionTimer < System.currentTimeMillis()) {
+                        if (effs == null)
+                        {
+                            effs = addictedPlayer.p.createSpellEffects();
+                        }
 
-            wurmId = set.getKey();
-            if (wurmId != 0) {
-                currentAddictionLevel = set.getValue();
-                previousAddictionLevel = Alchemy.previousAddiction.get(wurmId);
+                        SpellEffect eff = effs.getSpellEffect((byte) 41);
 
-                p = Players.getInstance().getPlayerOrNull(wurmId);
-                if (previousAddictionLevel > currentAddictionLevel && currentAddictionLevel > 0 && currentAddictionLevel < 4) {
+                        if (eff == null)
+                        {
+                            eff = new SpellEffect(
+                                    addictedPlayer.p.getWurmId(),
+                                    (byte) 41,
+                                    100,
+                                    Math.max(1, seconds));
 
-                    p.getCommunicator().sendAlertServerMessage(" Your Alchemical Addiction is Low."
-                            +" You feel like you waited long enough to drink another potion"
-                            +" without getting your body addicted to the magical powers.");
-                }
-
-                if (currentAddictionLevel > previousAddictionLevel && currentAddictionLevel == 4) {
-
-                    p.getCommunicator().sendAlertServerMessage("You are just one small step before becoming addicted to the power of potions. You sense some dread in that thought.");
-                }
-
-                if (currentAddictionLevel > 5) {
-
-                    p.getCommunicator().sendAlertServerMessage("You are addicted to potions.");
-                }
-
-                if (currentAddictionLevel > 5 && previousAddictionLevel > currentAddictionLevel) {
-
-                    SpellEffects effs = p.getSpellEffects();
-
-                    if (effs == null)
-                        effs = p.createSpellEffects();
-
-                    SpellEffect eff = effs.getSpellEffect((byte) 41);
-
-                    if (eff == null) {
-                        eff = new SpellEffect(
-                                p.getWurmId(),
-                                (byte) 41,
-                                100,
-                                Math.max(1, seconds));
-
-                        effs.addSpellEffect(eff);
-                    } else if (eff.getPower() < 100) {
-                        eff.setPower(100);
-                        eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-                        p.sendUpdateSpellEffect(eff);
+                            effs.addSpellEffect(eff);
+                        }
+                        else if (eff.getPower() < 100)
+                        {
+                            eff.setPower(100);
+                            eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                            addictedPlayer.p.sendUpdateSpellEffect(eff);
+                        }
                     }
 
-                    p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
-                    p.getCommunicator().sendSafeServerMessage("Alchemical power is poisoning you. You feel weak.");
                 }
 
-                if (currentAddictionLevel < 12 && currentAddictionLevel >= 10 && previousAddictionLevel > currentAddictionLevel) {
+                if (addictedPlayer.currentAddictionLevel >= 10 && addictedPlayer.currentAddictionLevel <= 12)
+                {
+                    addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                            "Your addiction to magical energy is moderate. You are suffering from a negligible poisoning"
+                                                                             );
 
-                    p.addWoundOfType(p, (byte) 5, 23, false, 1.0F, false, 10000, (float) 1, 0.0F, false, true);
-                    p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
-                    p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks to tolerable levels.");
+                    addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 5000, (float) 1, 0.0F, false, true);
                 }
 
-                if (currentAddictionLevel < 15 && currentAddictionLevel >= 12 && previousAddictionLevel > currentAddictionLevel) {
-
-                    p.addWoundOfType(p, (byte) 5, 23, false, 1.0F, false, 15000, (float) 1, 0.0F, false, true);
-                    p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
-                    p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks to bearable levels.");
+                if (addictedPlayer.currentAddictionLevel >= 12 && addictedPlayer.currentAddictionLevel <= 15)
+                {
+                    addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                            "Your addiction to magical energy is moderate. You are suffering from a mild poisoning"
+                                                                             );
+                    addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 10000, (float) 1, 0.0F, false, true);
                 }
 
-                if (currentAddictionLevel < 20 && currentAddictionLevel >= 15 && previousAddictionLevel > currentAddictionLevel) {
+                if (addictedPlayer.currentAddictionLevel >= 15 && addictedPlayer.currentAddictionLevel <= 20)
+                {
+                    addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                            "Your addiction to magical energy is high. You are suffering from a hefty poisoning and you feel a sharp pain inside your head"
+                                                                             );
+                    addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 20000, (float) 1, 0.0F, false, true);
+                    addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 10000, 0.0F, 0.0F, false, true);
 
-                    p.addWoundOfType(p, (byte) 5, 23, false, 1.0F, false, 20000, (float) 1, 0.0F, false, true);
-                    p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
-                    p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks but its still at dangerous levels");
-                    p.addWoundOfType(p, (byte) 9, 1, false, 1.0F, false, 10000, 0.0F, 0.0F, false, true);
-                    p.getCommunicator().sendSafeServerMessage("The toxicity in your body slightly messes with your brain.");
                 }
 
-                if (currentAddictionLevel < 25 && currentAddictionLevel >= 20 && previousAddictionLevel > currentAddictionLevel) {
+                if (addictedPlayer.currentAddictionLevel >= 20 && addictedPlayer.currentAddictionLevel <= 25)
+                {
+                    addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                            "Your addiction to magical energy is high. You are suffering from a severe poisoning and your brain feels like its full of knives"
+                                                                             );
+                    addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 30000, (float) 1, 0.0F, false, true);
+                    addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 20000, 0.0F, 0.0F, false, true);
 
-                    p.addWoundOfType(p, (byte) 5, 23, false, 1.0F, false, 30000, (float) 1, 0.0F, false, true);
-                    p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
-                    p.getCommunicator().sendSafeServerMessage("The toxicity in your body sinks but its still at dangerous levels");
-                    p.addWoundOfType(p, (byte) 9, 1, false, 1.0F, false, 20000, 0.0F, 0.0F, false, true);
-                    p.getCommunicator().sendSafeServerMessage("The toxicity in your body messes with your brain.");
+                }
+                if (addictedPlayer.currentAddictionLevel >= 25)
+                {
+                    addictedPlayer.p.getCommunicator().sendAlertServerMessage(
+                            "Your addiction to magical energy is deadly high. You are suffering from a severe poisoning and your brain loses the connection to reality"
+                                                                             );
+                    addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 30000, (float) 1, 0.0F, false, true);
+                    addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 30000, 0.0F, 0.0F, false, true);
+
                 }
 
-                if (currentAddictionLevel > 25 && previousAddictionLevel > currentAddictionLevel) {
-
-                    p.addWoundOfType(p, (byte) 5, 23, false, 1.0F, false, 30000, (float) 1, 0.0F, false, true);
-                    p.getCommunicator().sendAlertServerMessage("Your addiction to potions causes withdrawal symptoms in your body.");
-                    p.getCommunicator().sendSafeServerMessage("The toxicity in your body is at dangerous levels");
-                    p.addWoundOfType(p, (byte) 9, 1, false, 1.0F, false, 30000, 0.0F, 0.0F, false, true);
-                    p.getCommunicator().sendSafeServerMessage("The toxicity in your body messes heavily with your brain.");
+                addictedPlayer.previousAddictionLevel = addictedPlayer.currentAddictionLevel;
+                addictedPlayer.currentAddictionLevel = addictedPlayer.currentAddictionLevel - 1;
+                if (addictedPlayer.currentAddictionLevel < 0)
+                {
+                    addictedPlayer.currentAddictionLevel = 0;
                 }
-                long temp;
-                temp=seconds;
-                Alchemy.currentAddiction.put(wurmId, currentAddictionLevel - 1);
-                Alchemy.previousAddiction.put(wurmId, currentAddictionLevel);
-                addictionTimer = System.currentTimeMillis() + (temp * 1000);
+                AddictionHandler.addictions.set(index, addictedPlayer);
             }
+
+
         }
-
-    }
-
-}
-}*/
-
+        addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000));
     }
 }

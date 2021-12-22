@@ -26,508 +26,597 @@ import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 import java.util.Iterator;
 import java.util.logging.Level;
 
-public class SipPerformer implements ActionPerformer {
+public class SipPerformer implements ActionPerformer
+{
 
-	public ActionEntry actionEntry;
-
-
-	Addiction playerInQuestion = null;
-	Addiction playerAddiction = new Addiction();
-
-	int seconds = Config.potionDuration;
-	float power = 0;
-	boolean heal = false;
-
-	public SipPerformer() {
-		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "Consume Potion", "consuming", new int[]{
-				6 /* ACTION_TYPE_NOMOVE */,
-				48 /* ACTION_TYPE_ENEMY_ALWAYS */,
-				35 /* DONT CARE WHETHER SOURCE OR TARGET */,
-
-		}).range(4).build();
-
-		ModActions.registerAction(actionEntry);
-
-	}
+    public ActionEntry actionEntry;
 
 
+    Addiction playerInQuestion = null;
+    Addiction playerAddiction = new Addiction();
+
+    int seconds = Config.potionDuration;
+    float power = 0;
+    boolean heal = false;
+
+    public SipPerformer()
+    {
+        actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "Consume Potion", "consuming",
+                                             new int[]{
+                                                     6 /* ACTION_TYPE_NOMOVE */,
+                                                     48 /* ACTION_TYPE_ENEMY_ALWAYS */,
+                                                     35 /* DONT CARE WHETHER SOURCE OR TARGET */,
+
+                                             }).range(4).build();
+
+        ModActions.registerAction(actionEntry);
+
+    }
 
 
-	@Override
-	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
-		return action(action, performer, target, num, counter);} // NEEDED OR THE ITEM WILL ONLY ACTIVATE IF YOU HAVE NO ITEM ACTIVE
+    @Override
+    public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter)
+    {
+        return action(action, performer, target, num, counter);
+    } // NEEDED OR THE ITEM WILL ONLY ACTIVATE IF YOU HAVE NO ITEM ACTIVE
 
-	@Override
-	public short getActionId() {
-		return actionEntry.getNumber();
-	}
-
-
-	public static boolean canUse(Creature performer, Item target) {
-		return performer.isPlayer() && target.getOwnerId() == performer.getWurmId() && !target.isTraded();
-	}
+    @Override
+    public short getActionId()
+    {
+        return actionEntry.getNumber();
+    }
 
 
+    public static boolean canUse(Creature performer, Item target)
+    {
+        return performer.isPlayer() && target.getOwnerId() == performer.getWurmId() && !target.isTraded();
+    }
 
 
-	@Override
-	public boolean action(Action action, Creature performer, Item target, short num, float counter) {
+    @Override
+    public boolean action(Action action, Creature performer, Item target, short num, float counter)
+    {
 
-		//Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");
+        //Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");
 
 
-		if (!canUse(performer, target)) {
-			performer.getCommunicator().sendAlertServerMessage("You are not allowed to do that");
-			return propagate(action,
-					ActionPropagation.FINISH_ACTION,
-					ActionPropagation.NO_SERVER_PROPAGATION,
-					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+        if (!canUse(performer, target))
+        {
+            performer.getCommunicator().sendAlertServerMessage("You are not allowed to do that");
+            return propagate(action,
+                             ActionPropagation.FINISH_ACTION,
+                             ActionPropagation.NO_SERVER_PROPAGATION,
+                             ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 
-		}
-		Iterator <Addiction> toxicity = AddictionHandler.addictions.iterator();
-		long time = System.currentTimeMillis();
-		while (toxicity.hasNext())
-		{
-			playerInQuestion = toxicity.next();
-			int index =AddictionHandler.addictions.indexOf(playerInQuestion);
-			if (Players.getInstance().getPlayerOrNull(target.getOwnerId())==playerInQuestion.p)
-				if (playerInQuestion.toxicityWarningLevel>0)
+        }
+        Iterator<Addiction> toxicity = AddictionHandler.addictions.iterator();
+        long time = System.currentTimeMillis();
+        while (toxicity.hasNext())
+        {
+            playerInQuestion = toxicity.next();
+            int index = AddictionHandler.addictions.indexOf(playerInQuestion);
+			if (Players.getInstance().getPlayerOrNull(target.getOwnerId()) == playerInQuestion.p)
+			{
+				if (playerInQuestion.toxicityWarningLevel > 0)
 				{
-					performer.getCommunicator().sendAlertServerMessage("A rush of magic energy fills every nerve in your body, for a moment you feel euphoric" +
-							", godlike almost. Then the pain starts. Your entire existence is turned into a burning pain. You feel the darkness" +
-							"approaching from every direction. Your tongue turns black, your vision fades. " +
-							"Finally your body collapses under the heavy toxication of two potions of the same kind." +
-							" Don't worry. Many alchemists where here and many will be. May the gods be merciful and give you another chance");
+					performer.getCommunicator().sendAlertServerMessage(
+							"A rush of magic energy fills every nerve in your body, for a moment you feel euphoric" +
+									", godlike almost. Then the pain starts. Your entire existence is turned into a burning pain. You feel the darkness" +
+									"approaching from every direction. Your tongue turns black, your vision fades. " +
+									"Finally your body collapses under the heavy toxication of two potions of the same kind." +
+									" Don't worry. Many alchemists where here and many will be. May the gods be merciful and give you another chance");
 
-					playerInQuestion.p.die(false,"toxicty");
+					playerInQuestion.p.die(false, "toxicty");
 					AddictionHandler.addictions.remove(playerInQuestion);
 					return propagate(action,
-						ActionPropagation.FINISH_ACTION,
-						ActionPropagation.NO_SERVER_PROPAGATION,
-						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+									 ActionPropagation.FINISH_ACTION,
+									 ActionPropagation.NO_SERVER_PROPAGATION,
+									 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 				}
-				else if (playerInQuestion.coolDownHealEnd>time&&playerInQuestion.toxicityWarningLevel<1)
+				else if (playerInQuestion.coolDownHealEnd > time && playerInQuestion.toxicityWarningLevel < 1)
 				{
-					performer.getCommunicator().sendAlertServerMessage("You stop your self from drinking that potion. " +
-							"You are still under the effect of a potion and should wait another " +
-							((playerInQuestion.coolDownHealEnd-time)/1000)+" seconds. Your body could collapse under " +
-							"the toxins otherwise if you tried to drink again!");
-							playerInQuestion.toxicityWarningLevel=1;
-							AddictionHandler.addictions.set(index,playerInQuestion);
+					performer.getCommunicator().sendAlertServerMessage(
+							"You stop your self from drinking that potion. " +
+									"You are still under the effect of a potion and should wait another " +
+									((playerInQuestion.coolDownHealEnd - time) / 1000) + " seconds. Your body could collapse under " +
+									"the toxins otherwise if you tried to drink again!");
+					playerInQuestion.toxicityWarningLevel = 1;
+					AddictionHandler.addictions.set(index, playerInQuestion);
 					return propagate(action,
-						ActionPropagation.FINISH_ACTION,
-						ActionPropagation.NO_SERVER_PROPAGATION,
-						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+									 ActionPropagation.FINISH_ACTION,
+									 ActionPropagation.NO_SERVER_PROPAGATION,
+									 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 				}
-			else if(playerInQuestion.coolDownBuffEnd>time&&playerInQuestion.toxicityWarningLevel<1)
-			{
-				performer.getCommunicator().sendAlertServerMessage("You stop your self from drinking that potion. " +
-						"You are still under the effect of a potion and should wait another " +
-						((playerInQuestion.coolDownBuffEnd-time)/1000)+" seconds. Your body could collapse under " +
-						"the toxins otherwise if you tried to drink again!");
-						playerInQuestion.toxicityWarningLevel=1;
-						AddictionHandler.addictions.set(index,playerInQuestion);
-				return propagate(action,
-					ActionPropagation.FINISH_ACTION,
-					ActionPropagation.NO_SERVER_PROPAGATION,
-					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				else if (playerInQuestion.coolDownBuffEnd > time && playerInQuestion.toxicityWarningLevel < 1)
+				{
+					performer.getCommunicator().sendAlertServerMessage(
+							"You stop your self from drinking that potion. " +
+									"You are still under the effect of a potion and should wait another " +
+									((playerInQuestion.coolDownBuffEnd - time) / 1000) + " seconds. Your body could collapse under " +
+									"the toxins otherwise if you tried to drink again!");
+					playerInQuestion.toxicityWarningLevel = 1;
+					AddictionHandler.addictions.set(index, playerInQuestion);
+					return propagate(action,
+									 ActionPropagation.FINISH_ACTION,
+									 ActionPropagation.NO_SERVER_PROPAGATION,
+									 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+				}
 			}
 
-		}
+        }
 
 // EFFECT STUFF GOES HERE
 //////////BUFFS/////////////
 
-				if (target.getTemplateId() == AlchItems.potionIdExcell) {
+        if (target.getTemplateId() == AlchItems.potionIdExcell)
+        {
 
-				power = target.getCurrentQualityLevel()*Config.alchemyPower;
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
 
-				SpellEffects effs = performer.getSpellEffects();
-
-				if (effs == null)
-					effs = performer.createSpellEffects();
-
-				SpellEffect eff = effs.getSpellEffect((byte) 28);
-
-				if (eff == null) {
-					eff = new SpellEffect(
-							performer.getWurmId(),
-							(byte) 28,
-							power,
-							Math.max(1, seconds));
-
-					effs.addSpellEffect(eff);
-				} else if (eff.getPower() < power) {
-					eff.setPower(power);
-					eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-					performer.sendUpdateSpellEffect(eff);
-				}
-				Items.destroyItem(target.getWurmId());
-
-				performer.getCommunicator().sendAlertServerMessage(
-						"You feel the power of the Potion flow through you! " +
-						"You feel your skin becoming slick and silky!");
-
-			}
-
-		if (target.getTemplateId() == AlchItems.potionIdMorningFog) {
-
-			power = target.getCurrentQualityLevel()*Config.alchemyPower;
-
-			SpellEffects effs = performer.getSpellEffects();
+            SpellEffects effs = performer.getSpellEffects();
 
 			if (effs == null)
+			{
 				effs = performer.createSpellEffects();
-
-			SpellEffect eff = effs.getSpellEffect((byte) 19);
-
-			if (eff == null) {
-				eff = new SpellEffect(
-						performer.getWurmId(),
-						(byte) 19,
-						power,
-						Math.max(1, seconds));
-
-				effs.addSpellEffect(eff);
-			} else if (eff.getPower() < power) {
-				eff.setPower(power);
-				eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-				performer.sendUpdateSpellEffect(eff);
 			}
-			Items.destroyItem(target.getWurmId());
 
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the power of the Potion flow through you! " +
-							"You feel your skin sizzling as if your body wants to turn into a cloud"+
-							"Thorns can not pierce you!");
+            SpellEffect eff = effs.getSpellEffect((byte) 28);
 
-		}
-		if (target.getTemplateId() == AlchItems.potionIdFranticCharge) {
+            if (eff == null)
+            {
+                eff = new SpellEffect(
+                        performer.getWurmId(),
+                        (byte) 28,
+                        power,
+                        Math.max(1, seconds));
 
-			power = target.getCurrentQualityLevel() * Config.alchemyPower;
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
 
-			SpellEffects effs = performer.getSpellEffects();
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel your skin becoming slick and silky!");
+
+        }
+
+        if (target.getTemplateId() == AlchItems.potionIdMorningFog)
+        {
+
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
+
+            SpellEffects effs = performer.getSpellEffects();
 
 			if (effs == null)
+			{
 				effs = performer.createSpellEffects();
-
-			SpellEffect eff = effs.getSpellEffect((byte) 39);
-
-			if (eff == null) {
-				eff = new SpellEffect(
-						performer.getWurmId(),
-						(byte) 39,
-						power,
-						Math.max(1, seconds));
-
-				effs.addSpellEffect(eff);
-			} else if (eff.getPower() < power) {
-				eff.setPower(power);
-				eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-				performer.sendUpdateSpellEffect(eff);
 			}
-			Items.destroyItem(target.getWurmId());
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the power of the Potion flow through you! " +
-							"You feel your skin burning with the fire of hate, the beast in you is taking over!" +
-							"You fall into a frenzy moving lightning fast!");
-		}
 
+            SpellEffect eff = effs.getSpellEffect((byte) 19);
 
-		if (target.getTemplateId()==AlchItems.potionIdGoat) {
-			power = target.getCurrentQualityLevel() * Config.alchemyPower;
+            if (eff == null)
+            {
+                eff = new SpellEffect(
+                        performer.getWurmId(),
+                        (byte) 19,
+                        power,
+                        Math.max(1, seconds));
 
-			SpellEffects effs = performer.getSpellEffects();
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
+
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel your skin sizzling as if your body wants to turn into a cloud" +
+                            "Thorns can not pierce you!");
+
+        }
+        if (target.getTemplateId() == AlchItems.potionIdFranticCharge)
+        {
+
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
+
+            SpellEffects effs = performer.getSpellEffects();
 
 			if (effs == null)
+			{
 				effs = performer.createSpellEffects();
-
-			SpellEffect eff = effs.getSpellEffect((byte) 30);
-
-			if (eff == null) {
-				eff = new SpellEffect(performer.getWurmId(), (byte) 38, power, Math.max(1, seconds));
-				effs.addSpellEffect(eff);
-			} else if (eff.getPower() < power) {
-				eff.setPower(power);
-				eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-				performer.sendUpdateSpellEffect(eff);
 			}
-			Items.destroyItem(target.getWurmId());
-			performer.getCommunicator().sendAlertServerMessage("You feel the power of the potion rushing through your body! " +
-					"You feel the joyful pride of a goat, weird!");
 
-		}
-		if (target.getTemplateId() == AlchItems.potionIdSixthSense) {
+            SpellEffect eff = effs.getSpellEffect((byte) 39);
 
-			power = target.getCurrentQualityLevel() * Config.alchemyPower;
+            if (eff == null)
+            {
+                eff = new SpellEffect(
+                        performer.getWurmId(),
+                        (byte) 39,
+                        power,
+                        Math.max(1, seconds));
 
-			SpellEffects effs = performer.getSpellEffects();
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel your skin burning with the fire of hate, the beast in you is taking over!" +
+                            "You fall into a frenzy moving lightning fast!");
+        }
+
+
+        if (target.getTemplateId() == AlchItems.potionIdGoat)
+        {
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
+
+            SpellEffects effs = performer.getSpellEffects();
 
 			if (effs == null)
+			{
 				effs = performer.createSpellEffects();
-
-			SpellEffect eff = effs.getSpellEffect((byte) 21);
-
-			if (eff == null) {
-				eff = new SpellEffect(
-						performer.getWurmId(),
-						(byte) 21,
-						power,
-						Math.max(1, seconds));
-
-				effs.addSpellEffect(eff);
-			} else if (eff.getPower() < power) {
-				eff.setPower(power);
-				eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-				performer.sendUpdateSpellEffect(eff);
 			}
-			Items.destroyItem(target.getWurmId());
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the power of the Potion flow through you! " +
-							"You feel your inner eye getting a better picture of the world." +
-							"You have superior situational awareness!");
-		}
 
-		if (target.getTemplateId() == AlchItems.potionIdStrength) {
+            SpellEffect eff = effs.getSpellEffect((byte) 30);
 
-			power = target.getCurrentQualityLevel() * Config.alchemyPower;
+            if (eff == null)
+            {
+                eff = new SpellEffect(performer.getWurmId(), (byte) 38, power, Math.max(1, seconds));
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the potion rushing through your body! " +
+                            "You feel the joyful pride of a goat, weird!");
 
-			SpellEffects effs = performer.getSpellEffects();
+        }
+        if (target.getTemplateId() == AlchItems.potionIdSixthSense)
+        {
+
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
+
+            SpellEffects effs = performer.getSpellEffects();
 
 			if (effs == null)
+			{
 				effs = performer.createSpellEffects();
-
-			SpellEffect eff = effs.getSpellEffect((byte) 40);
-
-			if (eff == null) {
-				eff = new SpellEffect(
-						performer.getWurmId(),
-						(byte) 40,
-						power,
-						Math.max(1, seconds));
-
-				effs.addSpellEffect(eff);
-			} else if (eff.getPower() < power) {
-				eff.setPower(power);
-				eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-				performer.sendUpdateSpellEffect(eff);
 			}
-			Items.destroyItem(target.getWurmId());
 
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the power of the Potion flow through you! " +
-							"You feel blood boiling and a demonic strength is raging through you!" +
-							"You got superior strength!");
-		}
+            SpellEffect eff = effs.getSpellEffect((byte) 21);
 
-		if (target.getTemplateId() == AlchItems.potionIdTruehit) {
+            if (eff == null)
+            {
+                eff = new SpellEffect(
+                        performer.getWurmId(),
+                        (byte) 21,
+                        power,
+                        Math.max(1, seconds));
 
-			power = target.getCurrentQualityLevel() * Config.alchemyPower;
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel your inner eye getting a better picture of the world." +
+                            "You have superior situational awareness!");
+        }
 
-			SpellEffects effs = performer.getSpellEffects();
+        if (target.getTemplateId() == AlchItems.potionIdStrength)
+        {
+
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
+
+            SpellEffects effs = performer.getSpellEffects();
 
 			if (effs == null)
+			{
 				effs = performer.createSpellEffects();
-
-			SpellEffect eff = effs.getSpellEffect((byte) 30);
-
-			if (eff == null) {
-				eff = new SpellEffect(performer.getWurmId(), (byte) 30, power, Math.max(1, seconds));
-				effs.addSpellEffect(eff);
-			} else if (eff.getPower() < power) {
-				eff.setPower(power);
-				eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-				performer.sendUpdateSpellEffect(eff);
 			}
-			Items.destroyItem(target.getWurmId());
 
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the power of the Potion flow through you! " +
-							"You feel like you can hit your enemies better!");
-		}
+            SpellEffect eff = effs.getSpellEffect((byte) 40);
 
-		if (target.getTemplateId() == AlchItems.potionIdVynora) {
+            if (eff == null)
+            {
+                eff = new SpellEffect(
+                        performer.getWurmId(),
+                        (byte) 40,
+                        power,
+                        Math.max(1, seconds));
 
-			if (performer.getFatigueLeft() < 100) {
-				performer.getCommunicator().sendNormalServerMessage(" You are too tired mentally, to store your brains capacity as sleep bonus.");
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
 
-			} else {
-				power = target.getCurrentQualityLevel() * Config.alchemyPower;
-				double toconvert;
-				toconvert = Math.max(20.0D, power);
-				toconvert = Math.min(99.0D, toconvert);
-				toconvert /= 100.0D;
-				int numsecondsToMove = Math.min((int) ((performer.getFatigueLeft() / 10.0F) * toconvert), 3600);
-				performer.setFatigue(-numsecondsToMove);
-				numsecondsToMove = (int) (numsecondsToMove * 0.2F);
-				numsecondsToMove *= 2;
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel blood boiling and a demonic strength is raging through you!" +
+                            "You got superior strength!");
+        }
+
+        if (target.getTemplateId() == AlchItems.potionIdTruehit)
+        {
+
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
+
+            SpellEffects effs = performer.getSpellEffects();
+
+			if (effs == null)
+			{
+				effs = performer.createSpellEffects();
+			}
+
+            SpellEffect eff = effs.getSpellEffect((byte) 30);
+
+            if (eff == null)
+            {
+                eff = new SpellEffect(performer.getWurmId(), (byte) 30, power, Math.max(1, seconds));
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
+
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel like you can hit your enemies better!");
+        }
+
+        if (target.getTemplateId() == AlchItems.potionIdVynora)
+        {
+
+            if (performer.getFatigueLeft() < 100)
+            {
+                performer.getCommunicator().sendNormalServerMessage(
+                        " You are too tired mentally, to store your brains capacity as sleep bonus.");
+
+            }
+            else
+            {
+                power = target.getCurrentQualityLevel() * Config.alchemyPower;
+                double toconvert;
+                toconvert = Math.max(20.0D, power);
+                toconvert = Math.min(99.0D, toconvert);
+                toconvert /= 100.0D;
+                int numsecondsToMove = Math.min((int) ((performer.getFatigueLeft() / 10.0F) * toconvert), 3600);
+                performer.setFatigue(-numsecondsToMove);
+                numsecondsToMove = (int) (numsecondsToMove * 0.2F);
+                numsecondsToMove *= 2;
 				if (performer.isPlayer())
+				{
 					((Player) performer).getSaveFile().addToSleep(numsecondsToMove);
-			}
-			Items.destroyItem(target.getWurmId());
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the power of the Potion flow through you! " +
-							"You feel enlightened. Vynora is proud of you. You have found the final boundaries of knowledge" +
-							" and surpassed them! After having flow so much knowledge through you, you feel more exhausted than usual." +
-							"You should wait quite a while before drinking the next potion, to make sure your body does not" +
-							"succumb to toxicity.");
+				}
+            }
+            Items.destroyItem(target.getWurmId());
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel enlightened. Vynora is proud of you. You have found the final boundaries of knowledge" +
+                            " and surpassed them! After having flow so much knowledge through you, you feel more exhausted than usual." +
+                            "You should wait quite a while before drinking the next potion, to make sure your body does not" +
+                            "succumb to toxicity.");
 
-		}
+        }
 
-		if (target.getTemplateId() == AlchItems.potionIdWillowspine) {
+        if (target.getTemplateId() == AlchItems.potionIdWillowspine)
+        {
 
-			power = target.getCurrentQualityLevel() * Config.alchemyPower;
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
 
-			SpellEffects effs = performer.getSpellEffects();
-
-			if (effs == null)
-				effs = performer.createSpellEffects();
-
-			SpellEffect eff = effs.getSpellEffect((byte) 23);
-
-			if (eff == null) {
-				eff = new SpellEffect(
-						performer.getWurmId(),
-						(byte) 23,
-						power,
-						Math.max(1, seconds));
-
-				effs.addSpellEffect(eff);
-			} else if (eff.getPower() < power) {
-				eff.setPower(power);
-				eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-				performer.sendUpdateSpellEffect(eff);
-			}
-			Items.destroyItem(target.getWurmId());
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the power of the Potion flow through you! " +
-							"You feel your whole body shifting phases, you are only partly in this reality now" +
-							"You will have an easier time to dodge hits");
-		}
-
-		if (target.getTemplateId() == AlchItems.potionIdOakshell) {
-
-			power = target.getCurrentQualityLevel() * Config.alchemyPower;
-
-			SpellEffects effs = performer.getSpellEffects();
+            SpellEffects effs = performer.getSpellEffects();
 
 			if (effs == null)
+			{
 				effs = performer.createSpellEffects();
-
-			SpellEffect eff = effs.getSpellEffect((byte) 22);
-
-			if (eff == null) {
-				eff = new SpellEffect(
-						performer.getWurmId(),
-						(byte) 22,
-						power,
-						Math.max(1, seconds));
-
-				effs.addSpellEffect(eff);
-			} else if (eff.getPower() < power) {
-				eff.setPower(power);
-				eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-				performer.sendUpdateSpellEffect(eff);
 			}
-			Items.destroyItem(target.getWurmId());
-			performer.getCommunicator().sendAlertServerMessage(
-					"You feel the power of the Potion flow through you! " +
-							"You feel your skin drying up and its starts to look like wood!" +
-							"You will take less damage overall!");
-		}
+
+            SpellEffect eff = effs.getSpellEffect((byte) 23);
+
+            if (eff == null)
+            {
+                eff = new SpellEffect(
+                        performer.getWurmId(),
+                        (byte) 23,
+                        power,
+                        Math.max(1, seconds));
+
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel your whole body shifting phases, you are only partly in this reality now" +
+                            "You will have an easier time to dodge hits");
+        }
+
+        if (target.getTemplateId() == AlchItems.potionIdOakshell)
+        {
+
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
+
+            SpellEffects effs = performer.getSpellEffects();
+
+			if (effs == null)
+			{
+				effs = performer.createSpellEffects();
+			}
+
+            SpellEffect eff = effs.getSpellEffect((byte) 22);
+
+            if (eff == null)
+            {
+                eff = new SpellEffect(
+                        performer.getWurmId(),
+                        (byte) 22,
+                        power,
+                        Math.max(1, seconds));
+
+                effs.addSpellEffect(eff);
+            }
+            else if (eff.getPower() < power)
+            {
+                eff.setPower(power);
+                eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
+                performer.sendUpdateSpellEffect(eff);
+            }
+            Items.destroyItem(target.getWurmId());
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel your skin drying up and its starts to look like wood!" +
+                            "You will take less damage overall!");
+        }
 
 ///////////////////////HEALING//////////////////////
 
-		if (target.getTemplateId() == AlchItems.potionIdHeal) {
-			power = target.getCurrentQualityLevel() * Config.alchemyPower;
+        if (target.getTemplateId() == AlchItems.potionIdHeal)
+        {
+            power = target.getCurrentQualityLevel() * Config.alchemyPower;
 
-			double healingPool = ((Math.max(5.0D, power)) / 100.0D) * 65535.0D * 1.0D;
-			Wounds tWounds = performer.getBody().getWounds();
-			if (tWounds == null) {
-				performer.getCommunicator().sendNormalServerMessage("You have no wounds to heal and wasted your potion!");
-				Items.destroyItem(target.getWurmId());
-
-
-				return propagate(action,
-						ActionPropagation.FINISH_ACTION,
-						ActionPropagation.NO_SERVER_PROPAGATION,
-						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-			}
-			for (Wound w : tWounds.getWounds()) {
-				if (w.getSeverity() <= healingPool) {
-					healingPool -= w.getSeverity();
-					w.heal();
-					performer.getCommunicator().sendNormalServerMessage("You heal one of your " + w.getName() + "Wounds!");
-				}
-				if (w.getSeverity() > healingPool) {
-					w.modifySeverity((int) -healingPool);
-					performer.getCommunicator().sendNormalServerMessage("You heal only a part your " + w.getName() + "wounds as the Power of the Potion is used up");
-				}
-			}
-			heal=true;
-			Items.destroyItem(target.getWurmId());
-		}
-		if (target.getTemplateId() == AlchItems.potionIdRefresh) {
+            double healingPool = ((Math.max(5.0D, power)) / 100.0D) * 65535.0D * 1.0D;
+            Wounds tWounds = performer.getBody().getWounds();
+            if (tWounds == null)
+            {
+                performer.getCommunicator().sendNormalServerMessage(
+                        "You have no wounds to heal and wasted your potion!");
+                Items.destroyItem(target.getWurmId());
 
 
-				double healingPool= ((Math.max(5.0D, power)) / 100.0D )* 65535.0D * 1.0D;
-				performer.getStatus().modifyStamina((float) healingPool);
+                return propagate(action,
+                                 ActionPropagation.FINISH_ACTION,
+                                 ActionPropagation.NO_SERVER_PROPAGATION,
+                                 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+            }
+            for (Wound w : tWounds.getWounds())
+            {
+                if (w.getSeverity() <= healingPool)
+                {
+                    healingPool -= w.getSeverity();
+                    w.heal();
+                    performer.getCommunicator().sendNormalServerMessage(
+                            "You heal one of your " + w.getName() + "Wounds!");
+                }
+                if (w.getSeverity() > healingPool)
+                {
+                    w.modifySeverity((int) -healingPool);
+                    performer.getCommunicator().sendNormalServerMessage(
+                            "You heal only a part your " + w.getName() + "wounds as the Power of the Potion is used up");
+                }
+            }
+            heal = true;
+            Items.destroyItem(target.getWurmId());
+        }
+        if (target.getTemplateId() == AlchItems.potionIdRefresh)
+        {
 
-				performer.getCommunicator().sendAlertServerMessage(
-						"You feel the power of the Potion flow through you! " +
-								"You feel refreshed!");
-				heal=true;
-				Items.destroyItem(target.getWurmId());
 
-				}
+            double healingPool = ((Math.max(5.0D, power)) / 100.0D) * 65535.0D * 1.0D;
+            performer.getStatus().modifyStamina((float) healingPool);
 
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel refreshed!");
+            heal = true;
+            Items.destroyItem(target.getWurmId());
+
+        }
 
 
 /////////////////ADDDICTION/////////////////////
 
-		if (Config.becomeAddicted) {
+        if (Config.becomeAddicted)
+        {
 
-			Iterator <Addiction> handleAddictionLevel = AddictionHandler.addictions.iterator();
-			if (handleAddictionLevel.hasNext()) {
-				while (handleAddictionLevel.hasNext()) {
-					playerInQuestion = handleAddictionLevel.next();
-					if (Players.getInstance().getPlayerOrNull(target.getOwnerId()) == playerInQuestion.p) {
-						int temp = playerInQuestion.currentAddictionLevel;
-						playerInQuestion.currentAddictionLevel = temp + 1;
-						playerInQuestion.previousAddictionLevel = temp;
+            Iterator<Addiction> handleAddictionLevel = AddictionHandler.addictions.iterator();
+            if (handleAddictionLevel.hasNext())
+            {
+                while (handleAddictionLevel.hasNext())
+                {
+                    playerInQuestion = handleAddictionLevel.next();
+                    if (Players.getInstance().getPlayerOrNull(target.getOwnerId()) == playerInQuestion.p)
+                    {
+                        int temp = playerInQuestion.currentAddictionLevel;
+                        playerInQuestion.currentAddictionLevel = temp + 1;
+                        playerInQuestion.previousAddictionLevel = temp;
 
-					}
-				}
-			}
-			else
-				{
-					playerAddiction.currentAddictionLevel = 1;
-					playerAddiction.previousAddictionLevel = 0;
+                    }
+                }
+            }
+            else
+            {
+                playerAddiction.currentAddictionLevel = 1;
+                playerAddiction.previousAddictionLevel = 0;
 
-				}
-			}
-			performer.getCommunicator().sendAlertServerMessage("You feel your body is coming a bit more addicted to the magic power of the substances. ");
+            }
+        }
+        performer.getCommunicator().sendAlertServerMessage(
+                "You feel your body is coming a bit more addicted to the magic power of the substances. ");
 
 
 ////////////////DATA STORAGE//////////////////
 
 		if (heal)
-		playerAddiction.coolDownHealEnd=time+(Config.cooldownPotion*1000L);
+		{
+			playerAddiction.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);
+		}
 		else
-			playerAddiction.coolDownBuffEnd=time+(Config.cooldownPotion*1000L);
+		{
+			playerAddiction.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
+		}
 
-		playerAddiction.p= Players.getInstance().getPlayerOrNull(performer.getWurmId());
+        playerAddiction.p = Players.getInstance().getPlayerOrNull(performer.getWurmId());
 
-		//playerAddiction.previousAddictionLevel=playerInQuestion.previousAddictionLevel;
-		//playerAddiction.currentAddictionLevel=playerInQuestion.currentAddictionLevel;
-		playerAddiction.toxicityWarningLevel=0;
-		AddictionHandler.addictions.add(playerAddiction);
+        //playerAddiction.previousAddictionLevel=playerInQuestion.previousAddictionLevel;
+        //playerAddiction.currentAddictionLevel=playerInQuestion.currentAddictionLevel;
+        playerAddiction.toxicityWarningLevel = 0;
+        AddictionHandler.addictions.add(playerAddiction);
 
 
-		Alchemy.logger.log(Level.INFO, String.format( "%s Drank a potion! :%s",performer.getName(),target.getName()));
-		return propagate(action,
-				ActionPropagation.FINISH_ACTION,
-				ActionPropagation.NO_SERVER_PROPAGATION,
-				ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-	}
+        Alchemy.logger.log(Level.INFO, String.format("%s Drank a potion! :%s", performer.getName(), target.getName()));
+        return propagate(action,
+                         ActionPropagation.FINISH_ACTION,
+                         ActionPropagation.NO_SERVER_PROPAGATION,
+                         ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+    }
 }
