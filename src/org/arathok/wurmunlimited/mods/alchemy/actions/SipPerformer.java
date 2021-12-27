@@ -37,7 +37,7 @@ public class SipPerformer implements ActionPerformer
 
     int seconds = Config.potionDuration;
     float power = 0;
-    boolean heal = false;
+
 
     public SipPerformer()
     {
@@ -76,6 +76,8 @@ public class SipPerformer implements ActionPerformer
     @Override
     public boolean action(Action action, Creature performer, Item target, short num, float counter)
     {
+        boolean heal = false;
+        boolean playerFound = false;
 
         //Alchemy.logger.log(Level.INFO, "BLAH BLAH HE PERFORMS");
 
@@ -172,7 +174,7 @@ public class SipPerformer implements ActionPerformer
 
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -210,7 +212,7 @@ public class SipPerformer implements ActionPerformer
 
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -248,7 +250,7 @@ public class SipPerformer implements ActionPerformer
 
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -280,7 +282,7 @@ public class SipPerformer implements ActionPerformer
                 eff = new SpellEffect(performer.getWurmId(), (byte) 38, power, Math.max(1, seconds));
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -316,7 +318,7 @@ public class SipPerformer implements ActionPerformer
 
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -353,7 +355,7 @@ public class SipPerformer implements ActionPerformer
 
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -386,7 +388,7 @@ public class SipPerformer implements ActionPerformer
                 eff = new SpellEffect(performer.getWurmId(), (byte) 30, power, Math.max(1, seconds));
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -458,7 +460,7 @@ public class SipPerformer implements ActionPerformer
 
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -495,7 +497,7 @@ public class SipPerformer implements ActionPerformer
 
                 effs.addSpellEffect(eff);
             }
-            else if (eff.getPower() < power)
+            else if (eff.getPower() < power||eff.timeleft<seconds)
             {
                 eff.setPower(power);
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
@@ -569,48 +571,61 @@ public class SipPerformer implements ActionPerformer
         {
 
             Iterator<Addiction> handleAddictionLevel = AddictionHandler.addictions.iterator();
-            if (handleAddictionLevel.hasNext())
-            {
+
                 while (handleAddictionLevel.hasNext())
                 {
                     playerInQuestion = handleAddictionLevel.next();
-                    if (Players.getInstance().getPlayerOrNull(target.getOwnerId()) == playerInQuestion.p)
+                    int index = AddictionHandler.addictions.indexOf(playerInQuestion);
+                    if (Players.getInstance().getPlayerOrNull(performer.getWurmId()) == playerInQuestion.p)
                     {
+                        playerFound=true;
                         int temp = playerInQuestion.currentAddictionLevel;
                         playerInQuestion.currentAddictionLevel = temp + 1;
                         playerInQuestion.previousAddictionLevel = temp;
-
+                        if (heal)
+                        {
+                            playerInQuestion.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);
+                        }
+                        else
+                        {
+                            playerInQuestion.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
+                        }
+                        playerInQuestion.toxicityWarningLevel = 0;
+                        AddictionHandler.addictions.set(index,playerInQuestion);
                     }
                 }
-            }
-            else
-            {
-                playerAddiction.currentAddictionLevel = 1;
-                playerAddiction.previousAddictionLevel = 0;
+                if (!playerFound)
+                {
+                    playerAddiction.currentAddictionLevel = 1;
+                    playerAddiction.previousAddictionLevel = 0;
+                    if (heal)
+                    {
+                        playerAddiction.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);
+                    }
+                    else
+                    {
+                        playerAddiction.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
+                    }
 
+                    playerAddiction.p = Players.getInstance().getPlayerOrNull(performer.getWurmId());
+                    playerAddiction.toxicityWarningLevel = 0;
+                    AddictionHandler.addictions.add(playerAddiction);
+                }
             }
-        }
+
+
+
         performer.getCommunicator().sendAlertServerMessage(
                 "You feel your body is coming a bit more addicted to the magic power of the substances. ");
 
 
 ////////////////DATA STORAGE//////////////////
 
-		if (heal)
-		{
-			playerAddiction.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);
-		}
-		else
-		{
-			playerAddiction.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
-		}
 
-        playerAddiction.p = Players.getInstance().getPlayerOrNull(performer.getWurmId());
 
         //playerAddiction.previousAddictionLevel=playerInQuestion.previousAddictionLevel;
         //playerAddiction.currentAddictionLevel=playerInQuestion.currentAddictionLevel;
-        playerAddiction.toxicityWarningLevel = 0;
-        AddictionHandler.addictions.add(playerAddiction);
+
 
 
         Alchemy.logger.log(Level.INFO, String.format("%s Drank a potion! :%s", performer.getName(), target.getName()));

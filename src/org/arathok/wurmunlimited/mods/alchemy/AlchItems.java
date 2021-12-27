@@ -14,7 +14,7 @@ import java.io.IOException;
 public class AlchItems {
 	public static int
 			leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
-			glassMixtureId, glassId,
+			glassMixtureId, glassId,weakLegsId,
 
 			mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
 			mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
@@ -43,7 +43,7 @@ public class AlchItems {
 			weaponOilDemiseAnimalId, weaponOilDemiseMonsterId, weaponOilDemiseLegendaryId, weaponOilDemiseHumanId, weaponOilLickOfFireId,
 			weaponOilKissOfFrostId, weaponOilLeechId, weaponOilHeartseekerId, weaponOilPlagueId, weaponOilPoisonId;
 
-	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass,
+	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,
 
 			leader, mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
 			mixtureStrength, mixtureSixthSense, mixtureTruehit, mixtureWillowspine, mixtureRefresh, mixtureVynora,
@@ -101,6 +101,37 @@ public class AlchItems {
 				.build();
 
 		leaderId = leader.getTemplateId();
+	}
+
+	private static void registerWeakLegs() throws IOException {
+		weakLegs = new ItemTemplateBuilder("arathok.alchemy.addiction.weakLegs")
+				.name("Weak Legs", "Weak Legs", " You look at your trembling legs. You are addicted" +
+						"to potions and feel weak. You feel like your whole body itself is too heavy to carry around."
+				)
+				.modelName("model.decoration.statuette.magranon.")
+				.imageNumber((short) IconConstants.ICON_ICON_BODY_LEG)
+				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_NODROP,
+						ItemTypes.ITEM_TYPE_NODISCARD,
+						ItemTypes.ITEM_TYPE_NOPUT,
+						ItemTypes.ITEM_TYPE_NOBANK,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+						ItemTypes.ITEM_TYPE_NO_CREATE,
+						ItemTypes.ITEM_TYPE_NORENAME,
+						ItemTypes.ITEM_TYPE_NOTRADE,
+						ItemTypes.ITEM_TYPE_NOMOVE,
+						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
+
+
+				})
+				.decayTime(90720000000L)
+				.dimensions(8, 8, 15)
+				.weightGrams(105000).material(Materials.MATERIAL_BONE)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.POTTERY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		weakLegsId = weakLegs.getTemplateId();
 	}
 
 	private static void registerGlassMixture() throws IOException {
@@ -2864,6 +2895,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 	public static void register() throws IOException {
 
 		registerLeader();
+		registerWeakLegs();
 		registerGlassMixture();
 		registerGlass();
 		TempStates.addState(new TempState(AlchItems.glassMixtureId, AlchItems.glassId, (short) 4000, true, false, false));
