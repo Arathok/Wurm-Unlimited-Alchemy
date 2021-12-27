@@ -115,7 +115,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NOPUT,
 						ItemTypes.ITEM_TYPE_NOBANK,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
-						ItemTypes.ITEM_TYPE_NO_CREATE,
+						//ItemTypes.ITEM_TYPE_NO_CREATE,
 						ItemTypes.ITEM_TYPE_NORENAME,
 						ItemTypes.ITEM_TYPE_NOTRADE,
 						ItemTypes.ITEM_TYPE_NOMOVE,

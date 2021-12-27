@@ -99,7 +99,7 @@ public class SipPerformer implements ActionPerformer
             int index = AddictionHandler.addictions.indexOf(playerInQuestion);
 			if (Players.getInstance().getPlayerOrNull(target.getOwnerId()) == playerInQuestion.p)
 			{
-				if (playerInQuestion.toxicityWarningLevel > 0)
+				if (playerInQuestion.toxicityWarningLevel >0 &&playerInQuestion.coolDownBuffEnd<time||playerInQuestion.coolDownHealEnd<time)
 				{
 					performer.getCommunicator().sendAlertServerMessage(
 							"A rush of magic energy fills every nerve in your body, for a moment you feel euphoric" +
