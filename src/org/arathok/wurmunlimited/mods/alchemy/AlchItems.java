@@ -105,7 +105,7 @@ public class AlchItems {
 
 	private static void registerWeakLegs() throws IOException {
 		weakLegs = new ItemTemplateBuilder("arathok.alchemy.addiction.weakLegs")
-				.name("Weak Legs", "Weak Legs", " You look at your trembling legs. You are addicted" +
+				.name("Weak Legs", "Weak Legs", " You look at your trembling legs. You are addicted " +
 						"to potions and feel weak. You feel like your whole body itself is too heavy to carry around."
 				)
 				.modelName("model.decoration.statuette.magranon.")

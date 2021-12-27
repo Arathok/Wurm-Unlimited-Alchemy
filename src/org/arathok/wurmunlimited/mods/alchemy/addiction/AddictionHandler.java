@@ -42,6 +42,8 @@ public class AddictionHandler
             Iterator<Addiction> addictionHandler = addictions.iterator();
             while (addictionHandler.hasNext()) {
 
+                boolean itemFound = false;
+
                 addictedPlayer = addictionHandler.next();
                 int index = AddictionHandler.addictions.indexOf(addictedPlayer);
                 if (addictedPlayer.currentAddictionLevel < addictedPlayer.previousAddictionLevel) {
@@ -73,18 +75,30 @@ public class AddictionHandler
                     if (addictedPlayer.previousAddictionLevel >= 5) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is low. The withdrawal causes you to tremble and " +
-                                        "you feel weak."
+                                        "you feel weak. Maybe if you come down from your addiction your legs won't be weak anymore."
                         );
-                        ItemTemplate template = AlchItems.weakLegs;
-                        try {
-                            Item legs = ItemFactory.createItem(AlchItems.weakLegsId,99.0F,"Addiction");
-                            addictedPlayer.p.getInventory().getItems().add(legs);
-                        } catch (FailedException e) {
-                            e.printStackTrace();
-                        } catch (NoSuchTemplateException e) {
-                            e.printStackTrace();
-                            Alchemy.logger.log(Level.SEVERE, "I was trying to create an item but that template didn't exist! Weird!");
+                        itemFound=false;
+                        Item[] items = addictedPlayer.p.getInventory().getItemsAsArray();
+                        for (Item item : items) {
+                            if (item.getTemplateId() == AlchItems.weakLegsId)
+                            {
+                                itemFound=true;
+                            }
+
                         }
+
+                        if (!itemFound)
+                            try {
+                                Item legs = ItemFactory.createItem(AlchItems.weakLegsId,99.0F,"Addiction");
+                                addictedPlayer.p.getInventory().insertItem(legs,true);
+                            } catch (FailedException e) {
+                                e.printStackTrace();
+                            } catch (NoSuchTemplateException e) {
+                                e.printStackTrace();
+                                Alchemy.logger.log(Level.SEVERE, "I was trying to create an item but that template didn't exist! Weird!");
+                            }
+
+
 
 
                     }
@@ -129,6 +143,13 @@ public class AddictionHandler
                         addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 25000, (float) 1, 0.0F, false, true);
                         addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 20000, 0.0F, 0.0F, false, true);
 
+                    }
+                }
+                else {
+                    Item[] items = addictedPlayer.p.getInventory().getItemsAsArray();
+                    for (Item item : items) {
+                        if (item.getTemplateId() == AlchItems.weakLegsId)
+                            Items.destroyItem(item.getWurmId());
                     }
                 }
                     addictedPlayer.previousAddictionLevel = addictedPlayer.currentAddictionLevel;

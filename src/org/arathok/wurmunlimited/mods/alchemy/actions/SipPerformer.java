@@ -99,7 +99,7 @@ public class SipPerformer implements ActionPerformer
             int index = AddictionHandler.addictions.indexOf(playerInQuestion);
 			if (Players.getInstance().getPlayerOrNull(target.getOwnerId()) == playerInQuestion.p)
 			{
-				if (playerInQuestion.toxicityWarningLevel >0 &&playerInQuestion.coolDownBuffEnd<time||playerInQuestion.coolDownHealEnd<time)
+				if (playerInQuestion.toxicityWarningLevel >0 &&(playerInQuestion.coolDownBuffEnd>time||playerInQuestion.coolDownHealEnd>time))
 				{
 					performer.getCommunicator().sendAlertServerMessage(
 							"A rush of magic energy fills every nerve in your body, for a moment you feel euphoric" +
@@ -469,7 +469,7 @@ public class SipPerformer implements ActionPerformer
             Items.destroyItem(target.getWurmId());
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
-                            "You feel your whole body shifting phases, you are only partly in this reality now" +
+                            "You feel your whole body shifting phases, you are only partly in this reality now. " +
                             "You will have an easier time to dodge hits");
         }
 
@@ -611,6 +611,11 @@ public class SipPerformer implements ActionPerformer
                     playerAddiction.toxicityWarningLevel = 0;
                     AddictionHandler.addictions.add(playerAddiction);
                 }
+            Item[] items = performer.getInventory().getItemsAsArray();
+            for (Item item : items) {
+                if (item.getTemplateId() == AlchItems.weakLegsId)
+                    Items.destroyItem(item.getWurmId());
+            }
             }
 
 
