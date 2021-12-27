@@ -1,5 +1,6 @@
 package org.arathok.wurmunlimited.mods.alchemy.addiction;
 
+import com.wurmonline.server.Players;
 import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.spells.SpellEffect;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
@@ -76,17 +77,12 @@ public class AddictionHandler
                             eff = new SpellEffect(
                                     addictedPlayer.p.getWurmId(),
                                     (byte) 41,
-                                    100,
-                                    Math.max(1, seconds));
+                                    20,
+                                    Math.max(1, seconds),(byte)2,(byte)1,false);
 
                             effs.addSpellEffect(eff);
                         }
-                        else if (eff.getPower() < 100)
-                        {
-                            eff.setPower(100);
-                            eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
-                            addictedPlayer.p.sendUpdateSpellEffect(eff);
-                        }
+
                     }
 
                 }
