@@ -47,14 +47,14 @@ public class AddictionHandler
                 if (addictedPlayer.currentAddictionLevel < addictedPlayer.previousAddictionLevel) {
                     addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                             "You are slowly coming down from your addiction:");
-                    if (addictedPlayer.currentAddictionLevel <= 3) {
+                    if (addictedPlayer.previousAddictionLevel <= 3) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is marginal. You feel it is now safe to consume " +
                                         "potions "
 
                         );
                     }
-                    if (addictedPlayer.currentAddictionLevel == 4) {
+                    if (addictedPlayer.previousAddictionLevel == 4) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is very low. You are on the verge of being addicted" +
                                         ". You should wait a little while before drinking potions again.");
@@ -62,7 +62,7 @@ public class AddictionHandler
 
                     }
 
-                    if (addictedPlayer.currentAddictionLevel < 5) {
+                    if (addictedPlayer.previousAddictionLevel < 5) {
                         Item[] items = addictedPlayer.p.getInventory().getItemsAsArray();
                         for (Item item : items) {
                             if (item.getTemplateId() == AlchItems.weakLegsId)
@@ -70,7 +70,7 @@ public class AddictionHandler
                         }
                     }
 
-                    if (addictedPlayer.currentAddictionLevel >= 5) {
+                    if (addictedPlayer.previousAddictionLevel >= 5) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is low. The withdrawal causes you to tremble and " +
                                         "you feel weak."
@@ -90,7 +90,7 @@ public class AddictionHandler
                     }
 
 
-                    if (addictedPlayer.currentAddictionLevel >= 10 && addictedPlayer.currentAddictionLevel <= 12) {
+                    if (addictedPlayer.previousAddictionLevel >= 10 && addictedPlayer.previousAddictionLevel <= 12) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is moderate. You are suffering from a negligible poisoning"
                         );
@@ -98,14 +98,14 @@ public class AddictionHandler
                         addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 5000, (float) 1, 0.0F, false, true);
                     }
 
-                    if (addictedPlayer.currentAddictionLevel >= 12 && addictedPlayer.currentAddictionLevel <= 15) {
+                    if (addictedPlayer.previousAddictionLevel >= 12 && addictedPlayer.previousAddictionLevel <= 15) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is moderate. You are suffering from a mild poisoning"
                         );
                         addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 10000, (float) 1, 0.0F, false, true);
                     }
 
-                    if (addictedPlayer.currentAddictionLevel >= 15 && addictedPlayer.currentAddictionLevel <= 20) {
+                    if (addictedPlayer.previousAddictionLevel >= 15 && addictedPlayer.previousAddictionLevel <= 20) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is high. You are suffering from a hefty poisoning and you feel a sharp pain inside your head"
                         );
@@ -114,7 +114,7 @@ public class AddictionHandler
 
                     }
 
-                    if (addictedPlayer.currentAddictionLevel >= 20 && addictedPlayer.currentAddictionLevel <= 25) {
+                    if (addictedPlayer.previousAddictionLevel >= 20 && addictedPlayer.previousAddictionLevel <= 25) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is high. You are suffering from a severe poisoning and your brain feels like its full of knives"
                         );
@@ -122,7 +122,7 @@ public class AddictionHandler
                         addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 10000, 0.0F, 0.0F, false, true);
 
                     }
-                    if (addictedPlayer.currentAddictionLevel >= 25) {
+                    if (addictedPlayer.previousAddictionLevel >= 25) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is deadly high. You are suffering from a severe poisoning and your brain loses the connection to reality"
                         );

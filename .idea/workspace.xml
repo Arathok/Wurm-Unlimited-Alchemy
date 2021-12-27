@@ -10,11 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/alchemy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/alchemy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
