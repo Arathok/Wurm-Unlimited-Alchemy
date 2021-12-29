@@ -108,8 +108,8 @@ public class SipPerformer implements ActionPerformer
 									"Finally your body collapses under the heavy toxication of two potions of the same kind." +
 									" Don't worry. Many alchemists where here and many will be. May the gods be merciful and give you another chance");
 
-					playerInQuestion.p.die(false, "toxicty");
-					AddictionHandler.addictions.remove(playerInQuestion);
+					playerInQuestion.p.addWoundOfType(playerInQuestion.p, (byte) 5, 23, false, 1.0F, false, 52000, (float) 1, 0.0F, false, true);
+
 					return propagate(action,
 									 ActionPropagation.FINISH_ACTION,
 									 ActionPropagation.NO_SERVER_PROPAGATION,

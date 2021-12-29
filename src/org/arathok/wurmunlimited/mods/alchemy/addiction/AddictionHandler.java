@@ -49,14 +49,14 @@ public class AddictionHandler
                 if (addictedPlayer.currentAddictionLevel < addictedPlayer.previousAddictionLevel) {
                     addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                             "You are slowly coming down from your addiction:");
-                    if (addictedPlayer.previousAddictionLevel <= 3) {
+                    if (addictedPlayer.previousAddictionLevel <= 2) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is marginal. You feel it is now safe to consume " +
                                         "potions "
 
                         );
                     }
-                    if (addictedPlayer.previousAddictionLevel == 4) {
+                    if (addictedPlayer.previousAddictionLevel == 3) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is very low. You are on the verge of being addicted" +
                                         ". You should wait a little while before drinking potions again.");
@@ -64,7 +64,7 @@ public class AddictionHandler
 
                     }
 
-                    if (addictedPlayer.previousAddictionLevel < 5) {
+                    if (addictedPlayer.previousAddictionLevel < 4) {
                         Item[] items = addictedPlayer.p.getInventory().getItemsAsArray();
                         for (Item item : items) {
                             if (item.getTemplateId() == AlchItems.weakLegsId)
@@ -72,7 +72,7 @@ public class AddictionHandler
                         }
                     }
 
-                    if (addictedPlayer.previousAddictionLevel >= 5) {
+                    if (addictedPlayer.previousAddictionLevel >= 4) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is low. The withdrawal causes you to tremble and " +
                                         "you feel weak. Maybe if you come down from your addiction your legs won't be weak anymore."
@@ -90,6 +90,8 @@ public class AddictionHandler
                         if (!itemFound)
                             try {
                                 Item legs = ItemFactory.createItem(AlchItems.weakLegsId,99.0F,"Addiction");
+                                int yourWeight =(int)((addictedPlayer.p.getStrengthSkill()/5)*7*1.5);
+                                legs.setWeight(yourWeight,true);
                                 addictedPlayer.p.getInventory().insertItem(legs,true);
                             } catch (FailedException e) {
                                 e.printStackTrace();
