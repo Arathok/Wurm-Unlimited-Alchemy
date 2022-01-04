@@ -624,13 +624,6 @@ public class SipPerformer implements ActionPerformer
                 "You feel your body is coming a bit more addicted to the magic power of the substances. ");
 
 
-////////////////DATA STORAGE//////////////////
-
-
-
-        //playerAddiction.previousAddictionLevel=playerInQuestion.previousAddictionLevel;
-        //playerAddiction.currentAddictionLevel=playerInQuestion.currentAddictionLevel;
-
 
 
         Alchemy.logger.log(Level.INFO, String.format("%s Drank a potion! :%s", performer.getName(), target.getName()));

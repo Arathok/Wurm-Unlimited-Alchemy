@@ -140,7 +140,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil,hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against animals" +
-												" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+												" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 			}
@@ -210,7 +210,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil, Murder)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against Humans" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -279,7 +279,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil,monster hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against monsters" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -349,7 +349,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil, legendary hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against legendaries" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -417,7 +417,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil,flaming)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be creating flaming wounds!" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -485,7 +485,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil, frost)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will cause icy wounds!" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -554,7 +554,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil, leech)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now suck out life energy from your opponents!" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -623,7 +623,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil, plague)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause infected wounds" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -695,7 +695,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil, poison)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now poison your enemy" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -764,7 +764,7 @@ public class OilPerformer implements ActionPerformer {
 				target.setName((target.getName() + " (oil, heartseeker)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause wounds to be way worse" +
-						" for a short time.(" + Config.oilDuration + "seconds)", (byte) 2);
+						" for a short time.(" +seconds + "seconds)", (byte) 2);
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
