@@ -5,7 +5,6 @@ import com.wurmonline.server.Items;
 import com.wurmonline.server.Players;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
-import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.bodys.Wound;
 import com.wurmonline.server.bodys.Wounds;
 import com.wurmonline.server.creatures.Creature;
@@ -180,7 +179,10 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+             if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
 
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
@@ -218,7 +220,10 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+             if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
 
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
@@ -256,7 +261,10 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+             if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
                             "You feel your skin burning with the fire of hate, the beast in you is taking over!" +
@@ -288,7 +296,10 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+             if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the potion rushing through your body! " +
                             "You feel the joyful pride of a goat, weird!");
@@ -324,7 +335,10 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+             if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
                             "You feel your inner eye getting a better picture of the world." +
@@ -361,7 +375,10 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+             if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
 
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
@@ -394,7 +411,10 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+             if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
 
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
@@ -466,7 +486,10 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+             if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
                             "You feel your whole body shifting phases, you are only partly in this reality now. " +
@@ -503,7 +526,13 @@ public class SipPerformer implements ActionPerformer
                 eff.setTimeleft(Math.max(eff.timeleft, Math.max(1, seconds)));
                 performer.sendUpdateSpellEffect(eff);
             }
-            Items.destroyItem(target.getWurmId());
+            if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                 if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel the power of the Potion flow through you! " +
                             "You feel your skin drying up and its starts to look like wood!" +
@@ -522,6 +551,12 @@ public class SipPerformer implements ActionPerformer
             {
                 performer.getCommunicator().sendNormalServerMessage(
                         "You have no wounds to heal and wasted your potion!");
+                if (target.getWeightGrams() - 80 > 0)
+                    target.setWeight(target.getWeightGrams() - 80, true);
+                else
+                     if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
                 Items.destroyItem(target.getWurmId());
 
 
@@ -547,7 +582,10 @@ public class SipPerformer implements ActionPerformer
                 }
             }
             heal = true;
-            Items.destroyItem(target.getWurmId());
+            if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
         }
         if (target.getTemplateId() == AlchItems.potionIdRefresh)
         {
@@ -560,7 +598,10 @@ public class SipPerformer implements ActionPerformer
                     "You feel the power of the Potion flow through you! " +
                             "You feel refreshed!");
             heal = true;
-            Items.destroyItem(target.getWurmId());
+            if (target.getWeightGrams() - 80 > 0)
+                target.setWeight(target.getWeightGrams() - 80, true);
+            else
+                Items.destroyItem(target.getWurmId());
 
         }
 

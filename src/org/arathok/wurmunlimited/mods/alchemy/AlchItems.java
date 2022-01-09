@@ -163,7 +163,7 @@ public class AlchItems {
 		CreationEntryCreator
 				.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.sand, ItemList.ash, glassMixtureId, true, true,0.0f, true, false,0,5, CreationCategories.RESOURCES)
 				.addRequirement(new CreationRequirement(1, ItemList.ash, 17, true))
-				.addRequirement(new CreationRequirement(2, ItemList.sandstone, 1, true));
+				.addRequirement(new CreationRequirement(2, ItemList.salt, 17, true));
 	}
 
 	private static void registerGlass() throws IOException {
@@ -204,6 +204,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_UNFIRED,
 
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 						ItemTypes.ITEM_TYPE_TOOL,
@@ -1019,6 +1020,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
 				})
 				.decayTime(691200L)
 				.dimensions(3, 3, 3)

@@ -2,15 +2,9 @@ package org.arathok.wurmunlimited.mods.alchemy.addiction;
 
 import com.wurmonline.server.FailedException;
 import com.wurmonline.server.Items;
-import com.wurmonline.server.Players;
-import com.wurmonline.server.WurmId;
-import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemFactory;
-import com.wurmonline.server.items.ItemTemplate;
 import com.wurmonline.server.items.NoSuchTemplateException;
-import com.wurmonline.server.spells.SpellEffect;
-import com.wurmonline.shared.constants.ItemMaterials;
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
@@ -18,7 +12,6 @@ import org.arathok.wurmunlimited.mods.alchemy.Config;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import java.util.logging.Level;
 
 public class AddictionHandler
@@ -29,9 +22,7 @@ public class AddictionHandler
     }
 
     public static long addictionTimer = 30;
-    public static int seconds = 0;
-    public static Random random = new Random();
-    public static List addictions = new LinkedList<Addiction>();
+    public static List<Addiction> addictions = new LinkedList<>();
 
     public static void AddictionEffects()
     {
@@ -163,7 +154,7 @@ public class AddictionHandler
                     AddictionHandler.addictions.set(index, addictedPlayer);
 
             }
-            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000));
+            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
         }
 
     }

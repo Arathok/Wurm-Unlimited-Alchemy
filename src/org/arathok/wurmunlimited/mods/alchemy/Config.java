@@ -12,4 +12,5 @@ public class Config {
     public static boolean purifiedWaterCooking=true;
     public static int addictionTimer = 900;
     public static boolean enchantmentsStack = true;
+    public static float oilDurationOnEnchanted = 0.33F;
 }

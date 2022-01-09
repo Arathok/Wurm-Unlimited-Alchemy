@@ -67,7 +67,10 @@ public class OilBehaviour implements BehaviourProvider {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		}  else
+		}	else if (source.getTemplateId() == AlchItems.weaponOilLeechId) {
+			if (OilPerformer.canUse(performer, source) && OilPerformer.isWeapon(target))
+				return new ArrayList<>(apply);
+		}else
 			return null;
 			return null;
 

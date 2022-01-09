@@ -20,6 +20,7 @@ import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 import java.util.Iterator;
+import java.util.Set;
 import java.util.logging.Level;
 
 public class OilPerformer implements ActionPerformer {
@@ -104,11 +105,21 @@ public class OilPerformer implements ActionPerformer {
 // EFFECT STUFF GOES HERE
 		seconds=Config.oilDuration;
 		power = source.getCurrentQualityLevel() * Config.alchemyPower;
+		boolean hasPelt=false;
+		Set<Item> items;
+		items = performer.getInventory().getItems();
+
+		for (Item item: items)
+		{
+			if (item.getName().contains("pelt"))
+				hasPelt=true;
+		}
+
 		ItemSpellEffects effs = target.getSpellEffects();
 		SpellEffect eff = null;
 		if (effs!=null) // if the weapon is Enchanted
 			if (effs.getEffects().length>0)
-			seconds/=5;								// oil only lasts a fifth of the set time
+			seconds= (int) (seconds*Config.oilDurationOnEnchanted);								// oil only lasts a fifth of the set time
 
 		// DEMISE ANIMAL
 		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
@@ -122,21 +133,43 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+					else
+					{
+						performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+								" over the " + target.getName() +
+								" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+								"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+						return propagate(action,
+								ActionPropagation.FINISH_ACTION,
+								ActionPropagation.NO_SERVER_PROPAGATION,
+								ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+					}
+
+
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
 							" over the " + target.getName() +
 							" but much of the oil falls of to the side and leaves a messy stain on the ground." +
 							" Maybe there is a way to make this more efficient if you " +
-							" pour the oil into something that can hold multiple arrows?", (byte) 2);
+							" pour the oil into something that can hold multiple arrows? " +
+							" You stash the rest of the oil in your pocket", (byte) 2);
 
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
 						Items.destroyItem(source.getWurmId());
 				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
+						Items.destroyItem(source.getWurmId());
+				}
 				else
 					Items.destroyItem(source.getWurmId());
-
 				target.setName((target.getName() + " (oil,hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against animals" +
@@ -163,6 +196,11 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,hunt)"));
 					}
+					else
+					{
+							fails++;
+					}
+
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -193,6 +231,20 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 9, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
+
+
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -202,6 +254,15 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				else
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -233,6 +294,10 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,Murder)"));
 					}
+					else
+					{
+						fails++;
+					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -262,6 +327,20 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 10, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
+
+
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -271,6 +350,14 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -302,6 +389,10 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,monster hunt)"));
 					}
+					else
+					{
+						fails++;
+					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -313,6 +404,7 @@ public class OilPerformer implements ActionPerformer {
 							target.getName()+
 							" and dries up on the ground.",(byte)2);
 				Items.destroyItem(source.getWurmId());
+
 
 
 			}
@@ -332,6 +424,18 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 12, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -341,6 +445,14 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -372,6 +484,10 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, legendary hunt)"));
 					}
+					else
+					{
+						fails++;
+					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -400,6 +516,18 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 14, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -409,6 +537,14 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -440,6 +576,10 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, flaming)"));
 					}
+					else
+					{
+						fails++;
+					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -468,6 +608,18 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 33, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -477,6 +629,14 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -508,6 +668,10 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, frost)"));
 					}
+					else
+					{
+						fails++;
+					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -537,6 +701,18 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 26, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -546,6 +722,14 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -577,6 +761,10 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, leech)"));
 					}
+					else
+					{
+						fails++;
+					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -606,6 +794,18 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 18, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -615,6 +815,14 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -649,6 +857,10 @@ public class OilPerformer implements ActionPerformer {
 					
 						arrow.setName((arrow.getName() + " (oil, plague)"));
 					}
+					else
+					{
+						fails++;
+					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -678,6 +890,18 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 27, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -687,6 +911,14 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -718,6 +950,10 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, poison)"));
 					}
+					else
+					{
+						fails++;
+					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -747,6 +983,18 @@ public class OilPerformer implements ActionPerformer {
 					eff = new SpellEffect(target.getWurmId(), (byte) 32, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
+				else
+				{
+					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
+							" over the " + target.getName() +
+							" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
+							"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+					return propagate(action,
+							ActionPropagation.FINISH_ACTION,
+							ActionPropagation.NO_SERVER_PROPAGATION,
+							ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
+				}
 				if (target.isArrow()) // IS ARROW? THEN ONLY DESTROY A 10th
 				{
 					performer.getCommunicator().sendAlertServerMessage(" You pour the " + source.getName() +
@@ -756,6 +1004,14 @@ public class OilPerformer implements ActionPerformer {
 							" pour the oil into something that can hold multiple arrows?", (byte) 2);
 					source.setWeight((source.getWeightGrams() - 20), true);
 					if (source.getWeightGrams()<=20)
+						Items.destroyItem(source.getWurmId());
+				}
+				if (hasPelt) {
+					performer.getCommunicator().sendNormalServerMessage("You drench your pelt in some oil and use it to coat the weapon evenly. " +
+							"You saved some oil and put the phial back into your pocket. It should be good for a few more uses.", (byte) 2);
+					if (source.getWeightGrams() - 80 > 0)
+						source.setWeight(source.getWeightGrams() - 80, true);
+					else
 						Items.destroyItem(source.getWurmId());
 				}
 				else
@@ -788,6 +1044,10 @@ public class OilPerformer implements ActionPerformer {
 						
 						arrow.setName((arrow.getName() + " (oil, heartseeker)"));
 
+					}
+					else
+					{
+						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +

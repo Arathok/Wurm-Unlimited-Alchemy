@@ -40,6 +40,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.purifiedWaterCooking = Boolean.parseBoolean(properties.getProperty("purifiedWaterCooking", "true"));
 		Config.addictionTimer = Integer.parseInt(properties.getProperty("addictionTimer", "900"));
 		Config.enchantmentsStack = Boolean.parseBoolean(properties.getProperty("enchantmentsStack", "true"));
+		Config.oilDurationOnEnchanted = Float.parseFloat(properties.getProperty("oilDurationOnEnchant", "1.0F"));
 
 	}
 
