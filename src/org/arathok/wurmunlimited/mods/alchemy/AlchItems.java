@@ -14,7 +14,7 @@ import java.io.IOException;
 public class AlchItems {
 	public static int
 			leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
-			glassMixtureId, glassId,weakLegsId,
+			glassMixtureId, glassId,weakLegsId,gemPowderId,
 
 			mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
 			mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
@@ -24,12 +24,13 @@ public class AlchItems {
 			precursorFranticChargeId, precursorStrengthId, precursorSixthSenseId, precursorTruehitId,
 			precursorWillowspineId, precursorRefreshId, precursorVynoraId,
 
-			potionLiquidHealId, potionLiquidGoatId, potionLiquidExcellId, potionLiquidOakshellId,
+			potionLiquidHealId, potionLiquidGoatId, potionLiquidExcellId, potionLiquidOakshellId, potionLiquidKarmaId, potionLiquidManaId,
 			potionLiquidMorningFogId, potionLiquidFranticChargeId, potionLiquidStrengthId, potionLiquidSixthSenseId,
 			potionLiquidTruehitId, potionLiquidWillowspineId, potionLiquidRefreshId, potionLiquidVynoraId,
 
 			potionIdHeal, potionIdGoat, potionIdExcell, potionIdOakshell, potionIdMorningFog, potionIdFranticCharge,
 			potionIdStrength, potionIdSixthSense, potionIdTruehit, potionIdWillowspine, potionIdRefresh, potionIdVynora,
+			potionKarmaId, potionManaId,
 
 			pasteDemiseAnimalId, pasteDemiseMonsterId, pasteDemiseLegendaryId, pasteDemiseHumanId, pasteLickOfFireId,
 			pasteKissOfFrostId, pasteLeechId, pasteHeartseekerId, pastePlagueId, pastePoisonId,
@@ -43,7 +44,7 @@ public class AlchItems {
 			weaponOilDemiseAnimalId, weaponOilDemiseMonsterId, weaponOilDemiseLegendaryId, weaponOilDemiseHumanId, weaponOilLickOfFireId,
 			weaponOilKissOfFrostId, weaponOilLeechId, weaponOilHeartseekerId, weaponOilPlagueId, weaponOilPoisonId;
 
-	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,
+	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,
 
 			leader, mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
 			mixtureStrength, mixtureSixthSense, mixtureTruehit, mixtureWillowspine, mixtureRefresh, mixtureVynora,
@@ -54,10 +55,10 @@ public class AlchItems {
 
 			potionLiquidHeal, potionLiquidGoat, potionLiquidExcell, potionLiquidOakshell, potionLiquidMorningFog,
 			potionLiquidFranticCharge, potionLiquidStrength, potionLiquidSixthSense, potionLiquidTruehit,
-			potionLiquidWillowspine, potionLiquidRefresh, potionLiquidVynora,
+			potionLiquidWillowspine, potionLiquidRefresh, potionLiquidVynora, potionLiquidKarma, potionLiquidMana,
 
 			potionHeal, potionGoat, potionExcell, potionOakshell, potionMorningFog, potionFranticCharge, potionStrength,
-			potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora,
+			potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora, potionKarma, potionMana,
 
 			pasteDemiseAnimal, pasteDemiseMonster, pasteDemiseLegendary, pasteDemiseHuman, pasteLickOfFire,
 			pasteKissOfFrost, pasteLeech, pasteHeartseeker, pastePlague, pastePoison,
@@ -335,8 +336,39 @@ public class AlchItems {
 
 		alchemicalCompoundId = alchemicalCompound.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.purifiedWaterId, ItemList.heart,
-				alchemicalCompoundId, true, true, 0f, true, false, 0,5,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.purifiedWaterId, ItemList.heart,alchemicalCompoundId, true, true, 0f, true, false, 0,5,CreationCategories.ALCHEMY);
+	}
+
+	private static void registerGemPowder() throws IOException {
+		gemPowder = new ItemTemplateBuilder("arathok.alchemy.gemPowder").name("Gem powder", "Gem powders",
+						"Ground up gems that could be very well used in some potions that need some extra magical power")
+				.modelName("model.gemPowder.")
+				.imageNumber((short) IconConstants.ICON_FOOD_SALT)
+				.itemTypes(new short[]{
+
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
+
+						ItemTypes.ITEM_TYPE_MAGIC,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(20, 20, 20)
+				.weightGrams(500)
+				.material(Materials.MATERIAL_GLASS)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
+				.build();
+
+		gemPowderId = gemPowder.getTemplateId();
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.ruby,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.emerald,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.diamond,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.sapphire,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.opal,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureDodging() throws IOException {
@@ -1152,6 +1184,58 @@ public class AlchItems {
 		potionLiquidFranticChargeId = potionLiquidFranticCharge.getTemplateId();
 	}
 
+	private static void registerPotionLiquidKarma() throws IOException {
+		potionLiquidKarma = new ItemTemplateBuilder("arathok.alchemy.potionLiquidKarma")
+				.name(" potion liquid karma",
+						"potion liquids of karma",
+						"A potion liquid. This is almost a finished karma Potion. "
+								+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+
+				.modelName("model.potionLiquid.mana").imageNumber((short) 1546)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+				})
+				.decayTime(691200L)
+				.dimensions(3, 3, 3)
+				.weightGrams(100)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		potionLiquidKarmaId = potionLiquidKarma.getTemplateId();
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.potionLiquidHealId,	ItemList.sourceSalt, potionLiquidKarmaId, true, true, 0f, false,false,0,50.0,CreationCategories.DECORATION);
+	}
+
+	private static void registerPotionLiquidMana() throws IOException {
+		potionLiquidMana = new ItemTemplateBuilder("arathok.alchemy.potionLiquidMana")
+				.name(" potion liquid mana",
+						"potion liquids of mana",
+						"A potion liquid. This is almost a finished mana Potion. "
+								+ "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+
+				.modelName("model.potionLiquid.mana").imageNumber((short) 1546)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_LIQUID,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+				})
+				.decayTime(691200L)
+				.dimensions(3, 3, 3)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(30) // no hard lock
+				.build();
+
+		potionLiquidManaId = potionLiquidMana.getTemplateId();
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.potionLiquidHealId,	AlchItems.gemPowderId, potionLiquidManaId, true, true, 0f, false,false,0,40.0,CreationCategories.DECORATION);
+	}
+
 	private static void registerPotionLiquidMorningFog() throws IOException {
 		potionLiquidMorningFog = new ItemTemplateBuilder("arathok.alchemy.potionLiquidMorningFog")
 				.name(" potion liquid of fog skin", "potion liquids of fog skin",
@@ -1665,6 +1749,64 @@ public class AlchItems {
 
 		potionIdVynora = potionVynora.getTemplateId();
 		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.potionLiquidVynoraId, potionIdVynora, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+	}
+
+	private static void registerPotionMana() throws IOException {
+		potionMana = new ItemTemplateBuilder("arathok.alchemy.potionMana")
+				.name(" potion of mana", "potions of mana",
+						"This potion is in the upper echelons of alchemy. It contains the power of the gods. ")
+
+				.modelName("model.potion.mana.")
+				.imageNumber((short) 1566)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(2073600L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(40) // no hard lock
+				.build();
+
+		potionManaId = potionMana.getTemplateId();
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.potionLiquidManaId, potionManaId, true, true, 0f, false, false,0,40.0,	CreationCategories.ALCHEMY);
+	}
+
+	private static void registerPotionKarma() throws IOException {
+		potionKarma = new ItemTemplateBuilder("arathok.alchemy.potionKarma")
+				.name(" potion of karma", "potions of karma",
+						"This potion is in the upper echelons of alchemy. It contains the power of the one true self. ")
+
+				.modelName("model.potion.karma.")
+				.imageNumber((short) 1566)
+				.itemTypes(new short[] {
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_HERB,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_TURNABLE,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(2073600L)
+				.dimensions(5, 5, 10)
+				.weightGrams(200)
+				.material(Materials.MATERIAL_MAGIC)
+				.behaviourType((short) 1)
+				.primarySkill(SkillList.GROUP_ALCHEMY)
+				.difficulty(40) // no hard lock
+				.build();
+
+		potionKarmaId = potionKarma.getTemplateId();
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,AlchItems.potionLiquidKarmaId, potionKarmaId, true, true, 0f, false, false,0,50.0,	CreationCategories.ALCHEMY);
 	}
 
 	/// PASTES
@@ -2909,6 +3051,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 		if (Config.purifiedWaterCooking)
 		TempStates.addState(new TempState(ItemList.water, AlchItems.purifiedWaterId, (short) 4000, true, true, false));
 		registerAlchemicalCompound();
+		registerGemPowder();
 
 		registerMixtureHeal();
 		registermixtureDodging();
@@ -2948,6 +3091,8 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 		registerPotionLiquidStrength();
 		registerPotionLiquidTruehit();
 		registerPotionLiquidVynora();
+		registerPotionLiquidMana();
+		registerPotionLiquidKarma();
 
 		registerPotionDodge();
 		registerPotionExcell();
@@ -2961,6 +3106,8 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 		registerPotionStrength();
 		registerPotionTruehit();
 		registerPotionVynora();
+		registerPotionKarma();
+		registerPotionMana();
 
 		TempStates.addState(new TempState(AlchItems.precursorExcellId, AlchItems.potionLiquidExcellId, (short) 4000,true, true, false));
 		TempStates.addState(new TempState(AlchItems.precursorFranticChargeId, AlchItems.potionLiquidFranticChargeId,(short) 4000, true, true, false));

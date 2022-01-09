@@ -11,6 +11,7 @@ import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.players.Player;
+import com.wurmonline.server.players.PlayerKill;
 import com.wurmonline.server.spells.SpellEffect;
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
@@ -22,6 +23,7 @@ import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.logging.Level;
 
@@ -107,14 +109,30 @@ public class SipPerformer implements ActionPerformer
 									"Finally your body collapses under the heavy toxication of two potions of the same kind." +
 									" Don't worry. Many alchemists where here and many will be. May the gods be merciful and give you another chance");
 
-					playerInQuestion.p.addWoundOfType(playerInQuestion.p, (byte) 5, 23, false, 1.0F, false, 52000, (float) 1, 0.0F, false, true);
+                    Wounds pWounds = playerInQuestion.p.getBody().getWounds();
+                    float severity = 0;
+                    if (pWounds!=null)
+                    for (Wound w : pWounds.getWounds())
+                    {
+                        severity = severity+w.getSeverity();
+                    }
+
+                    if (severity<9830)
+					playerInQuestion.p.addWoundOfType(playerInQuestion.p, (byte) 5, 23, false, 1.0F, false, 54000, (float) 1, 0.0F, false, true);
+                    else {
+                        playerInQuestion.toxicityWarningLevel=0;
+                        AddictionHandler.addictions.set(index,playerInQuestion);
+                        playerInQuestion.p.die(false, "toxicity");
+
+
+                    }
 
 					return propagate(action,
 									 ActionPropagation.FINISH_ACTION,
 									 ActionPropagation.NO_SERVER_PROPAGATION,
 									 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 				}
-				else if (playerInQuestion.coolDownHealEnd > time && playerInQuestion.toxicityWarningLevel < 1)
+				else if (playerInQuestion.coolDownHealEnd > time && (target.getTemplateId()==AlchItems.potionKarmaId||target.getTemplateId()==AlchItems.potionManaId||target.getTemplateId()==AlchItems.potionIdHeal||target.getTemplateId()==AlchItems.potionIdRefresh) &&playerInQuestion.toxicityWarningLevel < 1)
 				{
 					performer.getCommunicator().sendAlertServerMessage(
 							"You stop your self from drinking that potion. " +
@@ -589,7 +607,7 @@ public class SipPerformer implements ActionPerformer
         }
         if (target.getTemplateId() == AlchItems.potionIdRefresh)
         {
-
+            power = target.getCurrentQualityLevel()*Config.alchemyPower;
 
             double healingPool = ((Math.max(5.0D, power)) / 100.0D) * 65535.0D * 1.0D;
             performer.getStatus().modifyStamina((float) healingPool);
@@ -602,6 +620,41 @@ public class SipPerformer implements ActionPerformer
                 target.setWeight(target.getWeightGrams() - 80, true);
             else
                 Items.destroyItem(target.getWurmId());
+
+        }
+        if (target.getTemplateId() == AlchItems.potionKarmaId)
+        {
+
+            power = target.getCurrentQualityLevel()*Config.alchemyPower;
+            double karmaPool = (Math.max(0.01, (power/100)) * 1000);
+            performer.setKarma(performer.getKarma()+(int)karmaPool);
+
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel your inner power growing!");
+            heal = true;
+
+                Items.destroyItem(target.getWurmId());
+
+        }
+
+        if (target.getTemplateId() == AlchItems.potionManaId)
+        {
+
+            power = target.getCurrentQualityLevel()*Config.alchemyPower;
+            int manaPool = (Math.max(5, (int)power));
+            try {
+                performer.setFavor(performer.getFavor()+manaPool);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            performer.getCommunicator().sendAlertServerMessage(
+                    "You feel the power of the Potion flow through you! " +
+                            "You feel your religious power growing!");
+            heal = true;
+
+            Items.destroyItem(target.getWurmId());
 
         }
 

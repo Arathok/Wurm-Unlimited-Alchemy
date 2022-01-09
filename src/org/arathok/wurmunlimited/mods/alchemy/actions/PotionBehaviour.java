@@ -75,7 +75,15 @@ public class PotionBehaviour implements BehaviourProvider {
 			if (SipPerformer.canUse(performer, target))
 				return new ArrayList<>(consume);
 
-		} else
+		}else if (target.getTemplateId() == AlchItems.potionManaId) {
+			if (SipPerformer.canUse(performer, target))
+				return new ArrayList<>(consume);
+
+		}else if (target.getTemplateId() == AlchItems.potionKarmaId) {
+			if (SipPerformer.canUse(performer, target))
+				return new ArrayList<>(consume);
+
+		}else
 			return null;
 
 
