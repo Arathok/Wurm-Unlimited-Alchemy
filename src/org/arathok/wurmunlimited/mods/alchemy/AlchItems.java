@@ -120,6 +120,7 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_NORENAME,
 						ItemTypes.ITEM_TYPE_NOTRADE,
 						ItemTypes.ITEM_TYPE_NOMOVE,
+						ItemTypes.ITEM_TYPE_NOT_SPELL_TARGET
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
 
 
@@ -299,7 +300,7 @@ public class AlchItems {
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
-				.weightGrams(500)
+				.weightGrams(50000)
 				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
 				.build();
