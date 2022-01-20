@@ -66,7 +66,7 @@ public class OilPerformer implements ActionPerformer {
 		else
 			while (oilChecker.hasNext()) {
 				oiledWeapon= oilChecker.next();
-				if (oiledWeapon.hasOil)
+				if (oiledWeapon.item==target&&oiledWeapon.hasOil)
 				hasOil=true;
 			}
 

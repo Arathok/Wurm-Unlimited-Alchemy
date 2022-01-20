@@ -13,4 +13,5 @@ public class Config {
     public static int addictionTimer = 900;
     public static boolean enchantmentsStack = true;
     public static float oilDurationOnEnchanted = 0.33F;
+    public static float versionNumber = 0.63F;
 }

@@ -13,4 +13,5 @@ public class Addiction {
 	public int toxicityWarningLevel = 0;
 
 
+
 }

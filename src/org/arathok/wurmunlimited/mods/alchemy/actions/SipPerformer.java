@@ -146,7 +146,17 @@ public class SipPerformer implements ActionPerformer
 									 ActionPropagation.NO_SERVER_PROPAGATION,
 									 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 				}
-				else if (playerInQuestion.coolDownBuffEnd > time && playerInQuestion.toxicityWarningLevel < 1)
+				else if (playerInQuestion.coolDownBuffEnd > time && playerInQuestion.toxicityWarningLevel < 1 &&
+                        (target.getTemplateId()== AlchItems.potionIdExcell||
+                                target.getTemplateId()== AlchItems.potionIdGoat||
+                                target.getTemplateId()== AlchItems.potionIdFranticCharge||
+                                target.getTemplateId()== AlchItems.potionIdMorningFog||
+                                target.getTemplateId()== AlchItems.potionIdSixthSense||
+                                target.getTemplateId()== AlchItems.potionIdTruehit||
+                                target.getTemplateId()== AlchItems.potionIdWillowspine||
+                                target.getTemplateId()== AlchItems.potionIdOakshell||
+                                target.getTemplateId()== AlchItems.potionIdVynora||
+                                target.getTemplateId()== AlchItems.potionIdStrength))
 				{
 					performer.getCommunicator().sendAlertServerMessage(
 							"You stop your self from drinking that potion. " +

@@ -41,6 +41,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.addictionTimer = Integer.parseInt(properties.getProperty("addictionTimer", "900"));
 		Config.enchantmentsStack = Boolean.parseBoolean(properties.getProperty("enchantmentsStack", "true"));
 		Config.oilDurationOnEnchanted = Float.parseFloat(properties.getProperty("oilDurationOnEnchant", "1.0F"));
+		Config.versionNumber = Float.parseFloat(properties.getProperty("versionNumber", "0.63F"));
 
 	}
 
@@ -55,8 +56,11 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	}
 
 	@Override
-	public boolean onPlayerMessage(Communicator arg0, String arg1) {
-		// TODO Auto-generated method stub
+	public boolean onPlayerMessage(Communicator communicator, String message) {
+		if (message != null&&message.startsWith("/AlchemyVersion"))
+		{
+			communicator.sendSafeServerMessage("You are on Alchemy Version 0.6.4 ");
+		}
 		return false;
 	}
 

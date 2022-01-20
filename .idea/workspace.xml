@@ -10,10 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/PotionBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/PotionBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/actions/OilPerformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/actions/OilPerformer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/OilPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/OilPerformer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +189,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -198,48 +206,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java</url>
-          <line>53</line>
+          <line>56</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="116" />
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java</url>
-          <line>678</line>
-          <option name="timeStamp" value="118" />
+          <line>160</line>
+          <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java</url>
-          <line>663</line>
-          <option name="timeStamp" value="120" />
+          <line>134</line>
+          <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java</url>
-          <line>666</line>
-          <option name="timeStamp" value="124" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java</url>
-          <line>680</line>
-          <option name="timeStamp" value="125" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java</url>
-          <line>686</line>
-          <option name="timeStamp" value="126" />
+          <line>136</line>
+          <option name="timeStamp" value="133" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -253,8 +241,10 @@
         <watch expression="Config.addictionTimer==0" language="JAVA" custom="org.arathok.wurmunlimited.mods.alchemy.Config" />
       </configuration>
       <configuration name="ProcessAttachRunConfigurationType">
-        <watch expression="Config.addictionTimer" language="JAVA" />
-        <watch expression="addictedPlayer.p.previousAddictionLevel" language="JAVA" />
+        <watch expression="(playerInQuestion.coolDownHealEnd &gt; time &amp;&amp; (target.getTemplateId()==AlchItems.potionKarmaId||target.getTemplateId()==AlchItems.potionManaId||target.getTemplateId()==AlchItems.potionIdHeal||target.getTemplateId()==AlchItems.potionIdRefresh) &amp;&amp;playerInQuestion.toxicityWarningLevel &lt; 1)" language="JAVA" />
+        <watch expression="playerInQuestion.coolDownBuffEnd &gt; time &amp;&amp; playerInQuestion.toxicityWarningLevel &lt; 1 " language="JAVA" />
+        <watch expression="playerInQuestion.coolDownHealEnd-time" language="JAVA" />
+        <watch expression="playerInQuestion.coolDownBuffEnd-time" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
