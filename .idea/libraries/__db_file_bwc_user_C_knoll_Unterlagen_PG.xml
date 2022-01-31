@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="modlauncher">
+  <library name="\\db-file-bwc\user\C.knoll\Unterlagen\PG">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../../../../GAMES/steam/steamapps/common/Wurm Unlimited Dedicated Server/modlauncher.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../../../../GAMES/steam/steamapps/common/Wurm Unlimited Dedicated Server/javassist.jar!/" />
@@ -17,6 +17,10 @@
       <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/javassist.jar!/" />
       <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/modlauncher.jar!/" />
       <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../javassist.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../modlauncher.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../server.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
@@ -28,6 +32,8 @@
       <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/server.jar!/1.0" />
       <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
       <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/1.0" />
+      <root url="jar://$PROJECT_DIR$/../../server.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../server.jar!/1.0" />
     </SOURCES>
   </library>
 </component>

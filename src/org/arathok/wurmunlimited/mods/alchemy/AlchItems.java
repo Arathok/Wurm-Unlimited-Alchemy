@@ -7,14 +7,13 @@ import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.IconConstants;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 
-import javax.mail.FetchProfile;
 import java.io.IOException;
 
 
 public class AlchItems {
 	public static int
 			leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
-			glassMixtureId, glassId,weakLegsId,gemPowderId,
+			glassMixtureId, glassId,weakLegsId,gemPowderId,coalDustId,coalFilterId,
 
 			mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
 			mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
@@ -45,6 +44,7 @@ public class AlchItems {
 			weaponOilKissOfFrostId, weaponOilLeechId, weaponOilHeartseekerId, weaponOilPlagueId, weaponOilPoisonId;
 
 	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,
+			coalDust,coalFilter,
 
 			leader, mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
 			mixtureStrength, mixtureSixthSense, mixtureTruehit, mixtureWillowspine, mixtureRefresh, mixtureVynora,
@@ -281,8 +281,66 @@ public class AlchItems {
 
 		phialId = phial.getTemplateId();
 
-		CreationEntryCreator.createMetallicEntries(SkillList.ALCHEMY_NATURAL, AlchItems.mouldPotteryId, AlchItems.glassId, phialId, false, true, 0f, false, false,0,10, CreationCategories.DECORATION);
+		CreationEntryCreator.createMetallicEntries(SkillList.ALCHEMY_NATURAL, AlchItems.mouldPotteryId, AlchItems.glassId, phialId, false, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
 	} // NO ADDITIONAL ITEMS NEEDED
+
+	private static void registerCharcoalDust() throws IOException {
+		coalDust = new ItemTemplateBuilder("arathok.alchemy.charcoalDust")
+				.name("Coal Dust", "Coal Dust",
+						"Dust from Coal, that can be used in a filter of some sorts. It has good purifying abilities!")
+				.modelName("model.coalDust.")
+				.imageNumber((short) IconConstants.ICON_LIQUID_WATER)
+				.itemTypes(new short[] {
+
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+				})
+				.decayTime(9072000L)
+				.dimensions(5, 5, 10)
+				.weightGrams(10)
+				.material(Materials.MATERIAL_COAL)
+				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+				.build();
+
+		coalDustId = coalDust.getTemplateId();
+
+			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
+
+	}
+
+	private static void registerCharcoalFilter() throws IOException {
+		coalFilter = new ItemTemplateBuilder("arathok.alchemy.charcoalFilter")
+				.name("Coal filter", "Coal filter",
+						"A filter made from charcoal and Cloth. It can be used to purify water but will get used up over time.")
+				.modelName("model.coalFilter.")
+				.imageNumber((short) IconConstants.ICON_WOOD_BED_FRAME)
+				.itemTypes(new short[] {
+
+						ItemTypes.ITEM_TYPE_TOOL,
+						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+						ItemTypes.ITEM_TYPE_NAMED,
+						ItemTypes.ITEM_TYPE_BULK,
+						ItemTypes.ITEM_TYPE_DECORATION,
+						ItemTypes.ITEM_TYPE_PLANTABLE,
+
+				})
+				.decayTime(619200L)
+				.dimensions(5, 5, 5)
+				.weightGrams(1000)
+				.material(Materials.MATERIAL_COAL)
+				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+				.build();
+
+		coalFilterId = coalFilter.getTemplateId();
+
+		CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.shaft, ItemList.shaft, coalFilterId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY)
+				.addRequirement(new CreationRequirement(1, AlchItems.coalDustId, 5, true))
+				.addRequirement(new CreationRequirement(2, ItemList.clothYard, 2, true))
+				.addRequirement(new CreationRequirement(3, ItemList.shaft, 2, true))
+				.addRequirement(new CreationRequirement(4, ItemList.nailsIronSmall, 4, true));
+
+	}
 
 	private static void registerPurifiedWater() throws IOException {
 		purifiedWater = new ItemTemplateBuilder("arathok.alchemy.purifiedWater")
@@ -297,17 +355,18 @@ public class AlchItems {
 						ItemTypes.ITEM_TYPE_LIQUID,
 						ItemTypes.ITEM_TYPE_METAL,
 						ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
 				})
 				.decayTime(9072000L)
 				.dimensions(5, 5, 10)
-				.weightGrams(50000)
+				.weightGrams(1000)
 				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
 				.build();
 
 		purifiedWaterId = purifiedWater.getTemplateId();
-		if (!Config.purifiedWaterCooking)
-			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.water, ItemList.charcoal, purifiedWaterId, true, true, 0f, false, false,0,5, CreationCategories.DECORATION);
+
+			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.water, AlchItems.coalFilterId, purifiedWaterId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
 
 	}
 
@@ -365,11 +424,11 @@ public class AlchItems {
 				.build();
 
 		gemPowderId = gemPowder.getTemplateId();
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.ruby,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.emerald,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.diamond,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.sapphire,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.opal,gemPowderId, false, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.ruby,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.emerald,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.diamond,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.sapphire,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.opal,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
 	}
 
 	private static void registermixtureDodging() throws IOException {
@@ -3048,6 +3107,8 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 		registerMouldPottery();
 		TempStates.addState(new TempState(AlchItems.mouldClayId, AlchItems.mouldPotteryId, (short) 4000, true, true, false));
 		registerPhial();
+		registerCharcoalDust();
+		registerCharcoalFilter();
 		registerPurifiedWater();
 		if (Config.purifiedWaterCooking)
 		TempStates.addState(new TempState(ItemList.water, AlchItems.purifiedWaterId, (short) 4000, true, true, false));
