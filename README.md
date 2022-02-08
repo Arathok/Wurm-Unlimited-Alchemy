@@ -9,9 +9,9 @@ Craft Phials and Alchemical Compound to prepare for making potions.
 Use potions to give yourself an edge in any situation or to sell them and become a real alchemist!
 
 ** REQUIREMENTS:
-This is a Server mod. You need Agos Server Mod Launcher for it to work. -> [[https://github.com/ago1024/WurmServerModLauncher][https://github.com/ago1024/WurmServerModLauncher]]
+This is a Server mod. You need Agos Server Mod Launcher for it to work. -> https://github.com/ago1024/WurmServerModLauncher
 For the custom items you need the server packs mod (from the modlauncher page above) and configure it to share its graphics pack with your players (my mod should do on its own).
-The players also need to have Agos Client Mod launcher with serverpacks mod -> [[https://github.com/ago1024/WurmClientModLauncher][https://github.com/ago1024/WurmClientModLauncher]]
+The players also need to have Agos Client Mod launcher with serverpacks mod -> https://github.com/ago1024/WurmClientModLauncher
 
 If you have any Questions contact me through issues here or on Discord Arathok#1880
 
@@ -29,7 +29,9 @@ If you have any Questions contact me through issues here or on Discord Arathok#1
 1. Explore the new recipes by looking for paste  / mixture / phial in your crafting helper [N]!
 
 
-[[https://i.imgur.com/kccAmOE.jpg]]
+
+![Alchemy Techtree](https://user-images.githubusercontent.com/36503011/153033397-4365f31e-e1b9-47a8-9ed9-34e1cabd2f1e.jpg)
+
 
 *** BALANCING:
 
