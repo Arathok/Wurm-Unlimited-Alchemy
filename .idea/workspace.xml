@@ -10,10 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.idea/libraries/modlauncher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/__db_file_bwc_user_C_knoll_Unterlagen_PG.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wurm-Unlimited-Alchemy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Wurm-Unlimited-Alchemy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alchemy.jar" beforeDir="false" afterPath="$PROJECT_DIR$/alchemy.jar" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/alchemy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/alchemy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alchemy.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/AlchItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/AlchItems.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" afterDir="false" />
     </list>
@@ -62,7 +71,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+<<<<<<< Updated upstream
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../server.jar" />
+=======
+    <property name="last_opened_file_path" value="D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/mods/alchemy" />
+>>>>>>> Stashed changes
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -187,7 +200,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

@@ -43,8 +43,12 @@ public class AlchItems {
 			weaponOilDemiseAnimalId, weaponOilDemiseMonsterId, weaponOilDemiseLegendaryId, weaponOilDemiseHumanId, weaponOilLickOfFireId,
 			weaponOilKissOfFrostId, weaponOilLeechId, weaponOilHeartseekerId, weaponOilPlagueId, weaponOilPoisonId;
 
+<<<<<<< Updated upstream
 	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,
 			coalDust,coalFilter,
+=======
+	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,coalDust,coalFilter,
+>>>>>>> Stashed changes
 
 			leader, mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
 			mixtureStrength, mixtureSixthSense, mixtureTruehit, mixtureWillowspine, mixtureRefresh, mixtureVynora,
@@ -305,7 +309,11 @@ public class AlchItems {
 
 		coalDustId = coalDust.getTemplateId();
 
+<<<<<<< Updated upstream
 			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
+=======
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
+>>>>>>> Stashed changes
 
 	}
 
@@ -342,6 +350,10 @@ public class AlchItems {
 
 	}
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	private static void registerPurifiedWater() throws IOException {
 		purifiedWater = new ItemTemplateBuilder("arathok.alchemy.purifiedWater")
 				.name("purified water", "purified water",
@@ -1570,7 +1582,7 @@ public class AlchItems {
 
 				})
 				.decayTime(2073600L)
-				.dimensions(5, 5, 10)
+				.dimensions(1, 1, 2)
 				.weightGrams(200)
 				.material(Materials.MATERIAL_MAGIC)
 				.behaviourType((short) 1)
@@ -1673,7 +1685,8 @@ public class AlchItems {
 				.name(" potion of stamina", "potions of stamina",
 						"An alchemistic potion, drinking it will regenerate some stamina for you.")
 
-				.modelName("model.potion.stamina.").imageNumber((short) 1565)
+				.modelName("model.potion.stamina.")
+				.imageNumber((short) 1565)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -1817,7 +1830,7 @@ public class AlchItems {
 						"This potion is in the upper echelons of alchemy. It contains the power of the gods. ")
 
 				.modelName("model.potion.mana.")
-				.imageNumber((short) 1566)
+				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_HERB,
@@ -2890,7 +2903,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.name(" Weapon oil of the Dragon Hunter", "Weapon Oils of Dragon Hunter",
 						"An alchemistic weapon oil. It will make your weapons more proficient against legendary monsters")
 
-				.modelName("model.WeaponOil.DragonHunter.")
+				.modelName("model.WeaponOil.")
 				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
@@ -2920,7 +2933,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.name(" Weapon oil of the Heartseeker", "Weapon Oils of the Heartseeker",
 						"An alchemistic weapon oil. It will make your weapons cut critical wounds.")
 
-				.modelName("model.WeaponOil.Heartseeker.")
+				.modelName("model.WeaponOil.")
 				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
@@ -2950,7 +2963,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.name(" Frostkiss Weapon oil ", "Weapon oils of Frostkiss",
 						"An alchemistic weapon oil. It will make your weapons cause frostbite.")
 
-				.modelName("model.WeaponOil.Frostkiss.")
+				.modelName("model.WeaponOil.")
 				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
@@ -2980,7 +2993,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.name(" Lick of Fire oil", "Weapon Oils of Lick of Fire",
 						"An An alchemistic weapon oil. It will make your weapons cause burns.")
 
-				.modelName("model.WeaponOil.FireLick.")
+				.modelName("model.WeaponOil.")
 				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
@@ -3010,7 +3023,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.name(" Weapon oil of the Snake", "Weapon Oils of the Snake",
 						"An alchemistic weapon oil. It will make your weapons poison enemies.")
 
-				.modelName("model.WeaponOil.Poison.")
+				.modelName("model.WeaponOil.")
 				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
@@ -3040,7 +3053,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.name(" Weapon oil of the Plague", "Weapon Oils of Plague",
 						"An alchemistic weapon oil. It will make your weapons cause infected wounds.")
 
-				.modelName("model.WeaponOil.Plague.")
+				.modelName("model.WeaponOil.")
 				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						 ItemTypes.ITEM_TYPE_BULK,
@@ -3070,7 +3083,7 @@ private static void registerPrecursorDemiseAnimal() throws IOException {
 				.name(" Weapon oil of the Leech", "Weapon Oils of Leech",
 						"An alchemistic weapon oil. It will make your weapons draw an enemies life force.")
 
-				.modelName("model.WeaponOil.Leech.")
+				.modelName("model.WeaponOil.")
 				.imageNumber((short) 1569)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
