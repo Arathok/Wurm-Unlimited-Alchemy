@@ -60,7 +60,11 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		if (message != null&&message.startsWith("/AlchemyVersion"))
 		{
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			communicator.sendSafeServerMessage("You are on Alchemy Version 0.6.6 ");
+=======
+			communicator.sendSafeServerMessage("You are on Alchemy Version 0.7 ");
+>>>>>>> Stashed changes
 =======
 			communicator.sendSafeServerMessage("You are on Alchemy Version 0.7 ");
 >>>>>>> Stashed changes

@@ -44,8 +44,12 @@ public class AlchItems {
 			weaponOilKissOfFrostId, weaponOilLeechId, weaponOilHeartseekerId, weaponOilPlagueId, weaponOilPoisonId;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,
 			coalDust,coalFilter,
+=======
+	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,coalDust,coalFilter,
+>>>>>>> Stashed changes
 =======
 	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,coalDust,coalFilter,
 >>>>>>> Stashed changes
@@ -310,7 +314,11 @@ public class AlchItems {
 		coalDustId = coalDust.getTemplateId();
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
+=======
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
+>>>>>>> Stashed changes
 =======
 		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
 >>>>>>> Stashed changes
@@ -351,6 +359,10 @@ public class AlchItems {
 	}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
