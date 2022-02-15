@@ -21,6 +21,7 @@
       <root url="jar://$PROJECT_DIR$/../../javassist.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../modlauncher.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../server.jar!/" />
+      <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/mods/bdew_server_mod_tools/bdew_server_mod_tools.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

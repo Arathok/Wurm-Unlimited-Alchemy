@@ -2,10 +2,6 @@ package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
 import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
-import com.wurmonline.server.Players;
-import com.wurmonline.server.Server;
-import com.wurmonline.server.players.Player;
-import com.wurmonline.server.zones.Zone;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.actions.OilPerformer;
@@ -15,9 +11,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 
-public class EnchantmentHandler {
+public class EnchantmentHandlerWITHBDEW {
 
-    public EnchantmentHandler() {
+    public EnchantmentHandlerWITHBDEW() {
 
     }
 
@@ -72,7 +68,6 @@ public class EnchantmentHandler {
                 Alchemy.logger.log(Level.SEVERE,"No item found for the id"+enchantedItem.itemId,e);
                 e.printStackTrace();
             }
-            enchantmentsIterator.remove();
         }
 
         if (enchantedItem.item.getPosX()< 50||enchantedItem.item.getPosX()>Config.worldMaxX-50||enchantedItem.item.getPosY()< 50||enchantedItem.item.getPosY()> Config.worldMaxY-50)
@@ -84,8 +79,8 @@ public class EnchantmentHandler {
             } catch (NoSuchItemException e) {
                 Alchemy.logger.log(Level.SEVERE,"No item found for the id"+enchantedItem.itemId,e);
                 e.printStackTrace();
+           
             }
-            enchantmentsIterator.remove();
         }
 
     }
