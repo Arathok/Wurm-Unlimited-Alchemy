@@ -396,7 +396,7 @@ public class AlchItems {
 
 		alchemicalCompoundId = alchemicalCompound.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.purifiedWaterId, ItemList.heart,alchemicalCompoundId, true, true, 0f, true, false, 0,5,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.purifiedWaterId, ItemList.heart,alchemicalCompoundId, true, true, 0f, false, false, 0,5,CreationCategories.ALCHEMY);
 	}
 
 	private static void registerGemPowder() throws IOException {
