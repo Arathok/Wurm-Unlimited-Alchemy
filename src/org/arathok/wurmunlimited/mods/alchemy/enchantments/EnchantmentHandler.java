@@ -23,23 +23,7 @@ import java.util.List;
     Enchantment enchantedItem;
     while (enchantmentsIterator.hasNext()) {
         enchantedItem=enchantmentsIterator.next();
-        if (enchantedItem.item.isTraded()&&enchantedItem.timeRunout>time)
-        {
-            Player owner = Players.getInstance().getPlayerOrNull(enchantedItem.item.getOwnerId());
-            try {
-
-                enchantedItem.item.dropItem(enchantedItem.item.getWurmId(),false);
-                owner.getCommunicator().sendSafeServerMessage("The Item is too oily to be traded right now, it drops to the ground instead");
-
-
-            } catch (NoSuchItemException e) {
-                e.printStackTrace();
-            }
-
-
-
-        }
-        else if (enchantedItem.timeRunout<time&&!enchantedItem.item.isTraded())
+         if (enchantedItem.timeRunout<time&&!enchantedItem.item.isTraded())
         {
             enchantedItem.item.getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
             enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
