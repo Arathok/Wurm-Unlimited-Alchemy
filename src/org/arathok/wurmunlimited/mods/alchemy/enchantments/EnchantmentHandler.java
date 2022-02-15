@@ -3,7 +3,9 @@ package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.Players;
+import com.wurmonline.server.Server;
 import com.wurmonline.server.players.Player;
+import com.wurmonline.server.zones.Zone;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.actions.OilPerformer;
@@ -81,6 +83,7 @@ public class EnchantmentHandler {
             } catch (NoSuchItemException e) {
                 Alchemy.logger.log(Level.SEVERE,"No item found for the id"+enchantedItem.itemId,e);
                 e.printStackTrace();
+           
             }
         }
 
