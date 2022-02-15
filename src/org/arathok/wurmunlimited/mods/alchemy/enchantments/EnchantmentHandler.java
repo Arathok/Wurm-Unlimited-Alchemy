@@ -1,5 +1,8 @@
 package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
+import com.wurmonline.server.NoSuchItemException;
+import com.wurmonline.server.Players;
+import com.wurmonline.server.players.Player;
 import org.arathok.wurmunlimited.mods.alchemy.actions.OilPerformer;
 
 import java.util.Iterator;
@@ -17,16 +20,32 @@ import java.util.List;
         Long time = System.currentTimeMillis();
     //Iterate over me Baby!
     Iterator<Enchantment> enchantmentsIterator = enchantments.iterator();
-    Enchantment enchant;
+    Enchantment enchantedItem;
     while (enchantmentsIterator.hasNext()) {
-        enchant=enchantmentsIterator.next();
-        if (enchant.timeRunout<time)
+        enchantedItem=enchantmentsIterator.next();
+        if (enchantedItem.item.isTraded()&&enchantedItem.timeRunout>time)
         {
-            enchant.item.getSpellEffects().removeSpellEffect(enchant.enchantmentType);
-            enchant.item.setName(OilPerformer.renamedItems.get(enchant.item.getWurmId()));
-            enchant.p.getCommunicator().sendAlertServerMessage("The weapon Oil, coating your weapon completely dried up and returned it back to its previous state");
-            if (enchant.p.isFighting())
-            enchant.p.getCommunicator().sendCombatServerMessage("The weapon Oil, coating your weapon completely dried up and returned it back to its previous state",(byte) 255,(byte) 255,(byte) 0);
+            Player owner = Players.getInstance().getPlayerOrNull(enchantedItem.item.getOwnerId());
+            try {
+
+                enchantedItem.item.dropItem(enchantedItem.item.getWurmId(),false);
+                owner.getCommunicator().sendSafeServerMessage("The Item is too oily to be traded right now, it drops to the ground instead");
+
+
+            } catch (NoSuchItemException e) {
+                e.printStackTrace();
+            }
+
+
+
+        }
+        else if (enchantedItem.timeRunout<time&&!enchantedItem.item.isTraded())
+        {
+            enchantedItem.item.getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+            enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
+            enchantedItem.p.getCommunicator().sendAlertServerMessage("The weapon Oil, coating your weapon completely dried up and returned it back to its previous state");
+            if (enchantedItem.p.isFighting())
+            enchantedItem.p.getCommunicator().sendCombatServerMessage("The weapon Oil, coating your weapon completely dried up and returned it back to its previous state",(byte) 255,(byte) 255,(byte) 0);
             enchantmentsIterator.remove();
         }
 

@@ -141,6 +141,7 @@ public class OilPerformer implements ActionPerformer {
 								" over the " + target.getName() +
 								" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
 								"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+
 						return propagate(action,
 								ActionPropagation.FINISH_ACTION,
 								ActionPropagation.NO_SERVER_PROPAGATION,
