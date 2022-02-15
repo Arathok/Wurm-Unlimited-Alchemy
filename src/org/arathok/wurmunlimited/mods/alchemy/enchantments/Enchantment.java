@@ -12,6 +12,7 @@ public class Enchantment {
     public Long timeRunout;
     public byte enchantmentType;
     public boolean hasOil;
+    public String userGivenName;
 
 
 

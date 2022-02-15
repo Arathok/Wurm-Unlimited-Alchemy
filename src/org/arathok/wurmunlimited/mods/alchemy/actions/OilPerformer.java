@@ -19,6 +19,7 @@ import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.logging.Level;
@@ -26,6 +27,7 @@ import java.util.logging.Level;
 public class OilPerformer implements ActionPerformer {
 
 	public ActionEntry actionEntry;
+	public static HashMap<Long,String> renamedItems;
 	public OilPerformer(){
 
 
@@ -170,6 +172,7 @@ public class OilPerformer implements ActionPerformer {
 				}
 				else
 					Items.destroyItem(source.getWurmId());
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against animals" +
@@ -268,6 +271,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, Murder)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against Humans" +
@@ -363,6 +367,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,monster hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against monsters" +
@@ -458,6 +463,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, legendary hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against legendaries" +
@@ -550,6 +556,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,flaming)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be creating flaming wounds!" +
@@ -642,6 +649,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, frost)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will cause icy wounds!" +
@@ -735,6 +743,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, leech)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now suck out life energy from your opponents!" +
@@ -828,6 +837,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, plague)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause infected wounds" +
@@ -924,6 +934,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, poison)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now poison your enemy" +
@@ -1017,6 +1028,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, heartseeker)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause wounds to be way worse" +

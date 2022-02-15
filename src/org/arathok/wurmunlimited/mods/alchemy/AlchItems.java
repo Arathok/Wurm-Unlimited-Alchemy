@@ -43,16 +43,9 @@ public class AlchItems {
 			weaponOilDemiseAnimalId, weaponOilDemiseMonsterId, weaponOilDemiseLegendaryId, weaponOilDemiseHumanId, weaponOilLickOfFireId,
 			weaponOilKissOfFrostId, weaponOilLeechId, weaponOilHeartseekerId, weaponOilPlagueId, weaponOilPoisonId;
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,
-			coalDust,coalFilter,
-=======
+
 	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,coalDust,coalFilter,
->>>>>>> Stashed changes
-=======
-	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,coalDust,coalFilter,
->>>>>>> Stashed changes
+
 
 			leader, mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
 			mixtureStrength, mixtureSixthSense, mixtureTruehit, mixtureWillowspine, mixtureRefresh, mixtureVynora,
@@ -313,16 +306,6 @@ public class AlchItems {
 
 		coalDustId = coalDust.getTemplateId();
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-			CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
-=======
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
->>>>>>> Stashed changes
-=======
-		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.charcoal, ItemList.mortarAndPestle, coalDustId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY);
->>>>>>> Stashed changes
-
 	}
 
 	private static void registerCharcoalFilter() throws IOException {
@@ -358,14 +341,7 @@ public class AlchItems {
 
 	}
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
 	private static void registerPurifiedWater() throws IOException {
 		purifiedWater = new ItemTemplateBuilder("arathok.alchemy.purifiedWater")
 				.name("purified water", "purified water",
