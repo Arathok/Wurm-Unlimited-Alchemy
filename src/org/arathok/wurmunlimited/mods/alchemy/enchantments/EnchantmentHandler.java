@@ -75,6 +75,19 @@ public class EnchantmentHandler {
             enchantmentsIterator.remove();
         }
 
+        if(enchantedItem.item.isMailed())
+        {
+            try {
+                Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+                enchantedItem.p.getCommunicator().sendAlertServerMessage("Traveling through dimensions via mail used up all the magic of the oil coating your weapon...");
+                enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
+            } catch (NoSuchItemException e) {
+                Alchemy.logger.log(Level.SEVERE,"No item found for the id"+enchantedItem.itemId,e);
+                e.printStackTrace();
+            }
+            enchantmentsIterator.remove();
+        }
+
         if (enchantedItem.item.getPosX()< 50||enchantedItem.item.getPosX()>Config.worldMaxX-50||enchantedItem.item.getPosY()< 50||enchantedItem.item.getPosY()> Config.worldMaxY-50)
         {
             try {
