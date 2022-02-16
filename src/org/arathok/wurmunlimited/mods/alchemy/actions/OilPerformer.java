@@ -113,7 +113,7 @@ public class OilPerformer implements ActionPerformer {
 
 		for (Item item: items)
 		{
-			if (item.getName().contains("pelt"))
+			if (item.getTemplate().getName().contains("pelt")||item.getTemplate().getName().contains("Pelt"));
 				hasPelt=true;
 		}
 
