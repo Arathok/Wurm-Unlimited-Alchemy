@@ -71,10 +71,10 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public boolean onPlayerMessage(Communicator communicator, String message) {
-		if (message != null&&message.startsWith("/AlchemyVersion"))
+		if (message != null&&message.startsWith("#AlchemyVersion"))
 		{
 
-			communicator.sendSafeServerMessage("You are on Alchemy Version 0.7.2 ");
+			communicator.sendSafeServerMessage("You are on Alchemy Version 0.8 ");
 
 		}
 		return false;
