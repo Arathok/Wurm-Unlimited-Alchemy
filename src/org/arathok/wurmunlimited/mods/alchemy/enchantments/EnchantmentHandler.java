@@ -68,6 +68,7 @@ public class EnchantmentHandler {
                 Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
                 enchantedItem.p.getCommunicator().sendAlertServerMessage("Traveling through dimension used up all the magic of the oil coating your weapon...");
                 enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
+                Alchemy.logger.log(Level.INFO,"Oil on Item "+enchantedItem.item.getName()+"was removed because the player was transferring to another server");
             } catch (NoSuchItemException e) {
                 Alchemy.logger.log(Level.SEVERE,"No item found for the id"+enchantedItem.itemId,e);
                 e.printStackTrace();
@@ -81,6 +82,8 @@ public class EnchantmentHandler {
                 Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
                 enchantedItem.p.getCommunicator().sendAlertServerMessage("Traveling through dimensions via mail used up all the magic of the oil coating your weapon...");
                 enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
+                Alchemy.logger.log(Level.INFO,"Oil on Item "+enchantedItem.item.getName()+"was removed because the player was mailing it");
+
             } catch (NoSuchItemException e) {
                 Alchemy.logger.log(Level.SEVERE,"No item found for the id"+enchantedItem.itemId,e);
                 e.printStackTrace();
@@ -88,10 +91,24 @@ public class EnchantmentHandler {
             enchantmentsIterator.remove();
         }
 
-        if (enchantedItem.item.getPosX()< 50||enchantedItem.item.getPosX()>Config.worldMaxX-50||enchantedItem.item.getPosY()< 50||enchantedItem.item.getPosY()> Config.worldMaxY-50)
-        {
+        if (enchantedItem.item.getPosX()< 50||enchantedItem.item.getPosX()>Config.worldMaxX-50||enchantedItem.item.getPosY()< 50||enchantedItem.item.getPosY()> Config.worldMaxY-50) {
 
-Player owner =Players.getInstance().getPlayerOrNull(enchantedItem.item.getOwnerId());
+
+            try {
+                Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+                enchantedItem.p.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
+                enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
+                Alchemy.logger.log(Level.INFO,"Oil on Item "+enchantedItem.item.getName()+"was removed because the player was too close to the world Border");
+            } catch (NoSuchItemException e) {
+                Alchemy.logger.log(Level.SEVERE,"No item found for the id"+enchantedItem.itemId,e);
+                e.printStackTrace();
+            }
+            enchantmentsIterator.remove();
+
+
+
+        }
+        Player owner =Players.getInstance().getPlayerOrNull(enchantedItem.item.getOwnerId());
         if (owner!=null)
         if (owner.isLoggedOut()||!owner.hasLink())
         {
@@ -99,13 +116,14 @@ Player owner =Players.getInstance().getPlayerOrNull(enchantedItem.item.getOwnerI
                 Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
                 enchantedItem.p.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
                 enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
+                Alchemy.logger.log(Level.INFO,"Oil on Item "+enchantedItem.item.getName()+"was removed because the player logged out or lost link");
             } catch (NoSuchItemException e) {
                 Alchemy.logger.log(Level.SEVERE,"No item found for the id"+enchantedItem.itemId,e);
                 e.printStackTrace();
             }
             enchantmentsIterator.remove();
         }
-        }
+
 
     }
 
