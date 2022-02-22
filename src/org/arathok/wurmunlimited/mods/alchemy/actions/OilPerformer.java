@@ -131,7 +131,8 @@ public class OilPerformer implements ActionPerformer {
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
 					eff = effs.getSpellEffect((byte) 11);
-				if (eff == null) {
+				if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null)
+				{
 					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
@@ -194,7 +195,7 @@ public class OilPerformer implements ActionPerformer {
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
 						eff = effs.getSpellEffect((byte) 11);
-					if (eff == null) {
+					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null){
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (seconds));
 						effs.addSpellEffect(eff);
@@ -231,7 +232,7 @@ public class OilPerformer implements ActionPerformer {
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
 					eff = effs.getSpellEffect((byte) 9);
-				if (eff == null) {
+				if (eff == null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null){
 					eff = new SpellEffect(target.getWurmId(), (byte) 9, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
@@ -293,7 +294,7 @@ public class OilPerformer implements ActionPerformer {
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
 						eff = effs.getSpellEffect((byte) 9);
-					if (eff == null) {
+					if (eff == null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null){
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (seconds));
 						effs.addSpellEffect(eff);
@@ -328,7 +329,7 @@ public class OilPerformer implements ActionPerformer {
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 10);
-				if (eff == null) {
+				if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 12)== null){
 					eff = new SpellEffect(target.getWurmId(), (byte) 10, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
@@ -389,7 +390,7 @@ public class OilPerformer implements ActionPerformer {
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
 					eff = effs.getSpellEffect((byte) 10);
-					if (eff == null) {
+					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 12)== null){
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (seconds));
 						effs.addSpellEffect(eff);
@@ -426,7 +427,7 @@ public class OilPerformer implements ActionPerformer {
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 12);
-				if (eff == null) {
+				if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 11)== null){
 					eff = new SpellEffect(target.getWurmId(), (byte) 12, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
@@ -485,7 +486,7 @@ public class OilPerformer implements ActionPerformer {
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
 					eff = effs.getSpellEffect((byte) 12);
-					if (eff == null) {
+					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 11)== null){
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (seconds));
 						effs.addSpellEffect(eff);
