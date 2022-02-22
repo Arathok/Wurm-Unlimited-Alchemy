@@ -27,7 +27,7 @@ import java.util.logging.Level;
 public class OilPerformer implements ActionPerformer {
 
 	public ActionEntry actionEntry;
-	public static HashMap<Long,String> renamedItems;
+	public static HashMap<Long,String> renamedItems = new HashMap<>();
 	public OilPerformer(){
 
 
