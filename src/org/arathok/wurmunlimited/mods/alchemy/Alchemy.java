@@ -53,7 +53,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public void preInit() {
-		try {
+	/*	try {
 			ClassPool classPool = HookManager.getInstance().getClassPool();
 
 			CtClass ctItem = classPool.getCtClass("com.wurmonline.server.items.Item");
@@ -62,7 +62,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 			);
 		} catch (Throwable e) {
 			throw new RuntimeException(e);
-		}
+		}*/
 		 ModActions.init();
 
 		
