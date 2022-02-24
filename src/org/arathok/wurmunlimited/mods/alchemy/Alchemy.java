@@ -45,8 +45,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.enchantmentsStack = Boolean.parseBoolean(properties.getProperty("enchantmentsStack", "true"));
 		Config.oilDurationOnEnchanted = Float.parseFloat(properties.getProperty("oilDurationOnEnchant", "1.0F"));
 		Config.versionNumber = Float.parseFloat(properties.getProperty("versionNumber", "0.63F"));
-		Config.worldMaxX = Integer.parseInt(properties.getProperty("worldMaxX", "4096"));
-		Config.worldMaxY = Integer.parseInt(properties.getProperty("worldMaxY", "4096"));
+	//	Config.worldMaxX = Integer.parseInt(properties.getProperty("worldMaxX", "4096"));
+	//	Config.worldMaxY = Integer.parseInt(properties.getProperty("worldMaxY", "4096"));
 
 	}
 
@@ -74,7 +74,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		if (message != null&&message.startsWith("#AlchemyVersion"))
 		{
 
-			communicator.sendSafeServerMessage("You are on Alchemy Version 0.8 ");
+			communicator.sendSafeServerMessage("You are on Alchemy Version 0.8.3 ");
 
 		}
 		return false;
@@ -108,8 +108,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		  new EnchantmentHandler();
 		  new AddictionHandler();
 		logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
-
-          logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
+		logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
 	}
 
 

@@ -4,6 +4,7 @@ import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.Players;
 import com.wurmonline.server.players.Player;
+import com.wurmonline.server.zones.Zones;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.actions.OilPerformer;
@@ -93,7 +94,7 @@ public class EnchantmentHandler {
 
             // IF ITEM IS TOO CLOSE TO THE SERVER BORDER
 
-            if (enchantedItem.item.getPosX() < 50 || enchantedItem.item.getPosX() > Config.worldMaxX - 50 || enchantedItem.item.getPosY() < 50 || enchantedItem.item.getPosY() > Config.worldMaxY - 50) {
+            if (enchantedItem.item.getTileX() < 50 || enchantedItem.item.getTileX() > Zones.worldTileSizeX - 50 || enchantedItem.item.getTileY() < 50 || enchantedItem.item.getTileY() > Zones.worldTileSizeY - 50) {
 
 
                 try {
