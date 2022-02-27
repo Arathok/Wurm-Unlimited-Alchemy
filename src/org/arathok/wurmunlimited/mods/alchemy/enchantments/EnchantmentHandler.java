@@ -3,6 +3,7 @@ package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.Players;
+import com.wurmonline.server.Server;
 import com.wurmonline.server.players.Player;
 import com.wurmonline.server.zones.Zones;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
@@ -116,7 +117,8 @@ public class EnchantmentHandler {
 
 
             Player owner = Players.getInstance().getPlayerOrNull(enchantedItem.item.getOwnerId());
-            if (owner != null) {
+            if (owner != null)
+            {
                 if (owner.isLoggedOut() || !owner.hasLink()) {
                     try {
                         Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
@@ -142,6 +144,22 @@ public class EnchantmentHandler {
                 }
                 enchantmentsIterator.remove();
             }
+
+            // If the Server is shutting down
+            if (Server.getMillisToShutDown()<10000)
+            {
+                try {
+                    Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+                    enchantedItem.p.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
+                    enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
+                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the player logged out or lost link");
+                } catch (NoSuchItemException e) {
+                    Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
+                    e.printStackTrace();
+                }
+                enchantmentsIterator.remove();
+            }
+
 
 
         }
