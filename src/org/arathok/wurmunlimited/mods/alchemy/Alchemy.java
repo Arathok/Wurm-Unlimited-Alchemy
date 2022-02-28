@@ -1,10 +1,13 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
 import com.wurmonline.server.creatures.Communicator;
+import javassist.ClassPool;
+import javassist.CtClass;
 import org.arathok.wurmunlimited.mods.alchemy.actions.OilBehaviour;
 import org.arathok.wurmunlimited.mods.alchemy.actions.PotionBehaviour;
 import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
+import org.gotti.wurmunlimited.modloader.classhooks.HookManager;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
@@ -42,13 +45,24 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.enchantmentsStack = Boolean.parseBoolean(properties.getProperty("enchantmentsStack", "true"));
 		Config.oilDurationOnEnchanted = Float.parseFloat(properties.getProperty("oilDurationOnEnchant", "1.0F"));
 		Config.versionNumber = Float.parseFloat(properties.getProperty("versionNumber", "0.63F"));
+	//	Config.worldMaxX = Integer.parseInt(properties.getProperty("worldMaxX", "4096"));
+	//	Config.worldMaxY = Integer.parseInt(properties.getProperty("worldMaxY", "4096"));
 
 	}
 
 
 	@Override
 	public void preInit() {
-		
+	/*	try {
+			ClassPool classPool = HookManager.getInstance().getClassPool();
+
+			CtClass ctItem = classPool.getCtClass("com.wurmonline.server.items.Item");
+			ctItem.getMethod("getName", "(Z)Ljava/lang/String;").insertAfter(
+					"return path.to.MyHooks.getNameHook(this, $_);"
+			);
+		} catch (Throwable e) {
+			throw new RuntimeException(e);
+		}*/
 		 ModActions.init();
 
 		
@@ -57,9 +71,11 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public boolean onPlayerMessage(Communicator communicator, String message) {
-		if (message != null&&message.startsWith("/AlchemyVersion"))
+		if (message != null&&message.startsWith("#AlchemyVersion"))
 		{
-			communicator.sendSafeServerMessage("You are on Alchemy Version 0.6.6 ");
+
+			communicator.sendSafeServerMessage("You are on Alchemy Version 0.8.5 ");
+
 		}
 		return false;
 	}
@@ -92,8 +108,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		  new EnchantmentHandler();
 		  new AddictionHandler();
 		logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
-
-          logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
+		logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
 	}
 
 

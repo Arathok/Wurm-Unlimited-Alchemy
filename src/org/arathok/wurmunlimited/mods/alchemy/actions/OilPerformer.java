@@ -19,6 +19,7 @@ import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.logging.Level;
@@ -26,6 +27,7 @@ import java.util.logging.Level;
 public class OilPerformer implements ActionPerformer {
 
 	public ActionEntry actionEntry;
+	public static HashMap<Long,String> renamedItems = new HashMap<>();
 	public OilPerformer(){
 
 
@@ -111,7 +113,7 @@ public class OilPerformer implements ActionPerformer {
 
 		for (Item item: items)
 		{
-			if (item.getName().contains("pelt"))
+			if (item.getTemplate().getName().contains("pelt")||item.getTemplate().getName().contains("Pelt"));
 				hasPelt=true;
 		}
 
@@ -129,7 +131,8 @@ public class OilPerformer implements ActionPerformer {
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
 					eff = effs.getSpellEffect((byte) 11);
-				if (eff == null) {
+				if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null)
+				{
 					eff = new SpellEffect(target.getWurmId(), (byte) 11, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
@@ -139,6 +142,7 @@ public class OilPerformer implements ActionPerformer {
 								" over the " + target.getName() +
 								" but it already has an enchantment of that same type on it. A priest has poured a piece of " +
 								"their soul into this weapon and the enchantment repels the oil", (byte) 2);
+
 						return propagate(action,
 								ActionPropagation.FINISH_ACTION,
 								ActionPropagation.NO_SERVER_PROPAGATION,
@@ -170,6 +174,7 @@ public class OilPerformer implements ActionPerformer {
 				}
 				else
 					Items.destroyItem(source.getWurmId());
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against animals" +
@@ -190,7 +195,7 @@ public class OilPerformer implements ActionPerformer {
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
 						eff = effs.getSpellEffect((byte) 11);
-					if (eff == null) {
+					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null){
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (seconds));
 						effs.addSpellEffect(eff);
@@ -227,7 +232,7 @@ public class OilPerformer implements ActionPerformer {
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
 					eff = effs.getSpellEffect((byte) 9);
-				if (eff == null) {
+				if (eff == null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null){
 					eff = new SpellEffect(target.getWurmId(), (byte) 9, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
@@ -268,6 +273,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, Murder)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against Humans" +
@@ -288,7 +294,7 @@ public class OilPerformer implements ActionPerformer {
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
 						eff = effs.getSpellEffect((byte) 9);
-					if (eff == null) {
+					if (eff == null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null){
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (seconds));
 						effs.addSpellEffect(eff);
@@ -323,7 +329,7 @@ public class OilPerformer implements ActionPerformer {
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 10);
-				if (eff == null) {
+				if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 12)== null){
 					eff = new SpellEffect(target.getWurmId(), (byte) 10, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
@@ -363,6 +369,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,monster hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against monsters" +
@@ -383,7 +390,7 @@ public class OilPerformer implements ActionPerformer {
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
 					eff = effs.getSpellEffect((byte) 10);
-					if (eff == null) {
+					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 12)== null){
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (seconds));
 						effs.addSpellEffect(eff);
@@ -420,7 +427,7 @@ public class OilPerformer implements ActionPerformer {
 				if (effs == null)
 					effs = new ItemSpellEffects(target.getWurmId());
 				eff = effs.getSpellEffect((byte) 12);
-				if (eff == null) {
+				if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 11)== null){
 					eff = new SpellEffect(target.getWurmId(), (byte) 12, power, (seconds));
 					effs.addSpellEffect(eff);
 				}
@@ -458,6 +465,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, legendary hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against legendaries" +
@@ -478,7 +486,7 @@ public class OilPerformer implements ActionPerformer {
 					if (effs == null)
 						effs = new ItemSpellEffects(arrow.getWurmId());
 					eff = effs.getSpellEffect((byte) 12);
-					if (eff == null) {
+					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 11)== null){
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (seconds));
 						effs.addSpellEffect(eff);
@@ -550,6 +558,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,flaming)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be creating flaming wounds!" +
@@ -642,6 +651,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, frost)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will cause icy wounds!" +
@@ -735,6 +745,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, leech)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now suck out life energy from your opponents!" +
@@ -828,6 +839,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, plague)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause infected wounds" +
@@ -924,6 +936,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, poison)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now poison your enemy" +
@@ -1017,6 +1030,7 @@ public class OilPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
+				renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, heartseeker)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause wounds to be way worse" +
@@ -1069,6 +1083,7 @@ public class OilPerformer implements ActionPerformer {
 		if (eff!=null)
 		{
 			e.item= target;
+			e.itemId = target.getWurmId();
 			e.p= Players.getInstance().getPlayerOrNull(target.getOwnerId());
 			e.timeRunout = System.currentTimeMillis()+(seconds*1000L);
 			e.enchantmentType = eff.type;

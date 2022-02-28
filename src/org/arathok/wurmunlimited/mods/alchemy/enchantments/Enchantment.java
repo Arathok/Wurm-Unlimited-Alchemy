@@ -9,9 +9,11 @@ public class Enchantment {
 
     public Player p = null;
     public Item item = null;
+    public Long itemId=0L;
     public Long timeRunout;
     public byte enchantmentType;
     public boolean hasOil;
+    public String userGivenName;
 
 
 
