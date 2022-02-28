@@ -4,7 +4,7 @@ import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
-import org.arathok.wurmunlimited.mods.alchemy.actions.OilPerformer;
+import org.arathok.wurmunlimited.mods.alchemy.oils.OilPerformer;
 
 import java.util.Iterator;
 import java.util.LinkedList;

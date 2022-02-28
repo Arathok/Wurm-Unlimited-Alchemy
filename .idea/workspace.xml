@@ -10,7 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
+      <change afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviour.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/OilBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/OilPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/PotionBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/actions/SipPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandlerWITHBDEW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandlerWITHBDEW.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +54,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
   <component name="ProjectId" id="1xWhuoNre1IwOLTQnglrNE6o72D" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -68,6 +78,8 @@
       <recent name="Z:\Unterlagen\PG\5_Programme\Wurm-Unlimited-Alchemy" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.arathok.wurmunlimited.mods.alchemy.essences" />
+      <recent name="org.arathok.wurmunlimited.mods.alchemy.oils" />
       <recent name="org.arathok.wurmunlimited.mods.alchemy" />
     </key>
   </component>
@@ -199,7 +211,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java</url>
-          <line>54</line>
+          <line>67</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -1,4 +1,4 @@
-package org.arathok.wurmunlimited.mods.alchemy.actions;
+package org.arathok.wurmunlimited.mods.alchemy.essences;
 
 
 import com.wurmonline.server.Items;
@@ -24,15 +24,15 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.logging.Level;
 
-public class OilPerformer implements ActionPerformer {
+public class EssencesPerformer implements ActionPerformer {
 
 	public ActionEntry actionEntry;
-	public static HashMap<Long,String> renamedItems = new HashMap<>();
-	public OilPerformer(){
+
+	public EssencesPerformer(){
 
 
 
-		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "apply weapon oil", "applying", new int[]{
+		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "imbue essence", "imbueing", new int[]{
 				6 /* ACTION_TYPE_NOMOVE */,
 				48 /* ACTION_TYPE_ENEMY_ALWAYS */,
 				36 /* USE SOURCE AND TARGET */,
@@ -59,26 +59,6 @@ public class OilPerformer implements ActionPerformer {
 		return performer.isPlayer() && source.getOwnerId() == performer.getWurmId() && !source.isTraded();
 	}
 
-	public static boolean isEnchantable(Creature performer, Item target) {
-		Enchantment oiledWeapon;
-		boolean hasOil=false;
-		Iterator <Enchantment> oilChecker = EnchantmentHandler.enchantments.iterator();
-		if (!Config.enchantmentsStack)
-			return ((target.getSpellEffects().getEffects().length==0)||(target.getSpellEffects()==null));
-		else
-			while (oilChecker.hasNext()) {
-				oiledWeapon= oilChecker.next();
-				if (oiledWeapon.item==target&&oiledWeapon.hasOil)
-				hasOil=true;
-			}
-
-			return !hasOil&&!target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
-	}
-
-	public static boolean isWeapon(Item target)
-	{
-		return !target.isWeaponBow() && (target.isWeapon() || target.isArrow()||target.isQuiver());
-	}
 
 	@Override
 	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) { // Since we use target and source this time, only need that override
@@ -95,15 +75,7 @@ public class OilPerformer implements ActionPerformer {
 					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 		}
 
-		if (!isEnchantable(performer, target)) {
-			performer.getCommunicator().sendAlertServerMessage("There is already a lot of magical power stored inside this weapon, you should" +
-					" consult a priest to disenchant it or wait until the current oil has dried off");
-			return propagate(action,
-					ActionPropagation.FINISH_ACTION,
-					ActionPropagation.NO_SERVER_PROPAGATION,
-					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 
-		}
 // EFFECT STUFF GOES HERE
 		seconds=Config.oilDuration;
 		power = source.getCurrentQualityLevel() * Config.alchemyPower;

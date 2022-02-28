@@ -1,4 +1,4 @@
-package org.arathok.wurmunlimited.mods.alchemy.actions;
+package org.arathok.wurmunlimited.mods.alchemy.oils;
 
 import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.creatures.Creature;
@@ -31,43 +31,43 @@ public class OilBehaviour implements BehaviourProvider {
 	@Override
 	public List<ActionEntry> getBehavioursFor(Creature performer, Item source, Item target) {
 
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseAnimalId) {
             if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseMonsterId) {
+		} else if (source.getTemplateId() == OilItems.weaponOilDemiseMonsterId) {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseLegendaryId) {
+		} else if (source.getTemplateId() == OilItems.weaponOilDemiseLegendaryId) {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		} else if (source.getTemplateId() == AlchItems.weaponOilDemiseHumanId) {
+		} else if (source.getTemplateId() == OilItems.weaponOilDemiseHumanId) {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		} else if (source.getTemplateId() == AlchItems.weaponOilLickOfFireId) {
+		} else if (source.getTemplateId() == OilItems.weaponOilLickOfFireId) {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		} else if (source.getTemplateId() == AlchItems.weaponOilKissOfFrostId) {
+		} else if (source.getTemplateId() == OilItems.weaponOilKissOfFrostId) {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		} else if (source.getTemplateId() == AlchItems.weaponOilHeartseekerId) {
+		} else if (source.getTemplateId() == OilItems.weaponOilHeartseekerId) {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		} else if (source.getTemplateId() == AlchItems.weaponOilPlagueId) {
+		} else if (source.getTemplateId() == OilItems.weaponOilPlagueId) {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		} else if (source.getTemplateId() == AlchItems.weaponOilPoisonId) {
+		} else if (source.getTemplateId() == OilItems.weaponOilPoisonId) {
 			      if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 
-		}	else if (source.getTemplateId() == AlchItems.weaponOilLeechId) {
+		}	else if (source.getTemplateId() == OilItems.weaponOilLeechId) {
 			if (OilPerformer.canUse(performer, source) && OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
 		}else

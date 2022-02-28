@@ -7,8 +7,7 @@ import com.wurmonline.server.Server;
 import com.wurmonline.server.players.Player;
 import com.wurmonline.server.zones.Zones;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
-import org.arathok.wurmunlimited.mods.alchemy.Config;
-import org.arathok.wurmunlimited.mods.alchemy.actions.OilPerformer;
+import org.arathok.wurmunlimited.mods.alchemy.oils.OilPerformer;
 
 import java.util.Iterator;
 import java.util.LinkedList;

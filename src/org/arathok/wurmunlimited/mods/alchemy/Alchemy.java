@@ -1,13 +1,12 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
 import com.wurmonline.server.creatures.Communicator;
-import javassist.ClassPool;
-import javassist.CtClass;
-import org.arathok.wurmunlimited.mods.alchemy.actions.OilBehaviour;
-import org.arathok.wurmunlimited.mods.alchemy.actions.PotionBehaviour;
+import org.arathok.wurmunlimited.mods.alchemy.oils.OilBehaviour;
+import org.arathok.wurmunlimited.mods.alchemy.oils.OilItems;
+import org.arathok.wurmunlimited.mods.alchemy.potions.PotionBehaviour;
 import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
-import org.gotti.wurmunlimited.modloader.classhooks.HookManager;
+import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
@@ -87,6 +86,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	            try{
 
 					AlchItems.register();
+					PotionItems.register();
+					OilItems.register();
 					logger.log(Level.INFO, "Alchemy is Done loading its Item Templates! Thank you Coldie!");
 
 				} catch (IOException e) {

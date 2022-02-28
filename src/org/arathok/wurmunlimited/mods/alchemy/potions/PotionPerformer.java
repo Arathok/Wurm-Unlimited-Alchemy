@@ -1,4 +1,4 @@
-package org.arathok.wurmunlimited.mods.alchemy.actions;
+package org.arathok.wurmunlimited.mods.alchemy.potions;
 
 
 import com.wurmonline.server.Items;
@@ -11,7 +11,6 @@ import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.creatures.SpellEffects;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.players.Player;
-import com.wurmonline.server.players.PlayerKill;
 import com.wurmonline.server.spells.SpellEffect;
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
@@ -27,7 +26,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.logging.Level;
 
-public class SipPerformer implements ActionPerformer
+public class PotionPerformer implements ActionPerformer
 {
 
     public ActionEntry actionEntry;
@@ -40,7 +39,7 @@ public class SipPerformer implements ActionPerformer
     float power = 0;
 
 
-    public SipPerformer()
+    public PotionPerformer()
     {
         actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "Consume Potion", "consuming",
                                              new int[]{
