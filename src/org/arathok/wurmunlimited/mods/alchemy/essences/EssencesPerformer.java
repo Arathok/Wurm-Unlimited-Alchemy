@@ -14,6 +14,8 @@ import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
+import org.arathok.wurmunlimited.mods.alchemy.oils.OilItems;
+import org.arathok.wurmunlimited.mods.alchemy.oils.OilPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
@@ -96,7 +98,7 @@ public class EssencesPerformer implements ActionPerformer {
 			seconds= (int) (seconds*Config.oilDurationOnEnchanted);								// oil only lasts a fifth of the set time
 
 		// DEMISE ANIMAL
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseAnimalId) {
 			if(target.isWeapon()||target.isArrow())   {
 
 
@@ -146,7 +148,7 @@ public class EssencesPerformer implements ActionPerformer {
 				}
 				else
 					Items.destroyItem(source.getWurmId());
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against animals" +
@@ -197,7 +199,7 @@ public class EssencesPerformer implements ActionPerformer {
 		}
 
 		// DEMISE HUMAN
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseHumanId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseHumanId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -245,7 +247,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, Murder)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against Humans" +
@@ -293,7 +295,7 @@ public class EssencesPerformer implements ActionPerformer {
 		}
 
 		// DEMISE MONSTER
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseMonsterId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseMonsterId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
@@ -341,7 +343,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,monster hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against monsters" +
@@ -391,7 +393,7 @@ public class EssencesPerformer implements ActionPerformer {
 		}
 
 		// DEMISE LEGENDARY
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseLegendaryId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseLegendaryId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
@@ -437,7 +439,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, legendary hunt)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against legendaries" +
@@ -485,7 +487,7 @@ public class EssencesPerformer implements ActionPerformer {
 
 		}
 		// Fires Kiss
-		if (source.getTemplateId() == AlchItems.weaponOilLickOfFireId) {
+		if (source.getTemplateId() == OilItems.weaponOilLickOfFireId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -530,7 +532,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil,flaming)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be creating flaming wounds!" +
@@ -578,7 +580,7 @@ public class EssencesPerformer implements ActionPerformer {
 
 		}
 		// Frost
-		if (source.getTemplateId() == AlchItems.weaponOilKissOfFrostId) {
+		if (source.getTemplateId() == OilItems.weaponOilKissOfFrostId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -623,7 +625,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, frost)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will cause icy wounds!" +
@@ -672,7 +674,7 @@ public class EssencesPerformer implements ActionPerformer {
 		}
 
 		// Leech
-		if (source.getTemplateId() == AlchItems.weaponOilLeechId) {
+		if (source.getTemplateId() == OilItems.weaponOilLeechId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -717,7 +719,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, leech)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now suck out life energy from your opponents!" +
@@ -766,7 +768,7 @@ public class EssencesPerformer implements ActionPerformer {
 		}
 
 		// DEMISE Plague
-		if (source.getTemplateId() == AlchItems.weaponOilPlagueId) {
+		if (source.getTemplateId() == OilItems.weaponOilPlagueId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -811,7 +813,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, plague)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause infected wounds" +
@@ -863,7 +865,7 @@ public class EssencesPerformer implements ActionPerformer {
 		}
 
 		// Poison
-		if (source.getTemplateId() == AlchItems.weaponOilPoisonId) {
+		if (source.getTemplateId() == OilItems.weaponOilPoisonId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -908,7 +910,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, poison)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now poison your enemy" +
@@ -957,7 +959,7 @@ public class EssencesPerformer implements ActionPerformer {
 		}
 
 		// Heartseeker
-		if (source.getTemplateId() == AlchItems.weaponOilHeartseekerId) {
+		if (source.getTemplateId() == OilItems.weaponOilHeartseekerId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -1002,7 +1004,7 @@ public class EssencesPerformer implements ActionPerformer {
 				else
 					Items.destroyItem(source.getWurmId());
 
-				renamedItems.put(target.getWurmId(),target.getName());
+				OilPerformer.renamedItems.put(target.getWurmId(),target.getName());
 				target.setName((target.getName() + " (oil, heartseeker)"));
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause wounds to be way worse" +
