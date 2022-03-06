@@ -2,9 +2,14 @@ package org.arathok.wurmunlimited.mods.alchemy.addiction;
 
 import com.wurmonline.server.FailedException;
 import com.wurmonline.server.Items;
+import com.wurmonline.server.Players;
+import com.wurmonline.server.bodys.Wound;
+import com.wurmonline.server.bodys.Wounds;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemFactory;
 import com.wurmonline.server.items.NoSuchTemplateException;
+import com.wurmonline.server.players.Player;
+import jdk.jfr.Unsigned;
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
@@ -37,6 +42,14 @@ public class AddictionHandler
 
                 addictedPlayer = addictionHandler.next();
                 int index = AddictionHandler.addictions.indexOf(addictedPlayer);
+                if (addictedPlayer.currentAddictionLevel==0)
+                {
+                    Item[] items = addictedPlayer.p.getInventory().getItemsAsArray();
+                    for (Item item : items) {
+                        if (item.getTemplateId() == AlchItems.weakLegsId)
+                            Items.destroyItem(item.getWurmId());
+                    }
+                }
                 if (addictedPlayer.currentAddictionLevel < addictedPlayer.previousAddictionLevel) {
                     addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                             "You are slowly coming down from your addiction:");
@@ -81,8 +94,10 @@ public class AddictionHandler
                         if (!itemFound)
                             try {
                                 Item legs = ItemFactory.createItem(AlchItems.weakLegsId,99.0F,"Addiction");
-                                int yourWeight =(int)((addictedPlayer.p.getStrengthSkill()/5)*7*1.5);
-                                legs.setWeight(yourWeight,true);
+                                double strength = addictedPlayer.p.getStrengthSkill();
+
+                                int yourWeight = (int) ((strength/5)*7*1.5);
+                                legs.setWeight(yourWeight*1000,true);
                                 addictedPlayer.p.getInventory().insertItem(legs,true);
                             } catch (FailedException e) {
                                 e.printStackTrace();
@@ -97,44 +112,132 @@ public class AddictionHandler
                     }
 
 
-                    if (addictedPlayer.previousAddictionLevel >= 10 && addictedPlayer.previousAddictionLevel <= 12) {
+                    if (addictedPlayer.previousAddictionLevel >= 10 && addictedPlayer.previousAddictionLevel < 12) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is moderate. You are suffering from a negligible poisoning"
                         );
+                        Wounds pWounds = addictedPlayer.p.getBody().getWounds();
+                        float severity = 0;
+                        if (pWounds!=null)
+                            for (Wound w : pWounds.getWounds())
+                            {
+                                severity = severity+w.getSeverity();
+                            }
 
-                        addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 5000, (float) 1, 0.0F, false, true);
+                        if (severity+5000< 65500) {
+                            addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 5000, (float) 1, 0.0F, false, true);
+                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
+                            Alchemy.logger.log(Level.INFO,"added Poison wound to player "+addictedPlayer.p.getName()
+                                    +". \nCurrent Addiction Level: "+addictedPlayer.currentAddictionLevel
+                                    +"\n Previous Addiction Level: "+addictedPlayer.previousAddictionLevel
+                                    +"\n Next Effect Polled for this player: "+(addictionTimer)/1000);
+                        }
+                        else
+                            addictedPlayer.p.die(false,"withdrawal effects");
+
                     }
 
-                    if (addictedPlayer.previousAddictionLevel >= 12 && addictedPlayer.previousAddictionLevel <= 15) {
+                    if (addictedPlayer.previousAddictionLevel >= 12 && addictedPlayer.previousAddictionLevel < 15) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is moderate. You are suffering from a mild poisoning"
                         );
-                        addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 10000, (float) 1, 0.0F, false, true);
+                        Wounds pWounds = addictedPlayer.p.getBody().getWounds();
+                        float severity = 0;
+                        if (pWounds!=null)
+                            for (Wound w : pWounds.getWounds())
+                            {
+                                severity = severity+w.getSeverity();
+                            }
+
+                        if (severity+10000< 65500) {
+                            addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 10000, (float) 1, 0.0F, false, true);
+                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
+                            Alchemy.logger.log(Level.INFO,"added Poison wound to player "+addictedPlayer.p.getName()
+                                    +". \nCurrent Addiction Level: "+addictedPlayer.currentAddictionLevel
+                                    +"\n Previous Addiction Level: "+addictedPlayer.previousAddictionLevel
+                                    +"\n Next Effect Polled for this player: "+(addictionTimer)/1000);
+                        }
+                        else
+                            addictedPlayer.p.die(false,"withdrawal effects");
+
                     }
 
-                    if (addictedPlayer.previousAddictionLevel >= 15 && addictedPlayer.previousAddictionLevel <= 20) {
+                    if (addictedPlayer.previousAddictionLevel >= 15 && addictedPlayer.previousAddictionLevel < 20) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is high. You are suffering from a hefty poisoning and you feel a sharp pain inside your head"
                         );
-                        addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 15000, (float) 1, 0.0F, false, true);
-                        addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 5000, 0.0F, 0.0F, false, true);
+                        Wounds pWounds = addictedPlayer.p.getBody().getWounds();
+                        float severity = 0;
+                        if (pWounds!=null)
+                            for (Wound w : pWounds.getWounds())
+                            {
+                                severity = severity+w.getSeverity();
+                            }
+
+                        if (severity+20000< 65500) {
+                            addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 15000, (float) 1, 0.0F, false, true);
+                            addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 5000, 0.0F, 0.0F, false, true);
+                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
+                            Alchemy.logger.log(Level.INFO,"added Poison wound to player "+addictedPlayer.p.getName()
+                                    +". \nCurrent Addiction Level: "+addictedPlayer.currentAddictionLevel
+                                    +"\n Previous Addiction Level: "+addictedPlayer.previousAddictionLevel
+                                    +"\n Next Effect Polled for this player: "+(addictionTimer)/1000);
+                        }
+                        else
+                            addictedPlayer.p.die(false,"withdrawal effects");
+
 
                     }
 
-                    if (addictedPlayer.previousAddictionLevel >= 20 && addictedPlayer.previousAddictionLevel <= 25) {
+                    if (addictedPlayer.previousAddictionLevel >= 20 && addictedPlayer.previousAddictionLevel < 25) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is high. You are suffering from a severe poisoning and your brain feels like its full of knives"
                         );
-                        addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 20000, (float) 1, 0.0F, false, true);
-                        addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 10000, 0.0F, 0.0F, false, true);
+                        Wounds pWounds = addictedPlayer.p.getBody().getWounds();
+                        float severity = 0;
+                        if (pWounds!=null)
+                            for (Wound w : pWounds.getWounds())
+                            {
+                                severity = severity+w.getSeverity();
+                            }
+
+                        if (severity+30000< 65500) {
+                            addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 20000, (float) 1, 0.0F, false, true);
+                            addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 10000, 0.0F, 0.0F, false, true);
+                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
+                            Alchemy.logger.log(Level.INFO,"added Poison wound to player "+addictedPlayer.p.getName()
+                                    +". \nCurrent Addiction Level: "+addictedPlayer.currentAddictionLevel
+                                    +"\n Previous Addiction Level: "+addictedPlayer.previousAddictionLevel
+                                    +"\n Next Effect Polled for this player: "+(addictionTimer)/1000);
+                        }
+                        else
+                            addictedPlayer.p.die(false,"withdrawal effects");
+
 
                     }
                     if (addictedPlayer.previousAddictionLevel >= 25) {
                         addictedPlayer.p.getCommunicator().sendAlertServerMessage(
                                 "Your addiction to magical energy is deadly high. You are suffering from a severe poisoning and your brain loses the connection to reality"
                         );
-                        addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 25000, (float) 1, 0.0F, false, true);
-                        addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 20000, 0.0F, 0.0F, false, true);
+                        Wounds pWounds = addictedPlayer.p.getBody().getWounds();
+                        float severity = 0;
+                        if (pWounds!=null)
+                            for (Wound w : pWounds.getWounds())
+                            {
+                                severity = severity+w.getSeverity();
+                            }
+
+                        if (severity+45000< 65500) {
+                            addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 5, 23, false, 1.0F, false, 25000, (float) 1, 0.0F, false, true);
+                            addictedPlayer.p.addWoundOfType(addictedPlayer.p, (byte) 9, 1, false, 1.0F, false, 20000, 0.0F, 0.0F, false, true);
+                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
+                            Alchemy.logger.log(Level.INFO,"added Poison wound to player "+addictedPlayer.p.getName()
+                                    +". \nCurrent Addiction Level: "+addictedPlayer.currentAddictionLevel
+                                    +"\n Previous Addiction Level: "+addictedPlayer.previousAddictionLevel
+                                    +"\n Next Effect Polled for this player: "+(addictionTimer)/1000);
+                        }
+                        else
+                            addictedPlayer.p.die(false,"withdrawal effects");
 
                     }
                 }
@@ -154,7 +257,7 @@ public class AddictionHandler
                     AddictionHandler.addictions.set(index, addictedPlayer);
 
             }
-            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
+
         }
 
     }

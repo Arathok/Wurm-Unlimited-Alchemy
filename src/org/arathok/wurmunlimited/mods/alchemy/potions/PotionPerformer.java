@@ -131,7 +131,7 @@ public class PotionPerformer implements ActionPerformer
 									 ActionPropagation.NO_SERVER_PROPAGATION,
 									 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 				}
-				else if (playerInQuestion.coolDownHealEnd > time && (target.getTemplateId()==AlchItems.potionKarmaId||target.getTemplateId()==AlchItems.potionManaId||target.getTemplateId()==AlchItems.potionIdHeal||target.getTemplateId()==AlchItems.potionIdRefresh) &&playerInQuestion.toxicityWarningLevel < 1)
+				else if (playerInQuestion.coolDownHealEnd > time && (target.getTemplateId()==PotionItems.potionKarmaId||target.getTemplateId()==PotionItems.potionManaId||target.getTemplateId()==PotionItems.potionIdHeal||target.getTemplateId()==PotionItems.potionIdRefresh) &&playerInQuestion.toxicityWarningLevel < 1)
 				{
 					performer.getCommunicator().sendAlertServerMessage(
 							"You stop your self from drinking that potion. " +
@@ -146,16 +146,16 @@ public class PotionPerformer implements ActionPerformer
 									 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 				}
 				else if (playerInQuestion.coolDownBuffEnd > time && playerInQuestion.toxicityWarningLevel < 1 &&
-                        (target.getTemplateId()== AlchItems.potionIdExcell||
-                                target.getTemplateId()== AlchItems.potionIdGoat||
-                                target.getTemplateId()== AlchItems.potionIdFranticCharge||
-                                target.getTemplateId()== AlchItems.potionIdMorningFog||
-                                target.getTemplateId()== AlchItems.potionIdSixthSense||
-                                target.getTemplateId()== AlchItems.potionIdTruehit||
-                                target.getTemplateId()== AlchItems.potionIdWillowspine||
-                                target.getTemplateId()== AlchItems.potionIdOakshell||
-                                target.getTemplateId()== AlchItems.potionIdVynora||
-                                target.getTemplateId()== AlchItems.potionIdStrength))
+                        (target.getTemplateId()== PotionItems.potionIdExcell||
+                                target.getTemplateId()== PotionItems.potionIdGoat||
+                                target.getTemplateId()== PotionItems.potionIdFranticCharge||
+                                target.getTemplateId()== PotionItems.potionIdMorningFog||
+                                target.getTemplateId()== PotionItems.potionIdSixthSense||
+                                target.getTemplateId()== PotionItems.potionIdTruehit||
+                                target.getTemplateId()== PotionItems.potionIdWillowspine||
+                                target.getTemplateId()== PotionItems.potionIdOakshell||
+                                target.getTemplateId()== PotionItems.potionIdVynora||
+                                target.getTemplateId()== PotionItems.potionIdStrength))
 				{
 					performer.getCommunicator().sendAlertServerMessage(
 							"You stop your self from drinking that potion. " +
@@ -176,7 +176,7 @@ public class PotionPerformer implements ActionPerformer
 // EFFECT STUFF GOES HERE
 //////////BUFFS/////////////
 
-        if (target.getTemplateId() == AlchItems.potionIdExcell)
+        if (target.getTemplateId() == PotionItems.potionIdExcell)
         {
 
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
@@ -217,7 +217,7 @@ public class PotionPerformer implements ActionPerformer
 
         }
 
-        if (target.getTemplateId() == AlchItems.potionIdMorningFog)
+        if (target.getTemplateId() == PotionItems.potionIdMorningFog)
         {
 
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
@@ -258,7 +258,7 @@ public class PotionPerformer implements ActionPerformer
                             "Thorns can not pierce you!");
 
         }
-        if (target.getTemplateId() == AlchItems.potionIdFranticCharge)
+        if (target.getTemplateId() == PotionItems.potionIdFranticCharge)
         {
 
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
@@ -299,7 +299,7 @@ public class PotionPerformer implements ActionPerformer
         }
 
 
-        if (target.getTemplateId() == AlchItems.potionIdGoat)
+        if (target.getTemplateId() == PotionItems.potionIdGoat)
         {
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
 
@@ -332,7 +332,7 @@ public class PotionPerformer implements ActionPerformer
                             "You feel the joyful pride of a goat, weird!");
 
         }
-        if (target.getTemplateId() == AlchItems.potionIdSixthSense)
+        if (target.getTemplateId() == PotionItems.potionIdSixthSense)
         {
 
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
@@ -372,7 +372,7 @@ public class PotionPerformer implements ActionPerformer
                             "You have superior situational awareness!");
         }
 
-        if (target.getTemplateId() == AlchItems.potionIdStrength)
+        if (target.getTemplateId() == PotionItems.potionIdStrength)
         {
 
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
@@ -413,7 +413,7 @@ public class PotionPerformer implements ActionPerformer
                             "You got superior strength!");
         }
 
-        if (target.getTemplateId() == AlchItems.potionIdTruehit)
+        if (target.getTemplateId() == PotionItems.potionIdTruehit)
         {
 
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
@@ -448,7 +448,7 @@ public class PotionPerformer implements ActionPerformer
                             "You feel like you can hit your enemies better!");
         }
 
-        if (target.getTemplateId() == AlchItems.potionIdVynora)
+        if (target.getTemplateId() == PotionItems.potionIdVynora)
         {
 
             if (performer.getFatigueLeft() < 100)
@@ -483,7 +483,7 @@ public class PotionPerformer implements ActionPerformer
 
         }
 
-        if (target.getTemplateId() == AlchItems.potionIdWillowspine)
+        if (target.getTemplateId() == PotionItems.potionIdWillowspine)
         {
 
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
@@ -523,7 +523,7 @@ public class PotionPerformer implements ActionPerformer
                             "You will have an easier time to dodge hits");
         }
 
-        if (target.getTemplateId() == AlchItems.potionIdOakshell)
+        if (target.getTemplateId() == PotionItems.potionIdOakshell)
         {
 
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
@@ -568,7 +568,7 @@ public class PotionPerformer implements ActionPerformer
 
 ///////////////////////HEALING//////////////////////
 
-        if (target.getTemplateId() == AlchItems.potionIdHeal)
+        if (target.getTemplateId() == PotionItems.potionIdHeal)
         {
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
 
@@ -614,7 +614,7 @@ public class PotionPerformer implements ActionPerformer
             else
                 Items.destroyItem(target.getWurmId());
         }
-        if (target.getTemplateId() == AlchItems.potionIdRefresh)
+        if (target.getTemplateId() == PotionItems.potionIdRefresh)
         {
             power = target.getCurrentQualityLevel()*Config.alchemyPower;
 
@@ -631,7 +631,7 @@ public class PotionPerformer implements ActionPerformer
                 Items.destroyItem(target.getWurmId());
 
         }
-        if (target.getTemplateId() == AlchItems.potionKarmaId)
+        if (target.getTemplateId() == PotionItems.potionKarmaId)
         {
 
             power = target.getCurrentQualityLevel()*Config.alchemyPower;
@@ -647,7 +647,7 @@ public class PotionPerformer implements ActionPerformer
 
         }
 
-        if (target.getTemplateId() == AlchItems.potionManaId)
+        if (target.getTemplateId() == PotionItems.potionManaId)
         {
 
             power = target.getCurrentQualityLevel()*Config.alchemyPower;

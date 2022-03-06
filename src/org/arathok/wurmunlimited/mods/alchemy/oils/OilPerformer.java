@@ -9,7 +9,7 @@ import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemSpellEffects;
 import com.wurmonline.server.spells.SpellEffect;
-import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
+
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
@@ -82,7 +82,7 @@ public class OilPerformer implements ActionPerformer {
 
 	@Override
 	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) { // Since we use target and source this time, only need that override
-		/*if (target.getTemplateId() != AlchItems.weaponOilDemiseAnimalId)
+		/*if (target.getTemplateId() != OilItems.weaponOilDemiseAnimalId)
 
 			return propagate(action,
 					ActionPropagation.SERVER_PROPAGATION,
@@ -124,7 +124,7 @@ public class OilPerformer implements ActionPerformer {
 			seconds= (int) (seconds*Config.oilDurationOnEnchanted);								// oil only lasts a fifth of the set time
 
 		// DEMISE ANIMAL
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseAnimalId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseAnimalId) {
 			if(target.isWeapon()||target.isArrow())   {
 
 
@@ -225,7 +225,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 
 		// DEMISE HUMAN
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseHumanId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseHumanId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -321,7 +321,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 
 		// DEMISE MONSTER
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseMonsterId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseMonsterId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
@@ -419,7 +419,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 
 		// DEMISE LEGENDARY
-		if (source.getTemplateId() == AlchItems.weaponOilDemiseLegendaryId) {
+		if (source.getTemplateId() == OilItems.weaponOilDemiseLegendaryId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
@@ -513,7 +513,7 @@ public class OilPerformer implements ActionPerformer {
 
 		}
 		// Fires Kiss
-		if (source.getTemplateId() == AlchItems.weaponOilLickOfFireId) {
+		if (source.getTemplateId() == OilItems.weaponOilLickOfFireId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -606,7 +606,7 @@ public class OilPerformer implements ActionPerformer {
 
 		}
 		// Frost
-		if (source.getTemplateId() == AlchItems.weaponOilKissOfFrostId) {
+		if (source.getTemplateId() == OilItems.weaponOilKissOfFrostId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -700,7 +700,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 
 		// Leech
-		if (source.getTemplateId() == AlchItems.weaponOilLeechId) {
+		if (source.getTemplateId() == OilItems.weaponOilLeechId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -794,7 +794,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 
 		// DEMISE Plague
-		if (source.getTemplateId() == AlchItems.weaponOilPlagueId) {
+		if (source.getTemplateId() == OilItems.weaponOilPlagueId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -891,7 +891,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 
 		// Poison
-		if (source.getTemplateId() == AlchItems.weaponOilPoisonId) {
+		if (source.getTemplateId() == OilItems.weaponOilPoisonId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
@@ -985,7 +985,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 
 		// Heartseeker
-		if (source.getTemplateId() == AlchItems.weaponOilHeartseekerId) {
+		if (source.getTemplateId() == OilItems.weaponOilHeartseekerId) {
 			if(target.isWeapon()||target.isArrow())   {
 				effs = target.getSpellEffects();
 
