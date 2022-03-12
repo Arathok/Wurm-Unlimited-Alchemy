@@ -151,14 +151,14 @@ public class AlchItems {
 						"A clay mould that could be used to make phials, but it still needs to be fired.")
 				.modelName("model.mouldClay.")
 				.imageNumber((short) 1502)
-				.itemTypes(new short[] { ItemTypes.ITEM_TYPE_POTTERY,
+				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
 						ItemTypes.ITEM_TYPE_TURNABLE,
 						ItemTypes.ITEM_TYPE_UNFIRED,
-
+						ItemTypes.ITEM_TYPE_REPAIRABLE,
 						// ItemTypes.ITEM_TYPE_TRANSPORTABLE,
-						ItemTypes.ITEM_TYPE_TOOL,
+
 
 				})
 				.decayTime(9072000L)
