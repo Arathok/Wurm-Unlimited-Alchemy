@@ -253,7 +253,7 @@ public class AlchItems {
 				.build();
 
 		coalDustId = coalDust.getTemplateId();
-
+		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.charcoal, ItemList.grindstone, coalDustId,true, false, 0.0f, false, false, CreationCategories.ALCHEMY);
 	}
 
 	private static void registerCharcoalFilter() throws IOException {
