@@ -61,13 +61,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(40) // no hard lock
                 .build();
 
         pasteDemiseAnimalId = pasteDemiseAnimal.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureGoatId, ItemList.tallow,	pasteDemiseAnimalId, true, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureGoatId, ItemList.tallow,	pasteDemiseAnimalId, true, true, 0f, true, false, 0,30,CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.eye, 1, true));
 
     }
@@ -96,13 +96,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(60) // no hard lock
                 .build();
 
         pasteDemiseMonsterId = pasteDemiseMonster.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureGoatId, ItemList.tallow,	pasteDemiseMonsterId, true, true, 0f, true, false,0,30, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureGoatId, ItemList.tallow,	pasteDemiseMonsterId, true, true, 0f, true, false,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.gland, 1, true));
 
     }
@@ -130,13 +130,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(70) // no hard lock
                 .build();
 
         pasteDemiseLegendaryId = pasteDemiseLegendary.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureGoatId, ItemList.tallow,	pasteDemiseLegendaryId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureGoatId, ItemList.tallow,	pasteDemiseLegendaryId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.blood, 1, true));
 
     }
@@ -165,13 +165,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         pasteDemiseHumanId = pasteDemiseHuman.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureGoatId, ItemList.tallow,	pasteDemiseHumanId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureGoatId, ItemList.tallow,	pasteDemiseHumanId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.meat, 1, true));
 
     }
@@ -199,13 +199,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         pasteLickOfFireId = pasteLickOfFire.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureFranticChargeId, ItemList.tallow,	pasteLickOfFireId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureFranticChargeId, ItemList.tallow,	pasteLickOfFireId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.charcoal, 1, true));
 
     }
@@ -233,13 +233,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         pasteKissOfFrostId = pasteKissOfFrost.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureFranticChargeId, ItemList.tallow,	pasteKissOfFrostId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureFranticChargeId, ItemList.tallow,	pasteKissOfFrostId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.snowball, 1, true));
 
     }
@@ -268,13 +268,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         pasteLeechId = pasteLeech.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureHealId, ItemList.tallow,	pasteLeechId, true, false, 0f, true, false,0,50, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureHealId, ItemList.tallow,	pasteLeechId, true, false, 0f, true, false,0,50, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.snowball, 1, true));
 
     }
@@ -302,13 +302,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(70) // no hard lock
                 .build();
 
         pastePlagueId = pastePlague.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureMorningFogId, ItemList.tallow,	pastePlagueId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureMorningFogId, ItemList.tallow,	pastePlagueId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.lemon, 1, true));
 
     }
@@ -337,13 +337,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         pasteHeartseekerId = pasteHeartseeker.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureExcellId, ItemList.tallow,	pasteHeartseekerId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureExcellId, ItemList.tallow,	pasteHeartseekerId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.heart, 1, true));
 
     }
@@ -372,13 +372,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         pastePoisonId = pastePoison.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, PotionItems.mixtureHealId, ItemList.tallow,	pastePoisonId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureHealId, ItemList.tallow,	pastePoisonId, true, true, 0f, true, false,0,50, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.heart, 1, true));
 
     }
@@ -403,12 +403,12 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(40) // no hard lock
                 .build();
 
         sludgeDemiseAnimalId = sludgeDemiseAnimal.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId, OilItems.pasteDemiseAnimalId, sludgeDemiseAnimalId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, OilItems.pasteDemiseAnimalId, sludgeDemiseAnimalId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -434,13 +434,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(60) // no hard lock
                 .build();
 
         sludgeDemiseMonsterId = sludgeDemiseMonster.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId, OilItems.pasteDemiseMonsterId,  sludgeDemiseMonsterId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, OilItems.pasteDemiseMonsterId,  sludgeDemiseMonsterId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -464,13 +464,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(70) // no hard lock
                 .build();
 
         sludgeDemiseLegendaryId = sludgeDemiseLegendary.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	OilItems.pasteDemiseLegendaryId, sludgeDemiseLegendaryId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	OilItems.pasteDemiseLegendaryId, sludgeDemiseLegendaryId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -495,13 +495,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         sludgeDemiseHumanId = sludgeDemiseHuman.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId, OilItems.pasteDemiseHumanId, sludgeDemiseHumanId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, OilItems.pasteDemiseHumanId, sludgeDemiseHumanId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -525,13 +525,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         sludgeLickOfFireId = sludgeLickOfFire.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	OilItems.pasteLickOfFireId, sludgeLickOfFireId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	OilItems.pasteLickOfFireId, sludgeLickOfFireId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -554,13 +554,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         sludgeKissOfFrostId = sludgeKissOfFrost.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	OilItems.pasteKissOfFrostId, sludgeKissOfFrostId, true, true, 0f, false,true,0,30.0, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	OilItems.pasteKissOfFrostId, sludgeKissOfFrostId, true, true, 0f, false,true,0,30.0, CreationCategories.ALCHEMY);
 
 
     }
@@ -584,13 +584,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         sludgeLeechId = sludgeLeech.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId, OilItems.pasteLeechId,  sludgeLeechId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, OilItems.pasteLeechId,  sludgeLeechId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -613,13 +613,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(70) // no hard lock
                 .build();
 
         sludgePlagueId = sludgePlague.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,OilItems.pastePlagueId, 	sludgePlagueId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,OilItems.pastePlagueId, 	sludgePlagueId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -644,13 +644,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         sludgeHeartseekerId = sludgeHeartseeker.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,OilItems.pasteHeartseekerId, 	sludgeHeartseekerId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,OilItems.pasteHeartseekerId, 	sludgeHeartseekerId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -675,13 +675,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         sludgePoisonId = sludgePoison.getTemplateId();
         CreationEntryCreator
-                .createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,OilItems.pastePoisonId, 	sludgePoisonId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+                .createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,OilItems.pastePoisonId, 	sludgePoisonId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
 
 
     }
@@ -707,7 +707,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(40) // no hard lock
                 .build();
 
@@ -736,7 +736,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(60) // no hard lock
                 .build();
 
@@ -763,7 +763,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(70) // no hard lock
                 .build();
 
@@ -791,7 +791,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -819,7 +819,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -846,7 +846,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -873,7 +873,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -900,7 +900,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(70) // no hard lock
                 .build();
 
@@ -927,7 +927,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -954,7 +954,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -982,13 +982,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseAnimalId = weaponOilDemiseAnimal.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilDemiseHuman() throws IOException {
@@ -1012,13 +1012,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseHumanId = weaponOilDemiseHuman.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilDemiseHumanId, weaponOilDemiseHumanId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilDemiseHumanId, weaponOilDemiseHumanId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilDemiseMonster() throws IOException {
@@ -1042,13 +1042,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseMonsterId = weaponOilDemiseMonster.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilDemiseMonsterId, weaponOilDemiseMonsterId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilDemiseMonsterId, weaponOilDemiseMonsterId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilDemiseLegendary() throws IOException {
@@ -1072,13 +1072,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseLegendaryId = weaponOilDemiseLegendary.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilDemiseLegendaryId, weaponOilDemiseLegendaryId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilDemiseLegendaryId, weaponOilDemiseLegendaryId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilHeartseeker() throws IOException {
@@ -1102,13 +1102,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilHeartseekerId = weaponOilHeartseeker.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilHeartseekerId, weaponOilHeartseekerId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilHeartseekerId, weaponOilHeartseekerId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilKissOfFrost() throws IOException {
@@ -1132,13 +1132,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilKissOfFrostId = weaponOilKissOfFrost.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilKissOfFrostId, weaponOilKissOfFrostId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilKissOfFrostId, weaponOilKissOfFrostId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilLickOfFire() throws IOException {
@@ -1162,13 +1162,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilLickOfFireId = weaponOilLickOfFire.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilLickOfFireId, weaponOilLickOfFireId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilLickOfFireId, weaponOilLickOfFireId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilPoison() throws IOException {
@@ -1192,13 +1192,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilPoisonId = weaponOilPoison.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilPoisonId, weaponOilPoisonId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilPoisonId, weaponOilPoisonId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilPlague() throws IOException {
@@ -1222,13 +1222,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilPlagueId = weaponOilPlague.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilPlagueId, weaponOilPlagueId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilPlagueId, weaponOilPlagueId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilLeech() throws IOException {
@@ -1252,13 +1252,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilLeechId = weaponOilLeech.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilLeechId, weaponOilLeechId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,OilItems.oilLeechId, weaponOilLeechId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     public static void register() throws IOException {

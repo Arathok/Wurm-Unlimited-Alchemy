@@ -3,6 +3,7 @@ package org.arathok.wurmunlimited.mods.alchemy.potions;
 import com.wurmonline.server.items.*;
 import com.wurmonline.server.skills.SkillList;
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
+import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 
 import java.io.IOException;
@@ -61,13 +62,13 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         mixtureWillowspineId = mixtureWillowspine.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.rosemary, ItemList.ivySeedling,mixtureWillowspineId, true, true, 0f, true, false,0,30, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.rosemary, ItemList.ivySeedling,mixtureWillowspineId, true, true, 0f, true, false,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
     }
@@ -87,13 +88,13 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE, })
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         mixtureExcellId = mixtureExcell.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.ginger, ItemList.sassafras, mixtureExcellId,
+                .createAdvancedEntry(Config.skillUsed, ItemList.ginger, ItemList.sassafras, mixtureExcellId,
                         true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.mushroomRed, 1, true));
     }
@@ -115,13 +116,13 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(35) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(35) // no hard lock
                 .build();
 
         mixtureFranticChargeId = mixtureFranticCharge.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomRed, ItemList.nutmeg,
+                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomRed, ItemList.nutmeg,
                         mixtureFranticChargeId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.tomato, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.tooth, 1, true));
@@ -142,12 +143,12 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE, })
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         mixtureGoatId = mixtureGoat.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.branch, ItemList.oat, mixtureGoatId,
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.branch, ItemList.oat, mixtureGoatId,
                 true, true, 0f, false, false,0,20, CreationCategories.ALCHEMY);
     }
 
@@ -174,14 +175,14 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(50) // no hard lock
                 .build();
 
         mixtureOakshellId = mixtureOakshell.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.acorn, ItemList.rock, mixtureOakshellId, true,true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.acorn, ItemList.rock, mixtureOakshellId, true,true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.mushroomBlue, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.sage, 1, true));
     }
@@ -208,13 +209,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         mixtureHealId = mixtureHeal.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomBrown, ItemList.wheat,mixtureHealId, true, true, 0f, false, false,0,15, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.mushroomBrown, ItemList.wheat,mixtureHealId, true, true, 0f, false, false,0,15, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureMorningFog() throws IOException {
@@ -239,13 +240,13 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         mixtureMorningFogId = mixtureMorningFog.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.lingonberry, ItemList.wemp,mixtureMorningFogId, true, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.lingonberry, ItemList.wemp,mixtureMorningFogId, true, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureRefresh() throws IOException {
@@ -271,14 +272,14 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(20) // no hard lock
                 .build();
 
         mixtureRefreshId = mixtureRefresh.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.carrot, ItemList.potato,mixtureRefreshId, true, true, 0f, false, false, 0,10,CreationCategories.ALCHEMY);
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mint, ItemList.fennel,mixtureRefreshId, true, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.carrot, ItemList.potato,mixtureRefreshId, true, true, 0f, false, false, 0,10,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.mint, ItemList.fennel,mixtureRefreshId, true, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureSixthSense() throws IOException {
@@ -305,13 +306,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         mixtureSixthSenseId = mixtureSixthSense.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.lovage, ItemList.nettles,mixtureSixthSenseId, true, true, 0f, false, false,0,20, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.lovage, ItemList.nettles,mixtureSixthSenseId, true, true, 0f, false, false,0,20, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureStrength() throws IOException {
@@ -338,14 +339,14 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(40) // no hard lock
                 .build();
 
         mixtureStrengthId = mixtureStrength.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomBlack, ItemList.paprika,mixtureStrengthId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomBlack, ItemList.paprika,mixtureStrengthId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.woad, 1, true));
     }
 
@@ -372,13 +373,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+                .primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         mixtureTruehitId = mixtureTruehit.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.belladonna, ItemList.garlic, mixtureTruehitId,true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.belladonna, ItemList.garlic, mixtureTruehitId,true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.mushroomGreen, 1, true));
     }
 
@@ -403,14 +404,14 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(90) // no hard lock
                 .build();
 
         mixtureVynoraId = mixtureVynora.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.mushroomYellow, ItemList.turmeric,	mixtureVynoraId, true, true, 0f, true, false,0,60, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomYellow, ItemList.turmeric,	mixtureVynoraId, true, true, 0f, true, false,0,60, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.strawberries, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.thyme, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.cumin, 1, true))
@@ -437,13 +438,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorWillowspineId = precursorWillowspine.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,PotionItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,PotionItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPrecursorExcell() throws IOException {
@@ -463,12 +464,12 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         precursorExcellId = precursorExcell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	PotionItems.mixtureExcellId, precursorExcellId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureExcellId, precursorExcellId, true, true, 0f, false, false,CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorGoat() throws IOException {
@@ -488,13 +489,13 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorGoatId = precursorGoat.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	PotionItems.mixtureGoatId, precursorGoatId, true, true, 0f, false, false, CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureGoatId, precursorGoatId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorHeal() throws IOException {
@@ -514,13 +515,13 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorHealId = precursorHeal.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,PotionItems.mixtureHealId, precursorHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,PotionItems.mixtureHealId, precursorHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorFranticCharge() throws IOException {
@@ -540,13 +541,13 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorFranticChargeId = precursorFranticCharge.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	PotionItems.mixtureFranticChargeId, precursorFranticChargeId, true, true, 0f, false, false,	CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureFranticChargeId, precursorFranticChargeId, true, true, 0f, false, false,	CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorMorningFog() throws IOException {
@@ -567,13 +568,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorMorningFogId = precursorMorningFog.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	PotionItems.mixtureMorningFogId, precursorMorningFogId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureMorningFogId, precursorMorningFogId, true, true, 0f, false, false,CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorOakshell() throws IOException {
@@ -593,13 +594,13 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorOakshellId = precursorOakshell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,PotionItems.mixtureOakshellId, precursorOakshellId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,PotionItems.mixtureOakshellId, precursorOakshellId, true, true, 0f, false, false,CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorRefresh() throws IOException {
@@ -620,13 +621,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorRefreshId = precursorRefresh.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	PotionItems.mixtureRefreshId, precursorRefreshId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureRefreshId, precursorRefreshId, true, true, 0f, false, false,CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorSixthSense() throws IOException {
@@ -646,13 +647,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorSixthSenseId = precursorSixthSense.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	PotionItems.mixtureSixthSenseId, precursorSixthSenseId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureSixthSenseId, precursorSixthSenseId, true, true, 0f, false, false,CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorStrength() throws IOException {
@@ -673,13 +674,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorStrengthId = precursorStrength.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	PotionItems.mixtureStrengthId, precursorStrengthId, true, true, 0f, false, false,
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureStrengthId, precursorStrengthId, true, true, 0f, false, false,
                 CreationCategories.DECORATION);
     }
 
@@ -701,13 +702,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorTruehitId = precursorTruehit.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,PotionItems.mixtureTruehitId, precursorTruehitId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,PotionItems.mixtureTruehitId, precursorTruehitId, true, true, 0f, false, false,CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorVynora() throws IOException {
@@ -729,13 +730,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         precursorVynoraId = precursorVynora.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.alchemicalCompoundId,	PotionItems.mixtureVynoraId, precursorVynoraId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureVynoraId, precursorVynoraId, true, true, 0f, false, false,CreationCategories.DECORATION);
     }
 
     private static void registerPotionLiquidDodge() throws IOException {
@@ -756,7 +757,7 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -778,7 +779,7 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -802,7 +803,7 @@ public class PotionItems {
                 .decayTime(691200L).dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         potionLiquidGoatId = potionLiquidGoat.getTemplateId();
@@ -826,7 +827,7 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -848,7 +849,7 @@ public class PotionItems {
                 .decayTime(691200L)
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         potionLiquidFranticChargeId = potionLiquidFranticCharge.getTemplateId();
@@ -872,12 +873,12 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidKarmaId = potionLiquidKarma.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, PotionItems.potionLiquidHealId,	ItemList.sourceSalt, potionLiquidKarmaId, true, true, 0f, false,false,0,50.0,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, PotionItems.potionLiquidHealId,	ItemList.sourceSalt, potionLiquidKarmaId, true, true, 0f, false,false,0,50.0,CreationCategories.DECORATION);
     }
 
     private static void registerPotionLiquidMana() throws IOException {
@@ -898,12 +899,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidManaId = potionLiquidMana.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, PotionItems.potionLiquidHealId,	AlchItems.gemPowderId, potionLiquidManaId, true, true, 0f, false,false,0,40.0,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, PotionItems.potionLiquidHealId,	AlchItems.gemPowderId, potionLiquidManaId, true, true, 0f, false,false,0,40.0,CreationCategories.DECORATION);
     }
 
     private static void registerPotionLiquidMorningFog() throws IOException {
@@ -923,7 +924,7 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -948,7 +949,7 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -972,7 +973,7 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -997,7 +998,7 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -1023,7 +1024,7 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -1047,7 +1048,7 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -1071,7 +1072,7 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
@@ -1099,13 +1100,13 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdWillowspine = potionWillowspine.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionExcell() throws IOException {
@@ -1128,13 +1129,13 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdExcell = potionExcell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidExcellId, potionIdExcell, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidExcellId, potionIdExcell, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionGoat() throws IOException {
@@ -1156,12 +1157,12 @@ public class PotionItems {
                 .decayTime(2073600L).dimensions(5, 5, 10)
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
+                .primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         potionIdGoat = potionGoat.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId, PotionItems.potionLiquidGoatId,potionIdGoat, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidGoatId,potionIdGoat, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionHeal() throws IOException {
@@ -1184,12 +1185,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdHeal = potionHeal.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId, PotionItems.potionLiquidHealId,potionIdHeal, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidHealId,potionIdHeal, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionFrenzy() throws IOException {
@@ -1213,12 +1214,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdFranticCharge = potionFranticCharge.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidFranticChargeId, potionIdFranticCharge, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidFranticChargeId, potionIdFranticCharge, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionMorningFog() throws IOException {
@@ -1241,12 +1242,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdMorningFog = potionMorningFog.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidMorningFogId, potionIdMorningFog, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidMorningFogId, potionIdMorningFog, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionOakshell() throws IOException {
@@ -1269,13 +1270,13 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdOakshell = potionOakshell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidOakshellId, potionIdOakshell, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidOakshellId, potionIdOakshell, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionRefresh() throws IOException {
@@ -1298,12 +1299,12 @@ public class PotionItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdRefresh = potionRefresh.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidRefreshId, potionIdRefresh, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidRefreshId, potionIdRefresh, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionSixthSense() throws IOException {
@@ -1327,12 +1328,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdSixthSense = potionSixthSense.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidSixthSenseId, potionIdSixthSense, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidSixthSenseId, potionIdSixthSense, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionStrength() throws IOException {
@@ -1355,12 +1356,12 @@ public class PotionItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdStrength = potionStrength.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidStrengthId, potionIdStrength, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidStrengthId, potionIdStrength, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionTruehit() throws IOException {
@@ -1385,12 +1386,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(30) // no hard lock
                 .build();
 
         potionIdTruehit = potionTruehit.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidTruehitId, potionIdTruehit, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidTruehitId, potionIdTruehit, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionVynora() throws IOException {
@@ -1414,12 +1415,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(90) // no hard lock
                 .build();
 
         potionIdVynora = potionVynora.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidVynoraId, potionIdVynora, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidVynoraId, potionIdVynora, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionMana() throws IOException {
@@ -1443,12 +1444,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(40) // no hard lock
                 .build();
 
         potionManaId = potionMana.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidManaId, potionManaId, true, true, 0f, false, false,0,40.0,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidManaId, potionManaId, true, true, 0f, false, false,0,40.0,	CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionKarma() throws IOException {
@@ -1472,12 +1473,12 @@ public class PotionItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.ALCHEMY_NATURAL)
+                .primarySkill(Config.skillUsed)
                 .difficulty(40) // no hard lock
                 .build();
 
         potionKarmaId = potionKarma.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,PotionItems.potionLiquidKarmaId, potionKarmaId, true, true, 0f, false, false,0,50.0,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidKarmaId, potionKarmaId, true, true, 0f, false, false,0,50.0,	CreationCategories.ALCHEMY);
     }
 
     public static void register() throws IOException {

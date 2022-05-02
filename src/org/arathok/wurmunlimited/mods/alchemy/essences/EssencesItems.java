@@ -3,6 +3,7 @@ package org.arathok.wurmunlimited.mods.alchemy.essences;
 import com.wurmonline.server.items.*;
 import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.IconConstants;
+import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 
 import java.io.IOException;
@@ -39,11 +40,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 5)
                 .weightGrams(100000)
                 .material(Materials.MATERIAL_STONE)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(20) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
         stoneCoreId = stoneCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.rock,ItemList.heart, stoneCoreId, true, true, 0.0f, true, true,0,20, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.rock,ItemList.heart, stoneCoreId, true, true, 0.0f, true, true,0,20, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.rock,4,true));
 
 
@@ -66,11 +67,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 5)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(20) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
         vitriolId = vitriol.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.lowQlIron,ItemList.lye, vitriolId, true, true, 0.0f, true, false,0,20, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.lowQlIron,ItemList.lye, vitriolId, true, true, 0.0f, true, false,0,20, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.charcoal,1,true));
 
 
@@ -96,11 +97,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         acidicEssenceId = acidicEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,ItemList.gland, acidicEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,ItemList.gland, acidicEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.fruitJuice,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -124,7 +125,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
 
         acidicExtractId = acidicExtract.getTemplateId();
@@ -148,11 +149,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 5)
                 .weightGrams(100000)
                 .material(Materials.MATERIAL_SANDSTONE)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(20) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
         sandCoreId = sandCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.sandstone, sandCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.sandstone, sandCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.sandstone,4,true));
 
 
@@ -178,11 +179,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         sandEssenceId = sandEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,sandCoreId, sandEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,sandCoreId, sandEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -206,7 +207,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_SANDSTONE)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
 
         sandExtractId = sandExtract.getTemplateId();
@@ -230,11 +231,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 5)
                 .weightGrams(100000)
                 .material(Materials.MATERIAL_SLATE)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(20) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
         slateCoreId = slateCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.slateShard, slateCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.slateShard, slateCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.slateShard,4,true));
 
 
@@ -260,11 +261,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         slateEssenceId = slateEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,slateCoreId, slateEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,slateCoreId, slateEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -288,7 +289,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_SLATE)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
 
         slateExtractId = slateExtract.getTemplateId();
@@ -312,11 +313,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 5)
                 .weightGrams(100000)
                 .material(Materials.MATERIAL_MARBLE)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(20) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
         marbleCoreId = marbleCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.marbleShard, marbleCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.marbleShard, marbleCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.marbleShard,4,true));
 
 
@@ -342,11 +343,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         marbleEssenceId = marbleEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,marbleCoreId, marbleEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,marbleCoreId, marbleEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -370,7 +371,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_COAL)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
 
         marbleExtractId = marbleExtract.getTemplateId();
@@ -394,11 +395,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 5)
                 .weightGrams(100000)
                 .material(Materials.MATERIAL_IRON)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(20) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
         ironCoreId = ironCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.ironBar, ironCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.ironBar, ironCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.ironBar,99,true));
 
 
@@ -424,11 +425,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         ironEssenceId = ironEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,ironCoreId, ironEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,ironCoreId, ironEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -452,7 +453,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_IRON)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
 
         ironExtractId = ironExtract.getTemplateId();
@@ -475,11 +476,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 5)
                 .weightGrams(100000)
                 .material(Materials.MATERIAL_TIN)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(20) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
         tinCoreId = tinCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.tinBar, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.tinBar, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.tinBar,99,true));
 
 
@@ -505,11 +506,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         tinEssenceId = tinEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -533,7 +534,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_TIN)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
 
         tinExtractId = tinExtract.getTemplateId();
@@ -557,11 +558,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 5)
                 .weightGrams(100000)
                 .material(Materials.MATERIAL_TIN)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(20) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
         tinCoreId = tinCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.tinOre, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.tinOre, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.tinOre,4,true));
 
 
@@ -587,11 +588,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         tinEssenceId = tinEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -615,7 +616,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_TIN)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(5) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
 
         tinExtractId = tinExtract.getTemplateId();
