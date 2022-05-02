@@ -61,7 +61,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(40) // no hard lock
                 .build();
 
@@ -96,7 +96,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(60) // no hard lock
                 .build();
 
@@ -130,7 +130,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(70) // no hard lock
                 .build();
 
@@ -165,7 +165,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -199,7 +199,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -233,7 +233,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -268,7 +268,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -302,7 +302,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(70) // no hard lock
                 .build();
 
@@ -337,7 +337,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -372,7 +372,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -403,7 +403,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(40) // no hard lock
                 .build();
 
@@ -434,7 +434,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(60) // no hard lock
                 .build();
 
@@ -464,7 +464,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(70) // no hard lock
                 .build();
 
@@ -495,7 +495,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -525,7 +525,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -554,7 +554,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -584,7 +584,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -613,7 +613,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(70) // no hard lock
                 .build();
 
@@ -644,7 +644,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -675,7 +675,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -707,7 +707,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(40) // no hard lock
                 .build();
 
@@ -736,7 +736,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(60) // no hard lock
                 .build();
 
@@ -763,7 +763,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(70) // no hard lock
                 .build();
 
@@ -791,7 +791,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -819,7 +819,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -846,7 +846,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -873,7 +873,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -900,7 +900,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(70) // no hard lock
                 .build();
 
@@ -927,7 +927,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -954,7 +954,7 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(50) // no hard lock
                 .build();
 
@@ -982,13 +982,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseAnimalId = weaponOilDemiseAnimal.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilDemiseAnimalId, weaponOilDemiseAnimalId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilDemiseHuman() throws IOException {
@@ -1012,13 +1012,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseHumanId = weaponOilDemiseHuman.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilDemiseHumanId, weaponOilDemiseHumanId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilDemiseHumanId, weaponOilDemiseHumanId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilDemiseMonster() throws IOException {
@@ -1042,13 +1042,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseMonsterId = weaponOilDemiseMonster.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilDemiseMonsterId, weaponOilDemiseMonsterId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilDemiseMonsterId, weaponOilDemiseMonsterId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilDemiseLegendary() throws IOException {
@@ -1072,13 +1072,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseLegendaryId = weaponOilDemiseLegendary.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilDemiseLegendaryId, weaponOilDemiseLegendaryId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilDemiseLegendaryId, weaponOilDemiseLegendaryId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilHeartseeker() throws IOException {
@@ -1102,13 +1102,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilHeartseekerId = weaponOilHeartseeker.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilHeartseekerId, weaponOilHeartseekerId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilHeartseekerId, weaponOilHeartseekerId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilKissOfFrost() throws IOException {
@@ -1132,13 +1132,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilKissOfFrostId = weaponOilKissOfFrost.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilKissOfFrostId, weaponOilKissOfFrostId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilKissOfFrostId, weaponOilKissOfFrostId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilLickOfFire() throws IOException {
@@ -1162,13 +1162,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilLickOfFireId = weaponOilLickOfFire.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilLickOfFireId, weaponOilLickOfFireId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilLickOfFireId, weaponOilLickOfFireId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilPoison() throws IOException {
@@ -1192,13 +1192,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilPoisonId = weaponOilPoison.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilPoisonId, weaponOilPoisonId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilPoisonId, weaponOilPoisonId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilPlague() throws IOException {
@@ -1222,13 +1222,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilPlagueId = weaponOilPlague.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilPlagueId, weaponOilPlagueId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilPlagueId, weaponOilPlagueId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     private static void registerweaponOilLeech() throws IOException {
@@ -1252,13 +1252,13 @@ public class OilItems {
                 .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(SkillList.GROUP_ALCHEMY)
+                .primarySkill(SkillList.ALCHEMY_NATURAL)
                 .difficulty(30) // no hard lock
                 .build();
 
         weaponOilLeechId = weaponOilLeech.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.phialId,OilItems.oilLeechId, weaponOilLeechId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.phialId,OilItems.oilLeechId, weaponOilLeechId, true, true, 0f, false, false,CreationCategories.ALCHEMY);
     }
 
     public static void register() throws IOException {

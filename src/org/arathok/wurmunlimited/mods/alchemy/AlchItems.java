@@ -338,13 +338,13 @@ public class AlchItems {
 				.dimensions(10, 10, 10)
 				.weightGrams(1000)
 				.material(Materials.MATERIAL_MAGIC)
-				.behaviourType((short) 1).primarySkill(SkillList.GROUP_ALCHEMY)
+				.behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL)
 				.difficulty(10) // no hard lock
 				.build();
 
 		alchemicalCompoundId = alchemicalCompound.getTemplateId();
 
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, AlchItems.purifiedWaterId, ItemList.heart,alchemicalCompoundId, true, true, 0f, false, false, 0,5,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, AlchItems.purifiedWaterId, ItemList.heart,alchemicalCompoundId, true, true, 0f, false, false, 0,5,CreationCategories.ALCHEMY);
 	}
 
 	private static void registerGemPowder() throws IOException {
@@ -368,15 +368,15 @@ public class AlchItems {
 				.weightGrams(500)
 				.material(Materials.MATERIAL_GLASS)
 				.behaviourType((short) 1)
-				.primarySkill(SkillList.GROUP_ALCHEMY).difficulty(30) // no hard lock
+				.primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(30) // no hard lock
 				.build();
 
 		gemPowderId = gemPowder.getTemplateId();
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.ruby,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.emerald,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.diamond,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.sapphire,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
-		CreationEntryCreator.createSimpleEntry(SkillList.GROUP_ALCHEMY, ItemList.mortarAndPestle, ItemList.opal,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mortarAndPestle, ItemList.ruby,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mortarAndPestle, ItemList.emerald,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mortarAndPestle, ItemList.diamond,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mortarAndPestle, ItemList.sapphire,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
+		CreationEntryCreator.createSimpleEntry(SkillList.ALCHEMY_NATURAL, ItemList.mortarAndPestle, ItemList.opal,gemPowderId, false, true, 0f, false, false, 0,30,CreationCategories.ALCHEMY);
 	}
 
 

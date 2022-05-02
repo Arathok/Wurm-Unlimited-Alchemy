@@ -43,7 +43,7 @@ public class EssencesItems {
                 .build();
 
         stoneCoreId = stoneCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.rock,ItemList.heart, stoneCoreId, true, true, 0.0f, true, true,0,20, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.rock,ItemList.heart, stoneCoreId, true, true, 0.0f, true, true,0,20, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.rock,4,true));
 
 
@@ -70,7 +70,7 @@ public class EssencesItems {
                 .build();
 
         vitriolId = vitriol.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.lowQlIron,ItemList.lye, vitriolId, true, true, 0.0f, true, false,0,20, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.lowQlIron,ItemList.lye, vitriolId, true, true, 0.0f, true, false,0,20, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.charcoal,1,true));
 
 
@@ -100,7 +100,7 @@ public class EssencesItems {
                 .build();
 
         acidicEssenceId = acidicEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.water,ItemList.gland, acidicEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,ItemList.gland, acidicEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.fruitJuice,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -152,7 +152,7 @@ public class EssencesItems {
                 .build();
 
         sandCoreId = sandCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, stoneCoreId,ItemList.sandstone, sandCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.sandstone, sandCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.sandstone,4,true));
 
 
@@ -182,7 +182,7 @@ public class EssencesItems {
                 .build();
 
         sandEssenceId = sandEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.water,sandCoreId, sandEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,sandCoreId, sandEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -234,7 +234,7 @@ public class EssencesItems {
                 .build();
 
         slateCoreId = slateCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, stoneCoreId,ItemList.slateShard, slateCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.slateShard, slateCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.slateShard,4,true));
 
 
@@ -264,7 +264,7 @@ public class EssencesItems {
                 .build();
 
         slateEssenceId = slateEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.water,slateCoreId, slateEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,slateCoreId, slateEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -316,7 +316,7 @@ public class EssencesItems {
                 .build();
 
         marbleCoreId = marbleCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, stoneCoreId,ItemList.marbleShard, marbleCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.marbleShard, marbleCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.marbleShard,4,true));
 
 
@@ -346,7 +346,7 @@ public class EssencesItems {
                 .build();
 
         marbleEssenceId = marbleEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.water,marbleCoreId, marbleEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,marbleCoreId, marbleEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -398,7 +398,7 @@ public class EssencesItems {
                 .build();
 
         ironCoreId = ironCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, stoneCoreId,ItemList.ironBar, ironCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.ironBar, ironCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.ironBar,99,true));
 
 
@@ -428,7 +428,7 @@ public class EssencesItems {
                 .build();
 
         ironEssenceId = ironEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.water,ironCoreId, ironEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,ironCoreId, ironEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -479,7 +479,7 @@ public class EssencesItems {
                 .build();
 
         tinCoreId = tinCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, stoneCoreId,ItemList.tinBar, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.tinBar, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.tinBar,99,true));
 
 
@@ -509,11 +509,11 @@ public class EssencesItems {
                 .build();
 
         tinEssenceId = tinEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
-
+/*
     private static void registertinExtract() throws IOException {
         tinExtract = new ItemTemplateBuilder("arathok.alchemy.tinExtract")
                 .name("tin extract", "tin extracts",
@@ -561,7 +561,7 @@ public class EssencesItems {
                 .build();
 
         tinCoreId = tinCore.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, stoneCoreId,ItemList.tinOre, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, stoneCoreId,ItemList.tinOre, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.tinOre,4,true));
 
 
@@ -591,7 +591,7 @@ public class EssencesItems {
                 .build();
 
         tinEssenceId = tinEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(SkillList.GROUP_ALCHEMY, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -620,7 +620,7 @@ public class EssencesItems {
 
         tinExtractId = tinExtract.getTemplateId();
 
-    }
+    }*/
 }
 
 
