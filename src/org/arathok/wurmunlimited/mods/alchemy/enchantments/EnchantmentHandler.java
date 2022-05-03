@@ -136,7 +136,7 @@ public class EnchantmentHandler {
                     Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
                     enchantedItem.p.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
                     enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
-                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the player logged out or lost link");
+                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the weapon had no owner?");
                 } catch (NoSuchItemException e) {
                     Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                     e.printStackTrace();
@@ -151,7 +151,7 @@ public class EnchantmentHandler {
                     Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
                     enchantedItem.p.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
                     enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
-                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the player logged out or lost link");
+                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the time to shutdown was less than 10 seconds");
                 } catch (NoSuchItemException e) {
                     Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                     e.printStackTrace();
