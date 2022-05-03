@@ -3,6 +3,8 @@ package org.arathok.wurmunlimited.mods.alchemy.oils;
 
 import com.wurmonline.server.Items;
 import com.wurmonline.server.Players;
+import com.wurmonline.server.Server;
+import com.wurmonline.server.WurmCalendar;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.creatures.Creature;
@@ -10,15 +12,21 @@ import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemSpellEffects;
 import com.wurmonline.server.spells.SpellEffect;
 
+import com.wurmonline.server.zones.CropTilePoller;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
+import org.gotti.wurmunlimited.modloader.ReflectionUtil;
+import org.gotti.wurmunlimited.modsupport.ModSupportDb;
 import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
@@ -45,7 +53,7 @@ public class OilPerformer implements ActionPerformer {
 	
 	int seconds = Config.oilDuration;
 	float power = 0;
-	Enchantment e = new Enchantment();
+
 
 
 
@@ -1082,16 +1090,26 @@ public class OilPerformer implements ActionPerformer {
 
 		if (eff!=null)
 		{
-			e.item= target;
-			e.itemId = target.getWurmId();
-			e.p= Players.getInstance().getPlayerOrNull(target.getOwnerId());
-			e.timeRunout = System.currentTimeMillis()+(seconds*1000L);
-			e.enchantmentType = eff.type;
-			e.hasOil=true;
-			EnchantmentHandler.enchantments.add(e);
-			
-		}
 
+
+			try {
+				Enchantment e = new Enchantment();
+				Connection dbconn = ModSupportDb.getModSupportDb();
+				e.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+				e.timeOfEnchantment = WurmCalendar.getCurrentTime();
+				e.enchantmentType = eff.type;
+				e.hasOil = true;
+
+				e.insert(dbconn);
+				// update ModSupportDb
+
+				dbconn.close();
+			} catch (RuntimeException | SQLException ex) {
+				Alchemy.logger.log(Level.SEVERE,"RuntimeException or SQLException happened",ex);
+				ex.printStackTrace();
+			}
+
+		}
 
 		return propagate(action,
 				ActionPropagation.FINISH_ACTION,

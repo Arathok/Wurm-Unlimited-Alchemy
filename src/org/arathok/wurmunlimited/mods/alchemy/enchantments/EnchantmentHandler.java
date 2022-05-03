@@ -1,14 +1,14 @@
 package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
-import com.wurmonline.server.Items;
-import com.wurmonline.server.NoSuchItemException;
-import com.wurmonline.server.Players;
-import com.wurmonline.server.Server;
+import com.wurmonline.server.*;
 import com.wurmonline.server.players.Player;
 import com.wurmonline.server.zones.Zones;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilPerformer;
+import org.gotti.wurmunlimited.modsupport.ModSupportDb;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,39 +24,20 @@ public class EnchantmentHandler {
     public static void RemoveEnchantment() {
         Long time = System.currentTimeMillis();
         //Iterate over me Baby!
+        Connection dbconn = ModSupportDb.getModSupportDb();
         Iterator<Enchantment> enchantmentsIterator = enchantments.iterator();
-        Enchantment enchantedItem;
+        Enchantment enchantedItem = null;
         while (enchantmentsIterator.hasNext()) {
             enchantedItem = enchantmentsIterator.next();
-            if (enchantedItem.timeRunout < time && !enchantedItem.item.isTraded()) {
-                try {
-                    Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+            //enchantedItem.itemId
+            long itemToCheck=0;
+            PreparedStatement ps = dbconn.prepareStatement("insert into Alchemy (itemID,timeOfEnchantment,enchantment) values (?,?,?)");
+            ps.setLong(1,target.getWurmId());
+            ps.setLong(2, WurmCalendar.getCurrentTime());
+            ps.setByte(3, eff.type);
+            ps.executeUpdate();
 
-                } catch (NoSuchItemException e) {
-                    Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                    e.printStackTrace();
-                }
-                enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
-                enchantedItem.p.getCommunicator().sendAlertServerMessage("The weapon Oil, coating your weapon completely dried up and returned it back to its previous state");
-                if (enchantedItem.p.isFighting())
-                    enchantedItem.p.getCommunicator().sendCombatServerMessage("The weapon Oil, coating your weapon completely dried up and returned it back to its previous state", (byte) 255, (byte) 255, (byte) 0);
-                enchantmentsIterator.remove();
 
-            }
-
-            // IF ITEM IS SENT ACROSS SERVER
-            if (enchantedItem.item.isTransferred()) {
-                try {
-                    Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
-                    enchantedItem.p.getCommunicator().sendAlertServerMessage("Traveling through dimension used up all the magic of the oil coating your weapon...");
-                    enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
-                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the player was transferring to another server");
-                } catch (NoSuchItemException e) {
-                    Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                    e.printStackTrace();
-                }
-                enchantmentsIterator.remove();
-            }
 
 
             // IF ITEM IS MAILED OR IN LETTERBOX
@@ -115,49 +96,10 @@ public class EnchantmentHandler {
             // IF ITEM IS INSIDE INVENTORY OF A LOGGEDOUT PLAYER OR HAS NO OWNER
 
 
-            Player owner = Players.getInstance().getPlayerOrNull(enchantedItem.item.getOwnerId());
-            if (owner != null)
-            {
-                if (owner.isLoggedOut() || !owner.hasLink()) {
-                    try {
-                        Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
-                        enchantedItem.p.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
-                        enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
-                        Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the player logged out or lost link");
-                    } catch (NoSuchItemException e) {
-                        Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                        e.printStackTrace();
-                    }
-                    enchantmentsIterator.remove();
-                }
-            } else                        // IF THERE IS NO OWNER
-            {
-                try {
-                    Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
-                    enchantedItem.p.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
-                    enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
-                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the player logged out or lost link");
-                } catch (NoSuchItemException e) {
-                    Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                    e.printStackTrace();
-                }
-                enchantmentsIterator.remove();
-            }
+
 
             // If the Server is shutting down
-            if (Server.getMillisToShutDown()<10000)
-            {
-                try {
-                    Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
-                    enchantedItem.p.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
-                    enchantedItem.item.setName(OilPerformer.renamedItems.get(enchantedItem.item.getWurmId()));
-                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.item.getName() + "was removed because the player logged out or lost link");
-                } catch (NoSuchItemException e) {
-                    Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                    e.printStackTrace();
-                }
-                enchantmentsIterator.remove();
-            }
+
 
 
 

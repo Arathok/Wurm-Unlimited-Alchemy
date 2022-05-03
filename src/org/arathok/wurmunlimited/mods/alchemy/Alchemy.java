@@ -8,9 +8,13 @@ import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
+import org.gotti.wurmunlimited.modsupport.ModSupportDb;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -24,6 +28,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public static HashMap<Long, Integer> toxicity = new HashMap<>();
 	public static HashMap<Long,Integer> currentAddiction = new HashMap<>();
 	public static HashMap<Long,Integer> previousAddiction = new HashMap<>();
+	public long timer=0;
 
 
 
@@ -103,18 +108,34 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerStarted() {
 		// TODO Auto-generated method stub
+		try {
+			Connection dbconn = ModSupportDb.getModSupportDb();
 
-		  ModActions.registerBehaviourProvider(new PotionBehaviour());
-		  ModActions.registerBehaviourProvider(new OilBehaviour());
-		  new EnchantmentHandler();
-		  new AddictionHandler();
-		logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
-		logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
+			// check if the ModSupportDb table exists
+			// if not, create the table and update it with the server's last crop poll time
+			if (!ModSupportDb.hasTable(dbconn, "Alchemy")) {
+				// table create
+				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy (itemId LONG PRIMARY KEY NOT NULL DEFAULT 0, timeOfEnchantment LONG NOT NULL DEFAULT 0)")) {
+					ps.execute();
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+
+			ModActions.registerBehaviourProvider(new PotionBehaviour());
+			ModActions.registerBehaviourProvider(new OilBehaviour());
+			new EnchantmentHandler();
+			new AddictionHandler();
+			logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
+			logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.log(Level.SEVERE, "Problem opening SQL Database", e);
+		}
 	}
 
 
-
-	@Override
+		@Override
 	public void init() {
 		// TODO Auto-generated method stub
 		
