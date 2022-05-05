@@ -9,6 +9,7 @@ import org.gotti.wurmunlimited.modsupport.ModSupportDb;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,22 +22,16 @@ public class EnchantmentHandler {
     }
 
     public static List<Enchantment> enchantments = new LinkedList<>();
-    public static void RemoveEnchantment() {
+    public static void RemoveEnchantment() throws SQLException {
         Long time = System.currentTimeMillis();
         //Iterate over me Baby!
-        Connection dbconn = ModSupportDb.getModSupportDb();
+
         Iterator<Enchantment> enchantmentsIterator = enchantments.iterator();
         Enchantment enchantedItem = null;
         while (enchantmentsIterator.hasNext()) {
             enchantedItem = enchantmentsIterator.next();
             //enchantedItem.itemId
             long itemToCheck=0;
-            PreparedStatement ps = dbconn.prepareStatement("insert into Alchemy (itemID,timeOfEnchantment,enchantment) values (?,?,?)");
-            ps.setLong(1,target.getWurmId());
-            ps.setLong(2, WurmCalendar.getCurrentTime());
-            ps.setByte(3, eff.type);
-            ps.executeUpdate();
-
 
 
 
@@ -88,6 +83,7 @@ public class EnchantmentHandler {
                     e.printStackTrace();
                 }
                 enchantmentsIterator.remove();
+                PreparedStatement psDeleteRow= dbconn.prepareStatement("DELETE FROM Alchemy WHERE itemId = "+enchantedItem.itemId+";");
 
 
             }

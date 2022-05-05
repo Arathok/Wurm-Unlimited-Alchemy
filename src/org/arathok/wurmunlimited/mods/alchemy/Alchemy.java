@@ -29,6 +29,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public static HashMap<Long,Integer> currentAddiction = new HashMap<>();
 	public static HashMap<Long,Integer> previousAddiction = new HashMap<>();
 	public long timer=0;
+	public static Connection dbconn;
 
 
 
@@ -109,7 +110,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public void onServerStarted() {
 		// TODO Auto-generated method stub
 		try {
-			Connection dbconn = ModSupportDb.getModSupportDb();
+			dbconn = ModSupportDb.getModSupportDb();
 
 			// check if the ModSupportDb table exists
 			// if not, create the table and update it with the server's last crop poll time
@@ -144,8 +145,12 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerPoll() {
 		AddictionHandler.AddictionEffects();
-		EnchantmentHandler.RemoveEnchantment();
-		
+		try {
+			EnchantmentHandler.RemoveEnchantment();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 
 	}
 

@@ -18,9 +18,9 @@ public class Enchantment {
 
 
     public long itemId=0L;
-    public long timeOfEnchantment;
-    public byte enchantmentType;
-    public boolean hasOil;
+    public long timeOfEnchantment=0;
+    public byte enchantmentType=0;
+    public boolean hasOil=false;
 
 
  public static void readFromSQL(Connection dbconn, LinkedList<Enchantment> enchantments) throws SQLException {
@@ -32,11 +32,11 @@ public class Enchantment {
 
 
             e.itemId = rs.getLong("itemId"); // liest quasi den Wert von der Spalte
-            e.p = Players.getInstance().getPlayerOrNull(target.getOwnerId());
-            e.timeRunout = System.currentTimeMillis() + (seconds * 1000L);
-            e.enchantmentType = eff.type;
-            e.hasOil = true;
+            e.timeOfEnchantment = rs.getLong("timeOfEnchantment");
+            e.enchantmentType = rs.getByte("enchantment");
+            e.hasOil = rs.getBoolean("hasOil");
             EnchantmentHandler.enchantments.add(e);
+
         }
     }
 

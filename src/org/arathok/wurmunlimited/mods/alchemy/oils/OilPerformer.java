@@ -1,10 +1,7 @@
 package org.arathok.wurmunlimited.mods.alchemy.oils;
 
 
-import com.wurmonline.server.Items;
-import com.wurmonline.server.Players;
-import com.wurmonline.server.Server;
-import com.wurmonline.server.WurmCalendar;
+import com.wurmonline.server.*;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.creatures.Creature;
@@ -67,7 +64,7 @@ public class OilPerformer implements ActionPerformer {
 		return performer.isPlayer() && source.getOwnerId() == performer.getWurmId() && !source.isTraded();
 	}
 
-	public static boolean isEnchantable(Creature performer, Item target) {
+	public static boolean isEnchantable(Creature performer, Item target) throws NoSuchItemException {
 		Enchantment oiledWeapon;
 		boolean hasOil=false;
 		Iterator <Enchantment> oilChecker = EnchantmentHandler.enchantments.iterator();
@@ -76,7 +73,7 @@ public class OilPerformer implements ActionPerformer {
 		else
 			while (oilChecker.hasNext()) {
 				oiledWeapon= oilChecker.next();
-				if (oiledWeapon.item==target&&oiledWeapon.hasOil)
+				if (Items.getItem(oiledWeapon.itemId)==target&&oiledWeapon.hasOil)
 				hasOil=true;
 			}
 
@@ -103,14 +100,19 @@ public class OilPerformer implements ActionPerformer {
 					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 		}
 
-		if (!isEnchantable(performer, target)) {
-			performer.getCommunicator().sendAlertServerMessage("There is already a lot of magical power stored inside this weapon, you should" +
-					" consult a priest to disenchant it or wait until the current oil has dried off");
-			return propagate(action,
-					ActionPropagation.FINISH_ACTION,
-					ActionPropagation.NO_SERVER_PROPAGATION,
-					ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+		try {
+			if (!isEnchantable(performer, target)) {
+				performer.getCommunicator().sendAlertServerMessage("There is already a lot of magical power stored inside this weapon, you should" +
+						" consult a priest to disenchant it or wait until the current oil has dried off");
+				return propagate(action,
+						ActionPropagation.FINISH_ACTION,
+						ActionPropagation.NO_SERVER_PROPAGATION,
+						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 
+			}
+		} catch (NoSuchItemException e) {
+			Alchemy.logger.log(Level.SEVERE, "no item found for"+target.getName(),e);
+			e.printStackTrace();
 		}
 // EFFECT STUFF GOES HERE
 		seconds=Config.oilDuration;
@@ -208,6 +210,22 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,hunt)"));
+						try {
+							Enchantment e = new Enchantment();
+
+							e.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							e.timeOfEnchantment = WurmCalendar.getCurrentTime();
+							e.enchantmentType = eff.type;
+							e.hasOil = true;
+
+							e.insert(Alchemy.dbconn);
+							// update ModSupportDb
+
+
+						} catch (RuntimeException | SQLException ex) {
+							Alchemy.logger.log(Level.SEVERE,"RuntimeException or SQLException happened",ex);
+							ex.printStackTrace();
+						}
 					}
 					else
 					{
@@ -1094,16 +1112,16 @@ public class OilPerformer implements ActionPerformer {
 
 			try {
 				Enchantment e = new Enchantment();
-				Connection dbconn = ModSupportDb.getModSupportDb();
+
 				e.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
 				e.timeOfEnchantment = WurmCalendar.getCurrentTime();
 				e.enchantmentType = eff.type;
 				e.hasOil = true;
 
-				e.insert(dbconn);
+				e.insert(Alchemy.dbconn);
 				// update ModSupportDb
 
-				dbconn.close();
+
 			} catch (RuntimeException | SQLException ex) {
 				Alchemy.logger.log(Level.SEVERE,"RuntimeException or SQLException happened",ex);
 				ex.printStackTrace();
