@@ -1,6 +1,8 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
+import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.creatures.Communicator;
+import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilBehaviour;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilItems;
 import org.arathok.wurmunlimited.mods.alchemy.potions.PotionBehaviour;
@@ -116,13 +118,13 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 			// if not, create the table and update it with the server's last crop poll time
 			if (!ModSupportDb.hasTable(dbconn, "Alchemy")) {
 				// table create
-				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy (itemId LONG PRIMARY KEY NOT NULL DEFAULT 0, timeOfEnchantment LONG NOT NULL DEFAULT 0)")) {
+				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy (itemId LONG PRIMARY KEY NOT NULL DEFAULT 0, timeOfEnchantment LONG NOT NULL DEFAULT 0, enchantmentType BYTE NOT NULL DEFAULT 0, hasOil BOOLEAN NOT NULL DEFAULT false)")) {
 					ps.execute();
 				} catch (SQLException e) {
 					throw new RuntimeException(e);
 				}
 			}
-
+			Enchantment.readFromSQL(dbconn,EnchantmentHandler.enchantments);
 			ModActions.registerBehaviourProvider(new PotionBehaviour());
 			ModActions.registerBehaviourProvider(new OilBehaviour());
 			new EnchantmentHandler();
@@ -148,6 +150,10 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		try {
 			EnchantmentHandler.RemoveEnchantment();
 		} catch (SQLException e) {
+			Alchemy.logger.log(Level.INFO,"Database was closed",e);
+			e.printStackTrace();
+		} catch (NoSuchItemException e) {
+			Alchemy.logger.log(Level.INFO,"No item found for that id! ",e);
 			e.printStackTrace();
 		}
 

@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Enchantment {
 
@@ -23,7 +24,7 @@ public class Enchantment {
     public boolean hasOil=false;
 
 
- public static void readFromSQL(Connection dbconn, LinkedList<Enchantment> enchantments) throws SQLException {
+ public static void readFromSQL(Connection dbconn, List<Enchantment> enchantments) throws SQLException {
      Enchantment e=null;
         PreparedStatement ps = dbconn.prepareStatement("SELECT * FROM Alchemy");
         ResultSet rs=ps.executeQuery();
@@ -33,7 +34,7 @@ public class Enchantment {
 
             e.itemId = rs.getLong("itemId"); // liest quasi den Wert von der Spalte
             e.timeOfEnchantment = rs.getLong("timeOfEnchantment");
-            e.enchantmentType = rs.getByte("enchantment");
+            e.enchantmentType = rs.getByte("enchantmentType");
             e.hasOil = rs.getBoolean("hasOil");
             EnchantmentHandler.enchantments.add(e);
 
@@ -42,7 +43,7 @@ public class Enchantment {
 
     public void insert(Connection dbconn) throws SQLException {
 
-        PreparedStatement ps = dbconn.prepareStatement("insert into Alchemy (itemID,timeOfEnchantment,enchantment,hasOil) values (?,?,?,?)");
+        PreparedStatement ps = dbconn.prepareStatement("insert into Alchemy (itemID,timeOfEnchantment,enchantmentType,hasOil) values (?,?,?,?)");
         ps.setLong(1,this.itemId);
         ps.setLong(2, WurmCalendar.getCurrentTime());
         ps.setByte(3, this.enchantmentType);
@@ -52,6 +53,8 @@ public class Enchantment {
 
 
     }
+
+
 
 
 
