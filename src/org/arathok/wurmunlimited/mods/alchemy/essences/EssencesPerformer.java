@@ -1056,13 +1056,7 @@ public class EssencesPerformer implements ActionPerformer {
 
 		if (eff!=null)
 		{
-			e.item= target;
-			e.itemId = target.getWurmId();
-			e.p= Players.getInstance().getPlayerOrNull(target.getOwnerId());
-			e.timeRunout = System.currentTimeMillis()+(seconds*1000L);
-			e.enchantmentType = eff.type;
-			e.hasOil=true;
-			EnchantmentHandler.enchantments.add(e);
+
 			
 		}
 

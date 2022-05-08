@@ -118,17 +118,18 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 			// if not, create the table and update it with the server's last crop poll time
 			if (!ModSupportDb.hasTable(dbconn, "Alchemy")) {
 				// table create
-				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy (itemId LONG PRIMARY KEY NOT NULL DEFAULT 0, timeOfEnchantment LONG NOT NULL DEFAULT 0, enchantmentType BYTE NOT NULL DEFAULT 0, hasOil BOOLEAN NOT NULL DEFAULT false)")) {
+				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy (itemId LONG PRIMARY KEY NOT NULL DEFAULT 0, playerId LONG NOT NULL DEFAULT 0 , timeOfEnchantment LONG NOT NULL DEFAULT 0, enchantmentType BYTE NOT NULL DEFAULT 0, hasOil BOOLEAN NOT NULL DEFAULT false, itemNameBeforeEnchantment STRING NOT NULL DEFAULT 0)")) {
 					ps.execute();
 				} catch (SQLException e) {
 					throw new RuntimeException(e);
 				}
 			}
+			new EnchantmentHandler();
+			new AddictionHandler();
 			Enchantment.readFromSQL(dbconn,EnchantmentHandler.enchantments);
 			ModActions.registerBehaviourProvider(new PotionBehaviour());
 			ModActions.registerBehaviourProvider(new OilBehaviour());
-			new EnchantmentHandler();
-			new AddictionHandler();
+
 			logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
 			logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
 		} catch (SQLException e) {
