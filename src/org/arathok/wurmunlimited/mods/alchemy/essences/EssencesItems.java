@@ -15,13 +15,12 @@ public class EssencesItems {
     // powder becomes available at:
     //                 20         30,                               40,            50,                                          60,          70,         80,              90,          95
         acidicEssenceId,sandEssenceId,slateEssenceId,marbleEssenceId,ironEssenceId,zincEssenceId,tinEssenceId,leadEssenceId,copperEssenceId,silverEssenceId,goldEssenceId,adamantineEssenceId,seryllEssenceId,glimmerEssenceId,
-        acidicExtractId, sandExtractId,slateExtractId,marbleExtractId,ironExtractId,zincExtractId,tinExtractId,leadExtractId,copperExtractId,silverExtractId,goldExtractId,adamantineExtractId,seryllExtractId,glimmerExtractId,
-        activatedAcidicExtractId, activatedSandExtractId,activatedSlateExtractId,activatedMarbleExtractId,activatedIronExtractId,activatedZincExtractId,activatedTinExtractId,activatedLeadExtractId,activatedCopperExtractId,activatedSilverExtractId,activatedGoldExtractId,activatedAdamantineExtractId,activatedSeryllExtractId,activatedGlimmerExtractId;
+        acidicExtractId, sandExtractId,slateExtractId,marbleExtractId,ironExtractId,zincExtractId,tinExtractId,leadExtractId,copperExtractId,silverExtractId,goldExtractId,adamantineExtractId,seryllExtractId,glimmerExtractId;
+
     public static ItemTemplate
         vitriol, sandpowder,slatepowder,marblepowder,ironpowder, zincpowder,tinpowder,leadpowder,copperpowder,silverpowder,goldpowder,adamantinepowder,seryllpowder,glimmerpowder,
         acidicEssence, sandEssence,slateEssence,marbleEssence,ironEssence,zincEssence,tinEssence,leadEssence,copperEssence,silverEssence,goldEssence,adamantineEssence,seryllEssence,glimmerEssence,
-        acidicExtract, sandExtract,slateExtract,marbleExtract,ironExtract,zincExtract,tinExtract,leadExtract,copperExtract,silverExtract,goldExtract,adamantineExtract,seryllExtract,glimmerExtract,
-        activatedAcidicExtract, activatedSandExtract,activatedSlateExtract,activatedMarbleExtract,activatedIronExtract,activatedZincExtract,activatedTinExtract,activatedLeadExtract,activatedCopperExtract,activatedSilverExtract,activatedGoldExtract,activatedAdamantineExtract,activatedSeryllExtract,activatedGlimmerExtract;
+        acidicExtract, sandExtract,slateExtract,marbleExtract,ironExtract,zincExtract,tinExtract,leadExtract,copperExtract,silverExtract,goldExtract,adamantineExtract,seryllExtract,glimmerExtract;
 
 
 
@@ -72,7 +71,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         acidicEssenceId = acidicEssence.getTemplateId();
@@ -154,7 +153,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         sandEssenceId = sandEssence.getTemplateId();
@@ -204,7 +203,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_SLATE)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -236,7 +235,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         slateEssenceId = slateEssence.getTemplateId();
@@ -286,7 +285,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_MARBLE)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -318,7 +317,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         marbleEssenceId = marbleEssence.getTemplateId();
@@ -368,7 +367,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_IRON)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -400,7 +399,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         ironEssenceId = ironEssence.getTemplateId();
@@ -449,7 +448,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_TIN)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -481,7 +480,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         tinEssenceId = tinEssence.getTemplateId();
@@ -531,7 +530,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_ZINC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -546,7 +545,7 @@ public class EssencesItems {
     private static void registerzincEssence() throws IOException {
         zincEssence = new ItemTemplateBuilder("arathok.alchemy.zincEssence")
                 .name("zinc essence", "zinc essences",
-                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                        "A milky liquid that has vey lightweight and swift properties. Maybe Distilling it will give it even better properties, but who would want that? ")
                 .modelName("model.alchemy.zincEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
@@ -563,7 +562,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         zincEssenceId = zincEssence.getTemplateId();
@@ -575,7 +574,7 @@ public class EssencesItems {
     private static void registerzincExtract() throws IOException {
         zincExtract = new ItemTemplateBuilder("arathok.alchemy.zincExtract")
                 .name("zinc extract", "zinc extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that has strong leightweight but also swift properties.")
                 .modelName("model.alchemy.zincExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -613,7 +612,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_LEAD)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -628,7 +627,7 @@ public class EssencesItems {
     private static void registerleadEssence() throws IOException {
         leadEssence = new ItemTemplateBuilder("arathok.alchemy.leadEssence")
                 .name("lead essence", "lead essences",
-                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                        "A milky liquid that has vey heavy but also poisonous properties. Maybe Distilling it will give it even better properties, but who would want that? ")
                 .modelName("model.alchemy.leadEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
@@ -645,7 +644,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         leadEssenceId = leadEssence.getTemplateId();
@@ -657,7 +656,7 @@ public class EssencesItems {
     private static void registerleadExtract() throws IOException {
         leadExtract = new ItemTemplateBuilder("arathok.alchemy.leadExtract")
                 .name("lead extract", "lead extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that is heavy but also has poisonous properties.")
                 .modelName("model.alchemy.leadExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -695,7 +694,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_COPPER)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -710,7 +709,7 @@ public class EssencesItems {
     private static void registercopperEssence() throws IOException {
         copperEssence = new ItemTemplateBuilder("arathok.alchemy.copperEssence")
                 .name("copper essence", "copper essences",
-                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                        "A milky liquid that has vey lightweight but also poisonous properties. Maybe Distilling it will give it even better properties, but who would want that? ")
                 .modelName("model.alchemy.copperEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
@@ -727,7 +726,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         copperEssenceId = copperEssence.getTemplateId();
@@ -739,7 +738,7 @@ public class EssencesItems {
     private static void registercopperExtract() throws IOException {
         copperExtract = new ItemTemplateBuilder("arathok.alchemy.copperExtract")
                 .name("copper extract", "copper extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that has strong leightweight but poisonous properties.")
                 .modelName("model.alchemy.copperExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -778,7 +777,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_SILVER)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -793,7 +792,7 @@ public class EssencesItems {
     private static void registersilverEssence() throws IOException {
         silverEssence = new ItemTemplateBuilder("arathok.alchemy.silverEssence")
                 .name("silver essence", "silver essences",
-                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                        "A milky liquid that has vey lightweight properties it seems to be aggressive against monster skin. Maybe Distilling it will give it even better properties, but who would want that? ")
                 .modelName("model.alchemy.silverEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
@@ -808,9 +807,9 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
-                .weightGrams(1000)
+                .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         silverEssenceId = silverEssence.getTemplateId();
@@ -822,7 +821,7 @@ public class EssencesItems {
     private static void registersilverExtract() throws IOException {
         silverExtract = new ItemTemplateBuilder("arathok.alchemy.silverExtract")
                 .name("silver extract", "silver extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that has strong leightweight properties. Animal smelling it flee.")
                 .modelName("model.alchemy.silverExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -861,7 +860,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_GOLD)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -876,7 +875,7 @@ public class EssencesItems {
     private static void registergoldEssence() throws IOException {
         goldEssence = new ItemTemplateBuilder("arathok.alchemy.goldEssence")
                 .name("gold essence", "gold essences",
-                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                        "A shiny liquid. Maybe Distilling it will give it even better properties, but who would want that? ")
                 .modelName("model.alchemy.goldEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
@@ -891,9 +890,9 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
-                .weightGrams(1000)
+                .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         goldEssenceId = goldEssence.getTemplateId();
@@ -905,7 +904,7 @@ public class EssencesItems {
     private static void registergoldExtract() throws IOException {
         goldExtract = new ItemTemplateBuilder("arathok.alchemy.goldExtract")
                 .name("gold extract", "gold extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that has strong magic affinites.")
                 .modelName("model.alchemy.goldExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -943,7 +942,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_ADAMANTINE)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -958,7 +957,7 @@ public class EssencesItems {
     private static void registeradamantineEssence() throws IOException {
         adamantineEssence = new ItemTemplateBuilder("arathok.alchemy.adamantineEssence")
                 .name("adamantine essence", "adamantine essences",
-                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                        "A milky liquid that has good magical properties. Maybe Distilling it will give it even better properties, but who would want that? ")
                 .modelName("model.alchemy.adamantineEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
@@ -973,9 +972,9 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
-                .weightGrams(1000)
+                .weightGrams(400)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         adamantineEssenceId = adamantineEssence.getTemplateId();
@@ -987,7 +986,7 @@ public class EssencesItems {
     private static void registeradamantineExtract() throws IOException {
         adamantineExtract = new ItemTemplateBuilder("arathok.alchemy.adamantineExtract")
                 .name("adamantine extract", "adamantine extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that has strong magic properties.")
                 .modelName("model.alchemy.adamantineExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -1001,7 +1000,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
-                .weightGrams(1000)
+                .weightGrams(400)
                 .material(Materials.MATERIAL_ADAMANTINE)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
@@ -1026,7 +1025,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_GLIMMERSTEEL)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -1041,7 +1040,7 @@ public class EssencesItems {
     private static void registerglimmerEssence() throws IOException {
         glimmerEssence = new ItemTemplateBuilder("arathok.alchemy.glimmerEssence")
                 .name("glimmer essence", "glimmer essences",
-                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                        "A milky liquid that some say is the epitome of Alchemy. Maybe Distilling it will give it even better properties, but who would want that? ")
                 .modelName("model.alchemy.glimmerEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
@@ -1058,11 +1057,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         glimmerEssenceId = glimmerEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,glimmerpowderId, glimmerEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,glimmerpowderId, glimmerEssenceId, true, true, 0.0f, true, true,0,50, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -1070,7 +1069,7 @@ public class EssencesItems {
     private static void registerglimmerExtract() throws IOException {
         glimmerExtract = new ItemTemplateBuilder("arathok.alchemy.glimmerExtract")
                 .name("glimmer extract", "glimmer extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that is said to be the distilled epitome of alchemy.")
                 .modelName("model.alchemy.glimmerExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -1109,7 +1108,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(100000)
+                .weightGrams(1000)
                 .material(Materials.MATERIAL_SERYLL)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
@@ -1124,7 +1123,7 @@ public class EssencesItems {
     private static void registerseryllEssence() throws IOException {
         seryllEssence = new ItemTemplateBuilder("arathok.alchemy.seryllEssence")
                 .name("seryll essence", "seryll essences",
-                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                        "A milky liquid that has good swift properties. Maybe Distilling it will give it even better properties, but who would want that? ")
                 .modelName("model.alchemy.seryllEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
@@ -1139,9 +1138,9 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
-                .weightGrams(1000)
+                .weightGrams(200)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
                 .build();
 
         seryllEssenceId = seryllEssence.getTemplateId();
@@ -1153,7 +1152,7 @@ public class EssencesItems {
     private static void registerseryllExtract() throws IOException {
         seryllExtract = new ItemTemplateBuilder("arathok.alchemy.seryllExtract")
                 .name("seryll extract", "seryll extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that has strong swift properties. It seems to be begging you to enchant it.")
                 .modelName("model.alchemy.seryllExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -1167,7 +1166,7 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
-                .weightGrams(1000)
+                .weightGrams(200)
                 .material(Materials.MATERIAL_SERYLL)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();

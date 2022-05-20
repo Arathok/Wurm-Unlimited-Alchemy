@@ -122,11 +122,19 @@ public class OilPerformer implements ActionPerformer {
 		Set<Item> items;
 		items = performer.getInventory().getItems();
 
-		for (Item item: items)
-		{
+		for (Item item: items) {
 			if (item.getTemplate().getName().contains("pelt") || item.getTemplate().getName().contains("Pelt")) {
 				hasPelt = true;
 				break;
+			} else if (item.getTemplate().getName().contains("back")) {
+				Set<Item> backpackItems;
+				backpackItems = item.getItems();
+				for (Item itemInBackpack : backpackItems) {
+					if (itemInBackpack.getTemplate().getName().contains("pelt") || itemInBackpack.getTemplate().getName().contains("Pelt")) {
+						hasPelt = true;
+						break;
+					}
+				}
 			}
 		}
 

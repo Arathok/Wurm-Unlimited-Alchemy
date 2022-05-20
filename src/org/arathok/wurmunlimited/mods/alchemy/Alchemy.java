@@ -52,6 +52,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.enchantmentsStack = Boolean.parseBoolean(properties.getProperty("enchantmentsStack", "true"));
 		Config.oilDurationOnEnchanted = Float.parseFloat(properties.getProperty("oilDurationOnEnchant", "1.0F"));
 		Config.skillUsed = Integer.parseInt(properties.getProperty("skillUsed", "10042"));
+		Config.baseDifficulty = Float.parseFloat(properties.getProperty("oilDurationOnEnchant", "0.5F"));
 	//	Config.worldMaxX = Integer.parseInt(properties.getProperty("worldMaxX", "4096"));
 	//	Config.worldMaxY = Integer.parseInt(properties.getProperty("worldMaxY", "4096"));
 
