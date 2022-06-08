@@ -95,5 +95,4 @@ public class PotionBehaviour implements BehaviourProvider {
 	public List<ActionEntry> getBehavioursFor(Creature performer, Item source, Item target) {
 		return getBehavioursFor(performer, target);
 	}
-	// NEEDED FOR SINGLE ITEM ONLY STUFF
 }
