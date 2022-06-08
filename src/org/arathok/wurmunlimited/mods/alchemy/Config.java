@@ -16,4 +16,5 @@ public class Config {
     public static boolean enchantmentsStack = true;
     public static float oilDurationOnEnchanted = 0.33F;
     public static int skillUsed = 10042;
+    public static float baseDifficulty = 0.5F;
 }
