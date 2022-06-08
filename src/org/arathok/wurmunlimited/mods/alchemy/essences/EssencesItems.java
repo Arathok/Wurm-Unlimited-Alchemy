@@ -11,18 +11,44 @@ import java.io.IOException;
 public class EssencesItems {
 
     public static int
-        vitriolId, sandpowderId,slatepowderId,marblepowderId,ironpowderId, zincpowderId,tinpowderId,leadpowderId,copperpowderId,silverpowderId,goldpowderId,adamantinepowderId,seryllpowderId,glimmerpowderId,
-    // powder becomes available at:
+        vitriolId,stoneCoreId, sandCoreId,slateCoreId,marbleCoreId,ironCoreId, zincCoreId,tinCoreId,leadCoreId,copperCoreId,silverCoreId,goldCoreId,adamantineCoreId,seryllCoreId,glimmerCoreId,
+    // Core becomes available at:
     //                 20         30,                               40,            50,                                          60,          70,         80,              90,          95
-        acidicEssenceId,sandEssenceId,slateEssenceId,marbleEssenceId,ironEssenceId,zincEssenceId,tinEssenceId,leadEssenceId,copperEssenceId,silverEssenceId,goldEssenceId,adamantineEssenceId,seryllEssenceId,glimmerEssenceId,
-        acidicExtractId, sandExtractId,slateExtractId,marbleExtractId,ironExtractId,zincExtractId,tinExtractId,leadExtractId,copperExtractId,silverExtractId,goldExtractId,adamantineExtractId,seryllExtractId,glimmerExtractId;
-
+        acidicEssenceId,sandEssenceId,slateEssenceId,marbleEssenceId,ironEssenceId,zincEssenceId,tinEssenceId,leadEssenceId,copperEssenceId,silverEssenceId,goldEssenceId,admantineEssenceId,seryllEssenceId,glimmerEssenceId,
+        acidicExtractId, sandExtractId,slateExtractId,marbleExtractId,ironExtractId,zincExtractId,tinExtractId,leadExtractId,copperExtractId,silverExtractId,goldExtractId,adamantineExtractId,seryllExtractId,glimmerExtractId,
+        activatedAcidicExtractId, activatedSandExtractId,activatedSlateExtractId,activatedMarbleExtractId,activatedIronExtractId,activatedZincExtractId,activatedTinExtractId,activatedLeadExtractId,activatedCopperExtractId,activatedSilverExtractId,activatedGoldExtractId,activatedAdamantineExtractId,activatedSeryllExtractId,activatedGlimmerExtractId;
     public static ItemTemplate
-        vitriol, sandpowder,slatepowder,marblepowder,ironpowder, zincpowder,tinpowder,leadpowder,copperpowder,silverpowder,goldpowder,adamantinepowder,seryllpowder,glimmerpowder,
-        acidicEssence, sandEssence,slateEssence,marbleEssence,ironEssence,zincEssence,tinEssence,leadEssence,copperEssence,silverEssence,goldEssence,adamantineEssence,seryllEssence,glimmerEssence,
-        acidicExtract, sandExtract,slateExtract,marbleExtract,ironExtract,zincExtract,tinExtract,leadExtract,copperExtract,silverExtract,goldExtract,adamantineExtract,seryllExtract,glimmerExtract;
+        vitriol,stoneCore, sandCore,slateCore,marbleCore,ironCore, zincCore,tinCore,leadCore,copperCore,silverCore,goldCore,adamantineCore,seryllCore,glimmerCore,
+        acidicEssence, sandEssence,slateEssence,marbleEssence,ironEssence,zincEssence,tinEssence,leadEssence,copperEssence,silverEssence,goldEssence,admantineEssence,seryllEssence,glimmerEssence,
+        acidicExtract, sandExtract,slateExtract,marbleExtract,ironExtract,zincExtract,tinExtract,leadExtract,copperExtract,silverExtract,goldExtract,adamantineExtract,seryllExtract,glimmerExtract,
+        activatedAcidicExtract, activatedSandExtract,activatedSlateExtract,activatedMarbleExtract,activatedIronExtract,activatedZincExtract,activatedTinExtract,activatedLeadExtract,activatedCopperExtract,activatedSilverExtract,activatedGoldExtract,activatedAdamantineExtract,activatedSeryllExtract,activatedGlimmerExtract;
+
+    private static void registerStoneCore() throws IOException {
+        stoneCore = new ItemTemplateBuilder("arathok.alchemy.stoneCore")
+                .name("Stone Core", "Stone Cores",
+                        "A rock that is special somehow. In it you can still hear the beating heart of a mountain.")
+                .modelName("model.alchemy.stoneCore.")
+                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
+                .itemTypes(new short[] {
+
+                        ItemTypes.ITEM_TYPE_BULK,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
+                        ItemTypes.ITEM_TYPE_DECORATION,
+
+                })
+                .decayTime(9072000L)
+                .dimensions(5, 5, 5)
+                .weightGrams(100000)
+                .material(Materials.MATERIAL_STONE)
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
+                .build();
+
+        stoneCoreId = stoneCore.getTemplateId();
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.rock,ItemList.heart, stoneCoreId, true, true, 0.0f, true, true,0,20, CreationCategories.ALCHEMY)
+                .addRequirement(new CreationRequirement(1, ItemList.rock,4,true));
 
 
+    }
 
     private static void registerVitriol() throws IOException {
         vitriol = new ItemTemplateBuilder("arathok.alchemy.vitriol")
@@ -71,7 +97,7 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         acidicEssenceId = acidicEssence.getTemplateId();
@@ -106,11 +132,11 @@ public class EssencesItems {
 
     }
 
-    private static void registerSandpowder() throws IOException {
-        sandpowder = new ItemTemplateBuilder("arathok.alchemy.sandpowder")
-                .name("sand powder", "sand powders",
-                        "A yellowy powder that has somehow contained the essence of sand. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.sandpowder.")
+    private static void registerSandCore() throws IOException {
+        sandCore = new ItemTemplateBuilder("arathok.alchemy.sandCore")
+                .name("sand core", "sand cores",
+                        "A yellowy rock that has somehow contained the essence of sand. Maybe you can use its slumbering power in some alchemic brew?")
+                .modelName("model.alchemy.sandCore.")
                 .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
                 .itemTypes(new short[] {
 
@@ -121,13 +147,13 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(1000)
+                .weightGrams(100000)
                 .material(Materials.MATERIAL_SANDSTONE)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
-        sandpowderId = sandpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.sandstone, sandpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        sandCoreId = sandCore.getTemplateId();
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.sandstone, sandCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.sandstone,4,true));
 
 
@@ -153,11 +179,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         sandEssenceId = sandEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,sandpowderId, sandEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,sandCoreId, sandEssenceId, true, true, 0.0f, true, false,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -188,11 +214,11 @@ public class EssencesItems {
 
     }
 
-    private static void registerslatepowder() throws IOException {
-        slatepowder = new ItemTemplateBuilder("arathok.alchemy.slatepowder")
-                .name("slate powder", "slate powders",
-                        "A dark powder that has somehow contained the essence of slate. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.slatepowder.")
+    private static void registerslateCore() throws IOException {
+        slateCore = new ItemTemplateBuilder("arathok.alchemy.slateCore")
+                .name("slate core", "slate cores",
+                        "A dark rock that has somehow contained the essence of slate. Maybe you can use its slumbering power in some alchemic brew?")
+                .modelName("model.alchemy.slateCore.")
                 .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
                 .itemTypes(new short[] {
 
@@ -203,13 +229,13 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(1000)
+                .weightGrams(100000)
                 .material(Materials.MATERIAL_SLATE)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
-        slatepowderId = slatepowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.slateShard, slatepowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        slateCoreId = slateCore.getTemplateId();
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.slateShard, slateCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.slateShard,4,true));
 
 
@@ -235,11 +261,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         slateEssenceId = slateEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,slatepowderId, slateEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,slateCoreId, slateEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -270,11 +296,11 @@ public class EssencesItems {
 
     }
 
-    private static void registermarblepowder() throws IOException {
-        marblepowder = new ItemTemplateBuilder("arathok.alchemy.marblepowder")
-                .name("marble powder", "marble powders",
-                        "A bright powder that has somehow contained the essence of marble. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.marblepowder.")
+    private static void registermarbleCore() throws IOException {
+        marbleCore = new ItemTemplateBuilder("arathok.alchemy.marbleCore")
+                .name("marble core", "marble cores",
+                        "A bright rock that has somehow contained the essence of marble. Maybe you can use its slumbering power in some alchemic brew?")
+                .modelName("model.alchemy.marbleCore.")
                 .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
                 .itemTypes(new short[] {
 
@@ -285,13 +311,13 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(1000)
+                .weightGrams(100000)
                 .material(Materials.MATERIAL_MARBLE)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
-        marblepowderId = marblepowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.marbleShard, marblepowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        marbleCoreId = marbleCore.getTemplateId();
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.marbleShard, marbleCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.marbleShard,4,true));
 
 
@@ -317,11 +343,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         marbleEssenceId = marbleEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,marblepowderId, marbleEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,marbleCoreId, marbleEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -352,11 +378,11 @@ public class EssencesItems {
 
     }
 
-    private static void registerironpowder() throws IOException {
-        ironpowder = new ItemTemplateBuilder("arathok.alchemy.ironpowder")
-                .name("iron powder", "iron powders",
-                        "A powder that has somehow contained the essence of iron. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.ironpowder.")
+    private static void registerironCore() throws IOException {
+        ironCore = new ItemTemplateBuilder("arathok.alchemy.ironCore")
+                .name("iron core", "iron cores",
+                        "A rock that has somehow contained the essence of iron. Maybe you can use its slumbering power in some alchemic brew?")
+                .modelName("model.alchemy.ironCore.")
                 .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
                 .itemTypes(new short[] {
 
@@ -367,13 +393,13 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(1000)
+                .weightGrams(100000)
                 .material(Materials.MATERIAL_IRON)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
-        ironpowderId = ironpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.ironBar, ironpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        ironCoreId = ironCore.getTemplateId();
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.ironBar, ironCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.ironBar,99,true));
 
 
@@ -399,11 +425,11 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         ironEssenceId = ironEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,ironpowderId, ironEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,ironCoreId, ironEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
@@ -433,11 +459,11 @@ public class EssencesItems {
         ironExtractId = ironExtract.getTemplateId();
 
     }
-    private static void registertinpowder() throws IOException {
-        tinpowder = new ItemTemplateBuilder("arathok.alchemy.tinpowder")
-                .name("tin powder", "tin powders",
-                        "A powder that has somehow contained the essence of tin. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.tinpowder.")
+    private static void registertinCore() throws IOException {
+        tinCore = new ItemTemplateBuilder("arathok.alchemy.tinCore")
+                .name("tin core", "tin cores",
+                        "A rock that has somehow contained the essence of tin. Maybe you can use its slumbering power in some alchemic brew?")
+                .modelName("model.alchemy.tinCore.")
                 .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
                 .itemTypes(new short[] {
 
@@ -448,13 +474,13 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(1000)
+                .weightGrams(100000)
                 .material(Materials.MATERIAL_TIN)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
-        tinpowderId = tinpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.tinBar, tinpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        tinCoreId = tinCore.getTemplateId();
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.tinBar, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.tinBar,99,true));
 
 
@@ -480,19 +506,19 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
         tinEssenceId = tinEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,tinpowderId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
-
+/*
     private static void registertinExtract() throws IOException {
         tinExtract = new ItemTemplateBuilder("arathok.alchemy.tinExtract")
                 .name("tin extract", "tin extracts",
-                        "A liquid that has strong leightweight but also weak structural properties.")
+                        "A liquid that has strong leightweight but also weak structural properties. Can be used to reduce any ore vein to tin or create a tin vein from rock.")
                 .modelName("model.alchemy.tinExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
@@ -515,11 +541,11 @@ public class EssencesItems {
 
     }
 
-    private static void registerzincpowder() throws IOException {
-        zincpowder = new ItemTemplateBuilder("arathok.alchemy.zincpowder")
-                .name("zinc powder", "zinc powders",
-                        "A greenish powder that has somehow contained the essence of zinc. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.zincpowder.")
+    private static void registertinCore() throws IOException {
+        tinCore = new ItemTemplateBuilder("arathok.alchemy.tinCore")
+                .name("tin core", "tin cores",
+                        "A yellowy rock that has somehow contained the essence of tin. Maybe you can use its slumbering power in some alchemic brew?")
+                .modelName("model.alchemy.tinCore.")
                 .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
                 .itemTypes(new short[] {
 
@@ -530,23 +556,23 @@ public class EssencesItems {
                 })
                 .decayTime(9072000L)
                 .dimensions(5, 5, 5)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_ZINC)
+                .weightGrams(100000)
+                .material(Materials.MATERIAL_TIN)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
                 .build();
 
-        zincpowderId = zincpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.zincBar, zincpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.zincBar,4,true));
+        tinCoreId = tinCore.getTemplateId();
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, stoneCoreId,ItemList.tinOre, tinCoreId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+                .addRequirement(new CreationRequirement(1, ItemList.tinOre,4,true));
 
 
     }
 
-    private static void registerzincEssence() throws IOException {
-        zincEssence = new ItemTemplateBuilder("arathok.alchemy.zincEssence")
-                .name("zinc essence", "zinc essences",
-                        "A milky liquid that has vey lightweight and swift properties. Maybe Distilling it will give it even better properties, but who would want that? ")
-                .modelName("model.alchemy.zincEssence.")
+    private static void registertinEssence() throws IOException {
+        tinEssence = new ItemTemplateBuilder("arathok.alchemy.tinEssence")
+                .name("tin essence", "tin essences",
+                        "A milky liquid that has vey lightweight but not so durable properties. Maybe Distilling it will give it even better properties, but who would want that? ")
+                .modelName("model.alchemy.tinEssence.")
                 .imageNumber((short) IconConstants.ICON_FOOD_STEW)
                 .itemTypes(new short[] {
 
@@ -562,20 +588,20 @@ public class EssencesItems {
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(99) // no hard lock
                 .build();
 
-        zincEssenceId = zincEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,zincpowderId, zincEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
+        tinEssenceId = tinEssence.getTemplateId();
+        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,tinCoreId, tinEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
                 .addRequirement(new CreationRequirement(2, vitriolId,1,true));
     }
 
-    private static void registerzincExtract() throws IOException {
-        zincExtract = new ItemTemplateBuilder("arathok.alchemy.zincExtract")
-                .name("zinc extract", "zinc extracts",
-                        "A liquid that has strong leightweight but also swift properties.")
-                .modelName("model.alchemy.zincExtract.")
+    private static void registertinExtract() throws IOException {
+        tinExtract = new ItemTemplateBuilder("arathok.alchemy.tinExtract")
+                .name("tin extract", "tin extracts",
+                        "A liquid that has strong leightweight but also weak structural properties. Can be used to reduce any ore vein to tin or create a tin vein from rock.")
+                .modelName("model.alchemy.tinExtract.")
                 .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
                 .itemTypes(new short[] {
 
@@ -589,591 +615,13 @@ public class EssencesItems {
                 .decayTime(9072000L)
                 .dimensions(5, 5, 10)
                 .weightGrams(1000)
-                .material(Materials.MATERIAL_ZINC)
+                .material(Materials.MATERIAL_TIN)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
                 .build();
 
-        zincExtractId = zincExtract.getTemplateId();
+        tinExtractId = tinExtract.getTemplateId();
 
-    }
-
-    private static void registerleadpowder() throws IOException {
-        leadpowder = new ItemTemplateBuilder("arathok.alchemy.leadpowder")
-                .name("lead powder", "lead powders",
-                        "A powder that has somehow contained the essence of lead. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.leadpowder.")
-                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DECORATION,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 5)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_LEAD)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
-                .build();
-
-        leadpowderId = leadpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.leadBar, leadpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.leadBar,99,true));
-
-
-    }
-
-    private static void registerleadEssence() throws IOException {
-        leadEssence = new ItemTemplateBuilder("arathok.alchemy.leadEssence")
-                .name("lead essence", "lead essences",
-                        "A milky liquid that has vey heavy but also poisonous properties. Maybe Distilling it will give it even better properties, but who would want that? ")
-                .modelName("model.alchemy.leadEssence.")
-                .imageNumber((short) IconConstants.ICON_FOOD_STEW)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_USES_FOOD_STATE,
-                        ItemTypes.ITEM_TYPE_FERMENTED,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
-                .build();
-
-        leadEssenceId = leadEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,leadpowderId, leadEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
-                .addRequirement(new CreationRequirement(2, vitriolId,1,true));
-    }
-
-    private static void registerleadExtract() throws IOException {
-        leadExtract = new ItemTemplateBuilder("arathok.alchemy.leadExtract")
-                .name("lead extract", "lead extracts",
-                        "A liquid that is heavy but also has poisonous properties.")
-                .modelName("model.alchemy.leadExtract.")
-                .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_LEAD)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
-                .build();
-
-        leadExtractId = leadExtract.getTemplateId();
-
-    }
-
-    private static void registercopperpowder() throws IOException {
-        copperpowder = new ItemTemplateBuilder("arathok.alchemy.copperpowder")
-                .name("copper powder", "copper powders",
-                        "A powder that has somehow contained the essence of copper. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.copperpowder.")
-                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DECORATION,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 5)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_COPPER)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
-                .build();
-
-        copperpowderId = copperpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.copperBar, copperpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.copperBar,99,true));
-
-
-    }
-
-    private static void registercopperEssence() throws IOException {
-        copperEssence = new ItemTemplateBuilder("arathok.alchemy.copperEssence")
-                .name("copper essence", "copper essences",
-                        "A milky liquid that has vey lightweight but also poisonous properties. Maybe Distilling it will give it even better properties, but who would want that? ")
-                .modelName("model.alchemy.copperEssence.")
-                .imageNumber((short) IconConstants.ICON_FOOD_STEW)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_USES_FOOD_STATE,
-                        ItemTypes.ITEM_TYPE_FERMENTED,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
-                .build();
-
-        copperEssenceId = copperEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,copperpowderId, copperEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
-                .addRequirement(new CreationRequirement(2, vitriolId,1,true));
-    }
-
-    private static void registercopperExtract() throws IOException {
-        copperExtract = new ItemTemplateBuilder("arathok.alchemy.copperExtract")
-                .name("copper extract", "copper extracts",
-                        "A liquid that has strong leightweight but poisonous properties.")
-                .modelName("model.alchemy.copperExtract.")
-                .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_COPPER)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
-                .build();
-
-        copperExtractId = copperExtract.getTemplateId();
-
-    }
-
-
-    private static void registersilverpowder() throws IOException {
-        silverpowder = new ItemTemplateBuilder("arathok.alchemy.silverpowder")
-                .name("silver powder", "silver powders",
-                        "A powder that has somehow contained the essence of silver. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.silverpowder.")
-                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DECORATION,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 5)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_SILVER)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
-                .build();
-
-        silverpowderId = silverpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.silverBar, silverpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.silverBar,99,true));
-
-
-    }
-
-    private static void registersilverEssence() throws IOException {
-        silverEssence = new ItemTemplateBuilder("arathok.alchemy.silverEssence")
-                .name("silver essence", "silver essences",
-                        "A milky liquid that has vey lightweight properties it seems to be aggressive against monster skin. Maybe Distilling it will give it even better properties, but who would want that? ")
-                .modelName("model.alchemy.silverEssence.")
-                .imageNumber((short) IconConstants.ICON_FOOD_STEW)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_USES_FOOD_STATE,
-                        ItemTypes.ITEM_TYPE_FERMENTED,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(100)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
-                .build();
-
-        silverEssenceId = silverEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,silverpowderId, silverEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
-                .addRequirement(new CreationRequirement(2, vitriolId,1,true));
-    }
-
-    private static void registersilverExtract() throws IOException {
-        silverExtract = new ItemTemplateBuilder("arathok.alchemy.silverExtract")
-                .name("silver extract", "silver extracts",
-                        "A liquid that has strong leightweight properties. Animal smelling it flee.")
-                .modelName("model.alchemy.silverExtract.")
-                .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_SILVER)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
-                .build();
-
-        silverExtractId = silverExtract.getTemplateId();
-
-    }
-
-
-    private static void registergoldpowder() throws IOException {
-        goldpowder = new ItemTemplateBuilder("arathok.alchemy.goldpowder")
-                .name("gold powder", "gold powders",
-                        "A powder that has somehow contained the essence of gold. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.goldpowder.")
-                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DECORATION,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 5)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_GOLD)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
-                .build();
-
-        goldpowderId = goldpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.goldBar, goldpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.goldBar,99,true));
-
-
-    }
-
-    private static void registergoldEssence() throws IOException {
-        goldEssence = new ItemTemplateBuilder("arathok.alchemy.goldEssence")
-                .name("gold essence", "gold essences",
-                        "A shiny liquid. Maybe Distilling it will give it even better properties, but who would want that? ")
-                .modelName("model.alchemy.goldEssence.")
-                .imageNumber((short) IconConstants.ICON_FOOD_STEW)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_USES_FOOD_STATE,
-                        ItemTypes.ITEM_TYPE_FERMENTED,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(100)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
-                .build();
-
-        goldEssenceId = goldEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,goldpowderId, goldEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
-                .addRequirement(new CreationRequirement(2, vitriolId,1,true));
-    }
-
-    private static void registergoldExtract() throws IOException {
-        goldExtract = new ItemTemplateBuilder("arathok.alchemy.goldExtract")
-                .name("gold extract", "gold extracts",
-                        "A liquid that has strong magic affinites.")
-                .modelName("model.alchemy.goldExtract.")
-                .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_GOLD)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
-                .build();
-
-        goldExtractId = goldExtract.getTemplateId();
-
-    }
-
-    private static void registeradamantiumpowder() throws IOException {
-        adamantinepowder = new ItemTemplateBuilder("arathok.alchemy.adamantinepowder")
-                .name("adamantine powder", "adamantine powders",
-                        "A powder that has somehow contained the essence of adamantine. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.adamantinepowder.")
-                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DECORATION,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 5)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_ADAMANTINE)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
-                .build();
-
-        adamantinepowderId = adamantinepowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.adamantineBar, adamantinepowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.adamantineBar,99,true));
-
-
-    }
-
-    private static void registeradamantineEssence() throws IOException {
-        adamantineEssence = new ItemTemplateBuilder("arathok.alchemy.adamantineEssence")
-                .name("adamantine essence", "adamantine essences",
-                        "A milky liquid that has good magical properties. Maybe Distilling it will give it even better properties, but who would want that? ")
-                .modelName("model.alchemy.adamantineEssence.")
-                .imageNumber((short) IconConstants.ICON_FOOD_STEW)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_USES_FOOD_STATE,
-                        ItemTypes.ITEM_TYPE_FERMENTED,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(400)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
-                .build();
-
-        adamantineEssenceId = adamantineEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,adamantinepowderId, adamantineEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
-                .addRequirement(new CreationRequirement(2, vitriolId,1,true));
-    }
-
-    private static void registeradamantineExtract() throws IOException {
-        adamantineExtract = new ItemTemplateBuilder("arathok.alchemy.adamantineExtract")
-                .name("adamantine extract", "adamantine extracts",
-                        "A liquid that has strong magic properties.")
-                .modelName("model.alchemy.adamantineExtract.")
-                .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(400)
-                .material(Materials.MATERIAL_ADAMANTINE)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
-                .build();
-
-        adamantineExtractId = adamantineExtract.getTemplateId();
-
-    }
-
-
-    private static void registerglimmersteelpowder() throws IOException {
-        glimmerpowder = new ItemTemplateBuilder("arathok.alchemy.glimmerpowder")
-                .name("glimmer powder", "glimmer powders",
-                        "A powder that has somehow contained the essence of glimmer. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.glimmerpowder.")
-                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DECORATION,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 5)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_GLIMMERSTEEL)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
-                .build();
-
-        glimmerpowderId = glimmerpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.glimmerSteelBar, glimmerpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.glimmerSteelBar,99,true));
-
-
-    }
-
-    private static void registerglimmerEssence() throws IOException {
-        glimmerEssence = new ItemTemplateBuilder("arathok.alchemy.glimmerEssence")
-                .name("glimmer essence", "glimmer essences",
-                        "A milky liquid that some say is the epitome of Alchemy. Maybe Distilling it will give it even better properties, but who would want that? ")
-                .modelName("model.alchemy.glimmerEssence.")
-                .imageNumber((short) IconConstants.ICON_FOOD_STEW)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_USES_FOOD_STATE,
-                        ItemTypes.ITEM_TYPE_FERMENTED,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
-                .build();
-
-        glimmerEssenceId = glimmerEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,glimmerpowderId, glimmerEssenceId, true, true, 0.0f, true, true,0,50, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
-                .addRequirement(new CreationRequirement(2, vitriolId,1,true));
-    }
-
-    private static void registerglimmerExtract() throws IOException {
-        glimmerExtract = new ItemTemplateBuilder("arathok.alchemy.glimmerExtract")
-                .name("glimmer extract", "glimmer extracts",
-                        "A liquid that is said to be the distilled epitome of alchemy.")
-                .modelName("model.alchemy.glimmerExtract.")
-                .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_GLIMMERSTEEL)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
-                .build();
-
-        glimmerExtractId = glimmerExtract.getTemplateId();
-
-    }
-
-
-    private static void registerseryllpowder() throws IOException {
-        seryllpowder = new ItemTemplateBuilder("arathok.alchemy.seryllpowder")
-                .name("seryll powder", "seryll powders",
-                        "A powder that has somehow contained the essence of seryll. Maybe you can use its slumbering power in some alchemic brew?")
-                .modelName("model.alchemy.seryllpowder.")
-                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DECORATION,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 5)
-                .weightGrams(1000)
-                .material(Materials.MATERIAL_SERYLL)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(20) // no hard lock
-                .build();
-
-        seryllpowderId = seryllpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.seryllBar, seryllpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.seryllBar,99,true));
-
-
-    }
-
-    private static void registerseryllEssence() throws IOException {
-        seryllEssence = new ItemTemplateBuilder("arathok.alchemy.seryllEssence")
-                .name("seryll essence", "seryll essences",
-                        "A milky liquid that has good swift properties. Maybe Distilling it will give it even better properties, but who would want that? ")
-                .modelName("model.alchemy.seryllEssence.")
-                .imageNumber((short) IconConstants.ICON_FOOD_STEW)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_USES_FOOD_STATE,
-                        ItemTypes.ITEM_TYPE_FERMENTED,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(200)
-                .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*50) // no hard lock
-                .build();
-
-        seryllEssenceId = seryllEssence.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.water,seryllpowderId, seryllEssenceId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.salt,1,true))
-                .addRequirement(new CreationRequirement(2, vitriolId,1,true));
-    }
-
-    private static void registerseryllExtract() throws IOException {
-        seryllExtract = new ItemTemplateBuilder("arathok.alchemy.seryllExtract")
-                .name("seryll extract", "seryll extracts",
-                        "A liquid that has strong swift properties. It seems to be begging you to enchant it.")
-                .modelName("model.alchemy.seryllExtract.")
-                .imageNumber((short) IconConstants.ICON_LIQUID_DISHWATER)
-                .itemTypes(new short[] {
-
-                        ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE,
-                        ItemTypes.ITEM_TYPE_DISTILLED,
-                        ItemTypes.ITEM_TYPE_LIQUID,
-
-
-                })
-                .decayTime(9072000L)
-                .dimensions(5, 5, 10)
-                .weightGrams(200)
-                .material(Materials.MATERIAL_SERYLL)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(5) // no hard lock
-                .build();
-
-        seryllExtractId = seryllExtract.getTemplateId();
-
-    }
+    }*/
 }
 
 

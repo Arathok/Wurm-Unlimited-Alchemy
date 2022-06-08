@@ -62,7 +62,7 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         mixtureWillowspineId = mixtureWillowspine.getTemplateId();
@@ -88,7 +88,7 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE, })
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         mixtureExcellId = mixtureExcell.getTemplateId();
@@ -116,7 +116,7 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*35) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(35) // no hard lock
                 .build();
 
         mixtureFranticChargeId = mixtureFranticCharge.getTemplateId();
@@ -143,7 +143,7 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE, })
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         mixtureGoatId = mixtureGoat.getTemplateId();
@@ -176,7 +176,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         mixtureOakshellId = mixtureOakshell.getTemplateId();
@@ -210,7 +210,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         mixtureHealId = mixtureHeal.getTemplateId();
@@ -241,7 +241,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         mixtureMorningFogId = mixtureMorningFog.getTemplateId();
@@ -273,7 +273,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*20) // no hard lock
+                .difficulty(20) // no hard lock
                 .build();
 
         mixtureRefreshId = mixtureRefresh.getTemplateId();
@@ -307,7 +307,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         mixtureSixthSenseId = mixtureSixthSense.getTemplateId();
@@ -340,7 +340,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(40) // no hard lock
                 .build();
 
         mixtureStrengthId = mixtureStrength.getTemplateId();
@@ -373,7 +373,7 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         mixtureTruehitId = mixtureTruehit.getTemplateId();
@@ -405,7 +405,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*90) // no hard lock
+                .difficulty(90) // no hard lock
                 .build();
 
         mixtureVynoraId = mixtureVynora.getTemplateId();
@@ -439,7 +439,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorWillowspineId = precursorWillowspine.getTemplateId();
@@ -464,7 +464,7 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         precursorExcellId = precursorExcell.getTemplateId();
@@ -490,7 +490,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorGoatId = precursorGoat.getTemplateId();
@@ -516,7 +516,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorHealId = precursorHeal.getTemplateId();
@@ -542,7 +542,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorFranticChargeId = precursorFranticCharge.getTemplateId();
@@ -569,7 +569,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorMorningFogId = precursorMorningFog.getTemplateId();
@@ -595,7 +595,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorOakshellId = precursorOakshell.getTemplateId();
@@ -622,7 +622,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorRefreshId = precursorRefresh.getTemplateId();
@@ -648,7 +648,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorSixthSenseId = precursorSixthSense.getTemplateId();
@@ -675,7 +675,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorStrengthId = precursorStrength.getTemplateId();
@@ -703,7 +703,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorTruehitId = precursorTruehit.getTemplateId();
@@ -731,7 +731,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         precursorVynoraId = precursorVynora.getTemplateId();
@@ -758,7 +758,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidWillowspineId = potionLiquidWillowspine.getTemplateId();
@@ -780,7 +780,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidExcellId = potionLiquidExcell.getTemplateId();
@@ -803,8 +803,7 @@ public class PotionItems {
                 .decayTime(691200L).dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         potionLiquidGoatId = potionLiquidGoat.getTemplateId();
@@ -829,7 +828,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidHealId = potionLiquidHeal.getTemplateId();
@@ -850,7 +849,7 @@ public class PotionItems {
                 .decayTime(691200L)
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         potionLiquidFranticChargeId = potionLiquidFranticCharge.getTemplateId();
@@ -875,7 +874,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidKarmaId = potionLiquidKarma.getTemplateId();
@@ -901,7 +900,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidManaId = potionLiquidMana.getTemplateId();
@@ -926,7 +925,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidMorningFogId = potionLiquidMorningFog.getTemplateId();
@@ -951,7 +950,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidOakshellId = potionLiquidOakshell.getTemplateId();
@@ -975,7 +974,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidRefreshId = potionLiquidRefresh.getTemplateId();
@@ -1000,7 +999,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidSixthSenseId = potionLiquidSixthSense.getTemplateId();
@@ -1026,7 +1025,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidStrengthId = potionLiquidStrength.getTemplateId();
@@ -1050,7 +1049,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidTruehitId = potionLiquidTruehit.getTemplateId();
@@ -1074,7 +1073,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionLiquidVynoraId = potionLiquidVynora.getTemplateId();
@@ -1102,7 +1101,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdWillowspine = potionWillowspine.getTemplateId();
@@ -1131,7 +1130,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdExcell = potionExcell.getTemplateId();
@@ -1158,7 +1157,7 @@ public class PotionItems {
                 .decayTime(2073600L).dimensions(5, 5, 10)
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .primarySkill(Config.skillUsed).difficulty(30) // no hard lock
                 .build();
 
         potionIdGoat = potionGoat.getTemplateId();
@@ -1187,7 +1186,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdHeal = potionHeal.getTemplateId();
@@ -1216,7 +1215,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdFranticCharge = potionFranticCharge.getTemplateId();
@@ -1244,7 +1243,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdMorningFog = potionMorningFog.getTemplateId();
@@ -1272,7 +1271,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdOakshell = potionOakshell.getTemplateId();
@@ -1301,7 +1300,7 @@ public class PotionItems {
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdRefresh = potionRefresh.getTemplateId();
@@ -1330,7 +1329,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdSixthSense = potionSixthSense.getTemplateId();
@@ -1358,7 +1357,7 @@ public class PotionItems {
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdStrength = potionStrength.getTemplateId();
@@ -1388,7 +1387,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         potionIdTruehit = potionTruehit.getTemplateId();
@@ -1417,7 +1416,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*90) // no hard lock
+                .difficulty(90) // no hard lock
                 .build();
 
         potionIdVynora = potionVynora.getTemplateId();
@@ -1446,7 +1445,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(40) // no hard lock
                 .build();
 
         potionManaId = potionMana.getTemplateId();
@@ -1475,7 +1474,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(40) // no hard lock
                 .build();
 
         potionKarmaId = potionKarma.getTemplateId();

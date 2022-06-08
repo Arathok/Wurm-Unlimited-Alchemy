@@ -62,7 +62,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(40) // no hard lock
                 .build();
 
         pasteDemiseAnimalId = pasteDemiseAnimal.getTemplateId();
@@ -97,7 +97,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*60) // no hard lock
+                .difficulty(60) // no hard lock
                 .build();
 
         pasteDemiseMonsterId = pasteDemiseMonster.getTemplateId();
@@ -131,7 +131,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*70) // no hard lock
+                .difficulty(70) // no hard lock
                 .build();
 
         pasteDemiseLegendaryId = pasteDemiseLegendary.getTemplateId();
@@ -166,7 +166,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         pasteDemiseHumanId = pasteDemiseHuman.getTemplateId();
@@ -200,7 +200,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         pasteLickOfFireId = pasteLickOfFire.getTemplateId();
@@ -234,7 +234,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         pasteKissOfFrostId = pasteKissOfFrost.getTemplateId();
@@ -269,7 +269,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         pasteLeechId = pasteLeech.getTemplateId();
@@ -303,7 +303,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*70) // no hard lock
+                .difficulty(70) // no hard lock
                 .build();
 
         pastePlagueId = pastePlague.getTemplateId();
@@ -338,7 +338,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         pasteHeartseekerId = pasteHeartseeker.getTemplateId();
@@ -373,7 +373,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         pastePoisonId = pastePoison.getTemplateId();
@@ -404,7 +404,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(40) // no hard lock
                 .build();
 
         sludgeDemiseAnimalId = sludgeDemiseAnimal.getTemplateId();
@@ -435,7 +435,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*60) // no hard lock
+                .difficulty(60) // no hard lock
                 .build();
 
         sludgeDemiseMonsterId = sludgeDemiseMonster.getTemplateId();
@@ -465,7 +465,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*70) // no hard lock
+                .difficulty(70) // no hard lock
                 .build();
 
         sludgeDemiseLegendaryId = sludgeDemiseLegendary.getTemplateId();
@@ -496,7 +496,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         sludgeDemiseHumanId = sludgeDemiseHuman.getTemplateId();
@@ -526,7 +526,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         sludgeLickOfFireId = sludgeLickOfFire.getTemplateId();
@@ -555,7 +555,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         sludgeKissOfFrostId = sludgeKissOfFrost.getTemplateId();
@@ -585,7 +585,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         sludgeLeechId = sludgeLeech.getTemplateId();
@@ -614,7 +614,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*70) // no hard lock
+                .difficulty(70) // no hard lock
                 .build();
 
         sludgePlagueId = sludgePlague.getTemplateId();
@@ -645,7 +645,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         sludgeHeartseekerId = sludgeHeartseeker.getTemplateId();
@@ -676,7 +676,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         sludgePoisonId = sludgePoison.getTemplateId();
@@ -708,7 +708,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(40) // no hard lock
                 .build();
 
         oilDemiseAnimalId = oilDemiseAnimal.getTemplateId();
@@ -737,7 +737,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*60) // no hard lock
+                .difficulty(60) // no hard lock
                 .build();
 
         oilDemiseMonsterId = oilDemiseMonster.getTemplateId();
@@ -764,7 +764,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*70) // no hard lock
+                .difficulty(70) // no hard lock
                 .build();
 
         oilDemiseLegendaryId = oilDemiseLegendary.getTemplateId();
@@ -792,7 +792,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         oilDemiseHumanId = oilDemiseHuman.getTemplateId();
@@ -820,7 +820,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         oilLickOfFireId = oilLickOfFire.getTemplateId();
@@ -847,7 +847,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         oilKissOfFrostId = oilKissOfFrost.getTemplateId();
@@ -874,7 +874,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         oilLeechId = oilLeech.getTemplateId();
@@ -901,7 +901,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*70) // no hard lock
+                .difficulty(70) // no hard lock
                 .build();
 
         oilPlagueId = oilPlague.getTemplateId();
@@ -928,7 +928,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         oilHeartseekerId = oilHeartseeker.getTemplateId();
@@ -955,7 +955,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(50) // no hard lock
                 .build();
 
         oilPoisonId = oilPoison.getTemplateId();
@@ -983,7 +983,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseAnimalId = weaponOilDemiseAnimal.getTemplateId();
@@ -1013,7 +1013,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseHumanId = weaponOilDemiseHuman.getTemplateId();
@@ -1043,7 +1043,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseMonsterId = weaponOilDemiseMonster.getTemplateId();
@@ -1073,7 +1073,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilDemiseLegendaryId = weaponOilDemiseLegendary.getTemplateId();
@@ -1103,7 +1103,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilHeartseekerId = weaponOilHeartseeker.getTemplateId();
@@ -1133,7 +1133,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilKissOfFrostId = weaponOilKissOfFrost.getTemplateId();
@@ -1163,7 +1163,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilLickOfFireId = weaponOilLickOfFire.getTemplateId();
@@ -1193,7 +1193,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilPoisonId = weaponOilPoison.getTemplateId();
@@ -1223,7 +1223,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilPlagueId = weaponOilPlague.getTemplateId();
@@ -1253,7 +1253,7 @@ public class OilItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(30) // no hard lock
                 .build();
 
         weaponOilLeechId = weaponOilLeech.getTemplateId();
