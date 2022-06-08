@@ -2,12 +2,14 @@ package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.creatures.Communicator;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
+import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
+import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesBehaviourItem;
+import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesBehaviourTile;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilBehaviour;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilItems;
 import org.arathok.wurmunlimited.mods.alchemy.potions.PotionBehaviour;
-import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
-import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
 import org.gotti.wurmunlimited.modloader.interfaces.*;
 import org.gotti.wurmunlimited.modsupport.ModSupportDb;
@@ -130,6 +132,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 			Enchantment.readFromSQL(dbconn,EnchantmentHandler.enchantments);
 			ModActions.registerBehaviourProvider(new PotionBehaviour());
 			ModActions.registerBehaviourProvider(new OilBehaviour());
+			ModActions.registerBehaviourProvider(new EssencesBehaviourItem());
+			ModActions.registerBehaviourProvider(new EssencesBehaviourTile());
 
 			logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
 			logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
