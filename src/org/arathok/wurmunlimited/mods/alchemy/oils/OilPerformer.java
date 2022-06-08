@@ -122,19 +122,11 @@ public class OilPerformer implements ActionPerformer {
 		Set<Item> items;
 		items = performer.getInventory().getItems();
 
-		for (Item item: items) {
+		for (Item item: items)
+		{
 			if (item.getTemplate().getName().contains("pelt") || item.getTemplate().getName().contains("Pelt")) {
 				hasPelt = true;
 				break;
-			} else if (item.getTemplate().getName().contains("back")) {
-				Set<Item> backpackItems;
-				backpackItems = item.getItems();
-				for (Item itemInBackpack : backpackItems) {
-					if (itemInBackpack.getTemplate().getName().contains("pelt") || itemInBackpack.getTemplate().getName().contains("Pelt")) {
-						hasPelt = true;
-						break;
-					}
-				}
 			}
 		}
 
@@ -229,11 +221,12 @@ public class OilPerformer implements ActionPerformer {
 						try {
 
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							EnchantmentHandler.enchantments.add(q);
+
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
@@ -343,14 +336,17 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,Murder)"));
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
@@ -456,15 +452,18 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (seconds));
 						effs.addSpellEffect(eff);
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						arrow.setName((arrow.getName() + " (oil,monster hunt)"));
 						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
@@ -571,14 +570,17 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, legendary hunt)"));
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
@@ -681,15 +683,18 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (seconds));
 						effs.addSpellEffect(eff);
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						arrow.setName((arrow.getName() + " (oil, flaming)"));
 						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
@@ -792,15 +797,18 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (seconds));
 						effs.addSpellEffect(eff);
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						arrow.setName((arrow.getName() + " (oil, frost)"));
 						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
@@ -904,15 +912,19 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (seconds));
 						effs.addSpellEffect(eff);
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						arrow.setName((arrow.getName() + " (oil, leech)"));
-						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+						try {
+
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
@@ -1018,16 +1030,18 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (seconds));
 						eff.timeleft=Config.oilDuration;
 						effs.addSpellEffect(eff);
-					
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						arrow.setName((arrow.getName() + " (oil, plague)"));
 						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
@@ -1131,15 +1145,18 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 27, power, (seconds));
 						effs.addSpellEffect(eff);
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						arrow.setName((arrow.getName() + " (oil, poison)"));
 						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
@@ -1244,16 +1261,20 @@ public class OilPerformer implements ActionPerformer {
 
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (seconds));
 						effs.addSpellEffect(eff);
-						
+						Enchantment q = new Enchantment();
+						q.itemNameBeforeEnchantment= arrow.getName();
 						arrow.setName((arrow.getName() + " (oil, heartseeker)"));
-						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+						try {
+
+
+							q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+							q.playerId = performer.getWurmId();
+
 							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+
 
 							EnchantmentHandler.enchantments.add(q);
 							q.insert(Alchemy.dbconn);
@@ -1293,18 +1314,18 @@ public class OilPerformer implements ActionPerformer {
 
 			try {
 
+				if (!target.getTemplate().getName().contains("quiver")) {
+					e.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+					e.timeOfEnchantment = WurmCalendar.getCurrentTime();
+					e.enchantmentType = eff.type;
+					e.hasOil = true;
+					e.playerId = performer.getWurmId();
 
-				e.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-				e.timeOfEnchantment = WurmCalendar.getCurrentTime();
-				e.enchantmentType = eff.type;
-				e.hasOil = true;
-				e.playerId = performer.getWurmId();
 
-
-				e.insert(Alchemy.dbconn);
-				EnchantmentHandler.enchantments.add(e);
-				// update ModSupportDb
-
+					e.insert(Alchemy.dbconn);
+					EnchantmentHandler.enchantments.add(e);
+					// update ModSupportDb
+				}
 
 			} catch (RuntimeException | SQLException ex) {
 				Alchemy.logger.log(Level.SEVERE,"RuntimeException or SQLException happened",ex);
