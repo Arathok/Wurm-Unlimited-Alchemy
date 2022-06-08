@@ -18,12 +18,12 @@ public class EssencesBehaviour implements BehaviourProvider {
 
 
 	private final List<ActionEntry> imbue;
-	private final EssencesPerformer essencesPerformer;
+	private final EssencesPerformerItem essencesPerformerItem;
 
 	public EssencesBehaviour() {
-	    this.essencesPerformer = new EssencesPerformer();
-	    this.imbue = Collections.singletonList(essencesPerformer.actionEntry);
-		ModActions.registerActionPerformer(essencesPerformer);
+	    this.essencesPerformerItem = new EssencesPerformerItem();
+	    this.imbue = Collections.singletonList(essencesPerformerItem.actionEntry);
+		ModActions.registerActionPerformer(essencesPerformerItem);
 
 	}
 
@@ -31,7 +31,7 @@ public class EssencesBehaviour implements BehaviourProvider {
 	//, , , , ;
 
 	@Override
-	public List<ActionEntry> getBehavioursFor(Creature performer, Item source, Item target) {
+	public List<ActionEntry> getBehavioursFor(Creature performer, int tilex, int tiley, boolean onSurface, int tile, int dir) {
 
 		if (source.getTemplateId() == OilItems.weaponOilDemiseAnimalId) {
             if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
