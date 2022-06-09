@@ -1174,6 +1174,50 @@ public class EssencesItems {
         seryllExtractId = seryllExtract.getTemplateId();
 
     }
+    public static void register() throws IOException {
+        registerVitriol();
+        registerSandpowder();
+        registerSandEssence();
+        registerSandExtract();
+        registerslatepowder();
+        registerslateEssence();
+        registerslateExtract();
+        registermarblepowder();
+        registermarbleEssence();
+        registermarbleExtract();
+        registerAcidEssence();
+        registerAcidExtract();
+        registeradamantiumpowder();
+        registeradamantineEssence();
+        registeradamantineExtract();
+        registerironpowder();
+        registerironEssence();
+        registerironExtract();
+        registerzincpowder();
+        registerzincEssence();
+        registerzincExtract();
+        registertinpowder();
+        registertinEssence();
+        registertinExtract();
+        registerleadpowder();
+        registerleadEssence();
+        registerleadExtract();
+        registercopperpowder();
+        registercopperEssence();
+        registercopperExtract();
+        registersilverpowder();
+        registersilverEssence();
+        registersilverExtract();
+        registergoldpowder();
+        registergoldEssence();
+        registergoldExtract();
+        registerglimmersteelpowder();
+        registerglimmerEssence();
+        registerglimmerExtract();
+        registerseryllpowder();
+        registerseryllEssence();
+        registerseryllExtract();
+    }
 }
 
 

@@ -7,6 +7,7 @@ import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesBehaviourItem;
 import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesBehaviourTile;
+import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesItems;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilBehaviour;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilItems;
 import org.arathok.wurmunlimited.mods.alchemy.potions.PotionBehaviour;
@@ -84,7 +85,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		if (message != null&&message.startsWith("#AlchemyVersion"))
 		{
 
-			communicator.sendSafeServerMessage("You are on Alchemy Version 0.8.8 ");
+			communicator.sendSafeServerMessage("You are on Alchemy Version 0.9 ");
 
 		}
 		return false;
@@ -99,6 +100,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 					AlchItems.register();
 					PotionItems.register();
 					OilItems.register();
+					EssencesItems.register();
 					logger.log(Level.INFO, "Alchemy is Done loading its Item Templates! Thank you Coldie!");
 
 				} catch (IOException e) {
