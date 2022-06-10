@@ -88,7 +88,7 @@ public class EssencesPerformerItem implements ActionPerformer {
 			listEntry.nameBeforeConversion = target.getName();
 
 
-			if (target.isItem()) {
+			if (target.isItem()&&source.getWeightGrams()>=target.getWeightGrams()) {
 				if (target.getMaterial() != source.getMaterial()) {
 					Iterator<Conversion> conversionIterator = ConversionHandler.conversions.iterator();
 					Conversion conversion;
@@ -143,6 +143,8 @@ public class EssencesPerformerItem implements ActionPerformer {
 						ActionPropagation.NO_SERVER_PROPAGATION,
 						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 			}
+			else
+				performer.getCommunicator().sendAlertServerMessage("Your dont have enough Transmutation Liquid to transorm your item!");
 
 
 		}

@@ -2,11 +2,15 @@ package org.arathok.wurmunlimited.mods.alchemy.essences;
 
 
 import com.wurmonline.mesh.Tiles;
+import com.wurmonline.server.Players;
+import com.wurmonline.server.Server;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
+import com.wurmonline.server.behaviours.Terraforming;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.zones.VolaTile;
+import com.wurmonline.shared.constants.ItemMaterials;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
 import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
@@ -53,7 +57,7 @@ public class EssencesPerformerTile implements ActionPerformer {
 
 
 	@Override
-	public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) { // Since we use target and source this time, only need that override
+	public boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, boolean corner, int tile, int heightOffset, short num, float counter) { // Since we use target and source this time, only need that override
 		/*if (target.getTemplateId() != AlchItems.weaponOilDemiseAnimalId)
 
 			return propagate(action,
@@ -69,73 +73,33 @@ public class EssencesPerformerTile implements ActionPerformer {
 
 
 // EFFECT STUFF GOES HERE
-		if (source.getTemplate().getName().contains("extract")) {
-			Conversion listEntry = new Conversion();
-			listEntry.wurmId = target.getWurmId();
-			listEntry.essenceQl = source.getCurrentQualityLevel();
-			listEntry.itemQl = source.getCurrentQualityLevel();
-			listEntry.conversionPercent = 0;
-			listEntry.nameBeforeConversion = target.getName();
 
+		byte type=Tiles.decodeType(tile);
 
-			if (target.isItem()) {
-				if (target.getMaterial() != source.getMaterial()) {
-					Iterator<Conversion> conversionIterator = ConversionHandler.conversions.iterator();
-					Conversion conversion;
-					while (conversionIterator.hasNext())
-					{
-						conversion=conversionIterator.next();
-						if (conversion.wurmId==target.getWurmId()&&conversion.targetMaterialbyte!=source.getMaterial())
-						{
-							performer.getCommunicator().sendAlertServerMessage("Your Item is already on its way being transmuted into another Material." +
-									"Moving on with yet another material would certainly destroy the integrity of your item and shatter it.");
-							return propagate(action,
-									ActionPropagation.FINISH_ACTION,
-									ActionPropagation.NO_SERVER_PROPAGATION,
-									ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-						}
-					}
-					if (target.getCurrentQualityLevel() <= source.getCurrentQualityLevel()) {
-						performer.getCommunicator().sendAlertServerMessage("You start imbuing the Item with the essence and it transforms its material to " + Item.getMaterialString(source.getMaterial()) + "!");
-						target.setMaterial(source.getMaterial());
-					} else {
-						Conversion conversionToCheck=new Conversion();
-						for (Conversion oneConversion : ConversionHandler.conversions)
-							if (oneConversion.wurmId==target.getWurmId()) {
-								conversionToCheck=oneConversion;
-								break;
-							}
-
-						float multiplier = source.getCurrentQualityLevel() / target.getCurrentQualityLevel();
-						multiplier *= 100;
-						if(multiplier+conversionToCheck.conversionPercent>100.0F)
-						{
-							performer.getCommunicator().sendAlertServerMessage("You start imbuing the Item with the essence and it transforms its material to " + Item.getMaterialString(source.getMaterial()) + "!");
-							target.setMaterial(source.getMaterial());
-							target.setName(conversionToCheck.nameBeforeConversion);
-							ConversionHandler.conversions.remove(conversionToCheck);
-						}
-						else{
-							target.setName(target.getName() + " transmuting ( " + Item.getMaterialString(source.getMaterial()) + " " + multiplier + " %");
-							performer.getCommunicator().sendAlertServerMessage("You start imbuing the Item with the essence, but due to the poor Quality of your essence you might need to apply some more essence");
-
-							listEntry.conversionPercent = multiplier;
-							listEntry.targetMaterialbyte = source.getMaterial();
-							ConversionHandler.conversions.add(listEntry);
-						}
-
-					}
-				}
-				else
-					performer.getCommunicator().sendAlertServerMessage("Your Item is already of this material!");
-				return propagate(action,
-						ActionPropagation.FINISH_ACTION,
-						ActionPropagation.NO_SERVER_PROPAGATION,
-						ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-			}
+		if ((Tiles.isReinforcedCaveWall((byte)tile)||Tiles.isOreCave((byte)tile))&&source.getTemplate()==EssencesItems.acidicExtract&&source.getWeightGrams()>10000) {
+			//remove walls
+			Terraforming.setAsRock(tilex,tiley,false);
 
 
 		}
+		else if(type==(byte)Tiles.TILE_TYPE_CAVE_WALL&&source.getWeightGrams()>100000) {
+			//create vein
+
+			if (source.getMaterial()== ItemMaterials.MATERIAL_SANDSTONE)
+				type=(byte)Tiles.TILE_TYPE_CAVE_WALL_SANDSTONE;
+			if (source.getMaterial()== ItemMaterials.MATERIAL_MARBLE)
+				type=(byte)Tiles.TILE_TYPE_CAVE_WALL_MARBLE;
+			if (source.getMaterial()== ItemMaterials.MATERIAL_SLATE)
+				type=(byte)Tiles.TILE_TYPE_CAVE_WALL_SLATE;
+			if (source.getMaterial()== ItemMaterials.MATERIAL_IRON)
+				type=(byte)Tiles.TILE_TYPE_CAVE_WALL_ORE_IRON;
+
+			Server.caveMesh.setTile(tilex, tiley,
+				Tiles.encode(Tiles.decodeHeight(tile), type,
+				Tiles.decodeData(tile)));
+			Players.getInstance().sendChangedTile(tilex, tiley, false, true);
+		}
+		else performer.getCommunicator().sendAlertServerMessage("you don't have enough Transmutation Liquid to transform the wall!");
 		return propagate(action,
 				ActionPropagation.FINISH_ACTION,
 				ActionPropagation.NO_SERVER_PROPAGATION,
