@@ -2,6 +2,7 @@ package org.arathok.wurmunlimited.mods.alchemy.essences;
 
 
 import com.wurmonline.mesh.Tiles;
+import com.wurmonline.server.Items;
 import com.wurmonline.server.Players;
 import com.wurmonline.server.Server;
 import com.wurmonline.server.behaviours.Action;
@@ -28,7 +29,7 @@ public class EssencesPerformerTile implements ActionPerformer {
 
 
 
-		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "imbue essence", "imbueing", new int[]{
+		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "imbue essence on wall", "imbueing", new int[]{
 				6 /* ACTION_TYPE_NOMOVE */,
 				48 /* ACTION_TYPE_ENEMY_ALWAYS */,
 				36 /* USE SOURCE AND TARGET */,
@@ -57,12 +58,8 @@ public class EssencesPerformerTile implements ActionPerformer {
 
 
 	@Override
-	public boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, boolean corner, int tile, int heightOffset, short num, float counter) { // Since we use target and source this time, only need that override
-		/*if (target.getTemplateId() != AlchItems.weaponOilDemiseAnimalId)
+	public boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, int heightOffset, int tile, short num, float counter) {
 
-			return propagate(action,
-					ActionPropagation.SERVER_PROPAGATION,
-					ActionPropagation.ACTION_PERFORMER_PROPAGATION);*/
 		if (!canUse(performer,source)) {
 			performer.getCommunicator().sendAlertServerMessage("You are not allowed to do that");
 			return propagate(action,
@@ -76,9 +73,11 @@ public class EssencesPerformerTile implements ActionPerformer {
 
 		byte type=Tiles.decodeType(tile);
 
-		if ((Tiles.isReinforcedCaveWall((byte)tile)||Tiles.isOreCave((byte)tile))&&source.getTemplate()==EssencesItems.acidicExtract&&source.getWeightGrams()>10000) {
+		if ((type==(byte)203||(type>=(byte)205&&type<=(byte)245))&&source.getTemplate()==EssencesItems.acidicExtract&&source.getWeightGrams()>10000) {
 			//remove walls
 			Terraforming.setAsRock(tilex,tiley,false);
+			source.setWeight(source.getWeightGrams()-10000,false);
+			performer.getCommunicator().sendSafeServerMessage("The acid fizzles through the wall and dissolves any material that is not rock.");
 
 
 		}
@@ -98,6 +97,8 @@ public class EssencesPerformerTile implements ActionPerformer {
 				Tiles.encode(Tiles.decodeHeight(tile), type,
 				Tiles.decodeData(tile)));
 			Players.getInstance().sendChangedTile(tilex, tiley, false, true);
+			source.setWeight(source.getWeightGrams()-100000,false);
+			performer.getCommunicator().sendSafeServerMessage("The transmutation Liquid seeps through the rock and transforms it into your desired material!");
 		}
 		else performer.getCommunicator().sendAlertServerMessage("you don't have enough Transmutation Liquid to transform the wall!");
 		return propagate(action,

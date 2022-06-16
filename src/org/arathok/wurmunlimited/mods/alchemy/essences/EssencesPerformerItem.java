@@ -34,7 +34,7 @@ public class EssencesPerformerItem implements ActionPerformer {
 
 
 
-		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "imbue essence", "imbueing", new int[]{
+		actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "imbue essence on item", "imbueing", new int[]{
 				6 /* ACTION_TYPE_NOMOVE */,
 				48 /* ACTION_TYPE_ENEMY_ALWAYS */,
 				36 /* USE SOURCE AND TARGET */,

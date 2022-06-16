@@ -29,18 +29,18 @@ public class EssencesBehaviourTile implements BehaviourProvider {
 	//, , , , ;
 
 	@Override
-	public List<ActionEntry> getBehavioursFor(Creature performer, Item subject, int tilex, int tiley, boolean onSurface, int tile, int dir) {
+	public List<ActionEntry> getBehavioursFor(Creature performer, Item source, int tilex, int tiley, boolean onSurface, int tile, int dir) {
 		byte type = Tiles.decodeType(tile);
 		if (type==(byte)Tiles.TILE_TYPE_CAVE_WALL
-				&&(subject.getTemplate()==EssencesItems.ironExtract
-				||subject.getTemplate()==EssencesItems.slateExtract
-				||subject.getTemplate()==EssencesItems.sandExtract
-				||subject.getTemplate()==EssencesItems.marbleExtract))
+				&&(source.getTemplate()==EssencesItems.ironExtract
+				||source.getTemplate()==EssencesItems.slateExtract
+				||source.getTemplate()==EssencesItems.sandExtract
+				||source.getTemplate()==EssencesItems.marbleExtract)&& EssencesPerformerTile.canUse(performer,source))
 		{
 
 			return new ArrayList<>(imbue);
 		}
-		else if ((type==(byte)Tiles.TILE_TYPE_CAVE_WALL_REINFORCED||Tiles.isOreCave((byte)tile))&&subject.getTemplate()==EssencesItems.acidicExtract)
+		else if ((type>=(byte)205&&type<=(byte)245||type==(byte)203)&&source.getTemplate()==EssencesItems.acidicExtract)
 		{
 			return new ArrayList<>(imbue);
 		}
