@@ -5,6 +5,7 @@ import com.wurmonline.server.Players;
 import com.wurmonline.server.WurmCalendar;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.players.Player;
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.gotti.wurmunlimited.modsupport.ModSupportDb;
 
 import java.sql.Connection;
@@ -13,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
 
 public class Enchantment {
 
@@ -28,7 +30,7 @@ public class Enchantment {
 
  public static void readFromSQL(Connection dbconn, List<Enchantment> enchantments) throws SQLException {
      Enchantment e=new Enchantment();
-        PreparedStatement ps = dbconn.prepareStatement("SELECT * FROM Alchemy");
+        PreparedStatement ps = dbconn.prepareStatement("SELECT * FROM Alchemy_OiledWeapons");
         ResultSet rs=ps.executeQuery();
         while (rs.next()) {
 
@@ -47,7 +49,9 @@ public class Enchantment {
 
     public void insert(Connection dbconn) throws SQLException {
 
-        PreparedStatement ps = dbconn.prepareStatement("insert into Alchemy (itemID,playerId,timeOfEnchantment,enchantmentType,hasOil,itemNameBeforeEnchantment) values (?,?,?,?,?,?)");
+        PreparedStatement ps = dbconn.prepareStatement("insert into Alchemy_OiledWeapons (itemID,playerId,timeOfEnchantment,enchantmentType,hasOil,itemNameBeforeEnchantment) " +
+                                                               "values " +
+                                                               "(?,?,?,?,?,?)");
         ps.setLong(1,this.itemId);
         ps.setLong(2, this.playerId);
         ps.setLong(3, this.timeOfEnchantment);
@@ -62,7 +66,17 @@ public class Enchantment {
     }
 
 
-
+    public static void remove(Connection dbconn, long aItemId) {
+        try {
+            PreparedStatement ps = dbconn.prepareStatement("DELETE FROM Alchemy_OiledWeapons WHERE itemID = ?");
+            ps.setLong(1, aItemId);
+            ps.execute();
+            ps.close();
+        } catch (SQLException throwables) {
+            Alchemy.logger.log(Level.SEVERE, "something went wrong deleting an enchanted Item from the DB!", throwables);
+            throwables.printStackTrace();
+        }
+    }
 
 
 

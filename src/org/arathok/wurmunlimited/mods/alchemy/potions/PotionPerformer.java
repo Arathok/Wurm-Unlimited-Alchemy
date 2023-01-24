@@ -117,8 +117,11 @@ public class PotionPerformer implements ActionPerformer
                     }
 
                     if (severity<9830)
-					playerInQuestion.p.addWoundOfType(playerInQuestion.p, (byte) 5, 23, false, 1.0F, false, 54000, (float) 1, 0.0F, false, true);
-                    else {
+                    {
+                        playerInQuestion.p.addWoundOfType(playerInQuestion.p, (byte) 5, 23, false, 1.0F, false, 54000, (float) 1, 0.0F, false, true);
+                        playerInQuestion.toxicityWarningLevel=1;
+                    }
+					else {
                         playerInQuestion.toxicityWarningLevel=0;
                         AddictionHandler.addictions.set(index,playerInQuestion);
                         playerInQuestion.p.die(false, "toxicity");

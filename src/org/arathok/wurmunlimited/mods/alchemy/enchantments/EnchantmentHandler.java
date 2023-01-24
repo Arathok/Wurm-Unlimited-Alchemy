@@ -42,7 +42,8 @@ public class EnchantmentHandler {
 
             if (owner != null&&!owner.isLoggedOut()) {
                 Item realItem = Items.getItem(enchantedItem.itemId);
-                PreparedStatement psDeleteRow = Alchemy.dbconn.prepareStatement("DELETE FROM Alchemy WHERE itemId = " + enchantedItem.itemId);
+
+
                 // IF ITEM IS MAILED OR IN LETTERBOX
                 String parent = realItem.getParentOrNull().getTemplate().getName();
                 String topParent = realItem.getTopParentOrNull().getTemplate().getName();
@@ -55,7 +56,7 @@ public class EnchantmentHandler {
                                 owner.getCommunicator().sendAlertServerMessage("Traveling through dimensions via mail used up all the magic of the oil coating your weapon...");
                             realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                             enchantmentsIterator.remove();
-                            psDeleteRow.execute();
+                            Enchantment.remove(Alchemy.dbconn,enchantedItem.itemId);
 
                             Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName() + "was removed because the player was mailing it");
 
@@ -74,7 +75,7 @@ public class EnchantmentHandler {
                                 owner.getCommunicator().sendAlertServerMessage("Traveling through dimensions via mail used up all the magic of the oil coating your weapon...");
                             realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                             enchantmentsIterator.remove();
-                            psDeleteRow.execute();
+                            Enchantment.remove(Alchemy.dbconn,enchantedItem.itemId);
 
                             Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName() + "was removed because the player was mailing it");
 
@@ -98,7 +99,7 @@ public class EnchantmentHandler {
                             owner.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
                         realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                         enchantmentsIterator.remove();
-                        psDeleteRow.execute();
+                        Enchantment.remove(Alchemy.dbconn,enchantedItem.itemId);
 
                         Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the player was too close to the world Border");
                     } catch (NoSuchItemException e) {
@@ -140,7 +141,7 @@ public class EnchantmentHandler {
                             owner.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
                         realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                         enchantmentsIterator.remove();
-                        psDeleteRow.execute();
+                        Enchantment.remove(Alchemy.dbconn,enchantedItem.itemId);
 
                         Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName() + "was removed because the player was too close to a portal");
                     } catch (NoSuchItemException e) {
@@ -161,7 +162,7 @@ public class EnchantmentHandler {
                             owner.getCommunicator().sendAlertServerMessage("As you drop your weapon the dirt mixes with the oil and the effect subsides.");
                         realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                         enchantmentsIterator.remove();
-                        psDeleteRow.execute();
+                        Enchantment.remove(Alchemy.dbconn,enchantedItem.itemId);
 
                         Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the player logged out or dropped the item");
                     } catch (NoSuchItemException e) {
@@ -173,7 +174,7 @@ public class EnchantmentHandler {
 
 
                 // IF time ran out
-                if (enchantedItem.timeOfEnchantment + Config.oilDuration*8 < time) {
+                if (enchantedItem.timeOfEnchantment + Config.oilDuration* 8L < time) {
                     try {
                         Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
@@ -183,7 +184,7 @@ public class EnchantmentHandler {
                        realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                         Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the "+Config.oilDuration+" seconds timer on it ran out");
                         enchantmentsIterator.remove();
-                        psDeleteRow.execute();
+                        Enchantment.remove(Alchemy.dbconn,enchantedItem.itemId);
                     } catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                         e.printStackTrace();
