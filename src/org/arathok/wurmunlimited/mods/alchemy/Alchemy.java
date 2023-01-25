@@ -2,6 +2,7 @@ package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.creatures.Communicator;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
 import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
@@ -35,6 +36,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public static HashMap<Long,Integer> previousAddiction = new HashMap<>();
 	public long timer=0;
 	public static Connection dbconn;
+	public static boolean finishedDbReadingAddictions = false;
+	public static boolean finishedDbReadingEnchantments =false;
 
 
 
@@ -149,7 +152,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 			new EnchantmentHandler();
 			new AddictionHandler();
 			logger.log(Level.INFO, "Alchemy is pulling DB entries");
-			Enchantment.readFromSQL(dbconn,EnchantmentHandler.enchantments);
+
 			logger.log(Level.INFO, "Alchemy is done pulling DB entries");
 			logger.log(Level.INFO, "Alchemy is registering Actions");
 			ModActions.registerBehaviourProvider(new PotionBehaviour());
@@ -177,6 +180,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public void onServerPoll() {
 		AddictionHandler.AddictionEffects();
 		try {
+			Enchantment.readFromSQL(dbconn,EnchantmentHandler.enchantments);
+			Addiction.readFromSQL(dbconn,AddictionHandler.addictions);
 			EnchantmentHandler.RemoveEnchantment();
 		} catch (SQLException e) {
 			Alchemy.logger.log(Level.INFO,"Database was closed",e);

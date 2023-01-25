@@ -23,6 +23,7 @@ import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.logging.Level;
 
@@ -97,7 +98,7 @@ public class PotionPerformer implements ActionPerformer
         {
             playerInQuestion = toxicity.next();
             int index = AddictionHandler.addictions.indexOf(playerInQuestion);
-            if (Players.getInstance().getPlayerOrNull(target.getOwnerId()) == playerInQuestion.p)
+            if (target.getOwnerId() == playerInQuestion.playerId)
             {
                 if (playerInQuestion.toxicityWarningLevel > 0 && (playerInQuestion.coolDownBuffEnd > time || playerInQuestion.coolDownHealEnd > time))
                 {
@@ -107,8 +108,8 @@ public class PotionPerformer implements ActionPerformer
                                     "approaching from every direction. Your tongue turns black, your vision fades. " +
                                     "Finally your body collapses under the heavy toxication of two potions of the same kind." +
                                     " Don't worry. Many alchemists where here and many will be. May the gods be merciful and give you another chance");
-
-                    Wounds pWounds = playerInQuestion.p.getBody().getWounds();
+                    Player thePlayer = Players.getInstance().getPlayerOrNull(playerInQuestion.playerId);
+                    Wounds pWounds = thePlayer.getBody().getWounds();
                     float severity = 0;
                     if (pWounds != null)
                     {
@@ -120,14 +121,15 @@ public class PotionPerformer implements ActionPerformer
 
                     if (severity < 9830)
                     {
-                        playerInQuestion.p.addWoundOfType(playerInQuestion.p, (byte) 5, 23, false, 1.0F, false, 54000, (float) 1, 0.0F, false, true);
+                        thePlayer.addWoundOfType(thePlayer, (byte) 5, 23, false, 1.0F, false, 54000, (float) 1, 0.0F,
+                                                 false, true);
                         playerInQuestion.toxicityWarningLevel = 1;
                     }
                     else
                     {
                         playerInQuestion.toxicityWarningLevel = 0;
                         AddictionHandler.addictions.set(index, playerInQuestion);
-                        playerInQuestion.p.die(false, "toxicity");
+                        thePlayer.die(false, "toxicity");
 
 
                     }
@@ -732,18 +734,24 @@ public class PotionPerformer implements ActionPerformer
         if (Config.becomeAddicted)
         {
 
+            // Go over all addicted Players, maybe the one consuming a potion right now is already addicted
             Iterator<Addiction> handleAddictionLevel = AddictionHandler.addictions.iterator();
 
             while (handleAddictionLevel.hasNext())
             {
                 playerInQuestion = handleAddictionLevel.next();
                 int index = AddictionHandler.addictions.indexOf(playerInQuestion);
-                if (Players.getInstance().getPlayerOrNull(performer.getWurmId()) == playerInQuestion.p)
+                if (performer.getWurmId() == playerInQuestion.playerId)
                 {
+
+                    // If we find the player is already Addicted we raise his addiction level by 1 and set the previous level to whatever he had until now
+                    // Also update his DB entry.
                     playerFound = true;
-                    int temp = playerInQuestion.currentAddictionLevel;
-                    playerInQuestion.currentAddictionLevel = temp + 1;
-                    playerInQuestion.previousAddictionLevel = temp;
+                    playerInQuestion.previousAddictionLevel = playerInQuestion.currentAddictionLevel;
+                    playerInQuestion.currentAddictionLevel += 1;
+
+
+                    // add the cooldown seconds. Also if chugging potion was succesful, reset toxicity level.
                     if (heal)
                     {
                         playerInQuestion.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);
@@ -753,9 +761,21 @@ public class PotionPerformer implements ActionPerformer
                         playerInQuestion.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
                     }
                     playerInQuestion.toxicityWarningLevel = 0;
+
+                    // Update the player in the DB
+                    try
+                    {
+                        playerInQuestion.insert(Alchemy.dbconn);
+                    }
+                    catch (SQLException e)
+                    {
+                        e.printStackTrace();
+                    }
                     AddictionHandler.addictions.set(index, playerInQuestion);
                 }
             }
+
+            // If you can't find a player with this id that is already addicted make a new one! and add it to the DB
             if (!playerFound)
             {
                 playerAddiction.currentAddictionLevel = 1;
@@ -771,6 +791,17 @@ public class PotionPerformer implements ActionPerformer
 
                 playerAddiction.playerId = performer.getWurmId();
                 playerAddiction.toxicityWarningLevel = 0;
+
+                // Insert the player into the DB
+                try
+                {
+                    playerAddiction.insert(Alchemy.dbconn);
+                }
+                catch (SQLException e)
+                {
+                    e.printStackTrace();
+                    Alchemy.logger.log(Level.SEVERE,"couldn't write addiction to DB!");
+                }
                 AddictionHandler.addictions.add(playerAddiction);
             }
             Item[] items = performer.getInventory().getItemsAsArray();

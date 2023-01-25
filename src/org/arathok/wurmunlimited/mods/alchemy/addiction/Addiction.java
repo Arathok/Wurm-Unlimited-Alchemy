@@ -24,7 +24,7 @@ public class Addiction
 	public long coolDownBuffEnd = 0;
 	public int toxicityWarningLevel = 0;
 
-	public static void readFromSQL(Connection dbconn, List<Enchantment> addictions) throws SQLException
+	public static void readFromSQL(Connection dbconn, List<Addiction> addictions) throws SQLException
 	{
 		Addiction addiction = new Addiction();
 		PreparedStatement ps = dbconn.prepareStatement("SELECT * FROM Alchemy_Addictions");
@@ -41,7 +41,9 @@ public class Addiction
 			addiction.toxicityWarningLevel = 0;
 			AddictionHandler.addictions.add(addiction);
 
+
 		}
+		Alchemy.finishedDbReadingAddictions = true;
 	}
 
 	public void insert(Connection dbconn) throws SQLException

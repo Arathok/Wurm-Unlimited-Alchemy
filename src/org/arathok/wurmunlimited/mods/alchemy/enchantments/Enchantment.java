@@ -45,6 +45,7 @@ public class Enchantment {
             EnchantmentHandler.enchantments.add(e);
 
         }
+        Alchemy.finishedDbReadingEnchantments = true;
     }
 
     public void insert(Connection dbconn) throws SQLException {
