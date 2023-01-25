@@ -31,6 +31,11 @@ public class OilBehaviour implements BehaviourProvider {
 	@Override
 	public List<ActionEntry> getBehavioursFor(Creature performer, Item source, Item target) {
 
+
+		//Disable war arrow pack from wyvern exploit
+		if (target.getName().contains("pack"))
+			return null;
+
 		if (source.getTemplateId() == OilItems.weaponOilDemiseAnimalId) {
             if (OilPerformer.canUse(performer, source)&&OilPerformer.isWeapon(target))
 				return new ArrayList<>(apply);
