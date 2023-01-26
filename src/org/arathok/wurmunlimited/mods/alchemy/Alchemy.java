@@ -178,13 +178,15 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public void onServerPoll() {
-		AddictionHandler.AddictionEffects();
-		try {
+		try
+		{
+
+			AddictionHandler.AddictionEffects();
 			Enchantment.readFromSQL(dbconn,EnchantmentHandler.enchantments);
 			Addiction.readFromSQL(dbconn,AddictionHandler.addictions);
 			EnchantmentHandler.RemoveEnchantment();
 		} catch (SQLException e) {
-			Alchemy.logger.log(Level.INFO,"Database was closed",e);
+			Alchemy.logger.log(Level.INFO,"Database was closed or could not be written to!",e);
 			e.printStackTrace();
 		} catch (NoSuchItemException e) {
 			Alchemy.logger.log(Level.INFO,"No item found for that id! ",e);

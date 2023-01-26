@@ -14,11 +14,12 @@ import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
-
+///TODO:create potion that stops addiction
 public class AddictionHandler
 {
     public AddictionHandler()
@@ -29,7 +30,7 @@ public class AddictionHandler
     public static long addictionTimer = 30;
     public static List<Addiction> addictions = new LinkedList<>();
 
-    public static void AddictionEffects()
+    public static void AddictionEffects() throws SQLException
     {
         long time = System.currentTimeMillis();
         Addiction addiction;
@@ -38,7 +39,7 @@ public class AddictionHandler
             Iterator<Addiction> addictionHandler = addictions.iterator();
             while (addictionHandler.hasNext()) {
 
-                boolean itemFound = false;
+                boolean itemFound ;
 
                 addiction = addictionHandler.next();
                 Player aPlayer=Players.getInstance().getPlayerOrNull(addiction.playerId);
@@ -127,7 +128,6 @@ public class AddictionHandler
 
                         if (severity+5000< 65500) {
                             aPlayer.addWoundOfType(aPlayer, (byte) 5, 23, false, 1.0F, false, 5000, (float) 1, 0.0F, false, true);
-                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
                             Alchemy.logger.log(Level.INFO,"added Poison wound to player "+aPlayer.getName()
                                     +". \nCurrent Addiction Level: "+addiction.currentAddictionLevel
                                     +"\n Previous Addiction Level: "+addiction.previousAddictionLevel
@@ -152,7 +152,6 @@ public class AddictionHandler
 
                         if (severity+10000< 65500) {
                             aPlayer.addWoundOfType(aPlayer, (byte) 5, 23, false, 1.0F, false, 10000, (float) 1, 0.0F, false, true);
-                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
                             Alchemy.logger.log(Level.INFO,"added Poison wound to player "+aPlayer.getName()
                                     +". \nCurrent Addiction Level: "+addiction.currentAddictionLevel
                                     +"\n Previous Addiction Level: "+addiction.previousAddictionLevel
@@ -178,7 +177,6 @@ public class AddictionHandler
                         if (severity+20000< 65500) {
                             aPlayer.addWoundOfType(aPlayer, (byte) 5, 23, false, 1.0F, false, 15000, (float) 1, 0.0F, false, true);
                             aPlayer.addWoundOfType(aPlayer, (byte) 9, 1, false, 1.0F, false, 5000, 0.0F, 0.0F, false, true);
-                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
                             Alchemy.logger.log(Level.INFO,"added Poison wound to player "+aPlayer.getName()
                                     +". \nCurrent Addiction Level: "+addiction.currentAddictionLevel
                                     +"\n Previous Addiction Level: "+addiction.previousAddictionLevel
@@ -205,7 +203,6 @@ public class AddictionHandler
                         if (severity+30000< 65500) {
                             aPlayer.addWoundOfType(aPlayer, (byte) 5, 23, false, 1.0F, false, 20000, (float) 1, 0.0F, false, true);
                             aPlayer.addWoundOfType(aPlayer, (byte) 9, 1, false, 1.0F, false, 10000, 0.0F, 0.0F, false, true);
-                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
                             Alchemy.logger.log(Level.INFO,"added Poison wound to player "+aPlayer.getName()
                                     +". \nCurrent Addiction Level: "+addiction.currentAddictionLevel
                                     +"\n Previous Addiction Level: "+addiction.previousAddictionLevel
@@ -231,7 +228,6 @@ public class AddictionHandler
                         if (severity+45000< 65500) {
                             aPlayer.addWoundOfType(aPlayer, (byte) 5, 23, false, 1.0F, false, 25000, (float) 1, 0.0F, false, true);
                             aPlayer.addWoundOfType(aPlayer, (byte) 9, 1, false, 1.0F, false, 20000, 0.0F, 0.0F, false, true);
-                            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
                             Alchemy.logger.log(Level.INFO,"added Poison wound to player "+aPlayer.getName()
                                     +". \nCurrent Addiction Level: "+addiction.currentAddictionLevel
                                     +"\n Previous Addiction Level: "+addiction.previousAddictionLevel
@@ -249,16 +245,20 @@ public class AddictionHandler
                             Items.destroyItem(item.getWurmId());
                     }
                 }
+                    Player thePlayer=Players.getInstance().getPlayerOrNull(addiction.playerId);
+
+                    if (thePlayer!=null&&!thePlayer.isLoggedOut())
                     addiction.previousAddictionLevel = addiction.currentAddictionLevel;
                     addiction.currentAddictionLevel = addiction.currentAddictionLevel - 1;
                     if (addiction.currentAddictionLevel < 0)
                     {
                         addiction.currentAddictionLevel = 0;
                     }
+                    addiction.insert(Alchemy.dbconn);
                     AddictionHandler.addictions.set(index, addiction);
 
             }
-
+            addictionTimer = (System.currentTimeMillis() + (Config.addictionTimer * 1000L));
         }
 
     }
