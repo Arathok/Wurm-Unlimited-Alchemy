@@ -751,14 +751,19 @@ public class PotionPerformer implements ActionPerformer
                     playerInQuestion.currentAddictionLevel += 1;
 
 
-                    // add the cooldown seconds. Also if chugging potion was succesful, reset toxicity level.
+                    // add the cooldown seconds. Add more if it was a ultimate potion Also if chugging potion was succesful, reset toxicity level.
                     if (heal)
                     {
                         playerInQuestion.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);
                     }
                     else
                     {
-                        playerInQuestion.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
+                        if (target.getTemplateId()==PotionItems.potionIdVynora)
+                        {
+                            playerInQuestion.coolDownBuffEnd = time + (Config.cooldownPotion * 4000L);
+                        }
+                        else
+                            playerInQuestion.coolDownBuffEnd = time + (Config.cooldownPotion * 1000L);
                     }
                     playerInQuestion.toxicityWarningLevel = 0;
 
