@@ -38,34 +38,12 @@ public class EnchantmentHandler {
             Player owner;
             owner = Players.getInstance().getPlayerOrNull(playerId);
 // TODO: 41 erzeugt trotzdem No such Item Exception
-            if (Items.getItem(enchantedItem.itemId) != null) {
+            if (owner != null && !owner.isLoggedOut()) {
                 Item realItem = Items.getItem(enchantedItem.itemId);
 
-                if (owner != null && !owner.isLoggedOut()) {
-
-
-                    // IF ITEM IS MAILED OR IN LETTERBOX
-                    if (realItem.getTopParentOrNull() != null && realItem.getParentOrNull() != null) {
-                        if (realItem.isMailed() || realItem.getParent().isMailBox() || realItem.getParent().getTemplate().getName().contains("spirit")) {
-                            try {
-                                Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
-
-                                if (owner.getWurmId() != -10)
-                                    owner.getCommunicator().sendAlertServerMessage("Traveling through dimensions via mail used up all the magic of the oil coating your weapon...");
-                                realItem.setName(enchantedItem.itemNameBeforeEnchantment);
-                                enchantmentsIterator.remove();
-                                Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
-
-                                Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName() + "was removed because the player was mailing it");
-
-                            } catch (NoSuchItemException e) {
-                                Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-
-                    if (realItem.isMailed())
+                // IF ITEM IS MAILED OR IN LETTERBOX
+                if (realItem.getTopParentOrNull() != null && realItem.getParentOrNull() != null) {
+                    if (realItem.isMailed() || realItem.getParent().isMailBox() || realItem.getParent().getTemplate().getName().contains("spirit")) {
                         try {
                             Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
@@ -74,110 +52,130 @@ public class EnchantmentHandler {
                             realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                             enchantmentsIterator.remove();
                             Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
-
+                            if(Config.verboseLogging)
                             Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName() + "was removed because the player was mailing it");
 
                         } catch (NoSuchItemException e) {
                             Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                             e.printStackTrace();
                         }
+                    }
+                }
 
+                if (realItem.isMailed())
+                    try {
+                        Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                    // IF ITEM IS TOO CLOSE TO THE SERVER BORDER
+                        if (owner.getWurmId() != -10)
+                            owner.getCommunicator().sendAlertServerMessage("Traveling through dimensions via mail used up all the magic of the oil coating your weapon...");
+                        realItem.setName(enchantedItem.itemNameBeforeEnchantment);
+                        enchantmentsIterator.remove();
+                        Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
+                        if(Config.verboseLogging)
+                        Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName() + "was removed because the player was mailing it");
 
-                    if (realItem.getTileX() < 50 || realItem.getTileX() > Zones.worldTileSizeX - 50 || realItem.getTileY() < 50 || realItem.getTileY() > Zones.worldTileSizeY - 50) {
-                        try {
-                            Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
-
-                            if (owner.getWurmId() != -10)
-                                owner.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
-                            realItem.setName(enchantedItem.itemNameBeforeEnchantment);
-                            enchantmentsIterator.remove();
-                            Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
-
-                            Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the player was too close to the world Border");
-                        } catch (NoSuchItemException e) {
-                            Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                            e.printStackTrace();
-                        }
+                    } catch (NoSuchItemException e) {
+                        Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
+                        e.printStackTrace();
                     }
 
-                    // IF ITEM IS NEAR A PORTAL
-                    int itemTileX = realItem.getTileX();
-                    int itemTileY = realItem.getTileY();
-                    VolaTile[] itemTiles;
-                    if (realItem.isOnSurface()) {
-                        itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, true, 2);
-                    } else {
-                        itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, false, 2);
+
+                // IF ITEM IS TOO CLOSE TO THE SERVER BORDER
+
+                if (realItem.getTileX() < 50 || realItem.getTileX() > Zones.worldTileSizeX - 50 || realItem.getTileY() < 50 || realItem.getTileY() > Zones.worldTileSizeY - 50) {
+                    try {
+                        Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+
+                        if (owner.getWurmId() != -10)
+                            owner.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
+                        realItem.setName(enchantedItem.itemNameBeforeEnchantment);
+                        enchantmentsIterator.remove();
+                        Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
+                        if(Config.verboseLogging)
+                        Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the player was too close to the world Border");
+                    } catch (NoSuchItemException e) {
+                        Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
+                        e.printStackTrace();
                     }
-                    boolean portalFound = false;
-                    for (VolaTile onetile : itemTiles) {
-                        Item[] items = onetile.getItems();
-                        for (Item oneItem : items) {
-                            if (oneItem.getTemplate().getName().contains("portal")) {
-                                portalFound = true;
-                                break;
-                            }
+                }
+
+                // IF ITEM IS NEAR A PORTAL
+                int itemTileX = realItem.getTileX();
+                int itemTileY = realItem.getTileY();
+                VolaTile[] itemTiles;
+                if (realItem.isOnSurface()) {
+                    itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, true, 2);
+                } else {
+                    itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, false, 2);
+                }
+                boolean portalFound = false;
+                for (VolaTile onetile : itemTiles) {
+                    Item[] items = onetile.getItems();
+                    for (Item oneItem : items) {
+                        if (oneItem.getTemplate().getName().contains("portal")) {
+                            portalFound = true;
+                            break;
                         }
                     }
-                    if (portalFound) {
+                }
+                if (portalFound) {
 
 
-                        try {
-                            Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+                    try {
+                        Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                            if (owner.getWurmId() != -10)
-                                owner.getCommunicator().sendAlertServerMessage("Portal Magicks of the world used up all the magic power left in the oil.");
-                            realItem.setName(enchantedItem.itemNameBeforeEnchantment);
-                            enchantmentsIterator.remove();
-                            Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
-
-                            Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName() + "was removed because the player was too close to a portal");
-                        } catch (NoSuchItemException e) {
-                            Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                            e.printStackTrace();
-                        }
+                        if (owner.getWurmId() != -10)
+                            owner.getCommunicator().sendAlertServerMessage("Portal Magicks of the world used up all the magic power left in the oil.");
+                        realItem.setName(enchantedItem.itemNameBeforeEnchantment);
+                        enchantmentsIterator.remove();
+                        Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
+                        if(Config.verboseLogging)
+                        Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + realItem.getName() + "was removed because the player was too close to a portal");
+                    } catch (NoSuchItemException e) {
+                        Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
+                        e.printStackTrace();
                     }
-                    // IF time ran out
-                    if (enchantedItem.timeOfEnchantment + Config.oilDuration * 8L < time) {
-                        try {
-                            Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+                }
+                // IF time ran out
+                if (enchantedItem.timeOfEnchantment + Config.oilDuration * 8L < time) {
+                    try {
+                        Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                            if (owner.getWurmId() != -10)
-                                owner.getCommunicator().sendAlertServerMessage("The power of the oil vanishes as the liquid is not able to carry energy any more");
+                        if (owner.getWurmId() != -10)
+                            owner.getCommunicator().sendAlertServerMessage("The power of the oil vanishes as the liquid is not able to carry energy any more");
 
-                            realItem.setName(enchantedItem.itemNameBeforeEnchantment);
-                            Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the " + Config.oilDuration + " seconds timer on it ran out");
-                            enchantmentsIterator.remove();
-                            Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
-                        } catch (NoSuchItemException e) {
-                            Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                            e.printStackTrace();
-                        }
-
-
+                        realItem.setName(enchantedItem.itemNameBeforeEnchantment);
+                        if(Config.verboseLogging)
+                        Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the " + Config.oilDuration + " seconds timer on it ran out");
+                        enchantmentsIterator.remove();
+                        Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
+                    } catch (NoSuchItemException e) {
+                        Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
+                        e.printStackTrace();
                     }
-                    // If Owner dropped item or lost link
-                    if (realItem.getOwnerId() == -10 ) {
-                        try {
-                            Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                            if (realItem.getOwnerId() == -10)
-                                Players.getInstance().getPlayerOrNull(Items.getItem(enchantedItem.itemId).getLastOwnerId()).getCommunicator().sendAlertServerMessage("As you drop your weapon the dirt mixes with the oil and the effect subsides.");
-                            realItem.setName(enchantedItem.itemNameBeforeEnchantment);
-                            enchantmentsIterator.remove();
-                            Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
 
-                            Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the player logged out or dropped the item");
-                        } catch (NoSuchItemException e) {
-                            Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                            e.printStackTrace();
-                        }
+                }
+                // If Owner dropped item or lost link
+                if (realItem.getOwnerId() == -10) {
+                    try {
+                        Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
+
+                        if (realItem.getOwnerId() == -10)
+                            Players.getInstance().getPlayerOrNull(Items.getItem(enchantedItem.itemId).getLastOwnerId()).getCommunicator().sendAlertServerMessage("As you drop your weapon the dirt mixes with the oil and the effect subsides.");
+                        realItem.setName(enchantedItem.itemNameBeforeEnchantment);
+                        enchantmentsIterator.remove();
+                        Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
+                        if(Config.verboseLogging)
+                        Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the player logged out or dropped the item");
+                    } catch (NoSuchItemException e) {
+                        Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
+                        e.printStackTrace();
                     }
                 }
             }
         }
     }
-
 }
+
+

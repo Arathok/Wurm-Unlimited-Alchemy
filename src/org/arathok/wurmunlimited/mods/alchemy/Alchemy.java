@@ -59,6 +59,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.oilDurationOnEnchanted = Float.parseFloat(properties.getProperty("oilDurationOnEnchant", "1.0F"));
 		Config.skillUsed = Integer.parseInt(properties.getProperty("skillUsed", "10042"));
 		Config.baseDifficulty = Float.parseFloat(properties.getProperty("baseDifficulty", "0.5F"));
+		Config.verboseLogging = Boolean.parseBoolean(properties.getProperty("verboseLogging","false"));
 	//	Config.worldMaxX = Integer.parseInt(properties.getProperty("worldMaxX", "4096"));
 	//	Config.worldMaxY = Integer.parseInt(properties.getProperty("worldMaxY", "4096"));
 
@@ -123,9 +124,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 		new EnchantmentHandler();
 		new AddictionHandler();
-		logger.log(Level.INFO, "Alchemy is pulling DB entries");
 
-		logger.log(Level.INFO, "Alchemy is done pulling DB entries");
 		logger.log(Level.INFO, "Alchemy is registering Actions");
 		ModActions.registerBehaviourProvider(new PotionBehaviour());
 		ModActions.registerBehaviourProvider(new OilBehaviour());
@@ -133,8 +132,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		ModActions.registerBehaviourProvider(new EssencesBehaviourTile());
 
 		logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
-		logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
-		logger.log(Level.INFO, "Alchemy Version: 0.95");
+		logger.log(Level.INFO, "Alchemy mod and has finished being loaded to your server! ");
+		logger.log(Level.INFO, "Alchemy Version: 1.0");
 	}
 
 
@@ -176,13 +175,23 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 					throw new RuntimeException(e);
 				}
 			}
-			new AddictionHandler();
-			new EnchantmentHandler();
-			if (!finishedDbReadingEnchantments)
-			Enchantment.readFromSQL(dbconn);
 
-			if(!finishedDbReadingAddictions)
-			Addiction.readFromSQL(dbconn);
+
+
+			if (!finishedDbReadingEnchantments)
+			{
+				logger.log(Level.INFO, "Alchemy is pulling DB entries");
+				new EnchantmentHandler();
+				Enchantment.readFromSQL(dbconn);
+
+			}
+
+
+			if(!finishedDbReadingAddictions) {
+				new AddictionHandler();
+				Addiction.readFromSQL(dbconn);
+				logger.log(Level.INFO, "Alchemy is done pulling DB entries");
+			}
 
 			if (finishedDbReadingAddictions)
 			AddictionHandler.AddictionEffects();

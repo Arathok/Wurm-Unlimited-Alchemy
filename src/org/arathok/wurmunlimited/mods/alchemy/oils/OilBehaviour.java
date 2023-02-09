@@ -3,12 +3,14 @@ package org.arathok.wurmunlimited.mods.alchemy.oils;
 import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
 
 public class OilBehaviour implements BehaviourProvider {
 
@@ -21,6 +23,7 @@ public class OilBehaviour implements BehaviourProvider {
 	    this.oilPerformer = new OilPerformer();
 	    this.apply = Collections.singletonList(oilPerformer.actionEntry);
 		ModActions.registerActionPerformer(oilPerformer);
+		Alchemy.logger.log(Level.INFO,"Registering Oil Actions...");
 
 	}
 

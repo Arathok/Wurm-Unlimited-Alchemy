@@ -198,6 +198,7 @@ public class OilPerformer implements ActionPerformer {
 					performer.getCommunicator().sendNormalServerMessage("The " + target
 							.getName() + " is now glistening from the oil and will now be effective against animals" +
 													" for a short time.(" +seconds + "seconds)", (byte) 2);
+					if(Config.verboseLogging)
 						Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 	
 				}
@@ -248,6 +249,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now be effective against animals for a short time.", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 				if (fails > 0)
@@ -317,6 +319,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against Humans" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -354,6 +357,7 @@ public class OilPerformer implements ActionPerformer {
 
 							}
 						} catch (RuntimeException | SQLException ex) {
+
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
 						}
@@ -433,6 +437,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against monsters" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -482,6 +487,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now be effective against monsters for a short time.", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
@@ -549,6 +555,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be effective against legendaries" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -598,6 +605,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now be effective against legendaries for a short time.", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
@@ -662,6 +670,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now be creating flaming wounds!" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -711,6 +720,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now cause flaming wounds!", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
@@ -775,6 +785,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will cause icy wounds!" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -824,6 +835,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now cause icy wounds!", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
@@ -889,6 +901,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now suck out life energy from your opponents!" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -938,6 +951,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now suck out live energy of your opponents", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
@@ -1003,6 +1017,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause infected wounds" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -1055,6 +1070,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now cause infected wounds!", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
@@ -1120,6 +1136,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now poison your enemy" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -1169,6 +1186,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now poison your enemy!", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +
@@ -1234,6 +1252,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("The " + target
 						.getName() + " is now glistening from the oil and will now cause wounds to be way worse" +
 						" for a short time.(" +seconds + "seconds)", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
@@ -1285,6 +1304,7 @@ public class OilPerformer implements ActionPerformer {
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
 							" Your arrows will now cause wounds to be way worse.", (byte) 2);
+				if(Config.verboseLogging)
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 				if (fails > 0)
 					performer.getCommunicator().sendNormalServerMessage(fails+" arrow(s) did not accept the oil. Probably " +

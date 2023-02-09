@@ -11,8 +11,23 @@
   <component name="ChangeListManager">
     <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/AlchItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/AlchItems.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionBehaviour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +73,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/mods/Iconzz/Iconzz.jar" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -213,8 +228,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="307" />
+          <line>139</line>
+          <option name="timeStamp" value="313" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

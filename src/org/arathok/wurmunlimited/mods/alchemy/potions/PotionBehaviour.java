@@ -4,12 +4,14 @@ import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
 
 public class PotionBehaviour implements BehaviourProvider {
 
@@ -21,6 +23,7 @@ public class PotionBehaviour implements BehaviourProvider {
 		this.potionPerformer = new PotionPerformer();
 		this.consume = Collections.singletonList(potionPerformer.actionEntry);
 		ModActions.registerActionPerformer(potionPerformer);
+		Alchemy.logger.log(Level.INFO,"Registering Potion Actions...");
 
 	}
 

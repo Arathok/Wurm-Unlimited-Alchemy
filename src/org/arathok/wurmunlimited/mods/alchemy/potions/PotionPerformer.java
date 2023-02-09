@@ -826,7 +826,7 @@ public class PotionPerformer implements ActionPerformer
         performer.getCommunicator().sendAlertServerMessage(
                 "You feel your body is coming a bit more addicted to the magic power of the substances. ");
 
-
+        if(Config.verboseLogging)
         Alchemy.logger.log(Level.INFO, String.format("%s Drank a potion! :%s", performer.getName(), target.getName()));
         return propagate(action,
                          ActionPropagation.FINISH_ACTION,
