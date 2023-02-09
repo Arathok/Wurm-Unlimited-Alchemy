@@ -11,7 +11,13 @@ Use potions to give yourself an edge in any situation or to sell them and become
 ** REQUIREMENTS:
 This is a Server mod. You need Agos Server Mod Launcher for it to work. -> https://github.com/ago1024/WurmServerModLauncher
 For the custom items you need the server packs mod (from the modlauncher page above) and configure it to share its graphics pack with your players (my mod should do on its own).
+
+*THIS MOD REQUIRES TYODAS ICONZZ WHICH STANDARDIZES CUSTOM ICONS!*
+https://github.com/Tyoda/Iconzz/releases
+
 The players also need to have Agos Client Mod launcher with serverpacks mod -> https://github.com/ago1024/WurmClientModLauncher
+
+
 
 If you have any Questions contact me through issues here or on Discord Arathok#1880
 
