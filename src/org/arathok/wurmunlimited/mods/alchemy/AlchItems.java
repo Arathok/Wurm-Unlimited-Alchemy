@@ -238,7 +238,7 @@ public class AlchItems {
 				.name("Coal Dust", "Coal Dust",
 						"Dust from Coal, that can be used in a filter of some sorts. It has good purifying abilities!")
 				.modelName("model.coalDust.")
-				.imageNumber((short) IconConstants.ICON_LIQUID_WATER)
+				.imageNumber((short) IconConstants.)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_BULK,

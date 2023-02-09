@@ -10,37 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wurm-Unlimited-Alchemy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Wurm-Unlimited-Alchemy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/enchantments/Enchantment.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/enchantments/Enchantment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/AlchItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/Enchantment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/Enchantment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/mods/Iconzz/Iconzz.jar" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
