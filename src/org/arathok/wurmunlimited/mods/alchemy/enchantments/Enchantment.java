@@ -1,18 +1,12 @@
 package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
 
-import com.wurmonline.server.Players;
-import com.wurmonline.server.WurmCalendar;
-import com.wurmonline.server.items.Item;
-import com.wurmonline.server.players.Player;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
-import org.gotti.wurmunlimited.modsupport.ModSupportDb;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -28,7 +22,7 @@ public class Enchantment {
     public String itemNameBeforeEnchantment="";
 
 
- public static void readFromSQL(Connection dbconn, List<Enchantment> enchantments) throws SQLException {
+ public static void readFromSQL(Connection dbconn) throws SQLException {
      Enchantment e=new Enchantment();
         PreparedStatement ps = dbconn.prepareStatement("SELECT * FROM Alchemy_OiledWeapons");
         ResultSet rs=ps.executeQuery();

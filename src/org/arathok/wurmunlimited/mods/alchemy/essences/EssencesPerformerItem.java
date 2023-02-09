@@ -1,30 +1,18 @@
 package org.arathok.wurmunlimited.mods.alchemy.essences;
 
 
-import com.wurmonline.server.Items;
-import com.wurmonline.server.Players;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
-import com.wurmonline.server.items.ItemSpellEffects;
-import com.wurmonline.server.spells.SpellEffect;
-import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
-import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
-import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
-import org.arathok.wurmunlimited.mods.alchemy.oils.OilItems;
-import org.arathok.wurmunlimited.mods.alchemy.oils.OilPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
-import java.util.logging.Level;
 
 public class EssencesPerformerItem implements ActionPerformer {
 

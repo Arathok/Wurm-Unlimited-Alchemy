@@ -119,53 +119,21 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	@Override
 	public void onServerStarted() {
 		// TODO Auto-generated method stub
-		try {
-			dbconn = ModSupportDb.getModSupportDb();
-
-			// check if the ModSupportDb table exists
-			// if not, create the table and update it with the server's last crop poll time
-			if (!ModSupportDb.hasTable(dbconn, "Alchemy_OiledWeapons")) {
-				// table create
-				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy_OiledWeapons (itemId LONG PRIMARY KEY NOT NULL DEFAULT 0, playerId LONG NOT NULL " +
-																			"DEFAULT 0 " +
-																			", timeOfEnchantment LONG NOT NULL DEFAULT 0, enchantmentType BYTE NOT NULL DEFAULT 0, hasOil BOOLEAN NOT NULL DEFAULT false, itemNameBeforeEnchantment STRING NOT NULL DEFAULT 0)")) {
-					ps.execute();
 
 
+		new EnchantmentHandler();
+		new AddictionHandler();
+		logger.log(Level.INFO, "Alchemy is pulling DB entries");
 
-				}
+		logger.log(Level.INFO, "Alchemy is done pulling DB entries");
+		logger.log(Level.INFO, "Alchemy is registering Actions");
+		ModActions.registerBehaviourProvider(new PotionBehaviour());
+		ModActions.registerBehaviourProvider(new OilBehaviour());
+		ModActions.registerBehaviourProvider(new EssencesBehaviourItem());
+		ModActions.registerBehaviourProvider(new EssencesBehaviourTile());
 
-				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy_Addictions (playerId LONG PRIMARY KEY NOT NULL DEFAULT 0, currentAddiction INTEGER NOT NULL " +
-																			"DEFAULT 0, previousAddiction INT NOT NULL DEFAULT 0, cooldownHealEnd INT NOT NULL DEFAULT 0, " +
-																			"cooldownBuffEnd INT NOT NULL DEFAULT 0)")) {
-					ps.execute();
-
-
-
-				}
-
-				catch (SQLException e) {
-					throw new RuntimeException(e);
-				}
-			}
-
-			new EnchantmentHandler();
-			new AddictionHandler();
-			logger.log(Level.INFO, "Alchemy is pulling DB entries");
-
-			logger.log(Level.INFO, "Alchemy is done pulling DB entries");
-			logger.log(Level.INFO, "Alchemy is registering Actions");
-			ModActions.registerBehaviourProvider(new PotionBehaviour());
-			ModActions.registerBehaviourProvider(new OilBehaviour());
-			ModActions.registerBehaviourProvider(new EssencesBehaviourItem());
-			ModActions.registerBehaviourProvider(new EssencesBehaviourTile());
-
-			logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
-			logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			logger.log(Level.SEVERE, "Problem opening SQL Database", e);
-		}
+		logger.log(Level.INFO, "Alchemy is done registering its Actions! Thank you Bdew!");
+		logger.log(Level.INFO, "Hello, I'm the Alchemy mod and I have finished being loaded to your server! <3");
 		logger.log(Level.INFO, "Alchemy Version: 0.95");
 	}
 
@@ -180,11 +148,48 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 	public void onServerPoll() {
 		try
 		{
+			dbconn = ModSupportDb.getModSupportDb();
 
+			// check if the ModSupportDb table exists
+			// if not, create the table and update it with the server's last crop poll time
+			if (!ModSupportDb.hasTable(dbconn, "Alchemy_OiledWeapons")&&!finishedDbReadingEnchantments&&!finishedDbReadingAddictions) {
+				// table create
+				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy_OiledWeapons (itemId LONG PRIMARY KEY NOT NULL DEFAULT 0, playerId LONG NOT NULL " +
+						"DEFAULT 0 " +
+						", timeOfEnchantment LONG NOT NULL DEFAULT 0, enchantmentType BYTE NOT NULL DEFAULT 0, hasOil BOOLEAN NOT NULL DEFAULT false, itemNameBeforeEnchantment STRING NOT NULL DEFAULT 0)")) {
+					ps.execute();
+
+
+
+				}
+
+				try (PreparedStatement ps = dbconn.prepareStatement("CREATE TABLE Alchemy_Addictions (playerId LONG PRIMARY KEY NOT NULL DEFAULT 0, currentAddiction INTEGER NOT NULL " +
+						"DEFAULT 0, previousAddiction INT NOT NULL DEFAULT 0, cooldownHealEnd INT NOT NULL DEFAULT 0, " +
+						"cooldownBuffEnd INT NOT NULL DEFAULT 0)")) {
+					ps.execute();
+
+
+
+				}
+
+				catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+			new AddictionHandler();
+			new EnchantmentHandler();
+			if (!finishedDbReadingEnchantments)
+			Enchantment.readFromSQL(dbconn);
+
+			if(!finishedDbReadingAddictions)
+			Addiction.readFromSQL(dbconn);
+
+			if (finishedDbReadingAddictions)
 			AddictionHandler.AddictionEffects();
-			Enchantment.readFromSQL(dbconn,EnchantmentHandler.enchantments);
-			Addiction.readFromSQL(dbconn,AddictionHandler.addictions);
+
+			if(finishedDbReadingEnchantments)
 			EnchantmentHandler.RemoveEnchantment();
+
 		} catch (SQLException e) {
 			Alchemy.logger.log(Level.INFO,"Database was closed or could not be written to!",e);
 			e.printStackTrace();

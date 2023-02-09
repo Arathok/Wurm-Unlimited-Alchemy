@@ -46,7 +46,7 @@ public class PotionPerformer implements ActionPerformer
                                              new int[]{
                                                      6 /* ACTION_TYPE_NOMOVE */,
                                                      48 /* ACTION_TYPE_ENEMY_ALWAYS */,
-                                                     35 /* DONT CARE WHETHER SOURCE OR TARGET */,
+                                                     35 /* DON'T CARE WHETHER SOURCE OR TARGET */,
 
                                              }).range(4).build();
 
@@ -731,7 +731,7 @@ public class PotionPerformer implements ActionPerformer
 
 /////////////////ADDDICTION/////////////////////
 
-        if (Config.becomeAddicted)
+        if (Config.becomeAddicted )
         {
 
             // Go over all addicted Players, maybe the one consuming a potion right now is already addicted
@@ -751,7 +751,7 @@ public class PotionPerformer implements ActionPerformer
                     playerInQuestion.currentAddictionLevel += 1;
 
 
-                    // add the cooldown seconds. Add more if it was a ultimate potion Also if chugging potion was succesful, reset toxicity level.
+                    // add the cooldown seconds. Add more if it was an ultimate potion Also if chugging potion was succesful, reset toxicity level.
                     if (heal)
                     {
                         playerInQuestion.coolDownHealEnd = time + (Config.cooldownPotion * 1000L);

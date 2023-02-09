@@ -1,31 +1,32 @@
 package org.arathok.wurmunlimited.mods.alchemy.potions;
 
 import com.wurmonline.server.items.*;
-import com.wurmonline.server.skills.SkillList;
+
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
+import org.tyoda.wurm.Iconzz.Iconzz;
 
 import java.io.IOException;
 
 public class PotionItems {
 
     public static int
-            mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
-            mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
-            mixtureRefreshId, mixtureVynoraId,
+        mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
+        mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
+        mixtureRefreshId, mixtureVynoraId,
 
-            precursorHealId, precursorGoatId, precursorExcellId, precursorOakshellId, precursorMorningFogId,
-            precursorFranticChargeId, precursorStrengthId, precursorSixthSenseId, precursorTruehitId,
-            precursorWillowspineId, precursorRefreshId, precursorVynoraId,
+        precursorHealId, precursorGoatId, precursorExcellId, precursorOakshellId, precursorMorningFogId,
+        precursorFranticChargeId, precursorStrengthId, precursorSixthSenseId, precursorTruehitId,
+        precursorWillowspineId, precursorRefreshId, precursorVynoraId,
 
-            potionLiquidHealId, potionLiquidGoatId, potionLiquidExcellId, potionLiquidOakshellId, potionLiquidKarmaId, potionLiquidManaId,
-            potionLiquidMorningFogId, potionLiquidFranticChargeId, potionLiquidStrengthId, potionLiquidSixthSenseId,
-            potionLiquidTruehitId, potionLiquidWillowspineId, potionLiquidRefreshId, potionLiquidVynoraId,
+        potionLiquidHealId, potionLiquidGoatId, potionLiquidExcellId, potionLiquidOakshellId, potionLiquidKarmaId, potionLiquidManaId,
+        potionLiquidMorningFogId, potionLiquidFranticChargeId, potionLiquidStrengthId, potionLiquidSixthSenseId,
+        potionLiquidTruehitId, potionLiquidWillowspineId, potionLiquidRefreshId, potionLiquidVynoraId,
 
-            potionIdHeal, potionIdGoat, potionIdExcell, potionIdOakshell, potionIdMorningFog, potionIdFranticCharge,
-            potionIdStrength, potionIdSixthSense, potionIdTruehit, potionIdWillowspine, potionIdRefresh, potionIdVynora,
-            potionKarmaId, potionManaId;
+        potionIdHeal, potionIdGoat, potionIdExcell, potionIdOakshell, potionIdMorningFog, potionIdFranticCharge,
+        potionIdStrength, potionIdSixthSense, potionIdTruehit, potionIdWillowspine, potionIdRefresh, potionIdVynora,
+        potionKarmaId, potionManaId;
 
     public static ItemTemplate
         mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
@@ -42,6 +43,58 @@ public class PotionItems {
         potionHeal, potionGoat, potionExcell, potionOakshell, potionMorningFog, potionFranticCharge, potionStrength,
         potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora, potionKarma, potionMana;
 
+    public static short
+        pasteIcon,alchemicalCompoundIcon,mouldClayIcon,mouldPotteryIcon,glassMixIcon,glassIcon,phialIcon,
+        mixtureHealingIcon,mixtureCombatIcon,mixtureProtectionIcon,mixtureUltimateIcon,mixtureNormalIcon,
+        precursorHealIcon,precursorDefenseIcon,precursorCombatIcon,precursorNormalIcon,precursorUltimateIcon,
+        potionLiquidHealIcon,potionLiquidDefenseIcon,potionLiquidCombatIcon,potionLiquidNormalIcon,potionLiquidUltimateIcon,
+        potionHealIcon,potionDefenseIcon,potionCombatIcon,potionNormalIcon,potionUltimateIcon,weaponOilIcon,sludgeIcon,weaponOilLiquidIcon;
+
+
+
+
+    private static void makeIcons()
+    {
+        pasteIcon= Iconzz.getInstance().addIcon("arathok.alchemy.pasteIcon","mods/alchemy/icons/paste.png");
+        alchemicalCompoundIcon= Iconzz.getInstance().addIcon("arathok.alchemy.alchemicalCompoundIcon","mods/alchemy/icons/alchemicalCompound.png");
+        mouldClayIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mouldcClayIcon","mods/alchemy/icons/phialMouldClay.png");
+        mouldPotteryIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mouldcPotteryIcon","mods/alchemy/icons/phialMouldPottery.png");
+        glassMixIcon = Iconzz.getInstance().addIcon("arathok.alchemy.glassMixIcon","mods/alchemy/icons/glassMix.png");
+        glassIcon = Iconzz.getInstance().addIcon("arathok.alchemy.glassIcon","mods/alchemy/icons/glas.png");
+        phialIcon = Iconzz.getInstance().addIcon("arathok.alchemy.phialIcon","mods/alchemy/icons/phial.png");
+
+        mixtureHealingIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureHealIcon","mods/alchemy/icons/mixtureHeal.png");
+        mixtureCombatIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureCombatIcon","mods/alchemy/icons/mixtureCombat.png");
+        mixtureProtectionIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureProtectionIcon","mods/alchemy/icons/mixtureProtection.png");
+        mixtureUltimateIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureUltimateIcon","mods/alchemy/icons/mixtureUltimate.png");
+        mixtureNormalIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureNormalIcon","mods/alchemy/icons/mixtureNormalBuff.png");
+
+        precursorHealIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorHealIcon","mods/alchemy/icons/precursorHeal.png");
+        precursorCombatIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorCombatIcon","mods/alchemy/icons/precursorCombat.png");
+        precursorDefenseIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorDefenseIcon","mods/alchemy/icons/precursorProtection.png");
+        precursorUltimateIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorUltimateIcon","mods/alchemy/icons/precurorUltimate.png");
+        precursorNormalIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorNormalIcon","mods/alchemy/icons/precursorNormal.png");
+
+        potionLiquidHealIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidHealIcon","mods/alchemy/icons/potionLiquidHeal.png");
+        potionLiquidCombatIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidCombatIcon","mods/alchemy/icons/potionLiquidCombat.png");
+        potionLiquidDefenseIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidDefenseIcon","mods/alchemy/icons/potionLiquidProtection.png");
+        potionLiquidUltimateIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidUltimateIcon","mods/alchemy/icons/potionLiquidUltimate.png");
+        potionLiquidNormalIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidNormalIcon","mods/alchemy/icons/potionLiquidNormal.png");
+
+        potionHealIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionHealIcon","mods/alchemy/icons/potionHeal.png");
+        potionCombatIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionCombatIcon","mods/alchemy/icons/potionCombat.png");
+        potionDefenseIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionDefenseIcon","mods/alchemy/icons/potionProtection.png");
+        potionUltimateIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionUltimateIcon","mods/alchemy/icons/potionUltimate.png");
+        potionNormalIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionNormalIcon","mods/alchemy/icons/potionNormal.png");
+        weaponOilIcon=Iconzz.getInstance().addIcon("arathok.alchemy.weaponOilIcon","mods/alchemy/icons/weaponOil.png");
+        sludgeIcon=Iconzz.getInstance().addIcon("arathok.alchemy.sludgeIcon","mods/alchemy/icons/sludge.png");
+        weaponOilLiquidIcon=Iconzz.getInstance().addIcon("arathok.alchemy.weaponOilLiquidIcon","mods/alchemy/icons/weaponOilLiquid.png");
+
+
+
+
+    }
+
     private static void registermixtureDodging() throws IOException {
         mixtureWillowspine = new ItemTemplateBuilder("arathok.alchemy.mixtureDodge").name("mixture of phasing",
                         "mixtures of phasing",
@@ -51,7 +104,7 @@ public class PotionItems {
                                 + " you should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
                 .modelName("model.mixture.phasing.")
-                .imageNumber((short) 1508)
+                .imageNumber(mixtureProtectionIcon)
                 .itemTypes(new short[] {
 
                         //ItemTypes.ITEM_TYPE_BULK,
@@ -79,7 +132,8 @@ public class PotionItems {
                         "A mixture of different alchemical substances. One day it might be making a fine potion."
                                 + " Smelling it makes you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-                .modelName("model.mixture.excell.").imageNumber((short) 1507)
+                .modelName("model.mixture.excell.")
+                .imageNumber(mixtureProtectionIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -94,8 +148,7 @@ public class PotionItems {
         mixtureExcellId = mixtureExcell.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.ginger, ItemList.sassafras, mixtureExcellId,
-                        true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.ginger, ItemList.sassafras, mixtureExcellId,true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.mushroomRed, 1, true));
     }
 
@@ -106,7 +159,8 @@ public class PotionItems {
                                 + " Smelling this mixture makes you aggressive, it seems to call to you to let out your inner beast."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.frenzy.").imageNumber((short) 1507)
+                .modelName("model.mixture.frenzy.")
+                .imageNumber(mixtureCombatIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -134,7 +188,8 @@ public class PotionItems {
                         "A mixture of different alchemical substances. One day it might be making a fine potion."
                                 + " It smells like a wet Goat... weird.")
 
-                .modelName("model.mixture.goat.").imageNumber((short) 1506)
+                .modelName("model.mixture.goat.")
+                .imageNumber(mixtureNormalIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -160,7 +215,7 @@ public class PotionItems {
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
                 .modelName("model.mixture.oakshell.")
-                .imageNumber((short) 1508)
+                .imageNumber(mixtureProtectionIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -194,7 +249,8 @@ public class PotionItems {
                                 + " You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixtureHeal.").imageNumber((short) 1505)
+                .modelName("model.mixtureHeal.")
+                .imageNumber(mixtureHealingIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -226,7 +282,7 @@ public class PotionItems {
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
                 .modelName("model.mixture.fog.")
-                .imageNumber((short) 1508)
+                .imageNumber(mixtureNormalIcon)
                 .itemTypes(new short[] {
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -257,7 +313,7 @@ public class PotionItems {
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
                 .modelName("model.mixture.refresh.")
-                .imageNumber((short) 1505)
+                .imageNumber(mixtureNormalIcon)
                 .itemTypes(new short[] {
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -290,7 +346,7 @@ public class PotionItems {
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
                 .modelName("model.mixture.sixth.")
-                .imageNumber((short) 1506)
+                .imageNumber(mixtureNormalIcon)
                 .itemTypes(new short[] {
 
                         //	ItemTypes.ITEM_TYPE_BULK,
@@ -323,7 +379,7 @@ public class PotionItems {
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
                 .modelName("model.mixture.strength.")
-                .imageNumber((short) 1506)
+                .imageNumber(mixtureCombatIcon)
                 .itemTypes(new short[] {
                         // ItemTypes.ITEM_TYPE_BULK,
 
@@ -358,7 +414,7 @@ public class PotionItems {
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
                 .modelName("model.mixture.truehit.")
-                .imageNumber((short) 1507)
+                .imageNumber(mixtureCombatIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -391,7 +447,7 @@ public class PotionItems {
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
                 .modelName("model.mixture.vyn.")
-                .imageNumber((short) 1509)
+                .imageNumber(mixtureUltimateIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -426,7 +482,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.dodge.")
-                .imageNumber((short) 1528)
+                .imageNumber(precursorDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -454,7 +510,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.excell.")
-                .imageNumber((short) 1527)
+                .imageNumber(precursorDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -479,7 +535,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.goat.")
-                .imageNumber((short) 1526)
+                .imageNumber(precursorNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -505,7 +561,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.heal")
-                .imageNumber((short) 1525)
+                .imageNumber(precursorHealIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -531,7 +587,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.FranticChange")
-                .imageNumber((short) 1527)
+                .imageNumber(precursorCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -557,7 +613,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.fog.")
-                .imageNumber((short) 1528)
+                .imageNumber(precursorNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -584,7 +640,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.oakshell.")
-                .imageNumber((short) 1528)
+                .imageNumber(precursorDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -610,7 +666,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.refresh.")
-                .imageNumber((short) 1525)
+                .imageNumber(precursorNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -637,7 +693,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.senses.")
-                .imageNumber((short) 1526)
+                .imageNumber(precursorNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -663,7 +719,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.strength.")
-                .imageNumber((short) 1526)
+                .imageNumber(precursorCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -691,7 +747,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.truehit.")
-                .imageNumber((short) 1527)
+                .imageNumber(precursorCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -718,7 +774,7 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.vynora.")
-                .imageNumber((short) 1529)
+                .imageNumber(precursorUltimateIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -746,7 +802,7 @@ public class PotionItems {
                                 + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.dodge.")
-                .imageNumber((short) 1548)
+                .imageNumber(potionLiquidDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -769,7 +825,8 @@ public class PotionItems {
                 .name(" potion liquid surpassing", "potion liquids of surpassing",
                         "A potion liquid. This is almost a finished eelskin potion."
                                 + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
-                .modelName("model.potionLiquid.excell.").imageNumber((short) 1547)
+                .modelName("model.potionLiquid.excell.")
+                .imageNumber(potionLiquidDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -794,7 +851,7 @@ public class PotionItems {
                                 + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.goat.")
-                .imageNumber((short) 1546)
+                .imageNumber(potionLiquidNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -817,7 +874,8 @@ public class PotionItems {
                         "A potion liquid. This is almost a finished health Potion. "
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
-                .modelName("model.potionLiquid.heal").imageNumber((short) 1545)
+                .modelName("model.potionLiquid.heal")
+                .imageNumber(potionLiquidHealIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -841,7 +899,7 @@ public class PotionItems {
                         "A potionLiquid. This is almost a finished frenzy potion."
                                 + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
                 .modelName("model.potionLiquid.FranticChange")
-                .imageNumber((short) 1547)
+                .imageNumber(potionLiquidCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -863,7 +921,7 @@ public class PotionItems {
                         "A potion liquid. This is almost a finished karma Potion. "
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
-                .modelName("model.potionLiquid.mana").imageNumber((short) 1546)
+                .modelName("model.potionLiquid.mana").imageNumber(potionLiquidNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -889,7 +947,7 @@ public class PotionItems {
                         "A potion liquid. This is almost a finished mana Potion. "
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
-                .modelName("model.potionLiquid.mana").imageNumber((short) 1546)
+                .modelName("model.potionLiquid.mana").imageNumber(potionLiquidDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -914,7 +972,7 @@ public class PotionItems {
                         "A potion liquid. This is almost a finished fog skin potion. "
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
                 .modelName("model.potionLiquid.fog.")
-                .imageNumber((short) 1548)
+                .imageNumber(potionLiquidNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -939,7 +997,7 @@ public class PotionItems {
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.oakshell.")
-                .imageNumber((short) 1548)
+                .imageNumber(potionLiquidDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -964,7 +1022,7 @@ public class PotionItems {
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.refresh.")
-                .imageNumber((short) 1545)
+                .imageNumber(potionLiquidNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -988,7 +1046,7 @@ public class PotionItems {
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.senses.")
-                .imageNumber((short) 1546)
+                .imageNumber(potionLiquidNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -1014,7 +1072,7 @@ public class PotionItems {
                                 + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.strength.")
-                .imageNumber((short) 1546)
+                .imageNumber(potionLiquidCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -1039,7 +1097,7 @@ public class PotionItems {
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.truehit.")
-                .imageNumber((short) 1547)
+                .imageNumber(potionLiquidCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -1063,7 +1121,7 @@ public class PotionItems {
                                 + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.vynora.")
-                .imageNumber((short) 1549)
+                .imageNumber(potionLiquidUltimateIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -1086,7 +1144,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
                 .modelName("model.potion.dodge.")
-                .imageNumber((short) 1568)
+                .imageNumber(potionDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1116,7 +1174,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of eelskin to you. Your enemies wont hit as good!")
 
                 .modelName("model.potion.excell.")
-                .imageNumber((short) 1567)
+                .imageNumber(potionDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1145,7 +1203,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of a goat to you. Whatever that means?")
 
                 .modelName("model.potion.goat.")
-                .imageNumber((short) 1566)
+                .imageNumber(potionNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1171,7 +1229,7 @@ public class PotionItems {
                 .name(" potion of heal", "potions of heal", "An alchemistic potion, drinking it will heal you.")
 
                 .modelName("model.potion.heal.")
-                .imageNumber((short) 1565)
+                .imageNumber(potionHealIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1200,7 +1258,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of rage to you.")
 
                 .modelName("model.potion.FranticCharge.")
-                .imageNumber((short) 1567)
+                .imageNumber(potionCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1228,7 +1286,8 @@ public class PotionItems {
                 .name(" potion of fog skin", "potions of fog skin",
                         "An alchemistic potion, drinking it will bestow the power of Fog to you.")
 
-                .modelName("model.potion.fog.").imageNumber((short) 1568)
+                .modelName("model.potion.fog.")
+                .imageNumber(potionNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1257,7 +1316,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of wood skin to you.")
 
                 .modelName("model.potion.Oakshell.")
-                .imageNumber((short) 1568)
+                .imageNumber(potionDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1286,7 +1345,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will regenerate some stamina for you.")
 
                 .modelName("model.potion.stamina.")
-                .imageNumber((short) 1565)
+                .imageNumber(potionNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1314,7 +1373,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow superior situational awareness to you.")
 
                 .modelName("model.potion.SixthSense.")
-                .imageNumber((short) 1566)
+                .imageNumber(potionNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1343,7 +1402,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of demonic blood and superior strength to you.")
 
                 .modelName("model.potion.strength.")
-                .imageNumber((short) 1566)
+                .imageNumber(potionCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1371,7 +1430,7 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power superior battle focus to you.")
 
                 .modelName("model.potion.truehit.")
-                .imageNumber((short) 1567)
+                .imageNumber(potionCombatIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1401,7 +1460,7 @@ public class PotionItems {
                         "This potion is the epitome of alchemy. It is bottled knowledge. ")
 
                 .modelName("model.potion.vynora.")
-                .imageNumber((short) 1569)
+                .imageNumber(potionUltimateIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1430,7 +1489,7 @@ public class PotionItems {
                         "This potion is in the upper echelons of alchemy. It contains the power of the gods. ")
 
                 .modelName("model.potion.mana.")
-                .imageNumber((short) 1569)
+                .imageNumber(potionDefenseIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1459,7 +1518,7 @@ public class PotionItems {
                         "This potion is in the upper echelons of alchemy. It contains the power of the one true self. ")
 
                 .modelName("model.potion.karma.")
-                .imageNumber((short) 1566)
+                .imageNumber(potionNormalIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1483,6 +1542,8 @@ public class PotionItems {
     }
 
     public static void register() throws IOException {
+
+        makeIcons();
 
         registerMixtureHeal();
         registermixtureDodging();

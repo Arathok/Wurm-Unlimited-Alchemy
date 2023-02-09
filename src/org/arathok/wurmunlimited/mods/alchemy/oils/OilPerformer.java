@@ -1,30 +1,25 @@
 package org.arathok.wurmunlimited.mods.alchemy.oils;
 
 
-import com.wurmonline.server.*;
+import com.wurmonline.server.Items;
+import com.wurmonline.server.NoSuchItemException;
+import com.wurmonline.server.WurmCalendar;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemSpellEffects;
 import com.wurmonline.server.spells.SpellEffect;
-
-import com.wurmonline.server.zones.CropTilePoller;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
-import org.gotti.wurmunlimited.modloader.ReflectionUtil;
-import org.gotti.wurmunlimited.modsupport.ModSupportDb;
 import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
 import org.gotti.wurmunlimited.modsupport.actions.ModActions;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.logging.Level;
@@ -32,7 +27,7 @@ import java.util.logging.Level;
 public class OilPerformer implements ActionPerformer {
 
 	public ActionEntry actionEntry;
-	public static HashMap<Long,String> renamedItems = new HashMap<>();
+//TODO: remove exploit by putting Database Entry before effect application
 	public OilPerformer(){
 
 
@@ -64,7 +59,7 @@ public class OilPerformer implements ActionPerformer {
 		return performer.isPlayer() && source.getOwnerId() == performer.getWurmId() && !source.isTraded();
 	}
 
-	public static boolean isEnchantable(Creature performer, Item target) throws NoSuchItemException {
+	public static boolean isEnchantable(Item target) throws NoSuchItemException {
 		Enchantment oiledWeapon;
 		boolean hasOil=false;
 		Iterator <Enchantment> oilChecker = EnchantmentHandler.enchantments.iterator();
@@ -101,7 +96,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 
 		try {
-			if (!isEnchantable(performer, target)) {
+			if (!isEnchantable(target)) {
 				performer.getCommunicator().sendAlertServerMessage("There is already a lot of magical power stored inside this weapon, you should" +
 						" consult a priest to disenchant it or wait until the current oil has dried off");
 				return propagate(action,
@@ -343,19 +338,21 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,Murder)"));
-						try {
-							Enchantment q = new Enchantment();
+					try {
+							if(performer.getPower()<3) {
+								Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
 
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
+							}
 						} catch (RuntimeException | SQLException ex) {
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
@@ -457,19 +454,21 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil,monster hunt)"));
-						try {
-							Enchantment q = new Enchantment();
+					try {
+							if(performer.getPower()<3) {
+								Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
 
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
+							}
 						} catch (RuntimeException | SQLException ex) {
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
@@ -571,19 +570,21 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, legendary hunt)"));
-						try {
-							Enchantment q = new Enchantment();
+					try {
+							if(performer.getPower()<3) {
+								Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
 
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
+							}
 						} catch (RuntimeException | SQLException ex) {
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
@@ -682,19 +683,21 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, flaming)"));
-						try {
-							Enchantment q = new Enchantment();
+					try {
+							if(performer.getPower()<3) {
+								Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
 
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
+							}
 						} catch (RuntimeException | SQLException ex) {
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
@@ -793,19 +796,21 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, frost)"));
-						try {
-							Enchantment q = new Enchantment();
+					try {
+							if(performer.getPower()<3) {
+								Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
 
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
+							}
 						} catch (RuntimeException | SQLException ex) {
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
@@ -905,19 +910,21 @@ public class OilPerformer implements ActionPerformer {
 						eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (seconds));
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, leech)"));
-						try {
-							Enchantment q = new Enchantment();
+					try {
+							if(performer.getPower()<3) {
+								Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
 
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
+							}
 						} catch (RuntimeException | SQLException ex) {
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
@@ -1020,19 +1027,21 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 					
 						arrow.setName((arrow.getName() + " (oil, plague)"));
-						try {
-							Enchantment q = new Enchantment();
+					try {
+							if(performer.getPower()<3) {
+								Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
 
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
+							}
 						} catch (RuntimeException | SQLException ex) {
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
@@ -1133,19 +1142,20 @@ public class OilPerformer implements ActionPerformer {
 						effs.addSpellEffect(eff);
 						arrow.setName((arrow.getName() + " (oil, poison)"));
 						try {
-							Enchantment q = new Enchantment();
+							if(performer.getPower()<3) {
+								Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
 
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
-
+							}
 						} catch (RuntimeException | SQLException ex) {
 							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
 							ex.printStackTrace();
@@ -1247,17 +1257,18 @@ public class OilPerformer implements ActionPerformer {
 						
 						arrow.setName((arrow.getName() + " (oil, heartseeker)"));
 						try {
-							Enchantment q = new Enchantment();
 
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							q.itemNameBeforeEnchantment=arrow.getName();
+								Enchantment q = new Enchantment();
 
-							EnchantmentHandler.enchantments.add(q);
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								q.itemNameBeforeEnchantment = arrow.getName();
+
+								EnchantmentHandler.enchantments.add(q);
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
 
 
 						} catch (RuntimeException | SQLException ex) {

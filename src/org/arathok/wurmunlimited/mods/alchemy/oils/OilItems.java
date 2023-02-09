@@ -1,7 +1,6 @@
 package org.arathok.wurmunlimited.mods.alchemy.oils;
 
 import com.wurmonline.server.items.*;
-import com.wurmonline.server.skills.SkillList;
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
@@ -46,7 +45,7 @@ public class OilItems {
                 )
 
                 .modelName("model.paste.animal.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -81,7 +80,7 @@ public class OilItems {
                                 +" Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.monster.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -115,7 +114,7 @@ public class OilItems {
                                 +" Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.legendary.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -150,7 +149,7 @@ public class OilItems {
                                 +" Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.human.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -184,7 +183,7 @@ public class OilItems {
                                 +" Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.kissOfFire.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -218,7 +217,7 @@ public class OilItems {
                                 +"Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.kissOfFire.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -253,7 +252,7 @@ public class OilItems {
                                 +"Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.Leech.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -287,7 +286,7 @@ public class OilItems {
                                 +"Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.plague.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -322,7 +321,7 @@ public class OilItems {
                                 +"Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.Heartseeker.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -357,7 +356,7 @@ public class OilItems {
                                 +"Due to its fresh ingredients it should be processed quickly.")
 
                 .modelName("model.paste.poison.")
-                .imageNumber((short) 1509)
+                .imageNumber(PotionItems.pasteIcon)
                 .itemTypes(new short[] {
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -390,7 +389,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons. ")
 
                 .modelName("model.sludge.animal.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -421,7 +420,7 @@ public class OilItems {
                                 "Yet your own skin is safe. You sense this could be turned into a coating for weapons. ")
 
                 .modelName("model.sludge.monster.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -452,7 +451,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.sludge.legendary.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -483,7 +482,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.sludge.human.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -513,7 +512,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.sludge.kissOfFire.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -543,7 +542,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.sludge.kissOfFrost.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -573,7 +572,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.sludge.Leech.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -602,7 +601,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.sludge.plague.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -632,7 +631,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.sludge.Heartseeker.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -663,7 +662,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.sludge.poison.")
-                .imageNumber((short) 1529)
+                .imageNumber(PotionItems.sludgeIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -694,7 +693,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.oil.animal.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
@@ -723,7 +722,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.oil.monster.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -750,7 +749,7 @@ public class OilItems {
                                 "It needs to be filled into a crystalline phial to unfold its magical potential as a weapon oil.")
 
                 .modelName("model.oil.legendary.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -778,7 +777,7 @@ public class OilItems {
                                 "It needs to be filled into a crystalline phial to unfold its magical potential as a weapon oil.")
 
                 .modelName("model.oil.human.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -806,7 +805,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.oil.kissOfFire.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -834,7 +833,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.oil.kissOfFire.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -861,7 +860,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.oil.Heartseeker.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -888,7 +887,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.oil.plague.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -915,7 +914,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.oil.Heartseeker.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -942,7 +941,7 @@ public class OilItems {
                                 "You sense this could be turned into a coating for weapons.")
 
                 .modelName("model.oil.poison.")
-                .imageNumber((short) 1549)
+                .imageNumber(PotionItems.weaponOilLiquidIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -967,7 +966,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons more proficient against animals.")
 
                 .modelName("model.WeaponOil.Hunter.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -997,7 +996,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons more proficient against other humans.")
 
                 .modelName("model.WeaponOil.Hunter.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1027,7 +1026,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons more proficient against monsters.")
 
                 .modelName("model.WeaponOil.Monster.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1057,7 +1056,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons more proficient against legendary monsters")
 
                 .modelName("model.WeaponOil.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1087,7 +1086,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons cut critical wounds.")
 
                 .modelName("model.WeaponOil.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1117,7 +1116,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons cause frostbite.")
 
                 .modelName("model.WeaponOil.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1147,7 +1146,7 @@ public class OilItems {
                         "An An alchemistic weapon oil. It will make your weapons cause burns.")
 
                 .modelName("model.WeaponOil.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1177,7 +1176,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons poison enemies.")
 
                 .modelName("model.WeaponOil.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1207,7 +1206,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons cause infected wounds.")
 
                 .modelName("model.WeaponOil.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -1237,7 +1236,7 @@ public class OilItems {
                         "An alchemistic weapon oil. It will make your weapons draw an enemies life force.")
 
                 .modelName("model.WeaponOil.")
-                .imageNumber((short) 1569)
+                .imageNumber(PotionItems.weaponOilIcon)
                 .itemTypes(new short[] {
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,

@@ -1,9 +1,6 @@
 package org.arathok.wurmunlimited.mods.alchemy.addiction;
 
-import com.wurmonline.server.players.Player;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
-import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
-import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +21,7 @@ public class Addiction
 	public long coolDownBuffEnd = 0;
 	public int toxicityWarningLevel = 0;
 
-	public static void readFromSQL(Connection dbconn, List<Addiction> addictions) throws SQLException
+	public static void readFromSQL(Connection dbconn) throws SQLException
 	{
 		Addiction addiction = new Addiction();
 		PreparedStatement ps = dbconn.prepareStatement("SELECT * FROM Alchemy_Addictions");
@@ -37,7 +34,7 @@ public class Addiction
 			addiction.currentAddictionLevel = rs.getInt("currentAddiction");
 			addiction.previousAddictionLevel = rs.getInt("previousAddiction");
 			addiction.coolDownBuffEnd = rs.getLong("cooldownBuffEnd");
-			addiction.playerId = rs.getLong("cooldownHealEnd");
+			addiction.coolDownHealEnd = rs.getLong("cooldownHealEnd");
 			addiction.toxicityWarningLevel = 0;
 			AddictionHandler.addictions.add(addiction);
 

@@ -1,10 +1,11 @@
 package org.arathok.wurmunlimited.mods.alchemy.essences;
 
 import com.wurmonline.server.items.*;
-import com.wurmonline.server.skills.SkillList;
+
 import com.wurmonline.shared.constants.IconConstants;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
+import org.tyoda.wurm.Iconzz.Iconzz;
 
 import java.io.IOException;
 
@@ -22,14 +23,30 @@ public class EssencesItems {
         acidicEssence, sandEssence,slateEssence,marbleEssence,ironEssence,zincEssence,tinEssence,leadEssence,copperEssence,silverEssence,goldEssence,adamantineEssence,seryllEssence,glimmerEssence,
         acidicExtract, sandExtract,slateExtract,marbleExtract,ironExtract,zincExtract,tinExtract,leadExtract,copperExtract,silverExtract,goldExtract,adamantineExtract,seryllExtract,glimmerExtract;
 
+    public static short
+    vitriolIcon,acidicEssenceIcon,
 
+    sandpowderIcon,slatepowderIcon,marblepowderIcon,ironpowderIcon, zincpowderIcon,tinpowderIcon,leadpowderIcon,copperpowderIcon,silverpowderIcon,
+    goldpowderIcon,adamantinepowderIcon,seryllpowderIcon,glimmerpowderIcon,
+
+    rockCoreIcon,sandStoneCoreIcon,marbleCoreIcon,slateCoreIcon,ironCoreIcon,copperCoreIcon,tinCoreIcon,leadCoreIcon,
+    silverCoreIcon,goldCoreIcon,adamantineCoreIcon,seryllCoreIcon,glimmersteelCoreIcon,
+
+    sandStoneEssenceIcon,marbleEssenceIcon,slateEssenceIcon,ironEssenceIcon,copperEssenceIcon,tinEssenceIcon,leadEssenceIcon,
+    silverEssenceIcon,goldEssenceIcon,adamantineEssenceIcon,seryllEssenceIcon,glimmersteelEssenceIcon;
+
+    private static void makeIcons()
+    {
+        vitriolIcon= Iconzz.getInstance().addIcon("arathok.alchemy.vitriolIcon","mods/alchemy/icons/ironEssence.png");
+        acidicEssenceIcon=Iconzz.getInstance().addIcon("arathok.alchemy.acidicEssenceIcon","mods/alchemy/icons/ironEssence.png");
+    }
 
     private static void registerVitriol() throws IOException {
         vitriol = new ItemTemplateBuilder("arathok.alchemy.vitriol")
                 .name("vitriol", "vitriol",
                         "A green crystal with highly acidic properties. Made from iron rocks charcoal and lye")
                 .modelName("model.alchemy.vitriol.")
-                .imageNumber((short) IconConstants.ICON_ARTIFACT_VALREI)
+                .imageNumber( vitriolIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -56,7 +73,7 @@ public class EssencesItems {
                 .name("acid essence", "acid essences",
                         "A milky liquid that has some corrosive properties. Maybe Distilling it will give it even better corrosive properties, but who would want that? ")
                 .modelName("model.alchemy.acidEssence.")
-                .imageNumber((short) IconConstants.ICON_FOOD_STEW)
+                .imageNumber( acidicEssenceIcon)
                 .itemTypes(new short[] {
 
                         ItemTypes.ITEM_TYPE_BULK,
@@ -1175,6 +1192,8 @@ public class EssencesItems {
 
     }
     public static void register() throws IOException {
+        makeIcons();
+
         registerVitriol();
         registerSandpowder();
         registerSandEssence();
