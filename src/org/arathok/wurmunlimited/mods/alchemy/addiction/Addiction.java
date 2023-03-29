@@ -46,8 +46,7 @@ public class Addiction
 	public void insert(Connection dbconn) throws SQLException
 	{
 
-		PreparedStatement ps = dbconn.prepareStatement("insert or replace into Alchemy_Addictions (playerId,currentAddiction,previousAddiction,cooldownHealEnd,cooldownBuffEnd) " +
-															   "values " +
+		PreparedStatement ps = dbconn.prepareStatement("insert or replace into Alchemy_Addictions (playerId,currentAddiction,previousAddiction,cooldownHealEnd,cooldownBuffEnd) values " +
 															   "(?,?,?,?,?)");
 		ps.setLong(1, this.playerId);
 		ps.setInt(2, this.currentAddictionLevel);

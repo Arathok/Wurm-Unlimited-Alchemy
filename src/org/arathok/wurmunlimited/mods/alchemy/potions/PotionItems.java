@@ -12,85 +12,76 @@ import java.io.IOException;
 public class PotionItems {
 
     public static int
-        mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
-        mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
-        mixtureRefreshId, mixtureVynoraId,
+            mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
+            mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
+            mixtureRefreshId, mixtureVynoraId,
 
-        precursorHealId, precursorGoatId, precursorExcellId, precursorOakshellId, precursorMorningFogId,
-        precursorFranticChargeId, precursorStrengthId, precursorSixthSenseId, precursorTruehitId,
-        precursorWillowspineId, precursorRefreshId, precursorVynoraId,
+    precursorHealId, precursorGoatId, precursorExcellId, precursorOakshellId, precursorMorningFogId,
+            precursorFranticChargeId, precursorStrengthId, precursorSixthSenseId, precursorTruehitId,
+            precursorWillowspineId, precursorRefreshId, precursorVynoraId,
 
-        potionLiquidHealId, potionLiquidGoatId, potionLiquidExcellId, potionLiquidOakshellId, potionLiquidKarmaId, potionLiquidManaId,
-        potionLiquidMorningFogId, potionLiquidFranticChargeId, potionLiquidStrengthId, potionLiquidSixthSenseId,
-        potionLiquidTruehitId, potionLiquidWillowspineId, potionLiquidRefreshId, potionLiquidVynoraId,
+    potionLiquidHealId, potionLiquidGoatId, potionLiquidExcellId, potionLiquidOakshellId, potionLiquidKarmaId, potionLiquidManaId,
+            potionLiquidMorningFogId, potionLiquidFranticChargeId, potionLiquidStrengthId, potionLiquidSixthSenseId,
+            potionLiquidTruehitId, potionLiquidWillowspineId, potionLiquidRefreshId, potionLiquidVynoraId,
 
-        potionIdHeal, potionIdGoat, potionIdExcell, potionIdOakshell, potionIdMorningFog, potionIdFranticCharge,
-        potionIdStrength, potionIdSixthSense, potionIdTruehit, potionIdWillowspine, potionIdRefresh, potionIdVynora,
-        potionKarmaId, potionManaId;
+    potionIdHeal, potionIdGoat, potionIdExcell, potionIdOakshell, potionIdMorningFog, potionIdFranticCharge,
+            potionIdStrength, potionIdSixthSense, potionIdTruehit, potionIdWillowspine, potionIdRefresh, potionIdVynora,
+            potionKarmaId, potionManaId;
 
     public static ItemTemplate
-        mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
-        mixtureStrength, mixtureSixthSense, mixtureTruehit, mixtureWillowspine, mixtureRefresh, mixtureVynora,
+            mixtureHeal, mixtureGoat, mixtureExcell, mixtureOakshell, mixtureMorningFog, mixtureFranticCharge,
+            mixtureStrength, mixtureSixthSense, mixtureTruehit, mixtureWillowspine, mixtureRefresh, mixtureVynora,
 
-        precursorHeal, precursorGoat, precursorExcell, precursorOakshell, precursorMorningFog,
-        precursorFranticCharge, precursorStrength, precursorSixthSense, precursorTruehit, precursorWillowspine,
-        precursorRefresh, precursorVynora,
+    precursorHeal, precursorGoat, precursorExcell, precursorOakshell, precursorMorningFog,
+            precursorFranticCharge, precursorStrength, precursorSixthSense, precursorTruehit, precursorWillowspine,
+            precursorRefresh, precursorVynora,
 
-        potionLiquidHeal, potionLiquidGoat, potionLiquidExcell, potionLiquidOakshell, potionLiquidMorningFog,
-        potionLiquidFranticCharge, potionLiquidStrength, potionLiquidSixthSense, potionLiquidTruehit,
-        potionLiquidWillowspine, potionLiquidRefresh, potionLiquidVynora, potionLiquidKarma, potionLiquidMana,
+    potionLiquidHeal, potionLiquidGoat, potionLiquidExcell, potionLiquidOakshell, potionLiquidMorningFog,
+            potionLiquidFranticCharge, potionLiquidStrength, potionLiquidSixthSense, potionLiquidTruehit,
+            potionLiquidWillowspine, potionLiquidRefresh, potionLiquidVynora, potionLiquidKarma, potionLiquidMana,
 
-        potionHeal, potionGoat, potionExcell, potionOakshell, potionMorningFog, potionFranticCharge, potionStrength,
-        potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora, potionKarma, potionMana;
+    potionHeal, potionGoat, potionExcell, potionOakshell, potionMorningFog, potionFranticCharge, potionStrength,
+            potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora, potionKarma, potionMana;
 
     public static short
-        pasteIcon,alchemicalCompoundIcon,mouldClayIcon,mouldPotteryIcon,glassMixIcon,glassIcon,phialIcon,
-        mixtureHealingIcon,mixtureCombatIcon,mixtureProtectionIcon,mixtureUltimateIcon,mixtureNormalIcon,
-        precursorHealIcon,precursorDefenseIcon,precursorCombatIcon,precursorNormalIcon,precursorUltimateIcon,
-        potionLiquidHealIcon,potionLiquidDefenseIcon,potionLiquidCombatIcon,potionLiquidNormalIcon,potionLiquidUltimateIcon,
-        potionHealIcon,potionDefenseIcon,potionCombatIcon,potionNormalIcon,potionUltimateIcon,weaponOilIcon,sludgeIcon,weaponOilLiquidIcon;
+            pasteIcon, alchemicalCompoundIcon,
+            mixtureHealingIcon, mixtureCombatIcon, mixtureProtectionIcon, mixtureUltimateIcon, mixtureNormalIcon,
+            precursorHealIcon, precursorDefenseIcon, precursorCombatIcon, precursorNormalIcon, precursorUltimateIcon,
+            potionLiquidHealIcon, potionLiquidDefenseIcon, potionLiquidCombatIcon, potionLiquidNormalIcon, potionLiquidUltimateIcon,
+            potionHealIcon, potionDefenseIcon, potionCombatIcon, potionNormalIcon, potionUltimateIcon, weaponOilIcon, sludgeIcon, weaponOilLiquidIcon;
 
 
+    private static void makeIcons() {
+        pasteIcon = Iconzz.getInstance().addIcon("arathok.alchemy.pasteIcon", "mods/alchemy/icons/paste.png");
+        alchemicalCompoundIcon = Iconzz.getInstance().addIcon("arathok.alchemy.alchemicalCompoundIcon", "mods/alchemy/icons/alchemicalCompound.png");
 
 
-    private static void makeIcons()
-    {
-        pasteIcon= Iconzz.getInstance().addIcon("arathok.alchemy.pasteIcon","mods/alchemy/icons/paste.png");
-        alchemicalCompoundIcon= Iconzz.getInstance().addIcon("arathok.alchemy.alchemicalCompoundIcon","mods/alchemy/icons/alchemicalCompound.png");
-        mouldClayIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mouldcClayIcon","mods/alchemy/icons/phialMouldClay.png");
-        mouldPotteryIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mouldcPotteryIcon","mods/alchemy/icons/phialMouldPottery.png");
-        glassMixIcon = Iconzz.getInstance().addIcon("arathok.alchemy.glassMixIcon","mods/alchemy/icons/glassMix.png");
-        glassIcon = Iconzz.getInstance().addIcon("arathok.alchemy.glassIcon","mods/alchemy/icons/glas.png");
-        phialIcon = Iconzz.getInstance().addIcon("arathok.alchemy.phialIcon","mods/alchemy/icons/phial.png");
+        mixtureHealingIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureHealIcon", "mods/alchemy/icons/mixtureHeal.png");
+        mixtureCombatIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureCombatIcon", "mods/alchemy/icons/mixtureCombat.png");
+        mixtureProtectionIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureProtectionIcon", "mods/alchemy/icons/mixtureProtection.png");
+        mixtureUltimateIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureUltimateIcon", "mods/alchemy/icons/mixtureUltimate.png");
+        mixtureNormalIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureNormalIcon", "mods/alchemy/icons/mixtureNormalBuff.png");
 
-        mixtureHealingIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureHealIcon","mods/alchemy/icons/mixtureHeal.png");
-        mixtureCombatIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureCombatIcon","mods/alchemy/icons/mixtureCombat.png");
-        mixtureProtectionIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureProtectionIcon","mods/alchemy/icons/mixtureProtection.png");
-        mixtureUltimateIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureUltimateIcon","mods/alchemy/icons/mixtureUltimate.png");
-        mixtureNormalIcon=Iconzz.getInstance().addIcon("arathok.alchemy.mixtureNormalIcon","mods/alchemy/icons/mixtureNormalBuff.png");
+        precursorHealIcon = Iconzz.getInstance().addIcon("arathok.alchemy.precursorHealIcon", "mods/alchemy/icons/precursorHeal.png");
+        precursorCombatIcon = Iconzz.getInstance().addIcon("arathok.alchemy.precursorCombatIcon", "mods/alchemy/icons/precursorCombat.png");
+        precursorDefenseIcon = Iconzz.getInstance().addIcon("arathok.alchemy.precursorDefenseIcon", "mods/alchemy/icons/precursorProtection.png");
+        precursorUltimateIcon = Iconzz.getInstance().addIcon("arathok.alchemy.precursorUltimateIcon", "mods/alchemy/icons/precurorUltimate.png");
+        precursorNormalIcon = Iconzz.getInstance().addIcon("arathok.alchemy.precursorNormalIcon", "mods/alchemy/icons/precursorNormal.png");
 
-        precursorHealIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorHealIcon","mods/alchemy/icons/precursorHeal.png");
-        precursorCombatIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorCombatIcon","mods/alchemy/icons/precursorCombat.png");
-        precursorDefenseIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorDefenseIcon","mods/alchemy/icons/precursorProtection.png");
-        precursorUltimateIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorUltimateIcon","mods/alchemy/icons/precurorUltimate.png");
-        precursorNormalIcon=Iconzz.getInstance().addIcon("arathok.alchemy.precursorNormalIcon","mods/alchemy/icons/precursorNormal.png");
+        potionLiquidHealIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidHealIcon", "mods/alchemy/icons/potionLiquidHeal.png");
+        potionLiquidCombatIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidCombatIcon", "mods/alchemy/icons/potionLiquidCombat.png");
+        potionLiquidDefenseIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidDefenseIcon", "mods/alchemy/icons/potionLiquidProtection.png");
+        potionLiquidUltimateIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidUltimateIcon", "mods/alchemy/icons/potionLiquidUltimate.png");
+        potionLiquidNormalIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidNormalIcon", "mods/alchemy/icons/potionLiquidNormal.png");
 
-        potionLiquidHealIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidHealIcon","mods/alchemy/icons/potionLiquidHeal.png");
-        potionLiquidCombatIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidCombatIcon","mods/alchemy/icons/potionLiquidCombat.png");
-        potionLiquidDefenseIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidDefenseIcon","mods/alchemy/icons/potionLiquidProtection.png");
-        potionLiquidUltimateIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidUltimateIcon","mods/alchemy/icons/potionLiquidUltimate.png");
-        potionLiquidNormalIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionLiquidNormalIcon","mods/alchemy/icons/potionLiquidNormal.png");
-
-        potionHealIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionHealIcon","mods/alchemy/icons/potionHeal.png");
-        potionCombatIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionCombatIcon","mods/alchemy/icons/potionCombat.png");
-        potionDefenseIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionDefenseIcon","mods/alchemy/icons/potionProtection.png");
-        potionUltimateIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionUltimateIcon","mods/alchemy/icons/potionUltimate.png");
-        potionNormalIcon=Iconzz.getInstance().addIcon("arathok.alchemy.potionNormalIcon","mods/alchemy/icons/potionNormal.png");
-        weaponOilIcon=Iconzz.getInstance().addIcon("arathok.alchemy.weaponOilIcon","mods/alchemy/icons/weaponOil.png");
-        sludgeIcon=Iconzz.getInstance().addIcon("arathok.alchemy.sludgeIcon","mods/alchemy/icons/sludge.png");
-        weaponOilLiquidIcon=Iconzz.getInstance().addIcon("arathok.alchemy.weaponOilLiquidIcon","mods/alchemy/icons/weaponOilLiquid.png");
-
-
+        potionHealIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionHealIcon", "mods/alchemy/icons/potionHeal.png");
+        potionCombatIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionCombatIcon", "mods/alchemy/icons/potionCombat.png");
+        potionDefenseIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionDefenseIcon", "mods/alchemy/icons/potionProtection.png");
+        potionUltimateIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionUltimateIcon", "mods/alchemy/icons/potionUltimate.png");
+        potionNormalIcon = Iconzz.getInstance().addIcon("arathok.alchemy.potionNormalIcon", "mods/alchemy/icons/potionNormal.png");
+        weaponOilIcon = Iconzz.getInstance().addIcon("arathok.alchemy.weaponOilIcon", "mods/alchemy/icons/weaponOil.png");
+        sludgeIcon = Iconzz.getInstance().addIcon("arathok.alchemy.sludgeIcon", "mods/alchemy/icons/sludge.png");
+        weaponOilLiquidIcon = Iconzz.getInstance().addIcon("arathok.alchemy.weaponOilLiquidIcon", "mods/alchemy/icons/weaponOilLiquid.png");
 
 
     }
@@ -105,7 +96,7 @@ public class PotionItems {
 
                 .modelName("model.mixture.phasing.")
                 .imageNumber(mixtureProtectionIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
 
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -115,13 +106,13 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         mixtureWillowspineId = mixtureWillowspine.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.rosemary, ItemList.ivySeedling,mixtureWillowspineId, true, true, 0f, true, false,0,30, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.rosemary, ItemList.ivySeedling, mixtureWillowspineId, true, true, 0f, true, false, 0, 30, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
     }
@@ -134,21 +125,21 @@ public class PotionItems {
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
                 .modelName("model.mixture.excell.")
                 .imageNumber(mixtureProtectionIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
                         ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         mixtureExcellId = mixtureExcell.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.ginger, ItemList.sassafras, mixtureExcellId,true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.ginger, ItemList.sassafras, mixtureExcellId, true, true, 0f, true, false, 0, 25, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.mushroomRed, 1, true));
     }
 
@@ -161,7 +152,7 @@ public class PotionItems {
 
                 .modelName("model.mixture.frenzy.")
                 .imageNumber(mixtureCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -170,14 +161,14 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*35) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 35) // no hard lock
                 .build();
 
         mixtureFranticChargeId = mixtureFranticCharge.getTemplateId();
 
         CreationEntryCreator
                 .createAdvancedEntry(Config.skillUsed, ItemList.mushroomRed, ItemList.nutmeg,
-                        mixtureFranticChargeId, true, true, 0f, true, false,0,35, CreationCategories.ALCHEMY)
+                        mixtureFranticChargeId, true, true, 0f, true, false, 0, 35, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.tomato, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.tooth, 1, true));
     }
@@ -190,21 +181,21 @@ public class PotionItems {
 
                 .modelName("model.mixture.goat.")
                 .imageNumber(mixtureNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
                         ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         mixtureGoatId = mixtureGoat.getTemplateId();
 
         CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.branch, ItemList.oat, mixtureGoatId,
-                true, true, 0f, false, false,0,20, CreationCategories.ALCHEMY);
+                true, true, 0f, false, false, 0, 20, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureOakshell() throws IOException {
@@ -216,7 +207,7 @@ public class PotionItems {
 
                 .modelName("model.mixture.oakshell.")
                 .imageNumber(mixtureProtectionIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -231,13 +222,13 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*50) // no hard lock
+                .difficulty(Config.baseDifficulty * 50) // no hard lock
                 .build();
 
         mixtureOakshellId = mixtureOakshell.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.acorn, ItemList.rock, mixtureOakshellId, true,true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.acorn, ItemList.rock, mixtureOakshellId, true, true, 0f, true, false, 0, 40, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.mushroomBlue, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.sage, 1, true));
     }
@@ -251,7 +242,7 @@ public class PotionItems {
 
                 .modelName("model.mixtureHeal.")
                 .imageNumber(mixtureHealingIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -266,12 +257,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         mixtureHealId = mixtureHeal.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.mushroomBrown, ItemList.wheat,mixtureHealId, true, true, 0f, false, false,0,15, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.mushroomBrown, ItemList.wheat, mixtureHealId, true, true, 0f, false, false, 0, 15, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureMorningFog() throws IOException {
@@ -283,7 +274,7 @@ public class PotionItems {
 
                 .modelName("model.mixture.fog.")
                 .imageNumber(mixtureNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -297,12 +288,12 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         mixtureMorningFogId = mixtureMorningFog.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.lingonberry, ItemList.wemp,mixtureMorningFogId, true, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.lingonberry, ItemList.wemp, mixtureMorningFogId, true, true, 0f, false, false, 0, 10, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureRefresh() throws IOException {
@@ -314,7 +305,7 @@ public class PotionItems {
 
                 .modelName("model.mixture.refresh.")
                 .imageNumber(mixtureNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -329,13 +320,13 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*20) // no hard lock
+                .difficulty(Config.baseDifficulty * 20) // no hard lock
                 .build();
 
         mixtureRefreshId = mixtureRefresh.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.carrot, ItemList.potato,mixtureRefreshId, true, true, 0f, false, false, 0,10,CreationCategories.ALCHEMY);
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.mint, ItemList.fennel,mixtureRefreshId, true, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.carrot, ItemList.potato, mixtureRefreshId, true, true, 0f, false, false, 0, 10, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.mint, ItemList.fennel, mixtureRefreshId, true, true, 0f, false, false, 0, 10, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureSixthSense() throws IOException {
@@ -347,7 +338,7 @@ public class PotionItems {
 
                 .modelName("model.mixture.sixth.")
                 .imageNumber(mixtureNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
 
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -363,12 +354,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         mixtureSixthSenseId = mixtureSixthSense.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.lovage, ItemList.nettles,mixtureSixthSenseId, true, true, 0f, false, false,0,20, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.lovage, ItemList.nettles, mixtureSixthSenseId, true, true, 0f, false, false, 0, 20, CreationCategories.ALCHEMY);
     }
 
     private static void registermixtureStrength() throws IOException {
@@ -380,7 +371,7 @@ public class PotionItems {
 
                 .modelName("model.mixture.strength.")
                 .imageNumber(mixtureCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
 
                         ItemTypes.ITEM_TYPE_HERB,
@@ -396,13 +387,13 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(Config.baseDifficulty * 40) // no hard lock
                 .build();
 
         mixtureStrengthId = mixtureStrength.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomBlack, ItemList.paprika,mixtureStrengthId, true, true, 0f, true, false,0,40, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomBlack, ItemList.paprika, mixtureStrengthId, true, true, 0f, true, false, 0, 40, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.woad, 1, true));
     }
 
@@ -415,7 +406,7 @@ public class PotionItems {
 
                 .modelName("model.mixture.truehit.")
                 .imageNumber(mixtureCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -429,13 +420,13 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         mixtureTruehitId = mixtureTruehit.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.belladonna, ItemList.garlic, mixtureTruehitId,true, true, 0f, true, false,0,25, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.belladonna, ItemList.garlic, mixtureTruehitId, true, true, 0f, true, false, 0, 25, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.mushroomGreen, 1, true));
     }
 
@@ -448,26 +439,26 @@ public class PotionItems {
 
                 .modelName("model.mixture.vyn.")
                 .imageNumber(mixtureUltimateIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
                         ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(14400L)
                 .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*90) // no hard lock
+                .difficulty(Config.baseDifficulty * 90) // no hard lock
                 .build();
 
         mixtureVynoraId = mixtureVynora.getTemplateId();
 
         CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomYellow, ItemList.turmeric,	mixtureVynoraId, true, true, 0f, true, false,0,60, CreationCategories.ALCHEMY)
+                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomYellow, ItemList.turmeric, mixtureVynoraId, true, true, 0f, true, false, 0, 60, CreationCategories.ALCHEMY)
                 .addRequirement(new CreationRequirement(1, ItemList.strawberries, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.thyme, 1, true))
                 .addRequirement(new CreationRequirement(2, ItemList.cumin, 1, true))
@@ -483,7 +474,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.dodge.")
                 .imageNumber(precursorDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
 
@@ -495,12 +486,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorWillowspineId = precursorWillowspine.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,PotionItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPrecursorExcell() throws IOException {
@@ -511,7 +502,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.excell.")
                 .imageNumber(precursorDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
 
@@ -520,12 +511,12 @@ public class PotionItems {
                 .dimensions(3, 3, 3)
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorExcellId = precursorExcell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureExcellId, precursorExcellId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureExcellId, precursorExcellId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorGoat() throws IOException {
@@ -536,7 +527,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.goat.")
                 .imageNumber(precursorNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
 
@@ -546,12 +537,12 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorGoatId = precursorGoat.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureGoatId, precursorGoatId, true, true, 0f, false, false, CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureGoatId, precursorGoatId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorHeal() throws IOException {
@@ -562,7 +553,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.heal")
                 .imageNumber(precursorHealIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -572,12 +563,12 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorHealId = precursorHeal.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,PotionItems.mixtureHealId, precursorHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureHealId, precursorHealId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorFranticCharge() throws IOException {
@@ -588,7 +579,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.FranticChange")
                 .imageNumber(precursorCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -598,12 +589,12 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorFranticChargeId = precursorFranticCharge.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureFranticChargeId, precursorFranticChargeId, true, true, 0f, false, false,	CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureFranticChargeId, precursorFranticChargeId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorMorningFog() throws IOException {
@@ -614,7 +605,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.fog.")
                 .imageNumber(precursorNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -625,12 +616,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorMorningFogId = precursorMorningFog.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureMorningFogId, precursorMorningFogId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureMorningFogId, precursorMorningFogId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorOakshell() throws IOException {
@@ -641,7 +632,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.oakshell.")
                 .imageNumber(precursorDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -651,12 +642,12 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorOakshellId = precursorOakshell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,PotionItems.mixtureOakshellId, precursorOakshellId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureOakshellId, precursorOakshellId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorRefresh() throws IOException {
@@ -667,7 +658,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.refresh.")
                 .imageNumber(precursorNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -678,12 +669,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorRefreshId = precursorRefresh.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureRefreshId, precursorRefreshId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureRefreshId, precursorRefreshId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorSixthSense() throws IOException {
@@ -694,7 +685,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.senses.")
                 .imageNumber(precursorNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -704,12 +695,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorSixthSenseId = precursorSixthSense.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureSixthSenseId, precursorSixthSenseId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureSixthSenseId, precursorSixthSenseId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorStrength() throws IOException {
@@ -720,7 +711,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.strength.")
                 .imageNumber(precursorCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -731,12 +722,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorStrengthId = precursorStrength.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureStrengthId, precursorStrengthId, true, true, 0f, false, false,
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureStrengthId, precursorStrengthId, true, true, 0f, false, false,
                 CreationCategories.DECORATION);
     }
 
@@ -748,7 +739,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.truehit.")
                 .imageNumber(precursorCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -759,12 +750,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorTruehitId = precursorTruehit.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,PotionItems.mixtureTruehitId, precursorTruehitId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureTruehitId, precursorTruehitId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPrecursorVynora() throws IOException {
@@ -775,7 +766,7 @@ public class PotionItems {
 
                 .modelName("model.precursor.vynora.")
                 .imageNumber(precursorUltimateIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -787,12 +778,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         precursorVynoraId = precursorVynora.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,	PotionItems.mixtureVynoraId, precursorVynoraId, true, true, 0f, false, false,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, PotionItems.mixtureVynoraId, precursorVynoraId, true, true, 0f, false, false, CreationCategories.DECORATION);
     }
 
     private static void registerPotionLiquidDodge() throws IOException {
@@ -803,7 +794,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.dodge.")
                 .imageNumber(potionLiquidDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -814,7 +805,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidWillowspineId = potionLiquidWillowspine.getTemplateId();
@@ -827,7 +818,7 @@ public class PotionItems {
                                 + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
                 .modelName("model.potionLiquid.excell.")
                 .imageNumber(potionLiquidDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -837,7 +828,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidExcellId = potionLiquidExcell.getTemplateId();
@@ -852,7 +843,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.goat.")
                 .imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -861,7 +852,7 @@ public class PotionItems {
                 .weightGrams(100)
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidGoatId = potionLiquidGoat.getTemplateId();
@@ -876,7 +867,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.heal")
                 .imageNumber(potionLiquidHealIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -887,7 +878,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidHealId = potionLiquidHeal.getTemplateId();
@@ -900,7 +891,7 @@ public class PotionItems {
                                 + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
                 .modelName("model.potionLiquid.FranticChange")
                 .imageNumber(potionLiquidCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -908,7 +899,7 @@ public class PotionItems {
                 .decayTime(691200L)
                 .dimensions(3, 3, 3)
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidFranticChargeId = potionLiquidFranticCharge.getTemplateId();
@@ -922,7 +913,7 @@ public class PotionItems {
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.mana").imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -933,11 +924,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidKarmaId = potionLiquidKarma.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, PotionItems.potionLiquidHealId,	ItemList.sourceSalt, potionLiquidKarmaId, true, true, 0f, false,false,0,50.0,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, PotionItems.potionLiquidHealId, ItemList.sourceSalt, potionLiquidKarmaId, true, true, 0f, false, false, 0, 50.0, CreationCategories.DECORATION);
     }
 
     private static void registerPotionLiquidMana() throws IOException {
@@ -948,7 +939,7 @@ public class PotionItems {
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.mana").imageNumber(potionLiquidDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -959,11 +950,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidManaId = potionLiquidMana.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, PotionItems.potionLiquidHealId,	AlchItems.gemPowderId, potionLiquidManaId, true, true, 0f, false,false,0,40.0,CreationCategories.DECORATION);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, PotionItems.potionLiquidHealId, AlchItems.gemPowderId, potionLiquidManaId, true, true, 0f, false, false, 0, 40.0, CreationCategories.DECORATION);
     }
 
     private static void registerPotionLiquidMorningFog() throws IOException {
@@ -973,7 +964,7 @@ public class PotionItems {
                                 + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
                 .modelName("model.potionLiquid.fog.")
                 .imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -984,7 +975,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidMorningFogId = potionLiquidMorningFog.getTemplateId();
@@ -998,7 +989,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.oakshell.")
                 .imageNumber(potionLiquidDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -1009,7 +1000,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidOakshellId = potionLiquidOakshell.getTemplateId();
@@ -1023,7 +1014,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.refresh.")
                 .imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -1033,7 +1024,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidRefreshId = potionLiquidRefresh.getTemplateId();
@@ -1047,7 +1038,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.senses.")
                 .imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
 
@@ -1058,7 +1049,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidSixthSenseId = potionLiquidSixthSense.getTemplateId();
@@ -1073,7 +1064,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.strength.")
                 .imageNumber(potionLiquidCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -1084,7 +1075,7 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidStrengthId = potionLiquidStrength.getTemplateId();
@@ -1098,7 +1089,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.truehit.")
                 .imageNumber(potionLiquidCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -1108,7 +1099,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidTruehitId = potionLiquidTruehit.getTemplateId();
@@ -1122,7 +1113,7 @@ public class PotionItems {
 
                 .modelName("model.potionLiquid.vynora.")
                 .imageNumber(potionLiquidUltimateIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_LIQUID,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
@@ -1132,7 +1123,7 @@ public class PotionItems {
                 .weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionLiquidVynoraId = potionLiquidVynora.getTemplateId();
@@ -1145,7 +1136,7 @@ public class PotionItems {
 
                 .modelName("model.potion.dodge.")
                 .imageNumber(potionDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1160,12 +1151,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdWillowspine = potionWillowspine.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidWillowspineId, potionIdWillowspine, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionExcell() throws IOException {
@@ -1175,7 +1166,7 @@ public class PotionItems {
 
                 .modelName("model.potion.excell.")
                 .imageNumber(potionDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1189,22 +1180,22 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdExcell = potionExcell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidExcellId, potionIdExcell, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidExcellId, potionIdExcell, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionGoat() throws IOException {
         potionGoat = new ItemTemplateBuilder("arathok.alchemy.potionGoat").
-                name(" potion of goatshape","potions of goatshape",
+                name(" potion of goatshape", "potions of goatshape",
                         "An alchemistic potion, drinking it will bestow the power of a goat to you. Whatever that means?")
 
                 .modelName("model.potion.goat.")
                 .imageNumber(potionNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1216,12 +1207,12 @@ public class PotionItems {
                 .decayTime(2073600L).dimensions(5, 5, 10)
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
-                .primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty*30) // no hard lock
+                .primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdGoat = potionGoat.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidGoatId,potionIdGoat, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidGoatId, potionIdGoat, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionHeal() throws IOException {
@@ -1230,7 +1221,7 @@ public class PotionItems {
 
                 .modelName("model.potion.heal.")
                 .imageNumber(potionHealIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1245,11 +1236,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdHeal = potionHeal.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidHealId,potionIdHeal, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidHealId, potionIdHeal, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionFrenzy() throws IOException {
@@ -1259,7 +1250,7 @@ public class PotionItems {
 
                 .modelName("model.potion.FranticCharge.")
                 .imageNumber(potionCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1274,11 +1265,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdFranticCharge = potionFranticCharge.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidFranticChargeId, potionIdFranticCharge, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidFranticChargeId, potionIdFranticCharge, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionMorningFog() throws IOException {
@@ -1288,7 +1279,7 @@ public class PotionItems {
 
                 .modelName("model.potion.fog.")
                 .imageNumber(potionNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1303,11 +1294,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdMorningFog = potionMorningFog.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidMorningFogId, potionIdMorningFog, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidMorningFogId, potionIdMorningFog, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionOakshell() throws IOException {
@@ -1317,7 +1308,7 @@ public class PotionItems {
 
                 .modelName("model.potion.Oakshell.")
                 .imageNumber(potionDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1331,12 +1322,12 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdOakshell = potionOakshell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidOakshellId, potionIdOakshell, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidOakshellId, potionIdOakshell, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionRefresh() throws IOException {
@@ -1346,7 +1337,7 @@ public class PotionItems {
 
                 .modelName("model.potion.stamina.")
                 .imageNumber(potionNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1360,11 +1351,11 @@ public class PotionItems {
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdRefresh = potionRefresh.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidRefreshId, potionIdRefresh, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidRefreshId, potionIdRefresh, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionSixthSense() throws IOException {
@@ -1374,7 +1365,7 @@ public class PotionItems {
 
                 .modelName("model.potion.SixthSense.")
                 .imageNumber(potionNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1389,11 +1380,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdSixthSense = potionSixthSense.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidSixthSenseId, potionIdSixthSense, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidSixthSenseId, potionIdSixthSense, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionStrength() throws IOException {
@@ -1403,7 +1394,7 @@ public class PotionItems {
 
                 .modelName("model.potion.strength.")
                 .imageNumber(potionCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1417,11 +1408,11 @@ public class PotionItems {
                 .weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdStrength = potionStrength.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidStrengthId, potionIdStrength, true, true, 0f, false, false,CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidStrengthId, potionIdStrength, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionTruehit() throws IOException {
@@ -1431,7 +1422,7 @@ public class PotionItems {
 
                 .modelName("model.potion.truehit.")
                 .imageNumber(potionCombatIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1447,11 +1438,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*30) // no hard lock
+                .difficulty(Config.baseDifficulty * 30) // no hard lock
                 .build();
 
         potionIdTruehit = potionTruehit.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidTruehitId, potionIdTruehit, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidTruehitId, potionIdTruehit, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionVynora() throws IOException {
@@ -1461,7 +1452,7 @@ public class PotionItems {
 
                 .modelName("model.potion.vynora.")
                 .imageNumber(potionUltimateIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1476,11 +1467,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*90) // no hard lock
+                .difficulty(Config.baseDifficulty * 90) // no hard lock
                 .build();
 
         potionIdVynora = potionVynora.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidVynoraId, potionIdVynora, true, true, 0f, false, false,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidVynoraId, potionIdVynora, true, true, 0f, false, false, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionMana() throws IOException {
@@ -1490,7 +1481,7 @@ public class PotionItems {
 
                 .modelName("model.potion.mana.")
                 .imageNumber(potionDefenseIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1505,11 +1496,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(Config.baseDifficulty * 40) // no hard lock
                 .build();
 
         potionManaId = potionMana.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidManaId, potionManaId, true, true, 0f, false, false,0,40.0,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidManaId, potionManaId, true, true, 0f, false, false, 0, 40.0, CreationCategories.ALCHEMY);
     }
 
     private static void registerPotionKarma() throws IOException {
@@ -1519,7 +1510,7 @@ public class PotionItems {
 
                 .modelName("model.potion.karma.")
                 .imageNumber(potionNormalIcon)
-                .itemTypes(new short[] {
+                .itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -1534,11 +1525,11 @@ public class PotionItems {
                 .material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1)
                 .primarySkill(Config.skillUsed)
-                .difficulty(Config.baseDifficulty*40) // no hard lock
+                .difficulty(Config.baseDifficulty * 40) // no hard lock
                 .build();
 
         potionKarmaId = potionKarma.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId,PotionItems.potionLiquidKarmaId, potionKarmaId, true, true, 0f, false, false,0,50.0,	CreationCategories.ALCHEMY);
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.phialId, PotionItems.potionLiquidKarmaId, potionKarmaId, true, true, 0f, false, false, 0, 50.0, CreationCategories.ALCHEMY);
     }
 
     public static void register() throws IOException {
@@ -1601,18 +1592,18 @@ public class PotionItems {
         registerPotionKarma();
         registerPotionMana();
 
-        TempStates.addState(new TempState(PotionItems.precursorExcellId, PotionItems.potionLiquidExcellId, (short) 4000,true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorFranticChargeId, PotionItems.potionLiquidFranticChargeId,(short) 4000, true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorGoatId, PotionItems.potionLiquidGoatId, (short) 4000, true,true, false));
-        TempStates.addState(new TempState(PotionItems.precursorHealId, PotionItems.potionLiquidHealId, (short) 4000, true,true, false));
-        TempStates.addState(new TempState(PotionItems.precursorMorningFogId, PotionItems.potionLiquidMorningFogId,(short) 4000, true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorOakshellId, PotionItems.potionLiquidOakshellId, (short) 4000,true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorRefreshId, PotionItems.potionLiquidRefreshId, (short) 4000,true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorTruehitId, PotionItems.potionLiquidTruehitId, (short) 4000,true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorSixthSenseId, PotionItems.potionLiquidSixthSenseId,(short) 4000, true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorStrengthId, PotionItems.potionLiquidStrengthId, (short) 4000,true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorVynoraId, PotionItems.potionLiquidVynoraId, (short) 4000,true, true, false));
-        TempStates.addState(new TempState(PotionItems.precursorWillowspineId, PotionItems.potionLiquidWillowspineId,(short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorExcellId, PotionItems.potionLiquidExcellId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorFranticChargeId, PotionItems.potionLiquidFranticChargeId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorGoatId, PotionItems.potionLiquidGoatId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorHealId, PotionItems.potionLiquidHealId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorMorningFogId, PotionItems.potionLiquidMorningFogId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorOakshellId, PotionItems.potionLiquidOakshellId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorRefreshId, PotionItems.potionLiquidRefreshId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorTruehitId, PotionItems.potionLiquidTruehitId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorSixthSenseId, PotionItems.potionLiquidSixthSenseId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorStrengthId, PotionItems.potionLiquidStrengthId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorVynoraId, PotionItems.potionLiquidVynoraId, (short) 4000, true, true, false));
+        TempStates.addState(new TempState(PotionItems.precursorWillowspineId, PotionItems.potionLiquidWillowspineId, (short) 4000, true, true, false));
     }
 
 }

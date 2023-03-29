@@ -5,7 +5,9 @@ package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah
 import com.wurmonline.server.items.*;
 import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.IconConstants;
+import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
+import org.tyoda.wurm.Iconzz.Iconzz;
 
 import java.io.IOException;
 
@@ -18,7 +20,16 @@ public class AlchItems {
 
 
 	public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass, weakLegs,gemPowder,coalDust,coalFilter, leader;
+	public static short mouldClayIcon,mouldPotteryIcon,glassMixIcon,glassIcon,phialIcon;
 
+	public static void makeIcons()
+	{
+		mouldClayIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mouldcClayIcon","mods/alchemy/icons/phialMouldClay.png");
+		mouldPotteryIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mouldcPotteryIcon","mods/alchemy/icons/phialMouldPottery.png");
+		glassMixIcon = Iconzz.getInstance().addIcon("arathok.alchemy.glassMixIcon","mods/alchemy/icons/glassMix.png");
+		glassIcon = Iconzz.getInstance().addIcon("arathok.alchemy.glassIcon","mods/alchemy/icons/glas.png");
+		phialIcon = Iconzz.getInstance().addIcon("arathok.alchemy.phialIcon","mods/alchemy/icons/phial.png");
+	}
 
 
 	private static void registerLeader() throws IOException {
@@ -91,7 +102,7 @@ public class AlchItems {
 						+ "like paste. cooling it off you will get crystal clear glass. But what would a pile of glass be of use for? If you had some kind of a"
 						+ "mould you could press the hot glass into shape...")
 				.modelName("model.decoration.glassMixture.")
-				.imageNumber((short) IconConstants.ICON_MORTAR_PILE)
+				.imageNumber(glassMixIcon)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -122,7 +133,7 @@ public class AlchItems {
 				"Crystal clear glass. If you could make a phial out of it, it could contain magic stored in potions. " +
 						"You should heat it before pressing it.")
 				.modelName("model.decoration.flask.")
-				.imageNumber((short) 1501)
+				.imageNumber(glassIcon)
 				.itemTypes(new short[] {
 
 						ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -150,7 +161,7 @@ public class AlchItems {
 				.name("phial mould", "phial moulds",
 						"A clay mould that could be used to make phials, but it still needs to be fired.")
 				.modelName("model.mouldClay.")
-				.imageNumber((short) 1502)
+				.imageNumber(mouldClayIcon)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_PLANTABLE,
 						ItemTypes.ITEM_TYPE_DECORATION,
@@ -179,7 +190,7 @@ public class AlchItems {
 		mouldPottery = new ItemTemplateBuilder("arathok.alchemy.mouldPottery")
 				.name("phial mould", "phial moulds", "A pottery mould that is used to make glass phials")
 				.modelName("model.mouldPottery.")
-				.imageNumber((short) 1503)
+				.imageNumber(mouldPotteryIcon)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_POTTERY,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -208,7 +219,7 @@ public class AlchItems {
 						+ "capable of holding strong magic powers.")
 
 				.modelName("model.phial.")
-				.imageNumber((short) 1504)
+				.imageNumber(phialIcon)
 				.itemTypes(new short[] {
 						ItemTypes.ITEM_TYPE_BULK,
 						ItemTypes.ITEM_TYPE_PLANTABLE,
@@ -386,7 +397,7 @@ public class AlchItems {
 
 
 	public static void register() throws IOException {
-
+		makeIcons();
 		registerLeader();
 		registerWeakLegs();
 		registerGlassMixture();

@@ -68,9 +68,10 @@ public class PotionPerformer implements ActionPerformer
     }
 
 
-    public static boolean canUse(Creature performer, Item target)
+    public static boolean canUse(Creature performer, Item target) // precondition
     {
         return performer.isPlayer() && target.getOwnerId() == performer.getWurmId() && !target.isTraded();
+
     }
 
 
