@@ -2,10 +2,7 @@ package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah
 ///TODO:mixtures/pastes no bulk and they decay
 //and make them not-private so you can actually access them
 
-import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.*;
-import com.wurmonline.server.players.Player;
-import com.wurmonline.server.players.PlayerInfo;
 import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.IconConstants;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
@@ -231,7 +228,7 @@ public class AlchItems {
 				.primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
 
 				.build();
-			
+
 		phialId = phial.getTemplateId();
 
 		CreationEntryCreator.createMetallicEntries(SkillList.ALCHEMY_NATURAL, AlchItems.mouldPotteryId, AlchItems.glassId, phialId, false, true, 0f, false, false,0,10, CreationCategories.ALCHEMY);
