@@ -230,7 +230,7 @@ public class OilPerformer implements ActionPerformer {
 							q.enchantmentType = eff.type;
 							q.hasOil = true;
 							EnchantmentHandler.enchantments.add(q);
-							EnchantmentHandler.enchantments.add(q);
+
 							q.insert(Alchemy.dbconn);
 							// update ModSupportDb
 

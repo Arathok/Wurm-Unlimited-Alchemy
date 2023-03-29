@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 
 public class EnchantmentHandler {
@@ -37,8 +38,8 @@ public class EnchantmentHandler {
             long playerId = enchantedItem.playerId;
             Player owner;
             owner = Players.getInstance().getPlayerOrNull(playerId);
-// TODO: 41 erzeugt trotzdem No such Item Exception
-            if (owner != null && !owner.isLoggedOut()) {
+// TODO: Sollte jetzt keine NO Such Item Exception mehr verursachen, testen
+            if (Items.getItemOptional(enchantedItem.itemId).isPresent()) {
                 Item realItem = Items.getItem(enchantedItem.itemId);
 
                 // IF ITEM IS MAILED OR IN LETTERBOX
@@ -104,15 +105,15 @@ public class EnchantmentHandler {
                 int itemTileY = realItem.getTileY();
                 VolaTile[] itemTiles;
                 if (realItem.isOnSurface()) {
-                    itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, true, 2);
+                    itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, true, 5);
                 } else {
-                    itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, false, 2);
+                    itemTiles = Zones.getTilesSurrounding(itemTileX, itemTileY, false, 5);
                 }
                 boolean portalFound = false;
                 for (VolaTile onetile : itemTiles) {
                     Item[] items = onetile.getItems();
                     for (Item oneItem : items) {
-                        if (oneItem.getTemplate().getName().contains("portal")) {
+                        if (oneItem.getTemplate().getName().contains("portal")||oneItem.getTemplate().getName().contains("Portal")) {
                             portalFound = true;
                             break;
                         }

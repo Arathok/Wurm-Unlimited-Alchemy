@@ -237,6 +237,7 @@ public class AlchItems {
 				.material(Materials.MATERIAL_GLASS)
 				.behaviourType((short) 1)
 				.primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
+
 				.build();
 
 		phialId = phial.getTemplateId();
@@ -292,7 +293,8 @@ public class AlchItems {
 
 		coalFilterId = coalFilter.getTemplateId();
 
-		CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.shaft, ItemList.shaft, coalFilterId, true, false, 0f, false, false,0,5, CreationCategories.ALCHEMY)
+		CreationEntryCreator.createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.shaft, ItemList.shaft, coalFilterId, true, false, 0f, true, false,0,5,
+												 CreationCategories.ALCHEMY)
 				.addRequirement(new CreationRequirement(1, AlchItems.coalDustId, 5, true))
 				.addRequirement(new CreationRequirement(2, ItemList.clothYard, 2, true))
 				.addRequirement(new CreationRequirement(3, ItemList.shaft, 2, true))
