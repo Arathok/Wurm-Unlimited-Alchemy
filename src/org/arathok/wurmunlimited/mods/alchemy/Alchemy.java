@@ -122,8 +122,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		// TODO Auto-generated method stub
 
 
-		new EnchantmentHandler();
-		new AddictionHandler();
+		//new EnchantmentHandler();
+		//new AddictionHandler();
 
 		logger.log(Level.INFO, "Alchemy is registering Actions");
 		ModActions.registerBehaviourProvider(new PotionBehaviour());
