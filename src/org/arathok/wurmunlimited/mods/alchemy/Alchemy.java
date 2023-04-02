@@ -6,6 +6,7 @@ import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
 import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
+import org.arathok.wurmunlimited.mods.alchemy.enchantments.ServerTravelHook;
 import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesBehaviourItem;
 import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesBehaviourTile;
 import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesItems;
@@ -139,7 +140,8 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 		@Override
 	public void init() {
-		// TODO Auto-generated method stub
+			logger.log(Level.INFO, "Hooking ServerTravel Oils");
+			ServerTravelHook.insert();
 		
 	}
 
