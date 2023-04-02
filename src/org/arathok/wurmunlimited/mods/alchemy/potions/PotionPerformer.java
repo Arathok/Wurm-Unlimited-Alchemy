@@ -48,7 +48,10 @@ public class PotionPerformer implements ActionPerformer
                                                      48 /* ACTION_TYPE_ENEMY_ALWAYS */,
                                                      35 /* DON'T CARE WHETHER SOURCE OR TARGET */,
 
-                                             }).range(4).build();
+                                             })
+                .range(4)
+                .priority(10)
+                .build();
 
         ModActions.registerAction(actionEntry);
 
