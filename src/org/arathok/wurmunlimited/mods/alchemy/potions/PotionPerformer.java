@@ -34,7 +34,7 @@ public class PotionPerformer implements ActionPerformer
 
 
     Addiction playerInQuestion = null;
-    Addiction playerAddiction = new Addiction();
+    Addiction playerAddiction = new Addiction(); // maybe making a variable here is bad as its stored through the entire performer.
 
     int seconds = Config.potionDuration;
     float power = 0;
@@ -47,6 +47,8 @@ public class PotionPerformer implements ActionPerformer
                                                      6 /* ACTION_TYPE_NOMOVE */,
                                                      48 /* ACTION_TYPE_ENEMY_ALWAYS */,
                                                      35 /* DON'T CARE WHETHER SOURCE OR TARGET */,
+                                                     27, // NONSTACK
+                                                     28 // NOSTACK IN FIGHT
 
                                              })
                 .range(4)
@@ -96,6 +98,8 @@ public class PotionPerformer implements ActionPerformer
                              ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
 
         }
+        ////////////////TOXICITY/////////////////////
+
         Iterator<Addiction> toxicity = AddictionHandler.addictions.iterator();
         long time = System.currentTimeMillis();
         while (toxicity.hasNext())
