@@ -23,12 +23,12 @@ public class Addiction
 
 	public static void readFromSQL(Connection dbconn) throws SQLException
 	{
-		Addiction addiction = new Addiction();
+
 		PreparedStatement ps = dbconn.prepareStatement("SELECT * FROM Alchemy_Addictions");
 		ResultSet rs = ps.executeQuery();
 		while (rs.next())
 		{
-
+			Addiction addiction = new Addiction();
 
 			addiction.playerId = rs.getLong("playerId"); // liest quasi den Wert von der Spalte
 			addiction.currentAddictionLevel = rs.getInt("currentAddiction");

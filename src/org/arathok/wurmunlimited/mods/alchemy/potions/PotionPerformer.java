@@ -786,6 +786,8 @@ public class PotionPerformer implements ActionPerformer
                     }
                     AddictionHandler.addictions.set(index, playerInQuestion);
                 }
+               if (playerFound)
+                   break;
             }
 
             // If you can't find a player with this id that is already addicted make a new one! and add it to the DB
