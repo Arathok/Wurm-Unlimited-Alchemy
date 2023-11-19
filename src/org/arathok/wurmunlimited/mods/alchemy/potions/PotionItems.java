@@ -94,7 +94,7 @@ public class PotionItems {
                                 + " You feel like nothing can really hurt your new form "
                                 + " you should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.phasing.")
+                .modelName("model.mixture.protection.")
                 .imageNumber(mixtureProtectionIcon)
                 .itemTypes(new short[]{
 
@@ -123,7 +123,7 @@ public class PotionItems {
                         "A mixture of different alchemical substances. One day it might be making a fine potion."
                                 + " Smelling it makes you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-                .modelName("model.mixture.excell.")
+                .modelName("model.mixture.protection.")
                 .imageNumber(mixtureProtectionIcon)
                 .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
@@ -150,7 +150,7 @@ public class PotionItems {
                                 + " Smelling this mixture makes you aggressive, it seems to call to you to let out your inner beast."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.frenzy.")
+                .modelName("model.mixture.combat.")
                 .imageNumber(mixtureCombatIcon)
                 .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
@@ -179,7 +179,7 @@ public class PotionItems {
                         "A mixture of different alchemical substances. One day it might be making a fine potion."
                                 + " It smells like a wet Goat... weird.")
 
-                .modelName("model.mixture.goat.")
+                .modelName("model.mixture.normal.")
                 .imageNumber(mixtureNormalIcon)
                 .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
@@ -205,7 +205,7 @@ public class PotionItems {
                                 + " It seems to make your skin somewhat woodifies and becomes harder when you touch it."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.oakshell.")
+                .modelName("model.mixture.protection.")
                 .imageNumber(mixtureProtectionIcon)
                 .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
@@ -240,7 +240,7 @@ public class PotionItems {
                                 + " You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixtureHeal.")
+                .modelName("model.mixture.heal.")
                 .imageNumber(mixtureHealingIcon)
                 .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
@@ -272,8 +272,8 @@ public class PotionItems {
                                 + " Sniffing it your body seems to bend around sharp objects as if it wants to protect itself."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.fog.")
-                .imageNumber(mixtureNormalIcon)
+                .modelName("model.mixture.protection.")
+                .imageNumber(mixtureProtectionIcon)
                 .itemTypes(new short[]{
                         //	ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB,
@@ -303,7 +303,7 @@ public class PotionItems {
                                 + " You sense it giving off a whiff of cool air. It seems to be able to strip some tiredness off you."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.refresh.")
+                .modelName("model.mixture.heal.")
                 .imageNumber(mixtureNormalIcon)
                 .itemTypes(new short[]{
                         //	ItemTypes.ITEM_TYPE_BULK,
@@ -336,8 +336,8 @@ public class PotionItems {
                                 + " The smell brings a certain picture before the inner eye. Like a voice telling you, to be careful with your surroundings"
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.sixth.")
-                .imageNumber(mixtureNormalIcon)
+                .modelName("model.mixture.protection.")
+                .imageNumber(mixtureProtectionIcon)
                 .itemTypes(new short[]{
 
                         //	ItemTypes.ITEM_TYPE_BULK,
@@ -369,7 +369,7 @@ public class PotionItems {
                                 + " The smell makes you feel like you could lift a mountain."
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.strength.")
+                .modelName("model.mixture.combat.")
                 .imageNumber(mixtureCombatIcon)
                 .itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
@@ -404,7 +404,7 @@ public class PotionItems {
                                 + " The belladonna is widening your eyes, uncovering weak spots on enemies"
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.truehit.")
+                .modelName("model.mixture.combat.")
                 .imageNumber(mixtureCombatIcon)
                 .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,
@@ -437,7 +437,7 @@ public class PotionItems {
                                 + " This mixture has captured the essence of knowledge itself. You can feel Vynora smile down on you. You are grasping for the summit of Alchemy"
                                 + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.vyn.")
+                .modelName("model.mixture.ultimate.")
                 .imageNumber(mixtureUltimateIcon)
                 .itemTypes(new short[]{
                         //ItemTypes.ITEM_TYPE_BULK,

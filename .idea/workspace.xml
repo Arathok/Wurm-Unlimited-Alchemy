@@ -1,249 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="alchemy" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="optimisations">
-<<<<<<< Updated upstream
-      <change afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/enchantments/ServerTravelHook.java" afterDir="false" />
+    <list default="true" id="297a3287-fe69-4758-a782-097981e82e05" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/alchemy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/alchemy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/__db_file_bwc_user_C_knoll_Unterlagen_PG.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/__db_file_bwc_user_C_knoll_Unterlagen_PG.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/AlchItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/AlchItems.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wurm-Unlimited-Alchemy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Wurm-Unlimited-Alchemy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/.old" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Alchemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/enchantments/EnchantmentHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/alchemy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/alchemy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Alchemy.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Wurm-Unlimited-Alchemy\exportToHTML" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="1xWhuoNre1IwOLTQnglrNE6o72D" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2UthfGkX8cAH3hbl6pEFaJbNnDV" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/mods/Iconzz/Iconzz.jar" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="Z:\Unterlagen\PG\5_Programme\Wurm-Unlimited-Alchemy" />
-    </key>
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="org.arathok.wurmunlimited.mods.alchemy.essences" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.arathok.wurmunlimited.mods.alchemy.essences" />
-      <recent name="org.arathok.wurmunlimited.mods.alchemy.oils" />
-      <recent name="org.arathok.wurmunlimited.mods.alchemy" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Gradle.Unnamed">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <module name="Wurm-Unlimited-Alchemy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Unnamed" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
-      <option name="WORKING_DIRECTORY" value="C:\Users\Arath\Documents\GitHub\Wurm-Unlimited-Alchemy" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Alchemy" type="Remote">
-      <module name="Wurm-Unlimited-Alchemy" />
-      <option name="USE_SOCKET_TRANSPORT" value="false" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="my_wurm_server" />
-      <option name="HOST" />
-      <option name="PORT" value="65535" />
-      <option name="AUTO_RESTART" value="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="my_wurm_server" />
-        <option name="TRANSPORT" value="1" />
-        <option name="LOCAL" value="false" />
-      </RunnerSettings>
-      <method v="2" />
-    </configuration>
-    <configuration name="Unnamed" type="Remote" nameIsGenerated="true">
-      <module name="Wurm-Unlimited-Alchemy" />
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <option name="AUTO_RESTART" value="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="5005" />
-        <option name="LOCAL" value="false" />
-      </RunnerSettings>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Gradle.Unnamed" />
-      <item itemvalue="JAR Application.Unnamed" />
-      <item itemvalue="Remote JVM Debug.Alchemy" />
-      <item itemvalue="Remote JVM Debug.Unnamed" />
-    </list>
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/SteamLibrary/steamapps/common/Wurm Unlimited Dedicated Server/mods/alchemy&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="efbcb617-577e-463e-95d6-435dd6e5fa2a" name="Changes" comment="" />
-      <created>1630476983025</created>
+      <changelist id="297a3287-fe69-4758-a782-097981e82e05" name="Changes" comment="" />
+      <created>1693764886003</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1630476983025</updated>
+      <updated>1693764886003</updated>
     </task>
-    <task id="LOCAL-00001" summary="optimisations">
-      <created>1632948315816</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1632948315816</updated>
-    </task>
-    <task id="LOCAL-00002" summary="optimisations">
-      <created>1637589964672</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1637589964672</updated>
-    </task>
-    <task id="LOCAL-00003" summary="optimisations">
-      <created>1640631320489</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1640631320489</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="optimisations" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimisations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://D:/Steam/steamapps/common/Wurm Unlimited Dedicated Server/modlauncher.jar!/org/gotti/wurmunlimited/modsupport/actions/ActionPerformer.class</url>
-          <line>62</line>
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java</url>
+          <line>791</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/potions/PotionPerformer.java</url>
+          <line>808</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesPerformerTile.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="156" />
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/AddictionHandler.java</url>
+          <line>210</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/essences/EssencesBehaviourTile.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="314" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/oils/OilPerformer.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="315" />
+          <url>file://$PROJECT_DIR$/src/org/arathok/wurmunlimited/mods/alchemy/addiction/Addiction.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="com.wurmonline.server.bodys.Wounds" memberName="wounds" />
-      </pinned-members>
-    </pin-to-top-manager>
-    <watches-manager>
-      <configuration name="Remote">
-        <watch expression="Config.addictionTimer==0" language="JAVA" custom="org.arathok.wurmunlimited.mods.alchemy.Config" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -1,40 +1,15 @@
 <component name="libraryTable">
   <library name="\\db-file-bwc\user\C.knoll\Unterlagen\PG">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../../../GAMES/steam/steamapps/common/Wurm Unlimited Dedicated Server/modlauncher.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../../../../GAMES/steam/steamapps/common/Wurm Unlimited Dedicated Server/javassist.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../../../../GAMES/steam/steamapps/common/Wurm Unlimited Dedicated Server/common.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../../../../GAMES/steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
-      <root url="jar://D:/Steam/steamapps/common/Wurm Unlimited Dedicated Server/common.jar!/" />
-      <root url="jar://D:/Steam/steamapps/common/Wurm Unlimited Dedicated Server/javassist.jar!/" />
-      <root url="jar://D:/Steam/steamapps/common/Wurm Unlimited Dedicated Server/modlauncher.jar!/" />
-      <root url="jar://D:/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
-      <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/common.jar!/" />
-      <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/javassist.jar!/" />
-      <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/modlauncher.jar!/" />
-      <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/server.jar!/" />
-      <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/common.jar!/" />
-      <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/javassist.jar!/" />
-      <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/modlauncher.jar!/" />
-      <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../common.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../javassist.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../modlauncher.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../server.jar!/" />
-      <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/mods/bdew_server_mod_tools/bdew_server_mod_tools.jar!/" />
+      <root url="jar://F:/SteamLibrary/steamapps/common/Wurm Unlimited Dedicated Server/common.jar!/" />
+      <root url="jar://F:/SteamLibrary/steamapps/common/Wurm Unlimited Dedicated Server/patcher.jar!/" />
+      <root url="jar://F:/SteamLibrary/steamapps/common/Wurm Unlimited Dedicated Server/javassist.jar!/" />
+      <root url="jar://F:/SteamLibrary/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../../../../GAMES/steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../../../../GAMES/steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/1.0" />
-      <root url="jar://D:/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
-      <root url="jar://D:/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/1.0" />
-      <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/server.jar!/" />
-      <root url="jar://Z:/Unterlagen/PG/5_Programme/backup/backup/server.jar!/1.0" />
-      <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
-      <root url="jar://D:/Spiele/Steam/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/1.0" />
-      <root url="jar://$PROJECT_DIR$/../../server.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../server.jar!/1.0" />
+      <root url="jar://F:/SteamLibrary/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/" />
+      <root url="jar://F:/SteamLibrary/steamapps/common/Wurm Unlimited Dedicated Server/server.jar!/1.0" />
     </SOURCES>
   </library>
 </component>

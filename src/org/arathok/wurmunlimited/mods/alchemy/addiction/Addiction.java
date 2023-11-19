@@ -1,6 +1,8 @@
+
 package org.arathok.wurmunlimited.mods.alchemy.addiction;
 
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,9 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 
-public class Addiction
-{
-
+public class Addiction {
 
 
 	public long playerId;
@@ -21,13 +21,11 @@ public class Addiction
 	public long coolDownBuffEnd = 0;
 	public int toxicityWarningLevel = 0;
 
-	public static void readFromSQL(Connection dbconn) throws SQLException
-	{
-
+	public static void readFromSQL(Connection dbconn) throws SQLException {
+		AddictionHandler.addictions.clear();
 		PreparedStatement ps = dbconn.prepareStatement("SELECT * FROM Alchemy_Addictions");
 		ResultSet rs = ps.executeQuery();
-		while (rs.next())
-		{
+		while (rs.next()) {
 			Addiction addiction = new Addiction();
 
 			addiction.playerId = rs.getLong("playerId"); // liest quasi den Wert von der Spalte
@@ -43,11 +41,10 @@ public class Addiction
 		Alchemy.finishedDbReadingAddictions = true;
 	}
 
-	public void insert(Connection dbconn) throws SQLException
-	{
+	public void insert(Connection dbconn) throws SQLException {
 
 		PreparedStatement ps = dbconn.prepareStatement("insert or replace into Alchemy_Addictions (playerId,currentAddiction,previousAddiction,cooldownHealEnd,cooldownBuffEnd) values " +
-															   "(?,?,?,?,?)");
+				"(?,?,?,?,?)");
 		ps.setLong(1, this.playerId);
 		ps.setInt(2, this.currentAddictionLevel);
 		ps.setInt(3, this.previousAddictionLevel);
@@ -58,6 +55,7 @@ public class Addiction
 
 
 	}
+
 	public static void remove(Connection dbconn, long aplayerId) {
 		try {
 			PreparedStatement ps = dbconn.prepareStatement("DELETE FROM Alchemy_Addictions WHERE playerId = ?");
@@ -69,5 +67,4 @@ public class Addiction
 			throwables.printStackTrace();
 		}
 	}
-
 }

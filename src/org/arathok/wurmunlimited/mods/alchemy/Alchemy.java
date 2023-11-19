@@ -1,7 +1,12 @@
 package org.arathok.wurmunlimited.mods.alchemy; // HELLO GITHUB!
 
+import com.wurmonline.server.FailedException;
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.creatures.Communicator;
+import com.wurmonline.server.creatures.Creature;
+import com.wurmonline.server.items.ItemFactory;
+import com.wurmonline.server.items.NoSuchTemplateException;
+import com.wurmonline.server.players.Player;
 import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
 import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
@@ -27,7 +32,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurable, ItemTemplatesCreatedListener, ServerStartedListener, ServerPollListener, PlayerMessageListener{
+public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurable, ItemTemplatesCreatedListener, ServerStartedListener, ServerPollListener, PlayerMessageListener,PlayerLoginListener{
 	public static final Logger logger = Logger.getLogger("Alchemy");
 	public static HashMap<Long, Long> healCooldown = new HashMap<>();
 	public static HashMap<Long, Long> cooldown = new HashMap<>();
@@ -61,6 +66,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.skillUsed = Integer.parseInt(properties.getProperty("skillUsed", "10042"));
 		Config.baseDifficulty = Float.parseFloat(properties.getProperty("baseDifficulty", "0.5F"));
 		Config.verboseLogging = Boolean.parseBoolean(properties.getProperty("verboseLogging","false"));
+		Config.dbtest = Boolean.parseBoolean(properties.getProperty("dbTest","false"));
 	//	Config.worldMaxX = Integer.parseInt(properties.getProperty("worldMaxX", "4096"));
 	//	Config.worldMaxY = Integer.parseInt(properties.getProperty("worldMaxY", "4096"));
 
@@ -190,7 +196,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 
 			if(!finishedDbReadingAddictions) {
-				new AddictionHandler();
+
 				Addiction.readFromSQL(dbconn);
 				logger.log(Level.INFO, "Alchemy is done pulling DB entries");
 			}
@@ -212,5 +218,18 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	}
 
-    
+
+	@Override
+	public void onPlayerLogin(Player player) {
+		if (Config.dbtest == true)
+		try {
+			player.getInventory().insertItem(ItemFactory.createItem(PotionItems.potionIdHeal,90,null));
+			player.addWoundOfType((Creature) null, (byte) 9,14,false,1.0F,false,4000D,0F,0F,false,false);
+		} catch (FailedException e) {
+			throw new RuntimeException(e);
+		} catch (NoSuchTemplateException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
 }

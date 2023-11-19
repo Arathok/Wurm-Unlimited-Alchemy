@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
+
 ///TODO:create potion that stops addiction
 public class AddictionHandler {
     public AddictionHandler() {
@@ -126,8 +127,10 @@ public class AddictionHandler {
                                         + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                         + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                         + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else
+                            } else {
                                 aPlayer.die(false, "withdrawal effects");
+                                Alchemy.logger.log(Level.INFO, "player " + aPlayer + " died because of addiction. Addiction Level was: " + addiction.currentAddictionLevel);
+                            }
 
                         }
 
@@ -148,8 +151,10 @@ public class AddictionHandler {
                                         + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                         + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                         + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else
+                            } else {
                                 aPlayer.die(false, "withdrawal effects");
+                                Alchemy.logger.log(Level.INFO, "player " + aPlayer + " died because of addiction. Addiction Level was: " + addiction.currentAddictionLevel);
+                            }
 
                         }
 
@@ -171,9 +176,10 @@ public class AddictionHandler {
                                         + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                         + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                         + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else
+                            } else {
                                 aPlayer.die(false, "withdrawal effects");
-
+                                Alchemy.logger.log(Level.INFO, "player " + aPlayer + " died because of addiction. Addiction Level was: " + addiction.currentAddictionLevel);
+                            }
 
                         }
 
@@ -195,8 +201,10 @@ public class AddictionHandler {
                                         + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                         + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                         + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else
+                            } else {
                                 aPlayer.die(false, "withdrawal effects");
+                                Alchemy.logger.log(Level.INFO, "player " + aPlayer + " died because of addiction. Addiction Level was: " + addiction.currentAddictionLevel);
+                            }
 
 
                         }
@@ -218,8 +226,10 @@ public class AddictionHandler {
                                         + ". \nCurrent Addiction Level: " + addiction.currentAddictionLevel
                                         + "\n Previous Addiction Level: " + addiction.previousAddictionLevel
                                         + "\n Next Effect Polled for this player: " + (addictionTimer) / 1000);
-                            } else
+                            } else {
                                 aPlayer.die(false, "withdrawal effects");
+                                Alchemy.logger.log(Level.INFO, "player " + aPlayer + " died because of addiction. Addiction Level was: " + addiction.currentAddictionLevel);
+                            }
 
                         }
                     } else {
