@@ -221,7 +221,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 
 	@Override
 	public void onPlayerLogin(Player player) {
-		if (Config.dbtest == true)
+		if (Config.dbtest)
 		try {
 			player.getInventory().insertItem(ItemFactory.createItem(PotionItems.potionIdHeal,90,null));
 			player.addWoundOfType((Creature) null, (byte) 9,14,false,1.0F,false,4000D,0F,0F,false,false);
