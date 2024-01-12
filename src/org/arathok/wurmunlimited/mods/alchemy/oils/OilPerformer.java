@@ -109,6 +109,8 @@ public class OilPerformer implements ActionPerformer {
 			Alchemy.logger.log(Level.SEVERE, "no item found for"+target.getName(),e);
 			e.printStackTrace();
 		}
+
+		///TODO: Köcher muss mit verzaubert werden -> enchantment drauf
 // EFFECT STUFF GOES HERE
 		seconds=Config.oilDuration;
 		power = source.getCurrentQualityLevel() * Config.alchemyPower;
@@ -141,7 +143,7 @@ public class OilPerformer implements ActionPerformer {
 		e.itemNameBeforeEnchantment = target.getName();
 		// DEMISE ANIMAL
 		if (source.getTemplateId() == OilItems.weaponOilDemiseAnimalId) {
-				if(target.isWeapon()||target.isArrow())   {
+				if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 
 	
 	
@@ -202,49 +204,50 @@ public class OilPerformer implements ActionPerformer {
 						Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 	
 				}
-			else
+
 				if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					 effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
+					if (arrow.isArrow()) {
+
+						effs = arrow.getSpellEffects();
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
 						eff = effs.getSpellEffect((byte) 11);
-					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null){
+						if (eff == null && effs.getSpellEffect((byte) 9) == null && effs.getSpellEffect((byte) 10) == null && effs.getSpellEffect((byte) 12) == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (seconds));
-						effs.addSpellEffect(eff);
-						Enchantment q = new Enchantment();
-						q.itemNameBeforeEnchantment = arrow.getName();
-						arrow.setName((arrow.getName() + " (oil,hunt)"));
-						try {
-
-
-							q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
-							q.timeOfEnchantment = WurmCalendar.getCurrentTime();
-							q.enchantmentType = eff.type;
-							q.hasOil = true;
-							EnchantmentHandler.enchantments.add(q);
-
-							q.insert(Alchemy.dbconn);
-							// update ModSupportDb
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 11, power, (seconds));
+							effs.addSpellEffect(eff);
+							Enchantment q = new Enchantment();
+							q.itemNameBeforeEnchantment = arrow.getName();
+							arrow.setName((arrow.getName() + " (oil,hunt)"));
+							try {
 
 
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO,"RuntimeException or SQLException happened or database closed",ex);
-							ex.printStackTrace();
+								q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
+								q.playerId=performer.getWurmId();
+								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
+								q.enchantmentType = eff.type;
+								q.hasOil = true;
+								EnchantmentHandler.enchantments.add(q);
+
+								q.insert(Alchemy.dbconn);
+								// update ModSupportDb
+
+
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
+							}
+						} else {
+							fails++;
 						}
 					}
-					else
-					{
-							fails++;
-					}
-
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
 						" in your " + target.getName() + "and see how Oil spreads across the Arrows coating them nicely."+
@@ -266,7 +269,7 @@ public class OilPerformer implements ActionPerformer {
 
 		// DEMISE HUMAN
 		if (source.getTemplateId() == OilItems.weaponOilDemiseHumanId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 
 				if (effs == null)
@@ -323,48 +326,50 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
+					if (arrow.isArrow()) {
+
 						effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
 						eff = effs.getSpellEffect((byte) 9);
-					if (eff == null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 12)== null) {
+						if (eff == null && effs.getSpellEffect((byte) 11) == null && effs.getSpellEffect((byte) 10) == null && effs.getSpellEffect((byte) 12) == null) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (seconds));
-						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + " (oil,Murder)"));
-					try {
-							if(performer.getPower()<3) {
-								Enchantment q = new Enchantment();
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 9, power, (seconds));
+							effs.addSpellEffect(eff);
+							arrow.setName((arrow.getName() + " (oil,Murder)"));
+							try {
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+									Enchantment q = new Enchantment();
+
+									q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
-								EnchantmentHandler.enchantments.add(q);
-								q.insert(Alchemy.dbconn);
-								// update ModSupportDb
+									EnchantmentHandler.enchantments.add(q);
+									q.insert(Alchemy.dbconn);
+									// update ModSupportDb
 
+
+							} catch (RuntimeException | SQLException ex) {
+
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
 							}
-						} catch (RuntimeException | SQLException ex) {
-
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
+						} else {
+							fails++;
 						}
-					}
-					else
-					{
-						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -384,7 +389,7 @@ public class OilPerformer implements ActionPerformer {
 
 		// DEMISE MONSTER
 		if (source.getTemplateId() == OilItems.weaponOilDemiseMonsterId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
 
@@ -441,47 +446,50 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
+
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
-					eff = effs.getSpellEffect((byte) 10);
-					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 11)== null&& effs.getSpellEffect((byte) 12)== null){
+					if (arrow.isArrow()) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (seconds));
-						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + " (oil,monster hunt)"));
-					try {
-							if(performer.getPower()<3) {
-								Enchantment q = new Enchantment();
+						effs = arrow.getSpellEffects();
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
+						eff = effs.getSpellEffect((byte) 10);
+						if (eff == null && effs.getSpellEffect((byte) 9) == null && effs.getSpellEffect((byte) 11) == null && effs.getSpellEffect((byte) 12) == null) {
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 10, power, (seconds));
+							effs.addSpellEffect(eff);
+							arrow.setName((arrow.getName() + " (oil,monster hunt)"));
+							try {
+
+									Enchantment q = new Enchantment();
+
+									q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
-								EnchantmentHandler.enchantments.add(q);
-								q.insert(Alchemy.dbconn);
-								// update ModSupportDb
+									EnchantmentHandler.enchantments.add(q);
+									q.insert(Alchemy.dbconn);
+									// update ModSupportDb
 
+
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
 							}
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
+						} else {
+							fails++;
 						}
-					}
-					else
-					{
-						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -504,7 +512,7 @@ public class OilPerformer implements ActionPerformer {
 
 		// DEMISE LEGENDARY
 		if (source.getTemplateId() == OilItems.weaponOilDemiseLegendaryId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 				// ALREADY ENCHANTED? YOU GET NOTHING!
 
@@ -559,47 +567,49 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
-					eff = effs.getSpellEffect((byte) 12);
-					if (eff == null&& effs.getSpellEffect((byte) 9)== null&& effs.getSpellEffect((byte) 10)== null&& effs.getSpellEffect((byte) 11)== null){
+					if (arrow.isArrow()) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (seconds));
-						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + " (oil, legendary hunt)"));
-					try {
-							if(performer.getPower()<3) {
-								Enchantment q = new Enchantment();
+						effs = arrow.getSpellEffects();
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
+						eff = effs.getSpellEffect((byte) 12);
+						if (eff == null && effs.getSpellEffect((byte) 9) == null && effs.getSpellEffect((byte) 10) == null && effs.getSpellEffect((byte) 11) == null) {
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 12, power, (seconds));
+							effs.addSpellEffect(eff);
+							arrow.setName((arrow.getName() + " (oil, legendary hunt)"));
+							try {
+
+									Enchantment q = new Enchantment();
+
+									q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
-								EnchantmentHandler.enchantments.add(q);
-								q.insert(Alchemy.dbconn);
-								// update ModSupportDb
+									EnchantmentHandler.enchantments.add(q);
+									q.insert(Alchemy.dbconn);
+									// update ModSupportDb
 
+
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
 							}
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
+						} else {
+							fails++;
 						}
-					}
-					else
-					{
-						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -620,7 +630,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 		// Fires Kiss
 		if (source.getTemplateId() == OilItems.weaponOilLickOfFireId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 
 				if (effs == null)
@@ -674,47 +684,49 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
-					eff = effs.getSpellEffect((byte) 14);
-					if (eff == null) {
+					if (arrow.isArrow()) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (seconds));
-						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + " (oil, flaming)"));
-					try {
-							if(performer.getPower()<3) {
-								Enchantment q = new Enchantment();
+						effs = arrow.getSpellEffects();
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
+						eff = effs.getSpellEffect((byte) 14);
+						if (eff == null) {
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 14, power, (seconds));
+							effs.addSpellEffect(eff);
+							arrow.setName((arrow.getName() + " (oil, flaming)"));
+							try {
+
+									Enchantment q = new Enchantment();
+
+									q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
-								EnchantmentHandler.enchantments.add(q);
-								q.insert(Alchemy.dbconn);
-								// update ModSupportDb
+									EnchantmentHandler.enchantments.add(q);
+									q.insert(Alchemy.dbconn);
+									// update ModSupportDb
 
+
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
 							}
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
+						} else {
+							fails++;
 						}
-					}
-					else
-					{
-						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -735,7 +747,7 @@ public class OilPerformer implements ActionPerformer {
 		}
 		// Frost
 		if (source.getTemplateId() == OilItems.weaponOilKissOfFrostId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 
 				if (effs == null)
@@ -789,47 +801,49 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
-					eff = effs.getSpellEffect((byte) 33);
-					if (eff == null) {
+					if (arrow.isArrow()) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (seconds));
-						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + " (oil, frost)"));
-					try {
-							if(performer.getPower()<3) {
-								Enchantment q = new Enchantment();
+						effs = arrow.getSpellEffects();
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
+						eff = effs.getSpellEffect((byte) 33);
+						if (eff == null) {
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 33, power, (seconds));
+							effs.addSpellEffect(eff);
+							arrow.setName((arrow.getName() + " (oil, frost)"));
+							try {
+
+									Enchantment q = new Enchantment();
+
+									q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
-								EnchantmentHandler.enchantments.add(q);
-								q.insert(Alchemy.dbconn);
-								// update ModSupportDb
+									EnchantmentHandler.enchantments.add(q);
+									q.insert(Alchemy.dbconn);
+									// update ModSupportDb
 
+
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
 							}
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
+						} else {
+							fails++;
 						}
-					}
-					else
-					{
-						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -851,7 +865,7 @@ public class OilPerformer implements ActionPerformer {
 
 		// Leech
 		if (source.getTemplateId() == OilItems.weaponOilLeechId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 
 				if (effs == null)
@@ -905,47 +919,49 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
-					eff = effs.getSpellEffect((byte) 26);
-					if (eff == null) {
+					if (arrow.isArrow()) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (seconds));
-						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + " (oil, leech)"));
-					try {
-							if(performer.getPower()<3) {
-								Enchantment q = new Enchantment();
+						effs = arrow.getSpellEffects();
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
+						eff = effs.getSpellEffect((byte) 26);
+						if (eff == null) {
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 26, power, (seconds));
+							effs.addSpellEffect(eff);
+							arrow.setName((arrow.getName() + " (oil, leech)"));
+							try {
+
+									Enchantment q = new Enchantment();
+
+									q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
-								EnchantmentHandler.enchantments.add(q);
-								q.insert(Alchemy.dbconn);
-								// update ModSupportDb
+									EnchantmentHandler.enchantments.add(q);
+									q.insert(Alchemy.dbconn);
+									// update ModSupportDb
 
+
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
 							}
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
+						} else {
+							fails++;
 						}
-					}
-					else
-					{
-						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -967,7 +983,7 @@ public class OilPerformer implements ActionPerformer {
 
 		// DEMISE Plague
 		if (source.getTemplateId() == OilItems.weaponOilPlagueId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 
 				if (effs == null)
@@ -1021,50 +1037,52 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					effs = arrow.getSpellEffects();
-					if (effs != null)
+					if (arrow.isArrow()) {
 
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
-					eff = effs.getSpellEffect((byte) 18);
-					if (eff == null) {
+						effs = arrow.getSpellEffects();
+						if (effs != null)
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (seconds));
-						eff.timeleft=Config.oilDuration;
-						effs.addSpellEffect(eff);
-					
-						arrow.setName((arrow.getName() + " (oil, plague)"));
-					try {
-							if(performer.getPower()<3) {
-								Enchantment q = new Enchantment();
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
+						eff = effs.getSpellEffect((byte) 18);
+						if (eff == null) {
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 18, power, (seconds));
+							eff.timeleft = Config.oilDuration;
+							effs.addSpellEffect(eff);
+
+							arrow.setName((arrow.getName() + " (oil, plague)"));
+							try {
+
+									Enchantment q = new Enchantment();
+
+									q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
-								EnchantmentHandler.enchantments.add(q);
-								q.insert(Alchemy.dbconn);
-								// update ModSupportDb
+									EnchantmentHandler.enchantments.add(q);
+									q.insert(Alchemy.dbconn);
+									// update ModSupportDb
 
+
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
 							}
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
+						} else {
+							fails++;
 						}
-					}
-					else
-					{
-						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -1086,7 +1104,7 @@ public class OilPerformer implements ActionPerformer {
 
 		// Poison
 		if (source.getTemplateId() == OilItems.weaponOilPoisonId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 
 				if (effs == null)
@@ -1140,47 +1158,49 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
-					eff = effs.getSpellEffect((byte) 27);
-					if (eff == null) {
+					if (arrow.isArrow()) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 27, power, (seconds));
-						effs.addSpellEffect(eff);
-						arrow.setName((arrow.getName() + " (oil, poison)"));
-						try {
-							if(performer.getPower()<3) {
-								Enchantment q = new Enchantment();
+						effs = arrow.getSpellEffects();
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
+						eff = effs.getSpellEffect((byte) 27);
+						if (eff == null) {
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 27, power, (seconds));
+							effs.addSpellEffect(eff);
+							arrow.setName((arrow.getName() + " (oil, poison)"));
+							try {
+
+									Enchantment q = new Enchantment();
+
+									q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
-								EnchantmentHandler.enchantments.add(q);
-								q.insert(Alchemy.dbconn);
-								// update ModSupportDb
+									EnchantmentHandler.enchantments.add(q);
+									q.insert(Alchemy.dbconn);
+									// update ModSupportDb
 
+
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
 							}
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
+						} else {
+							fails++;
 						}
-					}
-					else
-					{
-						fails++;
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +
@@ -1202,7 +1222,7 @@ public class OilPerformer implements ActionPerformer {
 
 		// Heartseeker
 		if (source.getTemplateId() == OilItems.weaponOilHeartseekerId) {
-			if(target.isWeapon()||target.isArrow())   {
+			if(target.isWeapon()||target.isArrow()||target.isQuiver())   {
 				effs = target.getSpellEffects();
 
 				if (effs == null)
@@ -1256,32 +1276,35 @@ public class OilPerformer implements ActionPerformer {
 					Alchemy.logger.log(Level.INFO,"Player "+ performer.getName()+" used an oil " + source.getName()+" on their "+target.getName() );
 
 
-			} else
+			}
 			if (target.isQuiver()) {
 				int fails =0;
 				Item[] arrows = target.getItemsAsArray();
 				for (Item arrow:arrows) {
 
-					effs = arrow.getSpellEffects();
-					if (effs != null)
-						if (!Config.enchantmentsStack)
-						fails++;
-					if (effs == null)
-						effs = new ItemSpellEffects(arrow.getWurmId());
-					eff = effs.getSpellEffect((byte) 32);
-					if (eff == null) {
+					if (arrow.isArrow()) {
 
-						eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (seconds));
-						effs.addSpellEffect(eff);
-						
-						arrow.setName((arrow.getName() + " (oil, heartseeker)"));
-						try {
+						effs = arrow.getSpellEffects();
+						if (effs != null)
+							if (!Config.enchantmentsStack)
+								fails++;
+						if (effs == null)
+							effs = new ItemSpellEffects(arrow.getWurmId());
+						eff = effs.getSpellEffect((byte) 32);
+						if (eff == null) {
+
+							eff = new SpellEffect(arrow.getWurmId(), (byte) 32, power, (seconds));
+							effs.addSpellEffect(eff);
+
+							arrow.setName((arrow.getName() + " (oil, heartseeker)"));
+							try {
 
 								Enchantment q = new Enchantment();
 
-								q.itemId = target.getWurmId(); // liest quasi den Wert von der Spalte
+								q.itemId = arrow.getWurmId(); // liest quasi den Wert von der Spalte
 								q.timeOfEnchantment = WurmCalendar.getCurrentTime();
 								q.enchantmentType = eff.type;
+								q.playerId= performer.getWurmId();
 								q.hasOil = true;
 								q.itemNameBeforeEnchantment = arrow.getName();
 
@@ -1290,15 +1313,14 @@ public class OilPerformer implements ActionPerformer {
 								// update ModSupportDb
 
 
-						} catch (RuntimeException | SQLException ex) {
-							Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
-							ex.printStackTrace();
-						}
+							} catch (RuntimeException | SQLException ex) {
+								Alchemy.logger.log(Level.INFO, "RuntimeException or SQLException happened or database closed", ex);
+								ex.printStackTrace();
+							}
 
-					}
-					else
-					{
-						fails++;
+						} else {
+							fails++;
+						}
 					}
 				}
 				performer.getCommunicator().sendNormalServerMessage("You pour the " + source.getName() +

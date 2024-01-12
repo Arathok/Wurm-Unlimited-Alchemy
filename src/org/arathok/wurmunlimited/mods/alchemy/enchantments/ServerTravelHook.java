@@ -2,6 +2,7 @@ package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
 import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
+import com.wurmonline.server.intra.PlayerTransfer;
 import com.wurmonline.server.Players;
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.players.Player;
@@ -49,7 +50,7 @@ public class ServerTravelHook {
                 enchantmentsIterator.remove();
                 Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
                 if (Config.verboseLogging)
-                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + aplayersItem.getName() + "was removed because the player was too close to a portal");
+                    Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + aplayersItem.getName() + "was removed by the server travel hook");
             }
 
         }

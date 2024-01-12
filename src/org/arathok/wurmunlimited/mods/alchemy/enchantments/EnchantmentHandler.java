@@ -48,7 +48,7 @@ public class EnchantmentHandler {
                         try {
                             Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                            if (owner.getWurmId() != -10)
+                            if (owner!=null&&owner.getWurmId() != -10)
                                 owner.getCommunicator().sendAlertServerMessage("Traveling through dimensions via mail used up all the magic of the oil coating your weapon...");
                             realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                             enchantmentsIterator.remove();
@@ -67,7 +67,7 @@ public class EnchantmentHandler {
                     try {
                         Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                        if (owner.getWurmId() != -10)
+                        if (owner!=null&&owner.getWurmId() != -10)
                             owner.getCommunicator().sendAlertServerMessage("Traveling through dimensions via mail used up all the magic of the oil coating your weapon...");
                         realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                         enchantmentsIterator.remove();
@@ -87,7 +87,7 @@ public class EnchantmentHandler {
                     try {
                         Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                        if (owner.getWurmId() != -10)
+                        if (owner!=null&&owner.getWurmId() != -10)
                             owner.getCommunicator().sendAlertServerMessage("Magicks of the world used up all the magic power left in the oil.");
                         realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                         enchantmentsIterator.remove();
@@ -125,7 +125,7 @@ public class EnchantmentHandler {
                     try {
                         Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                        if (owner.getWurmId() != -10)
+                        if (owner!=null&&owner.getWurmId() != -10)
                             owner.getCommunicator().sendAlertServerMessage("Portal Magicks of the world used up all the magic power left in the oil.");
                         realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                         enchantmentsIterator.remove();
@@ -142,7 +142,7 @@ public class EnchantmentHandler {
                     try {
                         Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                        if (owner.getWurmId() != -10)
+                        if (owner!=null&&owner.getWurmId() != -10)
                             owner.getCommunicator().sendAlertServerMessage("The power of the oil vanishes as the liquid is not able to carry energy any more");
 
                         realItem.setName(enchantedItem.itemNameBeforeEnchantment);
@@ -158,17 +158,17 @@ public class EnchantmentHandler {
 
                 }
                 // If Owner dropped item or lost link
-                if (realItem.getOwnerId() == -10) {
+                if (realItem.getOwnerId() == -10||realItem.getOwnerId()!=enchantedItem.playerId) {
                     try {
                         Items.getItem(enchantedItem.itemId).getSpellEffects().removeSpellEffect(enchantedItem.enchantmentType);
 
-                        if (realItem.getOwnerId() == -10)
+                        if ((realItem.getOwnerId() == -10||realItem.getOwnerId()!=enchantedItem.playerId)&&!realItem.isArrow())
                             Players.getInstance().getPlayerOrNull(Items.getItem(enchantedItem.itemId).getLastOwnerId()).getCommunicator().sendAlertServerMessage("As you drop your weapon the dirt mixes with the oil and the effect subsides.");
                         realItem.setName(enchantedItem.itemNameBeforeEnchantment);
                         enchantmentsIterator.remove();
                         Enchantment.remove(Alchemy.dbconn, enchantedItem.itemId);
                         if(Config.verboseLogging)
-                        Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the player logged out or dropped the item");
+                            Alchemy.logger.log(Level.INFO, "Oil on Item " + enchantedItem.itemId + " " + realItem.getName() + "was removed because the player logged out or dropped the item");
                     } catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
                         e.printStackTrace();
