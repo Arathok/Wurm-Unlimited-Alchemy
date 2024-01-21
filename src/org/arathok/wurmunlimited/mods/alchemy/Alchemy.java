@@ -62,11 +62,16 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		Config.purifiedWaterCooking = Boolean.parseBoolean(properties.getProperty("purifiedWaterCooking", "true"));
 		Config.addictionTimer = Integer.parseInt(properties.getProperty("addictionTimer", "900"));
 		Config.enchantmentsStack = Boolean.parseBoolean(properties.getProperty("enchantmentsStack", "true"));
-		Config.oilDurationOnEnchanted = Float.parseFloat(properties.getProperty("oilDurationOnEnchant", "1.0F"));
+		Config.oilDurationOnEnchanted = Float.parseFloat(properties.getProperty("oilDurationOnEnchanted", "1.0F"));
 		Config.skillUsed = Integer.parseInt(properties.getProperty("skillUsed", "10042"));
 		Config.baseDifficulty = Float.parseFloat(properties.getProperty("baseDifficulty", "0.5F"));
 		Config.verboseLogging = Boolean.parseBoolean(properties.getProperty("verboseLogging","false"));
 		Config.dbtest = Boolean.parseBoolean(properties.getProperty("dbTest","false"));
+		Config.potionsDuringFighting = Boolean.parseBoolean(properties.getProperty("potionsDuringFighting","false"));
+		Config.oilsDuringFighting = Boolean.parseBoolean(properties.getProperty("oilsDuringFighting","false"));
+		Config.rarityFactorRare = Float.parseFloat(properties.getProperty("rarityFactorRare", "1.05F"));
+		Config.rarityFactorSupreme = Float.parseFloat(properties.getProperty("rarityFactorSupreme", "1.1F"));
+		Config.rarityFactorRare = Float.parseFloat(properties.getProperty("rarityFactorFantastic", "1.25F"));
 	//	Config.worldMaxX = Integer.parseInt(properties.getProperty("worldMaxX", "4096"));
 	//	Config.worldMaxY = Integer.parseInt(properties.getProperty("worldMaxY", "4096"));
 
@@ -96,7 +101,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		if (message != null&&message.startsWith("#AlchemyVersion"))
 		{
 
-			communicator.sendSafeServerMessage("You are on Alchemy Version 1.0 ");
+			communicator.sendSafeServerMessage("You are on Alchemy Version 1.6 ");
 
 		}
 		return false;
@@ -112,6 +117,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 					PotionItems.register();
 					OilItems.register();
 					EssencesItems.register();
+
 					logger.log(Level.INFO, "Alchemy is Done loading its Item Templates! Thank you Coldie!");
 
 				} catch (IOException e) {

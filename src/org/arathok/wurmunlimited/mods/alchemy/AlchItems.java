@@ -5,7 +5,6 @@ package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah
 import com.wurmonline.server.items.*;
 import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.IconConstants;
-import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 import org.tyoda.wurm.Iconzz.Iconzz;
 

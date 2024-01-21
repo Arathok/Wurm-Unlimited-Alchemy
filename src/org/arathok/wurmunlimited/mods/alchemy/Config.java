@@ -18,5 +18,10 @@ public class Config {
     public static int skillUsed = 10042;
     public static float baseDifficulty = 0.5F;
     public static boolean verboseLogging=false;
-    public static boolean dbtest;
+    public static boolean dbtest=false;
+    public static boolean potionsDuringFighting=false;
+    public static boolean oilsDuringFighting=false;
+    public static float rarityFactorRare = 1.05F;
+    public static float rarityFactorSupreme = 1.1F;
+    public static float rarityFactorFantastic = 1.25F;
 }
