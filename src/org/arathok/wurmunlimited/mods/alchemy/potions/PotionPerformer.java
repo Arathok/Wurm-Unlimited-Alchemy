@@ -107,6 +107,25 @@ public class PotionPerformer implements ActionPerformer
     @Override
     public boolean action(Action action, Creature performer, Item target, short num, float counter) {
         if (counter == 1.0F) {
+
+            action.setTimeLeft(30);
+            performer.sendActionControl(action.getActionString(), true, 30);
+        }
+        else
+        if ( counter >1.0F&&action.getSecond()==1)
+        {
+            SoundPlayer.playSound("sound.openFlask",performer,1.6F);
+            performer.playAnimation("drink",false);
+            return propagate(action,
+                    ActionPropagation.CONTINUE_ACTION,
+                    ActionPropagation.NO_SERVER_PROPAGATION,
+                    ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+        }
+        else
+        if (counter>1.0F && action.getSecond()==3)
+        {
+            SoundPlayer.playSound("sound.drink",performer,1.6F);
+
             boolean heal = false;
             boolean playerFound = false;
 
@@ -727,26 +746,10 @@ public class PotionPerformer implements ActionPerformer
 
             performer.getCommunicator().sendAlertServerMessage(
                     "You feel your body is coming a bit more addicted to the magic power of the substances. ");
-            action.setTimeLeft(30);
-            performer.sendActionControl(action.getActionString(), true, 30);
+
+
             if (Config.verboseLogging)
                 Alchemy.logger.log(Level.INFO, String.format("%s Drank a potion! :%s", performer.getName(), target.getName()));
-
-        }
-        else
-        if ( counter >1.0F&&action.getSecond()==1)
-        {
-            SoundPlayer.playSound("sound.openFlask",performer,1.6F);
-            performer.playAnimation("drink",false);
-            return propagate(action,
-                    ActionPropagation.CONTINUE_ACTION,
-                    ActionPropagation.NO_SERVER_PROPAGATION,
-                    ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
-        }
-        else
-        if (counter>1.0F && action.getSecond()==3)
-        {
-            SoundPlayer.playSound("sound.drink",performer,1.6F);
             return propagate(action,
                     ActionPropagation.FINISH_ACTION,
                     ActionPropagation.NO_SERVER_PROPAGATION,
