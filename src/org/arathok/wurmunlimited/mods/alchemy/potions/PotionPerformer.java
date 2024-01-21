@@ -731,10 +731,7 @@ public class PotionPerformer implements ActionPerformer
             performer.sendActionControl(action.getActionString(), true, 30);
             if (Config.verboseLogging)
                 Alchemy.logger.log(Level.INFO, String.format("%s Drank a potion! :%s", performer.getName(), target.getName()));
-            return propagate(action,
-                    ActionPropagation.CONTINUE_ACTION,
-                    ActionPropagation.NO_SERVER_PROPAGATION,
-                    ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
+
         }
         else
         if ( counter >1.0F&&action.getSecond()==1)
