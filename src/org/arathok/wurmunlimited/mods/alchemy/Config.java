@@ -24,4 +24,6 @@ public class Config {
     public static float rarityFactorRare = 1.05F;
     public static float rarityFactorSupreme = 1.1F;
     public static float rarityFactorFantastic = 1.25F;
+    public static float minOre;
+    public static float maxOre;
 }

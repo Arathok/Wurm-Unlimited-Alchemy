@@ -9,7 +9,6 @@ import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.behaviours.Terraforming;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
-import com.wurmonline.server.skills.Skill;
 import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.ItemMaterials;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
@@ -92,12 +91,13 @@ public class EssencesPerformerTile implements ActionPerformer {
 				type=(byte)Tiles.TILE_TYPE_CAVE_WALL_ORE_IRON;
 
 
-			float difficulty; // TODO unlock diff = difficulty
+			float difficulty = 0; // TODO unlock diff = difficulty
 			float bonus = (float) ((performer.getSkills().getSkillOrLearn(SkillList.ALCHEMY_NATURAL).getKnowledge())/10D);
-			double amountOfOre = performer.getSkills().getSkillOrLearn(SkillList.ALCHEMY_NATURAL).skillCheck(difficulty,bonus,false,1.5F);
-			if (amountOfOre>0)
+			double passCheck = performer.getSkills().getSkillOrLearn(SkillList.ALCHEMY_NATURAL).skillCheck(difficulty,bonus,false,1.5F);
+			if (passCheck>0)
 			{
-				Server.setCaveResource(tilex,tiley,Math.max(1,(int)amountOfOre*50));
+
+				Server.setCaveResource(tilex,tiley, (int) Math.max(Config.minOre,((Config.maxOre-Config.minOre)/103)*passCheck));
 				Server.caveMesh.setTile(tilex, tiley,
 						Tiles.encode(Tiles.decodeHeight(tile), type,
 								Tiles.decodeData(tile)));
