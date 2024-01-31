@@ -92,6 +92,7 @@ public class EssencesPerformerTile implements ActionPerformer {
 			Server.caveMesh.setTile(tilex, tiley,
 				Tiles.encode(Tiles.decodeHeight(tile), type,
 				Tiles.decodeData(tile)));
+
 			Players.getInstance().sendChangedTile(tilex, tiley, false, true);
 			source.setWeight(source.getWeightGrams()-100000,false);
 			performer.getCommunicator().sendSafeServerMessage("The transmutation Liquid seeps through the rock and transforms it into your desired material!");
