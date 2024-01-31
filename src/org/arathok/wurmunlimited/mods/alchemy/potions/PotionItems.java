@@ -1517,6 +1517,8 @@ public class PotionItems {
                         ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
+                        ItemTypes.ITEM_TYPE_WEAPON,
+                        ItemTypes.ITEM_TYPE_WEAPON_KNIFE,
 
                 })
                 .decayTime(2073600L)

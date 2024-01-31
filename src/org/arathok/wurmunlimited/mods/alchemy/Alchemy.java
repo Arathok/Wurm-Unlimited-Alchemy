@@ -101,7 +101,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 		if (message != null&&message.startsWith("#AlchemyVersion"))
 		{
 
-			communicator.sendSafeServerMessage("You are on Alchemy Version 1.6 ");
+			communicator.sendSafeServerMessage("You are on Alchemy Version 1.8 ");
 
 		}
 		return false;
@@ -116,7 +116,7 @@ public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurab
 					AlchItems.register();
 					PotionItems.register();
 					OilItems.register();
-					EssencesItems.register();
+					//EssencesItems.register(); NO SOUP FOR YOU, XYPE!
 
 					logger.log(Level.INFO, "Alchemy is Done loading its Item Templates! Thank you Coldie!");
 

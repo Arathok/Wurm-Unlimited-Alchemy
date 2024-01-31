@@ -41,6 +41,8 @@ public class PotionPerformer implements ActionPerformer
     int seconds = Config.potionDuration;
     float power = 0;
 
+    boolean playedOpeningSound =false;
+
 
     public PotionPerformer()
     {
@@ -106,16 +108,24 @@ public class PotionPerformer implements ActionPerformer
 
     @Override
     public boolean action(Action action, Creature performer, Item target, short num, float counter) {
+
         if (counter == 1.0F) {
 
             action.setTimeLeft(30);
             performer.sendActionControl(action.getActionString(), true, 30);
+            playedOpeningSound=false;
         }
         else
         if ( counter >1.0F&&action.getSecond()==1)
         {
-            SoundPlayer.playSound("sound.openFlask",performer,1.6F);
-            performer.playAnimation("drink",false);
+            if (!playedOpeningSound) {
+                SoundPlayer.playSound("sound.openFlask", performer, 1.6F);
+
+                performer.playAnimation("drink", false,target.getWurmId());
+
+                playedOpeningSound = true;
+
+            }
             return propagate(action,
                     ActionPropagation.CONTINUE_ACTION,
                     ActionPropagation.NO_SERVER_PROPAGATION,
@@ -226,14 +236,17 @@ public class PotionPerformer implements ActionPerformer
             power = target.getCurrentQualityLevel() * Config.alchemyPower;
             if (target.getRarity() == 1) {
                 power = power * Config.rarityFactorRare;
+                seconds = (int) (seconds* Config.rarityFactorRare);
             }
 
             if (target.getRarity() == 2) {
                 power = power * Config.rarityFactorSupreme;
+                seconds = (int) (seconds* Config.rarityFactorSupreme);
             }
 
             if (target.getRarity() == 3) {
                 power = power * Config.rarityFactorFantastic;
+                seconds = (int) (seconds* Config.rarityFactorFantastic);
             }
 
             if (target.getTemplateId() == PotionItems.potionIdExcell) {
@@ -596,6 +609,7 @@ public class PotionPerformer implements ActionPerformer
 
 
                 }
+                else
                 for (Wound w : tWounds.getWounds()) {
                     if (w.getSeverity() <= healingPool) {
                         healingPool -= w.getSeverity();
