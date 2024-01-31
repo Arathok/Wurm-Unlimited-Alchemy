@@ -111,7 +111,7 @@ public class EssencesPerformerTile implements ActionPerformer {
 			else
 			{
 				performer.getCommunicator().sendSafeServerMessage("Sadly your liquid only fizzles through the stone...");
-			}
+			} //test
 
 		}
 		else performer.getCommunicator().sendAlertServerMessage("you don't have enough Transmutation Liquid to transform the wall!");
