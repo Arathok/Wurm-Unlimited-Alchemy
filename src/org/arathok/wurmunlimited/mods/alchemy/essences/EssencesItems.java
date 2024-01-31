@@ -471,8 +471,7 @@ public class EssencesItems {
                 .build();
 
         tinpowderId = tinpowder.getTemplateId();
-        CreationEntryCreator.createAdvancedEntry(Config.skillUsed, ItemList.grindstone,ItemList.tinBar, tinpowderId, true, true, 0.0f, true, true,0,30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.tinBar,99,true));
+        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.grindstone,ItemList.tinBar, tinpowderId, false, true, 0.0f, false, false,0,30, CreationCategories.ALCHEMY);
 
 
     }

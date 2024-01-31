@@ -9,6 +9,8 @@ import com.wurmonline.server.behaviours.ActionEntry;
 import com.wurmonline.server.behaviours.Terraforming;
 import com.wurmonline.server.creatures.Creature;
 import com.wurmonline.server.items.Item;
+import com.wurmonline.server.skills.Skill;
+import com.wurmonline.server.skills.SkillList;
 import com.wurmonline.shared.constants.ItemMaterials;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
@@ -89,13 +91,28 @@ public class EssencesPerformerTile implements ActionPerformer {
 			if (source.getMaterial()== ItemMaterials.MATERIAL_IRON)
 				type=(byte)Tiles.TILE_TYPE_CAVE_WALL_ORE_IRON;
 
-			Server.caveMesh.setTile(tilex, tiley,
-				Tiles.encode(Tiles.decodeHeight(tile), type,
-				Tiles.decodeData(tile)));
 
-			Players.getInstance().sendChangedTile(tilex, tiley, false, true);
-			source.setWeight(source.getWeightGrams()-100000,false);
-			performer.getCommunicator().sendSafeServerMessage("The transmutation Liquid seeps through the rock and transforms it into your desired material!");
+			float difficulty; // TODO unlock diff = difficulty
+			float bonus = (float) ((performer.getSkills().getSkillOrLearn(SkillList.ALCHEMY_NATURAL).getKnowledge())/10D);
+			double amountOfOre = performer.getSkills().getSkillOrLearn(SkillList.ALCHEMY_NATURAL).skillCheck(difficulty,bonus,false,1.5F);
+			if (amountOfOre>0)
+			{
+				Server.setCaveResource(tilex,tiley,Math.max(1,(int)amountOfOre*50));
+				Server.caveMesh.setTile(tilex, tiley,
+						Tiles.encode(Tiles.decodeHeight(tile), type,
+								Tiles.decodeData(tile)));
+
+
+
+				Players.getInstance().sendChangedTile(tilex, tiley, false, true);
+				source.setWeight(source.getWeightGrams()-100000,false);
+				performer.getCommunicator().sendSafeServerMessage("The transmutation Liquid seeps through the rock and transforms it into your desired material!");
+			}
+			else
+			{
+				performer.getCommunicator().sendSafeServerMessage("Sadly your liquid only fizzles through the stone...");
+			}
+
 		}
 		else performer.getCommunicator().sendAlertServerMessage("you don't have enough Transmutation Liquid to transform the wall!");
 		return propagate(action,
