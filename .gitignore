@@ -16,3 +16,4 @@
 !pom.xml
 !**/resources/**/*.xml
 *.xml
+.idea/.name
