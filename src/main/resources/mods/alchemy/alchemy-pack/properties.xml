@@ -1,0 +1,14 @@
+<properties>
+	<potionultimateobj.wom>
+		<offsetToNull>
+			<NullRightHand>
+				<xPos>-0.02</xPos>
+				<yPos>-0.02</yPos>
+				<zPos>-0.20</zPos>
+				<xRot>0</xRot>
+				<yRot>90</yRot>
+				<zRot>90</zRot>
+			</NullRightHand>
+		</offsetToNull>
+	</potionultimateobj.wom>
+</properties>

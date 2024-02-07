@@ -1,12 +1,17 @@
+/target/
+/.settings/
+.classpath
+.project
 
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
-*.xml
-*.xml
-.idea/workspace.xml
-.idea/runConfigurations.xml
-.idea/misc.xml
-.idea/workspace.xml
-*.xml
-*.xml
+# Uncomment after committing to remove these
+#/.idea/
+#/bin/
+#/META-INF/
+#**/*.xml
+#**/*.iml
+#**/*.eml
+#**/*.userlibraries
+
+!formatter.xml
+!pom.xml
+!**/resources/**/*.xml
