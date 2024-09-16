@@ -58,16 +58,16 @@ public class AlchItems {
                         // ItemTypes.ITEM_TYPE_TRANSPORTABLE,
                         ItemTypes.ITEM_TYPE_METAL,
 
-                }).decayTime(9072000L).dimensions(20, 20, 20).weightGrams(24000).material(Materials.MATERIAL_STONE)
+                }).decayTime(9072000L).dimensions(50, 30, 50).weightGrams(58000).material(Materials.MATERIAL_STONE)
                 .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
                 .build();
 
         alchemicalCauldronId =  alchemicalCauldron.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.SMITHING_BLACKSMITHING, ItemList.steelBar, ItemList.ironBand,  alchemicalCauldronId, true, true,
-                        0.0f, true, false, 0, 5, CreationCategories.RESOURCES)
-                .addRequirement(new CreationRequirement(1, ItemList.steelBar, 19, true))
-                .addRequirement(new CreationRequirement(2, ItemList.ironBand, 1, true));
+                .createAdvancedEntry(SkillList.SMITHING_BLACKSMITHING, ItemList.hammerMetal, ItemList.steelBar,  alchemicalCauldronId, false, true,
+                        0.0f, false, false, 0, 5, CreationCategories.ALCHEMY)
+                .addRequirement(new CreationRequirement(1, ItemList.steelBar, 57, true))
+                .addRequirement(new CreationRequirement(2, ItemList.ironBand, 4, true));
     }
 
     private static void registerWeakLegs() throws IOException {
@@ -310,6 +310,7 @@ public class AlchItems {
     public static void register() throws IOException {
         makeIcons();
         registerLeader();
+        registerCauldron();
         registerWeakLegs();
         registerGlassMixture();
         registerGlass();
