@@ -1,21 +1,15 @@
 package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
-import java.util.Iterator;
-import java.util.logging.Level;
-
+import com.wurmonline.server.Players;
+import com.wurmonline.server.items.Item;
+import com.wurmonline.server.players.Player;
+import javassist.*;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.gotti.wurmunlimited.modloader.classhooks.HookManager;
 
-import com.wurmonline.server.Players;
-import com.wurmonline.server.items.Item;
-import com.wurmonline.server.players.Player;
-
-import javassist.CannotCompileException;
-import javassist.ClassPool;
-import javassist.CtClass;
-import javassist.CtMethod;
-import javassist.NotFoundException;
+import java.util.Iterator;
+import java.util.logging.Level;
 
 public class ServerTravelHook {
 
@@ -32,7 +26,7 @@ public class ServerTravelHook {
                         "org.arathok.wurmunlimited.mods.alchemy.enchantments.ServerTravelHook.insertBefore($1);");
             } catch (NotFoundException | CannotCompileException e) {
                 Alchemy.logger.log(Level.WARNING, "Class  PlayerTravel not found, or Code for hook is incorrect", e);
-                e.printStackTrace();
+
 
             }
         }

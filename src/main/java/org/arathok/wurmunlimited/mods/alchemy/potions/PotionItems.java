@@ -1,21 +1,12 @@
 package org.arathok.wurmunlimited.mods.alchemy.potions;
 
-import java.io.IOException;
-
+import com.wurmonline.server.items.*;
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 import org.tyoda.wurm.Iconzz.Iconzz;
 
-import com.wurmonline.server.items.CreationCategories;
-import com.wurmonline.server.items.CreationEntryCreator;
-import com.wurmonline.server.items.CreationRequirement;
-import com.wurmonline.server.items.ItemList;
-import com.wurmonline.server.items.ItemTemplate;
-import com.wurmonline.server.items.ItemTypes;
-import com.wurmonline.server.items.Materials;
-import com.wurmonline.server.items.TempState;
-import com.wurmonline.server.items.TempStates;
+import java.io.IOException;
 
 public class PotionItems {
 
@@ -23,16 +14,16 @@ public class PotionItems {
             mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
             mixtureRefreshId, mixtureVynoraId,
 
-            precursorHealId, precursorGoatId, precursorExcellId, precursorOakshellId, precursorMorningFogId,
+    precursorHealId, precursorGoatId, precursorExcellId, precursorOakshellId, precursorMorningFogId,
             precursorFranticChargeId, precursorStrengthId, precursorSixthSenseId, precursorTruehitId,
             precursorWillowspineId, precursorRefreshId, precursorVynoraId,
 
-            potionLiquidHealId, potionLiquidGoatId, potionLiquidExcellId, potionLiquidOakshellId, potionLiquidKarmaId,
+    potionLiquidHealId, potionLiquidGoatId, potionLiquidExcellId, potionLiquidOakshellId, potionLiquidKarmaId,
             potionLiquidManaId, potionLiquidMorningFogId, potionLiquidFranticChargeId, potionLiquidStrengthId,
             potionLiquidSixthSenseId, potionLiquidTruehitId, potionLiquidWillowspineId, potionLiquidRefreshId,
             potionLiquidVynoraId,
 
-            potionIdHeal, potionIdGoat, potionIdExcell, potionIdOakshell, potionIdMorningFog, potionIdFranticCharge,
+    potionIdHeal, potionIdGoat, potionIdExcell, potionIdOakshell, potionIdMorningFog, potionIdFranticCharge,
             potionIdStrength, potionIdSixthSense, potionIdTruehit, potionIdWillowspine, potionIdRefresh, potionIdVynora,
             potionKarmaId, potionManaId;
 
@@ -40,15 +31,15 @@ public class PotionItems {
             mixtureFranticCharge, mixtureStrength, mixtureSixthSense, mixtureTruehit, mixtureWillowspine,
             mixtureRefresh, mixtureVynora,
 
-            precursorHeal, precursorGoat, precursorExcell, precursorOakshell, precursorMorningFog,
+    precursorHeal, precursorGoat, precursorExcell, precursorOakshell, precursorMorningFog,
             precursorFranticCharge, precursorStrength, precursorSixthSense, precursorTruehit, precursorWillowspine,
             precursorRefresh, precursorVynora,
 
-            potionLiquidHeal, potionLiquidGoat, potionLiquidExcell, potionLiquidOakshell, potionLiquidMorningFog,
+    potionLiquidHeal, potionLiquidGoat, potionLiquidExcell, potionLiquidOakshell, potionLiquidMorningFog,
             potionLiquidFranticCharge, potionLiquidStrength, potionLiquidSixthSense, potionLiquidTruehit,
             potionLiquidWillowspine, potionLiquidRefresh, potionLiquidVynora, potionLiquidKarma, potionLiquidMana,
 
-            potionHeal, potionGoat, potionExcell, potionOakshell, potionMorningFog, potionFranticCharge, potionStrength,
+    potionHeal, potionGoat, potionExcell, potionOakshell, potionMorningFog, potionFranticCharge, potionStrength,
             potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora, potionKarma, potionMana;
 
     public static short pasteIcon, alchemicalCompoundIcon, mixtureHealingIcon, mixtureCombatIcon, mixtureProtectionIcon,
@@ -115,13 +106,13 @@ public class PotionItems {
 
     private static void registermixtureDodging() throws IOException {
         mixtureWillowspine = new ItemTemplateBuilder("arathok.alchemy.mixtureDodge").name("mixture of phasing",
-                "mixtures of phasing",
-                "A fresh mixture of different alchemical and natural substances. One day it might be making a fine potion."
-                        + "Smelling this mixture makes you feel safe. You feel like the universe is putting its protective hands around you, turn you into a shadow."
-                        + " You feel like nothing can really hurt your new form "
-                        + " you should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of phasing",
+                        "A fresh mixture of different alchemical and natural substances. One day it might be making a fine potion."
+                                + "Smelling this mixture makes you feel safe. You feel like the universe is putting its protective hands around you, turn you into a shadow."
+                                + " You feel like nothing can really hurt your new form "
+                                + " you should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[] {
+                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
 
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
@@ -129,8 +120,8 @@ public class PotionItems {
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureWillowspineId = mixtureWillowspine.getTemplateId();
@@ -144,18 +135,18 @@ public class PotionItems {
 
     private static void registermixtureExcell() throws IOException {
         mixtureExcell = new ItemTemplateBuilder("arathok.alchemy.mixtureExcell").name("mixture of surpass",
-                "mixtures of surpass",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " Smelling it makes you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[] {
+                        "mixtures of surpass",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " Smelling it makes you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureExcellId = mixtureExcell.getTemplateId();
@@ -168,20 +159,20 @@ public class PotionItems {
 
     private static void registermixtureFrenzy() throws IOException {
         mixtureFranticCharge = new ItemTemplateBuilder("arathok.alchemy.mixtureFrenzy").name("mixture of frenzy",
-                "mixtures of frenzy",
-                "A mixture of different alchemical and natural substances. One day it might be making a fine potion."
-                        + " Smelling this mixture makes you aggressive, it seems to call to you to let out your inner beast."
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of frenzy",
+                        "A mixture of different alchemical and natural substances. One day it might be making a fine potion."
+                                + " Smelling this mixture makes you aggressive, it seems to call to you to let out your inner beast."
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[] {
+                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 35) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureFranticChargeId = mixtureFranticCharge.getTemplateId();
@@ -199,14 +190,14 @@ public class PotionItems {
                         "A mixture of different alchemical substances. One day it might be making a fine potion."
                                 + " It smells like a wet Goat... weird.")
 
-                .modelName("model.mixture.normal.").imageNumber(mixtureNormalIcon).itemTypes(new short[] {
+                .modelName("model.mixture.normal.").imageNumber(mixtureNormalIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureGoatId = mixtureGoat.getTemplateId();
@@ -217,20 +208,20 @@ public class PotionItems {
 
     private static void registermixtureOakshell() throws IOException {
         mixtureOakshell = new ItemTemplateBuilder("arathok.alchemy.mixtureOakshell").name("mixture of Woodskin",
-                "mixtures of Woodskin",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " It seems to make your skin somewhat woodifies and becomes harder when you touch it."
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of Woodskin",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " It seems to make your skin somewhat woodifies and becomes harder when you touch it."
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[] {
+                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 50) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureOakshellId = mixtureOakshell.getTemplateId();
@@ -244,20 +235,20 @@ public class PotionItems {
 
     private static void registerMixtureHeal() throws IOException {
         mixtureHeal = new ItemTemplateBuilder("arathok.alchemy.mixtureHeal").name("mixture of health",
-                "mixtures of health",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties."
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of health",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties."
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.heal.").imageNumber(mixtureHealingIcon).itemTypes(new short[] {
+                .modelName("model.mixture.heal.").imageNumber(mixtureHealingIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureHealId = mixtureHeal.getTemplateId();
@@ -268,20 +259,20 @@ public class PotionItems {
 
     private static void registermixtureMorningFog() throws IOException {
         mixtureMorningFog = new ItemTemplateBuilder("arathok.alchemy.mixtureFog").name("mixture of fog skin",
-                "mixtures of fog skin",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " Sniffing it your body seems to bend around sharp objects as if it wants to protect itself."
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of fog skin",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " Sniffing it your body seems to bend around sharp objects as if it wants to protect itself."
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[] {
+                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureMorningFogId = mixtureMorningFog.getTemplateId();
@@ -292,20 +283,20 @@ public class PotionItems {
 
     private static void registermixtureRefresh() throws IOException {
         mixtureRefresh = new ItemTemplateBuilder("arathok.alchemy.mixtureRefresh").name("mixture of refreshing",
-                "mixtures of Refreshing",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " You sense it giving off a whiff of cool air. It seems to be able to strip some tiredness off you."
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of Refreshing",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " You sense it giving off a whiff of cool air. It seems to be able to strip some tiredness off you."
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.heal.").imageNumber(mixtureNormalIcon).itemTypes(new short[] {
+                .modelName("model.mixture.heal.").imageNumber(mixtureNormalIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 20) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureRefreshId = mixtureRefresh.getTemplateId();
@@ -318,12 +309,12 @@ public class PotionItems {
 
     private static void registermixtureSixthSense() throws IOException {
         mixtureSixthSense = new ItemTemplateBuilder("arathok.alchemy.mixtureSixthSense").name("mixture of senses",
-                "mixtures of senses",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " The smell brings a certain picture before the inner eye. Like a voice telling you, to be careful with your surroundings"
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of senses",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " The smell brings a certain picture before the inner eye. Like a voice telling you, to be careful with your surroundings"
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[] {
+                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
 
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
@@ -331,8 +322,8 @@ public class PotionItems {
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureSixthSenseId = mixtureSixthSense.getTemplateId();
@@ -343,12 +334,12 @@ public class PotionItems {
 
     private static void registermixtureStrength() throws IOException {
         mixtureStrength = new ItemTemplateBuilder("arathok.alchemy.mixture").name("mixture of Strength",
-                "mixtures of Strength",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " The smell makes you feel like you could lift a mountain."
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of Strength",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " The smell makes you feel like you could lift a mountain."
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[] {
+                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
 
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
@@ -356,8 +347,8 @@ public class PotionItems {
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 40) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureStrengthId = mixtureStrength.getTemplateId();
@@ -370,20 +361,20 @@ public class PotionItems {
 
     private static void registermixtureTruehit() throws IOException {
         mixtureTruehit = new ItemTemplateBuilder("arathok.alchemy.mixtureTruehit").name("mixture of truehit",
-                "mixtures of truehit",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " The belladonna is widening your eyes, uncovering weak spots on enemies"
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of truehit",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " The belladonna is widening your eyes, uncovering weak spots on enemies"
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[] {
+                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
                         ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureTruehitId = mixtureTruehit.getTemplateId();
@@ -396,19 +387,19 @@ public class PotionItems {
 
     private static void registermixtureVyn() throws IOException {
         mixtureVynora = new ItemTemplateBuilder("arathok.alchemy.mixtureVyn").name("mixture of Knowledge",
-                "mixtures of Knowledge",
-                "A mixture of different alchemical substances. One day it might be making a fine potion."
-                        + " This mixture has captured the essence of knowledge itself. You can feel Vynora smile down on you. You are grasping for the summit of Alchemy"
-                        + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
+                        "mixtures of Knowledge",
+                        "A mixture of different alchemical substances. One day it might be making a fine potion."
+                                + " This mixture has captured the essence of knowledge itself. You can feel Vynora smile down on you. You are grasping for the summit of Alchemy"
+                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.ultimate.").imageNumber(mixtureUltimateIcon).itemTypes(new short[] {
+                .modelName("model.mixture.ultimate.").imageNumber(mixtureUltimateIcon).itemTypes(new short[]{
                         // ItemTypes.ITEM_TYPE_BULK,
                         ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 90) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         mixtureVynoraId = mixtureVynora.getTemplateId();
@@ -430,12 +421,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.dodge.").imageNumber(precursorDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
 
                 }).decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorWillowspineId = precursorWillowspine.getTemplateId();
@@ -447,17 +438,17 @@ public class PotionItems {
 
     private static void registerPrecursorExcell() throws IOException {
         precursorExcell = new ItemTemplateBuilder("arathok.alchemy.precursorExcell").name("potion precursor surpassing",
-                "precursors of surpassing",
-                "A potion precursor. It got the essence of surpassing your foes through enduring pain stored within."
-                        + " You think its magical properties could be activated by heating it.")
+                        "precursors of surpassing",
+                        "A potion precursor. It got the essence of surpassing your foes through enduring pain stored within."
+                                + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.excell.").imageNumber(precursorDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
 
                 }).decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorExcellId = precursorExcell.getTemplateId();
@@ -474,12 +465,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.goat.").imageNumber(precursorNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
 
                 }).decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorGoatId = precursorGoat.getTemplateId();
@@ -496,12 +487,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.heal").imageNumber(precursorHealIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorHealId = precursorHeal.getTemplateId();
@@ -518,12 +509,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.FranticChange").imageNumber(precursorCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorFranticChargeId = precursorFranticCharge.getTemplateId();
@@ -540,12 +531,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.fog.").imageNumber(precursorNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorMorningFogId = precursorMorningFog.getTemplateId();
@@ -562,12 +553,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.oakshell.").imageNumber(precursorDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorOakshellId = precursorOakshell.getTemplateId();
@@ -584,12 +575,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.refresh.").imageNumber(precursorNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorRefreshId = precursorRefresh.getTemplateId();
@@ -606,12 +597,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.senses.").imageNumber(precursorNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorSixthSenseId = precursorSixthSense.getTemplateId();
@@ -628,12 +619,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.strength.").imageNumber(precursorCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorStrengthId = precursorStrength.getTemplateId();
@@ -650,12 +641,12 @@ public class PotionItems {
                                 + " You think its magical properties could be activated by heating it.")
 
                 .modelName("model.precursor.truehit.").imageNumber(precursorCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorTruehitId = precursorTruehit.getTemplateId();
@@ -671,13 +662,13 @@ public class PotionItems {
                         "A potion precursor. It got the essence of knowledge stored within."
                                 + " You think its magical properties could be activated by heating it.")
 
-                .modelName("model.precursor.vynora.").imageNumber(precursorUltimateIcon).itemTypes(new short[] {
+                .modelName("model.precursor.vynora.").imageNumber(precursorUltimateIcon).itemTypes(new short[]{
                         ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID, ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         precursorVynoraId = precursorVynora.getTemplateId();
@@ -689,17 +680,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidDodge() throws IOException {
         potionLiquidWillowspine = new ItemTemplateBuilder("arathok.alchemy.potionLiquidDodge").name(
-                " potion liquid of phasing", "potion liquids of phasing",
-                "A potion liquid." + " This is almost a finished dodging potion. "
-                        + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid of phasing", "potion liquids of phasing",
+                        "A potion liquid." + " This is almost a finished dodging potion. "
+                                + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.dodge.").imageNumber(potionLiquidDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidWillowspineId = potionLiquidWillowspine.getTemplateId();
@@ -707,16 +698,16 @@ public class PotionItems {
 
     private static void registerPotionLiquidExcell() throws IOException {
         potionLiquidExcell = new ItemTemplateBuilder("arathok.alchemy.potionLiquidExcell").name(
-                " potion liquid surpassing", "potion liquids of surpassing",
-                "A potion liquid. This is almost a finished eelskin potion."
-                        + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid surpassing", "potion liquids of surpassing",
+                        "A potion liquid. This is almost a finished eelskin potion."
+                                + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
                 .modelName("model.potionLiquid.excell.").imageNumber(potionLiquidDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(9072000L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidExcellId = potionLiquidExcell.getTemplateId();
@@ -724,17 +715,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidGoat() throws IOException {
         potionLiquidGoat = new ItemTemplateBuilder("arathok.alchemy.potionLiquidGoat").name(" potion liquid of goat",
-                "potion liquids of goat",
-                "A potion liquid. This is almost a finished Goatshape potion."
-                        + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        "potion liquids of goat",
+                        "A potion liquid. This is almost a finished Goatshape potion."
+                                + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.goat.").imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidGoatId = potionLiquidGoat.getTemplateId();
@@ -742,17 +733,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidHeal() throws IOException {
         potionLiquidHeal = new ItemTemplateBuilder("arathok.alchemy.potionLiquidHeal").name(" potion liquid healing",
-                "potion liquids of healing",
-                "A potion liquid. This is almost a finished health Potion. "
-                        + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        "potion liquids of healing",
+                        "A potion liquid. This is almost a finished health Potion. "
+                                + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.heal").imageNumber(potionLiquidHealIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidHealId = potionLiquidHeal.getTemplateId();
@@ -760,16 +751,16 @@ public class PotionItems {
 
     private static void registerPotionLiquidFranticCharge() throws IOException {
         potionLiquidFranticCharge = new ItemTemplateBuilder("arathok.alchemy.potionLiquidFranticCharge").name(
-                " potion liquid frenzy", "potion liquids of frenzy",
-                "A potionLiquid. This is almost a finished frenzy potion."
-                        + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid frenzy", "potion liquids of frenzy",
+                        "A potionLiquid. This is almost a finished frenzy potion."
+                                + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
                 .modelName("model.potionLiquid.FranticChange").imageNumber(potionLiquidCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidFranticChargeId = potionLiquidFranticCharge.getTemplateId();
@@ -777,17 +768,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidKarma() throws IOException {
         potionLiquidKarma = new ItemTemplateBuilder("arathok.alchemy.potionLiquidKarma").name(" potion liquid karma",
-                "potion liquids of karma",
-                "A potion liquid. This is almost a finished karma Potion. "
-                        + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        "potion liquids of karma",
+                        "A potion liquid. This is almost a finished karma Potion. "
+                                + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.mana").imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidKarmaId = potionLiquidKarma.getTemplateId();
@@ -797,17 +788,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidMana() throws IOException {
         potionLiquidMana = new ItemTemplateBuilder("arathok.alchemy.potionLiquidMana").name(" potion liquid mana",
-                "potion liquids of mana",
-                "A potion liquid. This is almost a finished mana Potion. "
-                        + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        "potion liquids of mana",
+                        "A potion liquid. This is almost a finished mana Potion. "
+                                + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.mana").imageNumber(potionLiquidDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidManaId = potionLiquidMana.getTemplateId();
@@ -817,16 +808,16 @@ public class PotionItems {
 
     private static void registerPotionLiquidMorningFog() throws IOException {
         potionLiquidMorningFog = new ItemTemplateBuilder("arathok.alchemy.potionLiquidMorningFog").name(
-                " potion liquid of fog skin", "potion liquids of fog skin",
-                "A potion liquid. This is almost a finished fog skin potion. "
-                        + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid of fog skin", "potion liquids of fog skin",
+                        "A potion liquid. This is almost a finished fog skin potion. "
+                                + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
                 .modelName("model.potionLiquid.fog.").imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidMorningFogId = potionLiquidMorningFog.getTemplateId();
@@ -834,17 +825,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidOakshell() throws IOException {
         potionLiquidOakshell = new ItemTemplateBuilder("arathok.alchemy.potionLiquidOakshell").name(
-                " potion liquid of wood skin", "potionLiquids of wood skin",
-                "A potion Liquid. This is almost a finished wood skin potion. "
-                        + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid of wood skin", "potionLiquids of wood skin",
+                        "A potion Liquid. This is almost a finished wood skin potion. "
+                                + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.oakshell.").imageNumber(potionLiquidDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidOakshellId = potionLiquidOakshell.getTemplateId();
@@ -852,17 +843,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidRefresh() throws IOException {
         potionLiquidRefresh = new ItemTemplateBuilder("arathok.alchemy.potionLiquidRefresh").name(
-                " potion liquid of refresh", "potion liquids of refresh",
-                "A potion liquid. This is almost a finished potion of stamina. "
-                        + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid of refresh", "potion liquids of refresh",
+                        "A potion liquid. This is almost a finished potion of stamina. "
+                                + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.refresh.").imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidRefreshId = potionLiquidRefresh.getTemplateId();
@@ -870,18 +861,18 @@ public class PotionItems {
 
     private static void registerPotionLiquidSixthSense() throws IOException {
         potionLiquidSixthSense = new ItemTemplateBuilder("arathok.alchemy.potionLiquidSixthSense").name(
-                " potion liquid of senses", "potion liquids of senses",
-                "A potion liquid. This is almost a finished potion of senses. "
-                        + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid of senses", "potion liquids of senses",
+                        "A potion liquid. This is almost a finished potion of senses. "
+                                + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.senses.").imageNumber(potionLiquidNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
 
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidSixthSenseId = potionLiquidSixthSense.getTemplateId();
@@ -890,17 +881,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidStrength() throws IOException {
         potionLiquidStrength = new ItemTemplateBuilder("arathok.alchemy.potionLiquidStrength").name(
-                " potion liquid of demon blood", "potion liquids of demon blood",
-                "A potion liquid. This is almost a finished demon blood potion."
-                        + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid of demon blood", "potion liquids of demon blood",
+                        "A potion liquid. This is almost a finished demon blood potion."
+                                + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.strength.").imageNumber(potionLiquidCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidStrengthId = potionLiquidStrength.getTemplateId();
@@ -908,17 +899,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidTruehit() throws IOException {
         potionLiquidTruehit = new ItemTemplateBuilder("arathok.alchemy.potionLiquidTruehit").name(
-                " potion liquid of truehit", "potion liquids of truehit",
-                "A potion liquid. This is almost a finished truehit potion. "
-                        + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion liquid of truehit", "potion liquids of truehit",
+                        "A potion liquid. This is almost a finished truehit potion. "
+                                + "It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.truehit.").imageNumber(potionLiquidCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidTruehitId = potionLiquidTruehit.getTemplateId();
@@ -926,17 +917,17 @@ public class PotionItems {
 
     private static void registerPotionLiquidVynora() throws IOException {
         potionLiquidVynora = new ItemTemplateBuilder("arathok.alchemy.potionLiquidVynora").name(
-                " potion Liquid of vynora", "potion Liquids of vynora",
-                "A potionLiquid. This is almost a finished knowledge potion."
-                        + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
+                        " potion Liquid of vynora", "potion Liquids of vynora",
+                        "A potionLiquid. This is almost a finished knowledge potion."
+                                + " It just needs to be bottled in a crystal phial because only the crystal structure of the glass can activate and properly catalyse the magical properties.")
 
                 .modelName("model.potionLiquid.vynora.").imageNumber(potionLiquidUltimateIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
-                        ItemTypes.ITEM_TYPE_NO_IMPROVE, })
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_NO_IMPROVE,})
                 .decayTime(691200L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionLiquidVynoraId = potionLiquidVynora.getTemplateId();
@@ -948,14 +939,14 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of phasing to you.")
 
                 .modelName("model.potion.dodge.").imageNumber(potionDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdWillowspine = potionWillowspine.getTemplateId();
@@ -967,18 +958,18 @@ public class PotionItems {
 
     private static void registerPotionExcell() throws IOException {
         potionExcell = new ItemTemplateBuilder("arathok.alchemy.potionExcell").name(" potion of eelskin",
-                "potions of eelskin",
-                "An alchemistic potion, drinking it will bestow the power of eelskin to you. Your enemies wont hit as good!")
+                        "potions of eelskin",
+                        "An alchemistic potion, drinking it will bestow the power of eelskin to you. Your enemies wont hit as good!")
 
                 .modelName("model.potion.excell.").imageNumber(potionDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdExcell = potionExcell.getTemplateId();
@@ -989,18 +980,19 @@ public class PotionItems {
 
     private static void registerPotionGoat() throws IOException {
         potionGoat = new ItemTemplateBuilder("arathok.alchemy.potionGoat").name(" potion of goatshape",
-                "potions of goatshape",
-                "An alchemistic potion, drinking it will bestow the power of a goat to you. Whatever that means?")
+                        "potions of goatshape",
+                        "An alchemistic potion, drinking it will bestow the power of a goat to you. Whatever that means?")
 
                 .modelName("model.potion.goat.").imageNumber(potionNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
+
                 .build();
 
         potionIdGoat = potionGoat.getTemplateId();
@@ -1014,14 +1006,14 @@ public class PotionItems {
                 .name(" potion of heal", "potions of heal", "An alchemistic potion, drinking it will heal you.")
 
                 .modelName("model.potion.heal.").imageNumber(potionHealIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(1, 1, 2).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdHeal = potionHeal.getTemplateId();
@@ -1035,14 +1027,14 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of rage to you.")
 
                 .modelName("model.potion.FranticCharge.").imageNumber(potionCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 0) // no
+                // hard
+                // lock
                 .build();
 
         potionIdFranticCharge = potionFranticCharge.getTemplateId();
@@ -1057,14 +1049,14 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of Fog to you.")
 
                 .modelName("model.potion.fog.").imageNumber(potionNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdMorningFog = potionMorningFog.getTemplateId();
@@ -1079,14 +1071,14 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power of wood skin to you.")
 
                 .modelName("model.potion.Oakshell.").imageNumber(potionDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdOakshell = potionOakshell.getTemplateId();
@@ -1101,14 +1093,14 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will regenerate some stamina for you.")
 
                 .modelName("model.potion.stamina.").imageNumber(potionNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdRefresh = potionRefresh.getTemplateId();
@@ -1122,14 +1114,14 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow superior situational awareness to you.")
 
                 .modelName("model.potion.SixthSense.").imageNumber(potionNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdSixthSense = potionSixthSense.getTemplateId();
@@ -1140,18 +1132,18 @@ public class PotionItems {
 
     private static void registerPotionStrength() throws IOException {
         potionStrength = new ItemTemplateBuilder("arathok.alchemy.potionStrength").name(" potion of demon blood",
-                "potions of demon blood",
-                "An alchemistic potion, drinking it will bestow the power of demonic blood and superior strength to you.")
+                        "potions of demon blood",
+                        "An alchemistic potion, drinking it will bestow the power of demonic blood and superior strength to you.")
 
                 .modelName("model.potion.strength.").imageNumber(potionCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdStrength = potionStrength.getTemplateId();
@@ -1165,14 +1157,14 @@ public class PotionItems {
                         "An alchemistic potion, drinking it will bestow the power superior battle focus to you.")
 
                 .modelName("model.potion.truehit.").imageNumber(potionCombatIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdTruehit = potionTruehit.getTemplateId();
@@ -1186,14 +1178,14 @@ public class PotionItems {
                         "This potion is the epitome of alchemy. It is bottled knowledge. ")
 
                 .modelName("model.potion.vynora.").imageNumber(potionUltimateIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 90) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionIdVynora = potionVynora.getTemplateId();
@@ -1207,14 +1199,14 @@ public class PotionItems {
                         "This potion is in the upper echelons of alchemy. It contains the power of the gods. ")
 
                 .modelName("model.potion.mana.").imageNumber(potionDefenseIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 40) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionManaId = potionMana.getTemplateId();
@@ -1228,14 +1220,14 @@ public class PotionItems {
                         "This potion is in the upper echelons of alchemy. It contains the power of the one true self. ")
 
                 .modelName("model.potion.karma.").imageNumber(potionNormalIcon)
-                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
+                .itemTypes(new short[]{ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_HERB,
                         ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
                         ItemTypes.ITEM_TYPE_NO_IMPROVE, ItemTypes.ITEM_TYPE_WEAPON, ItemTypes.ITEM_TYPE_WEAPON_KNIFE,
 
                 }).decayTime(2073600L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
                 .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 40) // no
-                                                                                                                // hard
-                                                                                                                // lock
+                // hard
+                // lock
                 .build();
 
         potionKarmaId = potionKarma.getTemplateId();

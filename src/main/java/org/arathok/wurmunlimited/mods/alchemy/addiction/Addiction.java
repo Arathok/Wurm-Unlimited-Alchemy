@@ -61,7 +61,7 @@ public class Addiction {
         }
         catch (SQLException throwables) {
             Alchemy.logger.log(Level.SEVERE, "something went wrong deleting an Addiction from the DB!", throwables);
-            throwables.printStackTrace();
+
         }
     }
 }

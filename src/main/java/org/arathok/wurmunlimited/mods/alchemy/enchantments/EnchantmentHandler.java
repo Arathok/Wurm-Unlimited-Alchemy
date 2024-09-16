@@ -1,14 +1,5 @@
 package org.arathok.wurmunlimited.mods.alchemy.enchantments;
 
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.logging.Level;
-
-import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
-import org.arathok.wurmunlimited.mods.alchemy.Config;
-
 import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.Players;
@@ -17,6 +8,14 @@ import com.wurmonline.server.items.Item;
 import com.wurmonline.server.players.Player;
 import com.wurmonline.server.zones.VolaTile;
 import com.wurmonline.server.zones.Zones;
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
+import org.arathok.wurmunlimited.mods.alchemy.Config;
+
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
 
 public class EnchantmentHandler {
 
@@ -63,7 +62,7 @@ public class EnchantmentHandler {
                         }
                         catch (NoSuchItemException e) {
                             Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                            e.printStackTrace();
+
                         }
                     }
                 }
@@ -86,7 +85,7 @@ public class EnchantmentHandler {
                     }
                     catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                        e.printStackTrace();
+
                     }
 
                 // IF ITEM IS TOO CLOSE TO THE SERVER BORDER
@@ -110,7 +109,7 @@ public class EnchantmentHandler {
                     }
                     catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                        e.printStackTrace();
+
                     }
                 }
 
@@ -153,7 +152,7 @@ public class EnchantmentHandler {
                     }
                     catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                        e.printStackTrace();
+
                     }
                 }
                 // IF time ran out
@@ -177,7 +176,7 @@ public class EnchantmentHandler {
                     }
                     catch (NoSuchItemException e) {
                         Alchemy.logger.log(Level.SEVERE, "No item found for the id" + enchantedItem.itemId, e);
-                        e.printStackTrace();
+
                     }
 
                 }

@@ -1,24 +1,13 @@
 package org.arathok.wurmunlimited.mods.alchemy; // now add calls to registerBlah in onItemTemplatesCreated
 
-import java.io.IOException;
-
+import com.wurmonline.server.items.*;
+import com.wurmonline.server.skills.SkillList;
+import com.wurmonline.shared.constants.IconConstants;
 import org.gotti.wurmunlimited.modsupport.ItemTemplateBuilder;
 import org.tyoda.wurm.Iconzz.Iconzz;
 
-///TODO:mixtures/pastes no bulk and they decay
-//and make them not-private so you can actually access them
-import com.wurmonline.server.items.CreationCategories;
-import com.wurmonline.server.items.CreationEntryCreator;
-import com.wurmonline.server.items.CreationRequirement;
-import com.wurmonline.server.items.ItemList;
-import com.wurmonline.server.items.ItemTemplate;
-import com.wurmonline.server.items.ItemTypes;
-import com.wurmonline.server.items.Materials;
-import com.wurmonline.server.items.TempState;
-import com.wurmonline.server.items.TempStates;
-import com.wurmonline.server.skills.SkillList;
-import com.wurmonline.shared.constants.IconConstants;
-
+import java.io.IOException;
+//TODO: write insert before to SimpleCreationEntry run(Creature performer, Item source, long targetId, float counter) throws FailedException, NoSuchSkillException, NoSuchItemException, IllegalArgumentException {
 public class AlchItems {
     public static int leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
             glassMixtureId, glassId, weakLegsId, gemPowderId, coalDustId, coalFilterId, alchemicalCauldronId;
@@ -95,6 +84,7 @@ public class AlchItems {
 
                 }).decayTime(90720000000L).dimensions(8, 8, 15).weightGrams(105000).material(Materials.MATERIAL_BONE)
                 .behaviourType((short) 1).primarySkill(SkillList.POTTERY).difficulty(30) // no hard lock
+
                 .build();
 
         weakLegsId = weakLegs.getTemplateId();
@@ -113,7 +103,8 @@ public class AlchItems {
                         ItemTypes.ITEM_TYPE_METAL,
 
                 }).decayTime(9072000L).dimensions(20, 20, 20).weightGrams(24000).material(Materials.MATERIAL_STONE)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
+                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(0) // no hard lock
+
                 .build();
 
         glassMixtureId = glassMixture.getTemplateId();
@@ -190,7 +181,7 @@ public class AlchItems {
                         ItemTypes.ITEM_TYPE_TOOL, ItemTypes.ITEM_TYPE_NO_IMPROVE, ItemTypes.ITEM_TYPE_METAL,
 
                 }).decayTime(9072000L).dimensions(5, 5, 10).weightGrams(100).material(Materials.MATERIAL_GLASS)
-                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
+                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(0) // no hard lock
 
                 .build();
 

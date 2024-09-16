@@ -1,21 +1,6 @@
 
 package org.arathok.wurmunlimited.mods.alchemy.potions;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.logging.Level;
-
-import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
-import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
-import org.arathok.wurmunlimited.mods.alchemy.Config;
-import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
-import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
-import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
-import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
-import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
-import org.gotti.wurmunlimited.modsupport.actions.ModActions;
-
 import com.wurmonline.server.Items;
 import com.wurmonline.server.Players;
 import com.wurmonline.server.behaviours.Action;
@@ -28,6 +13,20 @@ import com.wurmonline.server.items.Item;
 import com.wurmonline.server.players.Player;
 import com.wurmonline.server.sounds.SoundPlayer;
 import com.wurmonline.server.spells.SpellEffect;
+import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
+import org.arathok.wurmunlimited.mods.alchemy.Config;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
+import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
+import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
+import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
+import org.gotti.wurmunlimited.modsupport.actions.ModActions;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.logging.Level;
 
 public class PotionPerformer implements ActionPerformer {
 
@@ -595,7 +594,8 @@ public class PotionPerformer implements ActionPerformer {
                 try {
                     performer.setFavor(performer.getFavor() + manaPool);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Alchemy.logger.log(Level.WARNING,"IoException",e);
+
                 }
 
                 performer.getCommunicator().sendAlertServerMessage("You feel the power of the Potion flow through you! "
@@ -642,7 +642,7 @@ public class PotionPerformer implements ActionPerformer {
                         try {
                             playerInQuestion.insert(Alchemy.dbconn);
                         } catch (SQLException e) {
-                            e.printStackTrace();
+                            Alchemy.logger.log(Level.WARNING,"SQLEXception",e);;
                         }
                         AddictionHandler.addictions.set(index, playerInQuestion);
                     }
@@ -668,7 +668,7 @@ public class PotionPerformer implements ActionPerformer {
                     try {
                         playerAddiction.insert(Alchemy.dbconn);
                     } catch (SQLException e) {
-                        e.printStackTrace();
+
                         Alchemy.logger.log(Level.SEVERE, "couldn't write addiction to DB!");
                     }
                     AddictionHandler.addictions.add(playerAddiction);

@@ -1,19 +1,5 @@
 package org.arathok.wurmunlimited.mods.alchemy.oils;
 
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.logging.Level;
-
-import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
-import org.arathok.wurmunlimited.mods.alchemy.Config;
-import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
-import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
-import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
-import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
-import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
-import org.gotti.wurmunlimited.modsupport.actions.ModActions;
-
 import com.wurmonline.server.Items;
 import com.wurmonline.server.NoSuchItemException;
 import com.wurmonline.server.WurmCalendar;
@@ -24,6 +10,19 @@ import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemSpellEffects;
 import com.wurmonline.server.sounds.SoundPlayer;
 import com.wurmonline.server.spells.SpellEffect;
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
+import org.arathok.wurmunlimited.mods.alchemy.Config;
+import org.arathok.wurmunlimited.mods.alchemy.enchantments.Enchantment;
+import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
+import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
+import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
+import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
+import org.gotti.wurmunlimited.modsupport.actions.ModActions;
+
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.logging.Level;
 
 public class OilPerformer implements ActionPerformer {
 
@@ -148,7 +147,7 @@ public class OilPerformer implements ActionPerformer {
             }
             catch (NoSuchItemException e) {
                 Alchemy.logger.log(Level.SEVERE, "no item found for" + target.getName(), e);
-                e.printStackTrace();
+
             }
 
             // EFFECT STUFF GOES HERE
@@ -297,7 +296,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -424,7 +423,7 @@ public class OilPerformer implements ActionPerformer {
 
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -548,7 +547,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -675,7 +674,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -797,7 +796,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -917,7 +916,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -1038,7 +1037,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -1162,7 +1161,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -1284,7 +1283,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+
                                 }
                             }
                             else {
@@ -1406,7 +1405,7 @@ public class OilPerformer implements ActionPerformer {
                                 catch (RuntimeException | SQLException ex) {
                                     Alchemy.logger.log(Level.INFO,
                                             "RuntimeException or SQLException happened or database closed", ex);
-                                    ex.printStackTrace();
+                                   
                                 }
 
                             }
@@ -1450,7 +1449,7 @@ public class OilPerformer implements ActionPerformer {
                 }
                 catch (RuntimeException | SQLException ex) {
                     Alchemy.logger.log(Level.SEVERE, "RuntimeException or SQLException happened", ex);
-                    ex.printStackTrace();
+
                 }
 
             }

@@ -1,15 +1,5 @@
 package org.arathok.wurmunlimited.mods.alchemy.addiction;
 
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.logging.Level;
-
-import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
-import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
-import org.arathok.wurmunlimited.mods.alchemy.Config;
-
 import com.wurmonline.server.FailedException;
 import com.wurmonline.server.Items;
 import com.wurmonline.server.Players;
@@ -19,6 +9,15 @@ import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemFactory;
 import com.wurmonline.server.items.NoSuchTemplateException;
 import com.wurmonline.server.players.Player;
+import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
+import org.arathok.wurmunlimited.mods.alchemy.Config;
+
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
 
 ///TODO:create potion that stops addiction
 public class AddictionHandler {
@@ -101,10 +100,11 @@ public class AddictionHandler {
                                     aPlayer.getInventory().insertItem(legs, true);
                                 }
                                 catch (FailedException e) {
-                                    e.printStackTrace();
+                                    Alchemy.logger.log(Level.WARNING,"FailedException",e);
+
                                 }
                                 catch (NoSuchTemplateException e) {
-                                    e.printStackTrace();
+
                                     Alchemy.logger.log(Level.SEVERE,
                                             "I was trying to create an item but that template didn't exist! Weird!");
                                 }
