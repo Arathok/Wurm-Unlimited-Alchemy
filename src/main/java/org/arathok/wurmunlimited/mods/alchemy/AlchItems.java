@@ -59,7 +59,7 @@ public class AlchItems {
     }
 
     private static void registerCauldron() throws IOException {
-        glassMixture = new ItemTemplateBuilder("arathok.alchemy.alchemicalCauldron").name("alchemical cauldron", "alchemical cauldrons",
+        alchemicalCauldron = new ItemTemplateBuilder("arathok.alchemy.alchemicalCauldron").name("alchemical cauldron", "alchemical cauldrons",
                         "A heavy alchemical cauldron made from steel, ready to be filled with water. It can be filled with all sorts of alchemical ingredients to turn them into potions!")
                 .modelName("model.decoration.cauldron.").imageNumber((short) IconConstants.ICON_TOOL_CAULDRON).itemTypes(new short[] {
 
@@ -73,12 +73,12 @@ public class AlchItems {
                 .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
                 .build();
 
-        glassMixtureId = glassMixture.getTemplateId();
+        alchemicalCauldronId =  alchemicalCauldron.getTemplateId();
         CreationEntryCreator
-                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.sand, ItemList.ash, glassMixtureId, true, true,
+                .createAdvancedEntry(SkillList.SMITHING_BLACKSMITHING, ItemList.steelBar, ItemList.ironBand,  alchemicalCauldronId, true, true,
                         0.0f, true, false, 0, 5, CreationCategories.RESOURCES)
-                .addRequirement(new CreationRequirement(1, ItemList.ash, 17, true))
-                .addRequirement(new CreationRequirement(2, ItemList.salt, 17, true));
+                .addRequirement(new CreationRequirement(1, ItemList.steelBar, 19, true))
+                .addRequirement(new CreationRequirement(2, ItemList.ironBand, 1, true));
     }
 
     private static void registerWeakLegs() throws IOException {
