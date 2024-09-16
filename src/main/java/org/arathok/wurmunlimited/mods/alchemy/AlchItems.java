@@ -21,10 +21,10 @@ import com.wurmonline.shared.constants.IconConstants;
 
 public class AlchItems {
     public static int leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
-            glassMixtureId, glassId, weakLegsId, gemPowderId, coalDustId, coalFilterId;
+            glassMixtureId, glassId, weakLegsId, gemPowderId, coalDustId, coalFilterId, alchemicalCauldronId;
 
     public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass,
-            weakLegs, gemPowder, coalDust, coalFilter, leader;
+            weakLegs, gemPowder, coalDust, coalFilter, leader, alchemicalCauldron;
     public static short mouldClayIcon, mouldPotteryIcon, glassMixIcon, glassIcon, phialIcon;
 
     public static void makeIcons() {
@@ -56,6 +56,29 @@ public class AlchItems {
                 .build();
 
         leaderId = leader.getTemplateId();
+    }
+
+    private static void registerCauldron() throws IOException {
+        glassMixture = new ItemTemplateBuilder("arathok.alchemy.alchemicalCauldron").name("alchemical cauldron", "alchemical cauldrons",
+                        "A heavy alchemical cauldron made from steel, ready to be filled with water. It can be filled with all sorts of alchemical ingredients to turn them into potions!")
+                .modelName("model.decoration.cauldron.").imageNumber((short) IconConstants.ICON_TOOL_CAULDRON).itemTypes(new short[] {
+
+                        ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION, ItemTypes.ITEM_TYPE_TURNABLE,
+                        ItemTypes.ITEM_TYPE_HOLLOW,
+                        ItemTypes.ITEM_TYPE_CONTAINER_LIQUID,
+                        // ItemTypes.ITEM_TYPE_TRANSPORTABLE,
+                        ItemTypes.ITEM_TYPE_METAL,
+
+                }).decayTime(9072000L).dimensions(20, 20, 20).weightGrams(24000).material(Materials.MATERIAL_STONE)
+                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
+                .build();
+
+        glassMixtureId = glassMixture.getTemplateId();
+        CreationEntryCreator
+                .createAdvancedEntry(SkillList.ALCHEMY_NATURAL, ItemList.sand, ItemList.ash, glassMixtureId, true, true,
+                        0.0f, true, false, 0, 5, CreationCategories.RESOURCES)
+                .addRequirement(new CreationRequirement(1, ItemList.ash, 17, true))
+                .addRequirement(new CreationRequirement(2, ItemList.salt, 17, true));
     }
 
     private static void registerWeakLegs() throws IOException {
