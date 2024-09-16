@@ -1,0 +1,32 @@
+
+
+model.potion.heal=potionhealobj.wom
+model.potion.dodge = potionprotectionobj.wom
+model.potion.excell = potionbuffcombatobj.wom
+model.potion.goat = potionbuffnormalobj.wom
+model.potion.FranticCharge = potionbuffcombatobj.wom
+model.potion.fog = potionprotectionobj.wom
+model.potion.Oakshell = potionprotectionobj.wom
+model.potion.stamina = potionhealobj.wom
+model.potion.SixthSense = potionbuffnormalobj.wom
+model.potion.strength = potionbuffnormalobj.wom
+model.potion.truehit = potionbuffcombatobj.wom
+model.potion.vynora = potionultimateobj.wom
+model.potion.mana = potionbuffnormalobj.wom 
+model.potion.karma = potionbuffnormalobj.wom
+model.WeaponOil = potionultimateobj.wom
+model.mixture.protection = soupprotection.wom
+model.mixture.combat = soupbuffcombat.wom
+model.mixture.normal = soupbuffnormal.wom
+model.mixture.heal = soupheal.wom
+model.mixture.ultimate = soupultimate.wom
+model.phial = glassbottle.wom
+
+
+####SOUNDS####
+##Potions##
+sound.openFlask = sounds/potions/flaskOpen.ogg
+sound.drink = sounds/potions/drink.ogg
+
+##Oils##
+sound.oilWeapon = sounds/oils/oilGlug.ogg

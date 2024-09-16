@@ -14,7 +14,6 @@ import org.arathok.wurmunlimited.mods.alchemy.enchantments.EnchantmentHandler;
 import org.arathok.wurmunlimited.mods.alchemy.enchantments.ServerTravelHook;
 import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesBehaviourItem;
 import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesBehaviourTile;
-import org.arathok.wurmunlimited.mods.alchemy.essences.EssencesItems;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilBehaviour;
 import org.arathok.wurmunlimited.mods.alchemy.oils.OilItems;
 import org.arathok.wurmunlimited.mods.alchemy.potions.PotionBehaviour;
@@ -27,19 +26,12 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Alchemy implements WurmServerMod, Initable, PreInitable, Configurable, ItemTemplatesCreatedListener, ServerStartedListener, ServerPollListener, PlayerMessageListener,PlayerLoginListener{
 	public static final Logger logger = Logger.getLogger("Alchemy");
-	public static HashMap<Long, Long> healCooldown = new HashMap<>();
-	public static HashMap<Long, Long> cooldown = new HashMap<>();
-	public static HashMap<Long, Integer> healToxicity = new HashMap<>();
-	public static HashMap<Long, Integer> toxicity = new HashMap<>();
-	public static HashMap<Long,Integer> currentAddiction = new HashMap<>();
-	public static HashMap<Long,Integer> previousAddiction = new HashMap<>();
 	public long timer=0;
 	public static Connection dbconn;
 	public static boolean finishedDbReadingAddictions = false;
