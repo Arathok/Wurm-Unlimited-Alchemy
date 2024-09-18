@@ -66,7 +66,7 @@ public class AlchItems {
         CreationEntryCreator
                 .createAdvancedEntry(SkillList.SMITHING_BLACKSMITHING, ItemList.hammerMetal, ItemList.steelBar,  alchemicalCauldronId, false, true,
                         0.0f, false, false, 0, 5, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.steelBar, 57, true))
+                .addRequirement(new CreationRequirement(1, ItemList.steelBar, 53, true))
                 .addRequirement(new CreationRequirement(2, ItemList.ironBand, 4, true));
     }
 
