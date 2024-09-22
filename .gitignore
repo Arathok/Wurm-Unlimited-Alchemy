@@ -40,3 +40,9 @@ Alchemy.iml
 *.png
 *.dds
 *.wom
+*.config
+*.properties
+*.txt
+*.ogg
+*.bak
+*.jpg
