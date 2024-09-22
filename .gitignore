@@ -34,3 +34,9 @@ modeling/cauldron/textures/bolts_Displacement.png
 modeling/cauldron/textures/bolts_BaseColor.png
 modeling/cauldron/source/Cauldron.zip
 modeling/cauldron/Cauldron.blend
+Alchemy.iml
+*.iml
+*.class
+*.png
+*.dds
+*.wom
