@@ -2,6 +2,7 @@ package org.arathok.wurmunlimited.mods.alchemy.cauldron;
 
 import com.wurmonline.server.items.Item;
 import com.wurmonline.server.items.ItemList;
+import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.gotti.wurmunlimited.modsupport.items.ModelNameProvider;
 
 public class CauldronModelProvider implements ModelNameProvider {

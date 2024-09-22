@@ -1,27 +1,27 @@
-package org.arathok.wurmunlimited.mods.alchemy.cauldron;
-
-import com.wurmonline.server.behaviours.ActionEntry;
-import com.wurmonline.server.creatures.Creature;
-import com.wurmonline.server.items.Item;
-import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
-import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
-import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
-import org.gotti.wurmunlimited.modsupport.actions.ModActions;
+package org.arathok.wurmunlimited.mods.alchemy.potions;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 
-public class CauldronBehaviour implements BehaviourProvider {
+import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
+import org.gotti.wurmunlimited.modsupport.actions.BehaviourProvider;
+import org.gotti.wurmunlimited.modsupport.actions.ModActions;
+
+import com.wurmonline.server.behaviours.ActionEntry;
+import com.wurmonline.server.creatures.Creature;
+import com.wurmonline.server.items.Item;
+
+public class PotionBehaviour implements BehaviourProvider {
 
     private final List<ActionEntry> consume;
-    private final CauldronAddItemPerformer cauldronAddItemPerformer;
+    private final PotionPerformer potionPerformer;
 
-    public CauldronBehaviour() {
-        this.cauldronAddItemPerformer = new CauldronAddItemPerformer();
-        this.consume = Collections.singletonList(cauldronAddItemPerformer.actionEntry);
-        ModActions.registerActionPerformer(cauldronAddItemPerformer);
+    public PotionBehaviour() {
+        this.potionPerformer = new PotionPerformer();
+        this.consume = Collections.singletonList(potionPerformer.actionEntry);
+        ModActions.registerActionPerformer(potionPerformer);
         Alchemy.logger.log(Level.INFO, "Registering Potion Actions...");
 
     }
@@ -30,72 +30,72 @@ public class CauldronBehaviour implements BehaviourProvider {
     public List<ActionEntry> getBehavioursFor(Creature performer, Item target) {
 
         if (target.getTemplateId() == PotionItems.potionIdHeal) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdGoat) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdExcell) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdFranticCharge) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdMorningFog) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdOakshell) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdSixthSense) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdTruehit) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdStrength) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdWillowspine) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdVynora) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionIdRefresh) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionManaId) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }
         else if (target.getTemplateId() == PotionItems.potionKarmaId) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
+            if (PotionPerformer.canUse(performer, target))
                 return new ArrayList<>(consume);
 
         }

@@ -1,5 +1,5 @@
 
-package org.arathok.wurmunlimited.mods.alchemy.cauldron;
+package org.arathok.wurmunlimited.mods.alchemy.potions;
 
 import com.wurmonline.server.Items;
 import com.wurmonline.server.Players;
@@ -13,12 +13,11 @@ import com.wurmonline.server.items.Item;
 import com.wurmonline.server.players.Player;
 import com.wurmonline.server.sounds.SoundPlayer;
 import com.wurmonline.server.spells.SpellEffect;
-import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
-import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.Alchemy;
 import org.arathok.wurmunlimited.mods.alchemy.Config;
-import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.Addiction;
+import org.arathok.wurmunlimited.mods.alchemy.addiction.AddictionHandler;
 import org.gotti.wurmunlimited.modsupport.actions.ActionEntryBuilder;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPerformer;
 import org.gotti.wurmunlimited.modsupport.actions.ActionPropagation;
@@ -29,7 +28,7 @@ import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.logging.Level;
 
-public class CauldronLorePerformer implements ActionPerformer {
+public class PotionPerformer implements ActionPerformer {
 
     public ActionEntry actionEntry;
 
@@ -42,7 +41,7 @@ public class CauldronLorePerformer implements ActionPerformer {
 
     boolean playedOpeningSound = false;
 
-    public CauldronLorePerformer() {
+    public PotionPerformer() {
         int[] types;
         if (Config.potionsDuringFighting) {
             types = new int[] { 6 /* ACTION_TYPE_NOMOVE */, 48 /* ACTION_TYPE_ENEMY_ALWAYS */,

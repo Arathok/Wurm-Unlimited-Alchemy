@@ -1,5 +1,6 @@
 package org.arathok.wurmunlimited.mods.alchemy.cauldron;
 
+import org.arathok.wurmunlimited.mods.alchemy.AlchItems;
 import org.arathok.wurmunlimited.mods.alchemy.potions.PotionItems;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ public class Cauldrons {
     public static HashMap<Long,CauldronData> cauldrons = new HashMap<Long, CauldronData>();
 
     public static HashMap<String,Integer[]> possibleRecipes;
+    private static HashMap<String,String> potionColors = new HashMap<>();
 
 
     //Todo: rewrite item lists and actions for potions
@@ -29,7 +31,25 @@ public class Cauldrons {
         possibleRecipes.put("Strength Potion", new Integer[]{mushroomBlack, paprika, woad});
         possibleRecipes.put("Sixth Sense Potion", new Integer[]{lovage, nettles});
         possibleRecipes.put("Mana Potion", new Integer[]{PotionItems.potionLiquidHealId, AlchItems.gemPowderId});
+        possibleRecipes.put("Eelskin Potion",new Integer[]{sassafras, ginger});
         possibleRecipes.put("Karma Potion", new Integer[]{PotionItems.potionLiquidHealId, sourceSalt});
+
+        potionColors.put("Stamina Potion","pink");
+        potionColors.put("Stamina Potion2","pink");
+        potionColors.put("Health Potion", "pink");
+        potionColors.put("Fog Skin Potion", "blue");
+        potionColors.put("Woodskin Potion", "blue");
+        potionColors.put("Morning Fog Potion", "purple");
+        potionColors.put("Phasing Potion", "blue");
+        potionColors.put("Frenzy Potion", "red");
+        potionColors.put("Goat Potion", "purple");
+        potionColors.put("Truehit Potion", "red");
+        potionColors.put("Vynora Potion", "yellow");
+        potionColors.put("Strength Potion","red");
+        potionColors.put("Sixth Sense Potion", "blue");
+        potionColors.put("Mana Potion", "blue");
+        potionColors.put("Karma Potion", "purple");
+
     }
 
 }
