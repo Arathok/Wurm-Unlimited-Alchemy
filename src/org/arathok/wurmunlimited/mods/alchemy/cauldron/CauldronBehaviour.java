@@ -29,78 +29,7 @@ public class CauldronBehaviour implements BehaviourProvider {
     @Override
     public List<ActionEntry> getBehavioursFor(Creature performer, Item target) {
 
-        if (target.getTemplateId() == PotionItems.potionIdHeal) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
 
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdGoat) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdExcell) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdFranticCharge) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdMorningFog) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdOakshell) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdSixthSense) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdTruehit) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdStrength) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdWillowspine) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdVynora) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionIdRefresh) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionManaId) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else if (target.getTemplateId() == PotionItems.potionKarmaId) {
-            if (CauldronAddItemPerformer.canUse(performer, target))
-                return new ArrayList<>(consume);
-
-        }
-        else
-            return null;
 
         return null;
     }

@@ -32,7 +32,8 @@ public class CauldronData {
             intersection.retainAll(insertedItemsSet);
 
             if (!intersection.isEmpty())
-                performer.getCommunicator().sendNormalServerMessage("You think with the ingredients inserted you could still make a" + recipeName);
+                performer.getCommunicator().sendNormalServerMessage("You think with the ingredients inserted you could make a" + recipeName);
+            else performer.getCommunicator().sendNormalServerMessage("You think you made something really aweful");
         }
     }
 
