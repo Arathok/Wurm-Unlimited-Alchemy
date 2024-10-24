@@ -11,12 +11,10 @@ public class Cauldrons {
     public static HashMap<Long,CauldronData> cauldrons = new HashMap<Long, CauldronData>();
 
     public static HashMap<String,Integer[]> possibleRecipes;
-<<<<<<< Updated upstream:src/org/arathok/wurmunlimited/mods/alchemy/cauldron/Cauldrons.java
+
     private static HashMap<String,String> potionColors = new HashMap<>();
 
-=======
-    public static HashMap<String,String> potionsAndColors;
->>>>>>> Stashed changes:src/main/java/org/arathok/wurmunlimited/mods/alchemy/cauldron/Cauldrons.java
+
 
     //Todo: rewrite item lists and actions for potions
     public static void initRecipes()
@@ -57,24 +55,6 @@ public class Cauldrons {
 
     }
 
-    public static void initColors()
-    {
-        potionsAndColors.put("Stamina Potion","pink");
-        potionsAndColors.put("Stamina Potion2","pink");
-        potionsAndColors.put("Health Potion","pink");
-        potionsAndColors.put("Fog Skin Potion", "blue");
-        potionsAndColors.put("Woodskin Potion", "violet");
-        potionsAndColors.put("Morning Fog Potion", "violet");
-        potionsAndColors.put("Phasing Potion", "violet");
-        potionsAndColors.put("Frenzy Potion", new Integer[]{mushroomRed, nutmeg, tomato, tooth});
-        potionsAndColors.put("Goat Potion", new Integer[]{branch, oat});
-        potionsAndColors.put("Truehit Potion", new Integer[]{belladonna, garlic, mushroomGreen});
-        potionsAndColors.put("Vynora Potion", new Integer[]{mushroomYellow, turmeric, strawberries, thyme, cumin, coinSilver});
-        potionsAndColors.put("Strength Potion", new Integer[]{mushroomBlack, paprika, woad});
-        potionsAndColors.put("Sixth Sense Potion", new Integer[]{lovage, nettles});
-        potionsAndColors.put("Eelskin Potion", "violet");
-        potionsAndColors.put("Mana Potion", new Integer[]{PotionItems.potionLiquidHealId, AlchItems.gemPowderId});
-        potionsAndColors.put("Karma Potion", new Integer[]{PotionItems.potionLiquidHealId, sourceSalt});
-    }
+
 
 }
