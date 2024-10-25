@@ -10,6 +10,7 @@ public class CauldronData {
     boolean purified=false;
     boolean fireBelow=false;
     boolean compoundReadyToAdd=false;
+    ArrayList<Integer> insertedItems = new ArrayList();
     String possibleResultColor;
 
     float resultQl=1.0F;
