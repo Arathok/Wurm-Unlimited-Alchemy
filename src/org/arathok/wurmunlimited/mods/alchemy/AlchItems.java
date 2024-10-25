@@ -10,10 +10,10 @@ import java.io.IOException;
 //TODO: write insert before to SimpleCreationEntry run(Creature performer, Item source, long targetId, float counter) throws FailedException, NoSuchSkillException, NoSuchItemException, IllegalArgumentException {
 public class AlchItems {
     public static int leaderId, phialId, mouldClayId, mouldPotteryId, purifiedWaterId, alchemicalCompoundId,
-            glassMixtureId, glassId, weakLegsId, gemPowderId, coalDustId, coalFilterId, alchemicalCauldronId;
+            glassMixtureId, glassId, weakLegsId, gemPowderId, coalDustId, coalFilterId, alchemicalCauldronId,suspiciousStewId;
 
     public static ItemTemplate phial, mouldClay, mouldPottery, purifiedWater, alchemicalCompound, glassMixture, glass,
-            weakLegs, gemPowder, coalDust, coalFilter, leader, alchemicalCauldron;
+            weakLegs, gemPowder, coalDust, coalFilter, leader, alchemicalCauldron,suspiciousStew;
     public static short mouldClayIcon, mouldPotteryIcon, glassMixIcon, glassIcon, phialIcon;
 
     public static void makeIcons() {
@@ -305,7 +305,23 @@ public class AlchItems {
                 gemPowderId, false, true, 0f, false, false, 0, 30, CreationCategories.ALCHEMY);
     }
 
-    /// PASTES
+    private static void registerSuspiciousStew() throws IOException {
+        suspiciousStew = new ItemTemplateBuilder("arathok.alchemy.suspiciousStew")
+                .name("suspicious stew", "suspicious stew",
+                        "A violetish glibbery stew from a faíled alchemic experiment. You think it might be consumable, only the gods know what effects it might have on your body.")
+
+                .modelName("model.alchemicalCompound.").imageNumber((short) IconConstants.ICON_LIQUID_DYE_WHITE)
+                .itemTypes(new short[] { ItemTypes.ITEM_TYPE_BULK, ItemTypes.ITEM_TYPE_LIQUID,
+                        ItemTypes.ITEM_TYPE_METAL, ItemTypes.ITEM_TYPE_NO_IMPROVE,
+
+                }).decayTime(691200L).dimensions(10, 10, 10).weightGrams(1000).material(Materials.MATERIAL_MAGIC)
+                .behaviourType((short) 1).primarySkill(SkillList.ALCHEMY_NATURAL).difficulty(10) // no hard lock
+                .build();
+
+        suspiciousStewId = suspiciousStew.getTemplateId();
+
+
+    }
 
     public static void register() throws IOException {
         makeIcons();
@@ -330,6 +346,9 @@ public class AlchItems {
         }
         registerAlchemicalCompound();
         registerGemPowder();
+        registerCauldron();
+        registerSuspiciousStew();
+
 
     }
 

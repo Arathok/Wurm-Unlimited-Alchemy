@@ -5,6 +5,7 @@ import com.wurmonline.server.Items;
 import com.wurmonline.server.Players;
 import com.wurmonline.server.behaviours.Action;
 import com.wurmonline.server.behaviours.ActionEntry;
+import com.wurmonline.server.behaviours.Actions;
 import com.wurmonline.server.bodys.Wound;
 import com.wurmonline.server.bodys.Wounds;
 import com.wurmonline.server.creatures.Creature;
@@ -44,25 +45,16 @@ public class CauldronAddItemPerformer implements ActionPerformer {
 
     public CauldronAddItemPerformer() {
         int[] types;
-        if (Config.potionsDuringFighting) {
+       {
             types = new int[] { 6 /* ACTION_TYPE_NOMOVE */, 48 /* ACTION_TYPE_ENEMY_ALWAYS */,
-                    35 /* DON'T CARE WHETHER SOURCE OR TARGET */,
+                    Actions.ACTION_TYPE_ALWAYS_USE_ACTIVE_ITEM /* DON'T CARE WHETHER SOURCE OR TARGET */,
+                    Actions.ACTION_TYPE_NONSTACKABLE
                     // 27, // NONSTACK
 
-                    // 28 // NOSTACK IN FIGHT
-            };
-            actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "Consume Potion", "consuming",
-                    types)
-
-                            .range(4).priority(1000).build();
-        } else {
-            types = new int[] { 6 /* ACTION_TYPE_NOMOVE */, 48 /* ACTION_TYPE_ENEMY_ALWAYS */,
-                    35 /* DON'T CARE WHETHER SOURCE OR TARGET */,
-                    // 27, // NONSTACK
                     // 0, // quick
                     // NOSTACK IN FIGHT
             };
-            actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "Consume Potion", "consuming",
+            actionEntry = new ActionEntryBuilder((short) ModActions.getNextActionId(), "Add Item", "adding",
                     types)
 
                             .range(4).priority(1).build();
@@ -72,26 +64,39 @@ public class CauldronAddItemPerformer implements ActionPerformer {
 
     }
 
-    @Override
-    public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
-        return action(action, performer, target, num, counter);
-    } // NEEDED OR THE ITEM WILL ONLY ACTIVATE IF YOU HAVE NO ITEM ACTIVE
 
     @Override
     public short getActionId() {
         return actionEntry.getNumber();
     }
 
-    public static boolean canUse(Creature performer, Item target) // precondition
+    public static boolean canUse(Creature performer, Item target, Item Source) // precondition
     {
         return performer.isPlayer() && target.getOwnerId() == performer.getWurmId() && !target.isTraded();
 
     }
 
     @Override
-    public boolean action(Action action, Creature performer, Item target, short num, float counter) {
+    public boolean action(Action action, Creature performer, Item source, Item target, short num, float counter) {
 
-        return propagate(action, ActionPropagation.FINISH_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
+        if (counter ==1)
+        {
+            performer.getCommunicator().sendSafeServerMessage("You pull a "+source.getName()+ " from your inventory and prepare to sink it into the Cauldron.");
+            action.setTimeLeft(30);
+            performer.sendActionControl(action.getActionString(), true, 30);
+
+
+        }
+
+        if (action.getSecond()>=3)
+        {
+            if (Cauldrons.cauldrons.get(target.getWurmId()).hasFire(target.getWurmId()))
+
+                SoundPlayer.playSound("sound.alchemy.dropIntoCauldron", performer, 1.6F);
+        }
+
+
+        return propagate(action, ActionPropagation.CONTINUE_ACTION, ActionPropagation.NO_SERVER_PROPAGATION,
                 ActionPropagation.NO_ACTION_PERFORMER_PROPAGATION);
     }
 }
