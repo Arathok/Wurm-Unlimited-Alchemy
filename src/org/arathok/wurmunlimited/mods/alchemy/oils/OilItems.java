@@ -19,8 +19,7 @@ import com.wurmonline.server.items.TempStates;
 
 public class OilItems {
 
-    public static int pasteDemiseAnimalId, pasteDemiseMonsterId, pasteDemiseLegendaryId, pasteDemiseHumanId,
-            pasteLickOfFireId, pasteKissOfFrostId, pasteLeechId, pasteHeartseekerId, pastePlagueId, pastePoisonId,
+    public static int
 
             sludgeDemiseAnimalId, sludgeDemiseMonsterId, sludgeDemiseLegendaryId, sludgeDemiseHumanId,
             sludgeLickOfFireId, sludgeKissOfFrostId, sludgeLeechId, sludgeHeartseekerId, sludgePlagueId, sludgePoisonId,
@@ -46,269 +45,9 @@ public class OilItems {
             weaponOilLickOfFire, weaponOilKissOfFrost, weaponOilLeech, weaponOilHeartseeker, weaponOilPlague,
             weaponOilPoison;
 
-    private static void registerPasteDemiseAnimal() throws IOException {
-        pasteDemiseAnimal = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseAnimal")
-                .name(" paste of the Hunter", "pastes of the Hunter",
-                        "A paste that smells of death. Rubbing it on a piece animal flesh it seems to dissolve it. "
-                                + " You sense this could be turned into a coating for weapons."
-                                + " Due to its fresh ingredients it should be processed quickly.")
 
-                .modelName("model.paste.animal.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
 
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 40) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
 
-        pasteDemiseAnimalId = pasteDemiseAnimal.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureGoatId, ItemList.tallow, pasteDemiseAnimalId,
-                        true, true, 0f, true, false, 0, 30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.eye, 1, true));
-
-    }
-
-    private static void registerPasteDemiseMonster() throws IOException {
-        pasteDemiseMonster = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseMonster").name(
-                " paste of the Monster Hunter", "pastes of the Monster Hunter",
-                "A paste that smells of death. Rubbing it on a piece monster flesh it seems to dissolve it. "
-                        + " Yet your own skin is safe. You sense this could be turned into a coating for weapons."
-                        + " Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.monster.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 60) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pasteDemiseMonsterId = pasteDemiseMonster.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureGoatId, ItemList.tallow, pasteDemiseMonsterId,
-                        true, true, 0f, true, false, 0, 30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.gland, 1, true));
-
-    }
-
-    private static void registerPasteDemiseLegendary() throws IOException {
-        pasteDemiseLegendary = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseLegendary")
-                .name(" paste of the Dragon Hunter", "pastes of the Dragon Hunter",
-                        "A paste that smells of death. You find that it doesn't disslolve any flesh you know "
-                                + "not even your own. Maybe you should test it on Dragons or so? "
-                                + "You sense this could be turned into a coating for weapons."
-                                + " Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.legendary.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 70) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pasteDemiseLegendaryId = pasteDemiseLegendary.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureGoatId, ItemList.tallow,
-                        pasteDemiseLegendaryId, true, true, 0f, true, false, 0, 50, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.blood, 1, true));
-
-    }
-
-    private static void registerPasteDemiseHuman() throws IOException {
-        pasteDemiseHuman = new ItemTemplateBuilder("arathok.alchemy.pasteDemiseHuman")
-                .name(" paste of the Murderer", "pastes of the Murderer",
-                        "A paste that smells of death. You find that it dissolves your own flesh easily, "
-                                + "but doesn't harm animal flesh. Weird. "
-                                + "You sense this could be turned into a coating for weapons."
-                                + " Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.human.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 50) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pasteDemiseHumanId = pasteDemiseHuman.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureGoatId, ItemList.tallow, pasteDemiseHumanId,
-                        true, true, 0f, true, false, 0, 35, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.meat, 1, true));
-
-    }
-
-    private static void registerPasteLickOfFire() throws IOException {
-        pasteLickOfFire = new ItemTemplateBuilder("arathok.alchemy.pasteFire")
-                .name(" paste of lick of fire", "pastes of lick of fire",
-                        "A paste that smells sulphury. It develops extreme heat on any surface it touches. "
-                                + "You sense this could be turned into a coating for weapons."
-                                + " Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.kissOfFire.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 50) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pasteLickOfFireId = pasteLickOfFire.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureFranticChargeId, ItemList.tallow,
-                        pasteLickOfFireId, true, true, 0f, true, false, 0, 40, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.charcoal, 1, true));
-
-    }
-
-    private static void registerPasteKissOfFrost() throws IOException {
-        pasteKissOfFrost = new ItemTemplateBuilder("arathok.alchemy.pasteFrost")
-                .name(" paste of Kiss of Frost", "pastes of Kiss of Frost",
-                        "A paste that is cool to the touch. It freezes any surface it touches. "
-                                + "You sense this could be turned into a coating for weapons. "
-                                + "Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.kissOfFire.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 50) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pasteKissOfFrostId = pasteKissOfFrost.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureFranticChargeId, ItemList.tallow,
-                        pasteKissOfFrostId, true, true, 0f, true, false, 0, 40, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.snowball, 1, true));
-
-    }
-
-    private static void registerPasteLech() throws IOException {
-        pasteLeech = new ItemTemplateBuilder("arathok.alchemy.pasteLeech")
-                .name(" paste of Leech", "pastes of Leech",
-                        "An ominous paste. Smearing it upon a plant makes the plant wilt, but upon touching "
-                                + "the paste on the plant you feel more vigorous. "
-                                + "You sense this could be turned into a coating for weapons. "
-                                + "Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.Leech.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 50) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pasteLeechId = pasteLeech.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureHealId, ItemList.tallow, pasteLeechId, true,
-                        false, 0f, true, false, 0, 50, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.snowball, 1, true));
-
-    }
-
-    private static void registerPastePlague() throws IOException {
-        pastePlague = new ItemTemplateBuilder("arathok.alchemy.pastePlague")
-                .name(" paste of the Plague", "pastes of Plague",
-                        "A forbidden paste. Smearing it upon anything makes it age and rot. Very Dangerous. "
-                                + "You sense this could be turned into a coating for weapons. "
-                                + "Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.plague.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 70) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pastePlagueId = pastePlague.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureMorningFogId, ItemList.tallow, pastePlagueId,
-                        true, true, 0f, true, false, 0, 50, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.lemon, 1, true));
-
-    }
-
-    private static void registerPasteHeartseeker() throws IOException {
-        pasteHeartseeker = new ItemTemplateBuilder("arathok.alchemy.pasteHeartseeker")
-                .name(" paste of the Heartseeker", "pastes of the Heartseeker",
-                        "An ominous paste. Smearing it upon your hand makes it always want to grab on what you"
-                                + " are focusing. " + "You sense this could be turned into a coating for weapons. "
-                                + "Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.Heartseeker.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 50) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pasteHeartseekerId = pasteHeartseeker.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureExcellId, ItemList.tallow, pasteHeartseekerId,
-                        true, true, 0f, true, false, 0, 35, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.heart, 1, true));
-
-    }
-
-    private static void registerPastePoison() throws IOException {
-        pastePoison = new ItemTemplateBuilder("arathok.alchemy.pastePoison")
-                .name(" paste of the Snake", "pastes of the Snake",
-                        "A forbidden paste. Smearing it upon your hand makes your body temperature rise in an"
-                                + " instant, your veins turn blackish. "
-                                + "You sense this could be turned into a coating for weapons. "
-                                + "Due to its fresh ingredients it should be processed quickly.")
-
-                .modelName("model.paste.poison.").imageNumber(PotionItems.pasteIcon).itemTypes(new short[] {
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(5, 5, 10).weightGrams(200).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 50) // no
-                                                                                                                // hard
-                                                                                                                // lock
-                .build();
-
-        pastePoisonId = pastePoison.getTemplateId();
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, PotionItems.mixtureHealId, ItemList.tallow, pastePoisonId, true,
-                        true, 0f, true, false, 0, 50, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.heart, 1, true));
-
-    }
 
     /// Oil Precursors / Sludges
     private static void registerPrecursorDemiseAnimal() throws IOException {
@@ -327,9 +66,7 @@ public class OilItems {
                 .build();
 
         sludgeDemiseAnimalId = sludgeDemiseAnimal.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                OilItems.pasteDemiseAnimalId, sludgeDemiseAnimalId, true, true, 0f, false, false,
-                CreationCategories.ALCHEMY);
+
 
     }
 
@@ -350,9 +87,7 @@ public class OilItems {
                 .build();
 
         sludgeDemiseMonsterId = sludgeDemiseMonster.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                OilItems.pasteDemiseMonsterId, sludgeDemiseMonsterId, true, true, 0f, false, false,
-                CreationCategories.ALCHEMY);
+
 
     }
 
@@ -373,9 +108,7 @@ public class OilItems {
                 .build();
 
         sludgeDemiseLegendaryId = sludgeDemiseLegendary.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                OilItems.pasteDemiseLegendaryId, sludgeDemiseLegendaryId, true, true, 0f, false, false,
-                CreationCategories.ALCHEMY);
+
 
     }
 
@@ -396,9 +129,7 @@ public class OilItems {
                 .build();
 
         sludgeDemiseHumanId = sludgeDemiseHuman.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                OilItems.pasteDemiseHumanId, sludgeDemiseHumanId, true, true, 0f, false, false,
-                CreationCategories.ALCHEMY);
+
 
     }
 
@@ -418,9 +149,7 @@ public class OilItems {
                 .build();
 
         sludgeLickOfFireId = sludgeLickOfFire.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                OilItems.pasteLickOfFireId, sludgeLickOfFireId, true, true, 0f, false, false,
-                CreationCategories.ALCHEMY);
+
 
     }
 
@@ -440,9 +169,7 @@ public class OilItems {
                 .build();
 
         sludgeKissOfFrostId = sludgeKissOfFrost.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                OilItems.pasteKissOfFrostId, sludgeKissOfFrostId, true, true, 0f, false, true, 0, 30.0,
-                CreationCategories.ALCHEMY);
+
 
     }
 
@@ -463,8 +190,7 @@ public class OilItems {
                 .build();
 
         sludgeLeechId = sludgeLeech.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, OilItems.pasteLeechId,
-                sludgeLeechId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
 
     }
 
@@ -484,8 +210,7 @@ public class OilItems {
                 .build();
 
         sludgePlagueId = sludgePlague.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, OilItems.pastePlagueId,
-                sludgePlagueId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
 
     }
 
@@ -505,9 +230,7 @@ public class OilItems {
                 .build();
 
         sludgeHeartseekerId = sludgeHeartseeker.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                OilItems.pasteHeartseekerId, sludgeHeartseekerId, true, true, 0f, false, false,
-                CreationCategories.ALCHEMY);
+
 
     }
 
@@ -528,8 +251,7 @@ public class OilItems {
                 .build();
 
         sludgePoisonId = sludgePoison.getTemplateId();
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId, OilItems.pastePoisonId,
-                sludgePoisonId, true, true, 0f, false, false, CreationCategories.ALCHEMY);
+
 
     }
     // OILS
@@ -951,16 +673,7 @@ public class OilItems {
     public static void register() throws IOException {
         if (Config.useOils) {
 
-            registerPasteHeartseeker();
-            registerPasteLech();
-            registerPasteDemiseHuman();
-            registerPasteDemiseLegendary();
-            registerPasteDemiseMonster();
-            registerPasteDemiseAnimal();
-            registerPasteKissOfFrost();
-            registerPasteLickOfFire();
-            registerPastePlague();
-            registerPastePoison();
+
 
             registerPrecursorHeartseeker();
             registerPrecursorLech();

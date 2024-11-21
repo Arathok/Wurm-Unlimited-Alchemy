@@ -10,9 +10,7 @@ import java.io.IOException;
 
 public class PotionItems {
 
-    public static int mixtureHealId, mixtureGoatId, mixtureExcellId, mixtureOakshellId, mixtureMorningFogId,
-            mixtureFranticChargeId, mixtureStrengthId, mixtureSixthSenseId, mixtureTruehitId, mixtureWillowspineId,
-            mixtureRefreshId, mixtureVynoraId,
+    public static int
 
     precursorHealId, precursorGoatId, precursorExcellId, precursorOakshellId, precursorMorningFogId,
             precursorFranticChargeId, precursorStrengthId, precursorSixthSenseId, precursorTruehitId,
@@ -42,8 +40,7 @@ public class PotionItems {
     potionHeal, potionGoat, potionExcell, potionOakshell, potionMorningFog, potionFranticCharge, potionStrength,
             potionSixthSense, potionTruehit, potionWillowspine, potionRefresh, potionVynora, potionKarma, potionMana;
 
-    public static short pasteIcon, alchemicalCompoundIcon, mixtureHealingIcon, mixtureCombatIcon, mixtureProtectionIcon,
-            mixtureUltimateIcon, mixtureNormalIcon, precursorHealIcon, precursorDefenseIcon, precursorCombatIcon,
+    public static short pasteIcon, alchemicalCompoundIcon, precursorHealIcon, precursorDefenseIcon, precursorCombatIcon,
             precursorNormalIcon, precursorUltimateIcon, potionLiquidHealIcon, potionLiquidDefenseIcon,
             potionLiquidCombatIcon, potionLiquidNormalIcon, potionLiquidUltimateIcon, potionHealIcon, potionDefenseIcon,
             potionCombatIcon, potionNormalIcon, potionUltimateIcon, weaponOilIcon, sludgeIcon, weaponOilLiquidIcon;
@@ -53,16 +50,7 @@ public class PotionItems {
         alchemicalCompoundIcon = Iconzz.getInstance().addIcon("arathok.alchemy.alchemicalCompoundIcon",
                 "mods/alchemy/icons/alchemicalCompound.png");
 
-        mixtureHealingIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureHealIcon",
-                "mods/alchemy/icons/mixtureHeal.png");
-        mixtureCombatIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureCombatIcon",
-                "mods/alchemy/icons/mixtureCombat.png");
-        mixtureProtectionIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureProtectionIcon",
-                "mods/alchemy/icons/mixtureProtection.png");
-        mixtureUltimateIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureUltimateIcon",
-                "mods/alchemy/icons/mixtureUltimate.png");
-        mixtureNormalIcon = Iconzz.getInstance().addIcon("arathok.alchemy.mixtureNormalIcon",
-                "mods/alchemy/icons/mixtureNormalBuff.png");
+
 
         precursorHealIcon = Iconzz.getInstance().addIcon("arathok.alchemy.precursorHealIcon",
                 "mods/alchemy/icons/precursorHeal.png");
@@ -104,315 +92,7 @@ public class PotionItems {
 
     }
 
-    private static void registermixtureDodging() throws IOException {
-        mixtureWillowspine = new ItemTemplateBuilder("arathok.alchemy.mixtureDodge").name("mixture of phasing",
-                        "mixtures of phasing",
-                        "A fresh mixture of different alchemical and natural substances. One day it might be making a fine potion."
-                                + "Smelling this mixture makes you feel safe. You feel like the universe is putting its protective hands around you, turn you into a shadow."
-                                + " You feel like nothing can really hurt your new form "
-                                + " you should work with it soon, since the magic energy in the herbs is dissipating fast.")
 
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
-
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureWillowspineId = mixtureWillowspine.getTemplateId();
-
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.rosemary, ItemList.ivySeedling, mixtureWillowspineId,
-                        true, true, 0f, true, false, 0, 30, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.pumpkin, 1, true))
-                .addRequirement(new CreationRequirement(2, ItemList.eye, 1, true));
-    }
-
-    private static void registermixtureExcell() throws IOException {
-        mixtureExcell = new ItemTemplateBuilder("arathok.alchemy.mixtureExcell").name("mixture of surpass",
-                        "mixtures of surpass",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " Smelling it makes you feel energetic. Rubbing it on your fingers makes your skin seem to be softer and not as easy to cut."
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,})
-                .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureExcellId = mixtureExcell.getTemplateId();
-
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.ginger, ItemList.sassafras, mixtureExcellId, true, true,
-                        0f, true, false, 0, 25, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.mushroomRed, 1, true));
-    }
-
-    private static void registermixtureFrenzy() throws IOException {
-        mixtureFranticCharge = new ItemTemplateBuilder("arathok.alchemy.mixtureFrenzy").name("mixture of frenzy",
-                        "mixtures of frenzy",
-                        "A mixture of different alchemical and natural substances. One day it might be making a fine potion."
-                                + " Smelling this mixture makes you aggressive, it seems to call to you to let out your inner beast."
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 35) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureFranticChargeId = mixtureFranticCharge.getTemplateId();
-
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomRed, ItemList.nutmeg, mixtureFranticChargeId,
-                        true, true, 0f, true, false, 0, 35, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.tomato, 1, true))
-                .addRequirement(new CreationRequirement(2, ItemList.tooth, 1, true));
-    }
-
-    private static void registerMixtureGoat() throws IOException {
-        mixtureGoat = new ItemTemplateBuilder("arathok.alchemy.mixtureGoat")
-                .name("mixture of Goat", "mixtures of Goat",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " It smells like a wet Goat... weird.")
-
-                .modelName("model.mixture.normal.").imageNumber(mixtureNormalIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,})
-                .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureGoatId = mixtureGoat.getTemplateId();
-
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.branch, ItemList.oat, mixtureGoatId, true,
-                true, 0f, false, false, 0, 20, CreationCategories.ALCHEMY);
-    }
-
-    private static void registermixtureOakshell() throws IOException {
-        mixtureOakshell = new ItemTemplateBuilder("arathok.alchemy.mixtureOakshell").name("mixture of Woodskin",
-                        "mixtures of Woodskin",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " It seems to make your skin somewhat woodifies and becomes harder when you touch it."
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 50) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureOakshellId = mixtureOakshell.getTemplateId();
-
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.acorn, ItemList.rock, mixtureOakshellId, true, true, 0f,
-                        true, false, 0, 40, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.mushroomBlue, 1, true))
-                .addRequirement(new CreationRequirement(2, ItemList.sage, 1, true));
-    }
-
-    private static void registerMixtureHeal() throws IOException {
-        mixtureHeal = new ItemTemplateBuilder("arathok.alchemy.mixtureHeal").name("mixture of health",
-                        "mixtures of health",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " You put some of the mixture to the tip of your tongue. A small scratch you got starts to close. This seems to have some healing Properties."
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.heal.").imageNumber(mixtureHealingIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureHealId = mixtureHeal.getTemplateId();
-
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.mushroomBrown, ItemList.wheat, mixtureHealId,
-                true, true, 0f, false, false, 0, 15, CreationCategories.ALCHEMY);
-    }
-
-    private static void registermixtureMorningFog() throws IOException {
-        mixtureMorningFog = new ItemTemplateBuilder("arathok.alchemy.mixtureFog").name("mixture of fog skin",
-                        "mixtures of fog skin",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " Sniffing it your body seems to bend around sharp objects as if it wants to protect itself."
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureMorningFogId = mixtureMorningFog.getTemplateId();
-
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.lingonberry, ItemList.wemp,
-                mixtureMorningFogId, true, true, 0f, false, false, 0, 10, CreationCategories.ALCHEMY);
-    }
-
-    private static void registermixtureRefresh() throws IOException {
-        mixtureRefresh = new ItemTemplateBuilder("arathok.alchemy.mixtureRefresh").name("mixture of refreshing",
-                        "mixtures of Refreshing",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " You sense it giving off a whiff of cool air. It seems to be able to strip some tiredness off you."
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.heal.").imageNumber(mixtureNormalIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 20) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureRefreshId = mixtureRefresh.getTemplateId();
-
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.carrot, ItemList.potato, mixtureRefreshId,
-                true, true, 0f, false, false, 0, 10, CreationCategories.ALCHEMY);
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.mint, ItemList.fennel, mixtureRefreshId, true,
-                true, 0f, false, false, 0, 10, CreationCategories.ALCHEMY);
-    }
-
-    private static void registermixtureSixthSense() throws IOException {
-        mixtureSixthSense = new ItemTemplateBuilder("arathok.alchemy.mixtureSixthSense").name("mixture of senses",
-                        "mixtures of senses",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " The smell brings a certain picture before the inner eye. Like a voice telling you, to be careful with your surroundings"
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.protection.").imageNumber(mixtureProtectionIcon).itemTypes(new short[]{
-
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureSixthSenseId = mixtureSixthSense.getTemplateId();
-
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, ItemList.lovage, ItemList.nettles, mixtureSixthSenseId,
-                true, true, 0f, false, false, 0, 20, CreationCategories.ALCHEMY);
-    }
-
-    private static void registermixtureStrength() throws IOException {
-        mixtureStrength = new ItemTemplateBuilder("arathok.alchemy.mixture").name("mixture of Strength",
-                        "mixtures of Strength",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " The smell makes you feel like you could lift a mountain."
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 40) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureStrengthId = mixtureStrength.getTemplateId();
-
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomBlack, ItemList.paprika, mixtureStrengthId,
-                        true, true, 0f, true, false, 0, 40, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.woad, 1, true));
-    }
-
-    private static void registermixtureTruehit() throws IOException {
-        mixtureTruehit = new ItemTemplateBuilder("arathok.alchemy.mixtureTruehit").name("mixture of truehit",
-                        "mixtures of truehit",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " The belladonna is widening your eyes, uncovering weak spots on enemies"
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.combat.").imageNumber(mixtureCombatIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,
-
-                }).decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 30) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureTruehitId = mixtureTruehit.getTemplateId();
-
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.belladonna, ItemList.garlic, mixtureTruehitId, true,
-                        true, 0f, true, false, 0, 25, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.mushroomGreen, 1, true));
-    }
-
-    private static void registermixtureVyn() throws IOException {
-        mixtureVynora = new ItemTemplateBuilder("arathok.alchemy.mixtureVyn").name("mixture of Knowledge",
-                        "mixtures of Knowledge",
-                        "A mixture of different alchemical substances. One day it might be making a fine potion."
-                                + " This mixture has captured the essence of knowledge itself. You can feel Vynora smile down on you. You are grasping for the summit of Alchemy"
-                                + " You should work with it soon, since the magic energy in the herbs is dissipating fast.")
-
-                .modelName("model.mixture.ultimate.").imageNumber(mixtureUltimateIcon).itemTypes(new short[]{
-                        // ItemTypes.ITEM_TYPE_BULK,
-                        ItemTypes.ITEM_TYPE_HERB, ItemTypes.ITEM_TYPE_PLANTABLE, ItemTypes.ITEM_TYPE_DECORATION,
-                        ItemTypes.ITEM_TYPE_TURNABLE, ItemTypes.ITEM_TYPE_NO_IMPROVE,})
-                .decayTime(14400L).dimensions(3, 3, 3).weightGrams(100).material(Materials.MATERIAL_MAGIC)
-                .behaviourType((short) 1).primarySkill(Config.skillUsed).difficulty(Config.baseDifficulty * 90) // no
-                // hard
-                // lock
-                .build();
-
-        mixtureVynoraId = mixtureVynora.getTemplateId();
-
-        CreationEntryCreator
-                .createAdvancedEntry(Config.skillUsed, ItemList.mushroomYellow, ItemList.turmeric, mixtureVynoraId,
-                        true, true, 0f, true, false, 0, 60, CreationCategories.ALCHEMY)
-                .addRequirement(new CreationRequirement(1, ItemList.strawberries, 1, true))
-                .addRequirement(new CreationRequirement(2, ItemList.thyme, 1, true))
-                .addRequirement(new CreationRequirement(2, ItemList.cumin, 1, true))
-                .addRequirement(new CreationRequirement(2, ItemList.coinSilver, 1, true));
-
-    }
 
     private static void registerPrecursorDodge() throws IOException {
         precursorWillowspine = new ItemTemplateBuilder("arathok.alchemy.precursorDodge")
@@ -431,9 +111,7 @@ public class PotionItems {
 
         precursorWillowspineId = precursorWillowspine.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureWillowspineId, precursorWillowspineId, true, true, 0f, false, false,
-                CreationCategories.ALCHEMY);
+
     }
 
     private static void registerPrecursorExcell() throws IOException {
@@ -453,9 +131,7 @@ public class PotionItems {
 
         precursorExcellId = precursorExcell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureExcellId, precursorExcellId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorGoat() throws IOException {
@@ -475,9 +151,7 @@ public class PotionItems {
 
         precursorGoatId = precursorGoat.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureGoatId, precursorGoatId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorHeal() throws IOException {
@@ -497,9 +171,7 @@ public class PotionItems {
 
         precursorHealId = precursorHeal.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureHealId, precursorHealId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorFranticCharge() throws IOException {
@@ -519,9 +191,7 @@ public class PotionItems {
 
         precursorFranticChargeId = precursorFranticCharge.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureFranticChargeId, precursorFranticChargeId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorMorningFog() throws IOException {
@@ -541,9 +211,7 @@ public class PotionItems {
 
         precursorMorningFogId = precursorMorningFog.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureMorningFogId, precursorMorningFogId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorOakshell() throws IOException {
@@ -563,9 +231,7 @@ public class PotionItems {
 
         precursorOakshellId = precursorOakshell.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureOakshellId, precursorOakshellId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorRefresh() throws IOException {
@@ -585,9 +251,7 @@ public class PotionItems {
 
         precursorRefreshId = precursorRefresh.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureRefreshId, precursorRefreshId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorSixthSense() throws IOException {
@@ -607,9 +271,7 @@ public class PotionItems {
 
         precursorSixthSenseId = precursorSixthSense.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureSixthSenseId, precursorSixthSenseId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorStrength() throws IOException {
@@ -629,9 +291,7 @@ public class PotionItems {
 
         precursorStrengthId = precursorStrength.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureStrengthId, precursorStrengthId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorTruehit() throws IOException {
@@ -651,9 +311,7 @@ public class PotionItems {
 
         precursorTruehitId = precursorTruehit.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureTruehitId, precursorTruehitId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPrecursorVynora() throws IOException {
@@ -673,9 +331,7 @@ public class PotionItems {
 
         precursorVynoraId = precursorVynora.getTemplateId();
 
-        CreationEntryCreator.createSimpleEntry(Config.skillUsed, AlchItems.alchemicalCompoundId,
-                PotionItems.mixtureVynoraId, precursorVynoraId, true, true, 0f, false, false,
-                CreationCategories.DECORATION);
+
     }
 
     private static void registerPotionLiquidDodge() throws IOException {
@@ -1239,18 +895,7 @@ public class PotionItems {
 
         makeIcons();
 
-        registerMixtureHeal();
-        registermixtureDodging();
-        registermixtureExcell();
-        registermixtureFrenzy();
-        registerMixtureGoat();
-        registermixtureMorningFog();
-        registermixtureOakshell();
-        registermixtureRefresh();
-        registermixtureSixthSense();
-        registermixtureStrength();
-        registermixtureTruehit();
-        registermixtureVyn();
+
 
         registerPrecursorDodge();
         registerPrecursorExcell();
